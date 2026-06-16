@@ -9,9 +9,9 @@ const Faculty = () => {
   const experts = [
     {
       name: { hi: "डॉ. तरुणा जियानी", en: "Dr. Taruna Jiyani", gu: "ડો. તરુણા જીયાણી" },
-      role: { hi: "सीईओ और संस्थापक (CEO & Founder)", en: "Founder & CEO, Divine Garbh Sanskar", gu: "સીઈઓ અને સ્થાપક (CEO & Founder)" },
+      role: { hi: "संस्थापक एवं मुख्य विशेषज्ञ", en: "Founder & Lead Counselor", gu: "સ્થાપક અને મુખ્ય સલાહકાર" },
       image: "/taruna.jpg",
-      icon: "🕉️",
+      icon: "🩺",
       bio: {
         en: "Dr. Taruna Jiyani is a visionary educator and counselor dedicated to the revival of Vedic prenatal science. Under her guidance, more than 10,000 families have experienced the divine journey of conscious motherhood.",
         hi: "डॉ. तरुणा जियानी एक दूरदर्शी शिक्षिका और परामर्शदाता हैं जो वैदिक गर्भ संस्कार विज्ञान के पुनरुत्थान के लिए समर्पित हैं। उनके मार्गदर्शन में 10,000 से अधिक परिवारों ने सचेत मातृत्व की दिव्य यात्रा का अनुभव किया है।",
@@ -28,8 +28,8 @@ const Faculty = () => {
         
         {/* Headings */}
         <SectionLabel
-          label={t({ hi: "संस्थापक एवं सीईओ", en: "Founder & CEO", gu: "સ્થાપક અને સીઈઓ" })}
-          titleHi={t({ hi: "मार्गदर्शक और मार्गप्रदर्शक", en: "Our Leadership & Visionary Guide", gu: "માર્ગદર્શક અને પથદર્શક" })}
+          label={t({ hi: "हमारे विशेषज्ञ", en: "Our Experts", gu: "અમારા નિષ્ણાતો" })}
+          titleHi={t({ hi: "मार्गदर्शक और मार्गप्रदर्शक", en: "Our Visionary Guides & Mentors", gu: "માર્ગદર્શક અને પથદર્શક" })}
         />
 
         {/* Centered Founder Card */}
@@ -45,7 +45,7 @@ const Faculty = () => {
             >
               
               {/* Image Circle Container */}
-              <div className="relative w-40 h-40 mb-6">
+              <div className="relative w-40 h-40 mb-6 shrink-0">
                 
                 {/* Golden rotating ring wrapper */}
                 <div className="absolute inset-0 rounded-full border-2 border-dashed border-divineGold/80 animate-rotate-slow" />
@@ -62,7 +62,7 @@ const Faculty = () => {
                 />
 
                 {/* Micro Category Icon Badge */}
-                <div className="absolute bottom-1 right-2 w-9 h-9 bg-white border border-divineGold text-lg rounded-full flex items-center justify-center shadow-md">
+                <div className="absolute bottom-1 right-2 w-9 h-9 bg-white border border-divineGold text-lg rounded-full flex items-center justify-center shadow-md select-none">
                   {expert.icon}
                 </div>
               </div>

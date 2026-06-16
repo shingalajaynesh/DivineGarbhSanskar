@@ -15,6 +15,7 @@ import Courses from './pages/Courses';
 import Blog from './pages/Blog';
 import Contact from './pages/Contact';
 import Card from './pages/Card';
+import Simantonayan from './pages/Simantonayan';
 import NotFound from './pages/NotFound';
 
 // Layout wrapper to conditionally hide header, footer and whatsapp float on the digital card page
@@ -33,6 +34,7 @@ const AppContent = () => {
           <Route path="/blog" element={<Blog />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/card" element={<Card />} />
+          <Route path="/simantonayan" element={<Simantonayan />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>

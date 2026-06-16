@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { Link } from 'react-router-dom';
 import { Phone, Mail, Globe, MapPin, Share2, UserPlus, Star, Check } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
@@ -23,7 +24,7 @@ FN:Dr. Taruna Jiyani
 ORG:Divine Garbh Sanskar
 TITLE:Founder & CEO
 TEL;TYPE=WORK,VOICE:+919638484545
-EMAIL;TYPE=WORK:info@thedivinegarbhsanskar.com
+EMAIL;TYPE=WORK:divinegarbhsanskar0312@gmail.com
 URL:https://www.thedivinegarbhsanskar.com
 ADR;TYPE=WORK:;;164, near ABC School, behind Royal Arcade, Marutidham Society, Sarthana Jakat Naka, Mani Nagar Society, Nana Varachha;Surat;Gujarat;395013;India
 NOTE:Reviving Vedic Prenatal Science for conscious motherhood.
@@ -127,7 +128,7 @@ END:VCARD`;
                 </div>
                 {/* Gold Crest Ribbon Badge */}
                 <div className="absolute -bottom-1.5 -right-1.5 w-8 h-8 bg-gradient-to-r from-divineGold to-warmAmber border-2 border-white rounded-full flex items-center justify-center shadow-md text-[11px]" title="Founder & CEO">
-                  👑
+                  🩺
                 </div>
               </div>
             </div>
@@ -224,13 +225,13 @@ END:VCARD`;
               </a>
 
               {/* Email */}
-              <a href="mailto:info@thedivinegarbhsanskar.com" className="flex items-center gap-4 p-3.5 bg-softCream/35 hover:bg-softCream/60 active:bg-softCream/80 rounded-2xl border border-divineGold/10 transition-colors">
+              <a href="mailto:divinegarbhsanskar0312@gmail.com" className="flex items-center gap-4 p-3.5 bg-softCream/35 hover:bg-softCream/60 active:bg-softCream/80 rounded-2xl border border-divineGold/10 transition-colors">
                 <div className="w-10 h-10 rounded-full bg-sacredMaroon/10 text-sacredMaroon flex items-center justify-center shrink-0">
                   <Mail className="w-4.5 h-4.5" />
                 </div>
                 <div className="flex flex-col text-left">
                   <span className="text-[10px] text-templeBrown/55 font-bold uppercase tracking-wider">{t({ hi: "ईमेल पता", en: "Email Support", gu: "ઇમેઇલ સરનામું" })}</span>
-                  <span className="text-sm font-semibold text-templeBrown truncate max-w-[280px]">info@thedivinegarbhsanskar.com</span>
+                  <span className="text-sm font-semibold text-templeBrown truncate max-w-[280px]">divinegarbhsanskar0312@gmail.com</span>
                 </div>
               </a>
 
@@ -261,6 +262,22 @@ END:VCARD`;
                   </span>
                 </div>
               </a>
+
+              {/* Simantonayan Sanskar Special Feature Link */}
+              <Link to="/simantonayan" className="flex items-center justify-between p-3.5 bg-gradient-to-r from-sacredMaroon/5 to-warmAmber/5 hover:from-sacredMaroon/10 rounded-2xl border border-divineGold/20 transition-all">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-warmAmber/10 text-warmAmber flex items-center justify-center shrink-0">
+                    ✨
+                  </div>
+                  <div className="flex flex-col text-left">
+                    <span className="text-[10px] text-sacredMaroon font-bold uppercase tracking-wider">Special Program</span>
+                    <span className="text-sm font-semibold text-templeBrown">{t({ hi: "सीमंतोन्नयन (गोद भराई) संस्कार", en: "Simantonayan Sanskar", gu: "સીમંતોન્નયન સંસ્કાર" })}</span>
+                  </div>
+                </div>
+                <span className="text-xs text-sacredMaroon font-semibold underline hover:text-vermillion transition-colors">
+                  {t({ hi: "विवरण देखें", en: "View Details", gu: "વિગત જુઓ" })}
+                </span>
+              </Link>
 
               {/* Google Reviews rating inline snippet */}
               <a href="https://share.google/RGcRhq1kyraBvkA7j" target="_blank" rel="noopener noreferrer" className="flex items-center justify-between p-3.5 bg-gradient-to-r from-divineGold/10 to-warmAmber/5 hover:from-divineGold/20 rounded-2xl border border-divineGold/20 transition-all">

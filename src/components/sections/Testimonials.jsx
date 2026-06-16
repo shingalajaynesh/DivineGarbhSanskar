@@ -5,6 +5,18 @@ import { testimonials } from '../../data/testimonials';
 import SectionLabel from '../ui/SectionLabel';
 import MandalaBg from '../ui/MandalaBg';
 
+const getInitials = (name) => {
+  if (!name) return '';
+  const parts = name.trim().split(/\s+/);
+  if (parts.length >= 2) {
+    if (parts[0].length === 2 && parts[0] === parts[0].toUpperCase()) {
+      return parts[0];
+    }
+    return (parts[0][0] + parts[1][0]).toUpperCase();
+  }
+  return name.slice(0, 2).toUpperCase();
+};
+
 const Testimonials = () => {
   const { t, language } = useLanguage();
   const [activeIndex, setActiveIndex] = useState(0);
@@ -68,12 +80,11 @@ const Testimonials = () => {
 
             {/* Author Meta */}
             <div className="flex flex-col items-center mt-8 gap-3">
-              <img
-                src={testimonials[activeIndex].image}
-                alt={testimonials[activeIndex].name}
-                className="w-16 h-16 rounded-full border-2 border-divineGold object-cover shadow-sm"
-                loading="lazy"
-              />
+              <div className="w-16 h-16 rounded-full border-2 border-divineGold bg-softCream flex items-center justify-center shadow-md select-none">
+                <span className="font-accent text-xl font-bold text-sacredMaroon tracking-wider">
+                  {getInitials(testimonials[activeIndex].name)}
+                </span>
+              </div>
               <div className="flex flex-col">
                 <span className="font-sans font-bold text-base text-sacredMaroon">
                   {testimonials[activeIndex].name}

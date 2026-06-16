@@ -33,6 +33,7 @@ const Navbar = () => {
     { path: '/', label: { hi: 'होम', en: 'Home', gu: 'હોમ' } },
     { path: '/about', label: { hi: 'के बारे में', en: 'About', gu: 'વિશે' } },
     { path: '/courses', label: { hi: 'कोर्स', en: 'Courses', gu: 'કોર્સ' } },
+    { path: '/simantonayan', label: { hi: 'सीमंतोन्नयन', en: 'Simantonayan', gu: 'સીમંતોન્નયન' }, highlight: true },
     { path: '/blog', label: { hi: 'ब्लॉग', en: 'Blog', gu: 'બ્લોગ' } },
     { path: '/contact', label: { hi: 'संपर्क', en: 'Contact', gu: 'સંપર્ક' } }
   ];
@@ -50,9 +51,26 @@ const Navbar = () => {
         aria-label="Main Navigation"
         className={`fixed top-0 left-0 w-full z-40 transition-all duration-500 ${isScrolled
             ? 'bg-white/95 backdrop-blur-md shadow-[0_4px_30px_rgba(93,26,0,0.08)] py-3 border-b border-divineGold/20'
-            : 'bg-transparent py-5'
+            : 'bg-softCream/90 backdrop-blur-md border-b border-divineGold/20 py-3 lg:bg-transparent lg:backdrop-blur-none lg:border-none lg:py-5'
           }`}
       >
+        {/* Top Announcement Bar */}
+        <div 
+          className={`bg-gradient-to-r from-sacredMaroon via-vermillion to-sacredMaroon text-white text-center text-[10px] sm:text-xs md:text-sm font-sans font-medium border-b border-divineGold/20 relative z-50 transition-all duration-300 overflow-hidden ${
+            isScrolled ? 'max-h-0 py-0 opacity-0' : 'max-h-12 py-1.5 opacity-100'
+          }`}
+        >
+          <Link to="/simantonayan" className="hover:underline flex items-center justify-center gap-1.5">
+            <span className="animate-pulse">✨</span>
+            <span>
+              {t({
+                hi: "नया: सीमंतोन्नयन (गोद भराई) संस्कार मार्गदर्शन कार्यक्रम ➜",
+                en: "New: Sacred Simantonayan Prenatal Guidance Program ➜",
+                gu: "નવું: સીમંતોન્નયન સંસ્કાર માર્ગદર્શન કાર્યક્રમ ➜"
+              })}
+            </span>
+          </Link>
+        </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
 
@@ -65,11 +83,13 @@ const Navbar = () => {
               />
 
               <div className="flex flex-col">
-                <span className="font-accent text-lg md:text-xl font-bold tracking-tight text-sacredMaroon leading-none">
-                  <span className="text-vermillion">DIVINE</span> GARBH
+                <span className="font-accent text-base md:text-lg font-bold tracking-widest text-sacredMaroon leading-none">
+                  DIVINE <span className="text-warmAmber font-extrabold">GARBH</span>
                 </span>
-                <span className="font-devanagari text-[10px] md:text-xs text-templeBrown tracking-widest font-bold leading-none mt-1">
+                <span className="font-devanagari text-[9px] md:text-[10px] text-sacredMaroon/70 tracking-[0.22em] font-semibold leading-none mt-1.5 uppercase flex items-center gap-1">
+                  <span className="h-[1px] w-2 bg-divineGold/60"></span>
                   गर्भ संस्कार
+                  <span className="h-[1px] w-2 bg-divineGold/60"></span>
                 </span>
               </div>
             </Link>
@@ -83,10 +103,20 @@ const Navbar = () => {
                     <Link
                       key={link.path}
                       to={link.path}
-                      className={`font-sans font-medium text-base relative py-2 transition-all duration-300 ${isActive ? 'text-vermillion font-semibold' : 'text-sacredMaroon hover:text-vermillion'
-                        }`}
+                      className={`font-sans font-medium text-base relative py-2 transition-all duration-300 ${
+                        isActive
+                          ? 'text-vermillion font-semibold'
+                          : link.highlight
+                            ? 'text-warmAmber font-semibold hover:text-vermillion animate-pulse'
+                            : 'text-sacredMaroon hover:text-vermillion'
+                      }`}
                     >
                       {t(link.label)}
+                      {link.highlight && (
+                        <span className="absolute -top-1.5 -right-3 px-1 py-0.25 bg-vermillion text-white text-[8px] font-bold rounded-full uppercase scale-90 tracking-wide">
+                          {t({ hi: "नया", en: "New", gu: "નવું" })}
+                        </span>
+                      )}
                       {isActive && (
                         <span className="absolute bottom-0 left-0 w-full h-0.5 bg-vermillion rounded-full" />
                       )}
@@ -159,8 +189,9 @@ const Navbar = () => {
 
         {/* Mobile Navigation Panel */}
         <div
-          className={`lg:hidden fixed inset-0 top-[73px] bg-softCream z-30 transition-all duration-500 transform ${isOpen ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'
-            }`}
+          className={`lg:hidden fixed inset-0 z-30 transition-all duration-500 transform ${
+            isScrolled ? 'top-[73px]' : 'top-[101px]'
+          } bg-softCream ${isOpen ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'}`}
         >
           {/* Watermark Mandala background */}
           <MandalaBg className="top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 opacity-[0.06] text-divineGold" />
@@ -172,10 +203,20 @@ const Navbar = () => {
                 <Link
                   key={link.path}
                   to={link.path}
-                  className={`font-sans text-2xl font-semibold transition-all duration-300 ${isActive ? 'text-vermillion' : 'text-sacredMaroon hover:text-vermillion'
-                    }`}
+                  className={`font-sans text-2xl font-semibold transition-all duration-300 relative ${
+                    isActive
+                      ? 'text-vermillion'
+                      : link.highlight
+                        ? 'text-warmAmber hover:text-vermillion flex items-center gap-1.5'
+                        : 'text-sacredMaroon hover:text-vermillion'
+                  }`}
                 >
                   {t(link.label)}
+                  {link.highlight && (
+                    <span className="px-1.5 py-0.5 bg-vermillion text-white text-[9px] font-bold rounded-full uppercase tracking-wide">
+                      {t({ hi: "नया", en: "New", gu: "નવું" })}
+                    </span>
+                  )}
                 </Link>
               );
             })}

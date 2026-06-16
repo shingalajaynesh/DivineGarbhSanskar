@@ -12,6 +12,7 @@ import StatsCounter from '../components/sections/StatsCounter';
 import WhyChooseUs from '../components/sections/WhyChooseUs';
 import HowItWorks from '../components/sections/HowItWorks';
 import Courses from '../components/sections/Courses';
+import SimantonayanTeaser from '../components/sections/SimantonayanTeaser';
 import Testimonials from '../components/sections/Testimonials';
 import VideoGallery from '../components/sections/VideoGallery';
 import Faculty from '../components/sections/Faculty';
@@ -81,6 +82,9 @@ const Home = () => {
 
         {/* Course card options */}
         <Courses />
+
+        {/* Simantonayan Teaser Promo Section */}
+        <SimantonayanTeaser />
 
         {/* Parent carousel reviews */}
         <Testimonials />

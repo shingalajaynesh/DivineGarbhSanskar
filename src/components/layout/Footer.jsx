@@ -37,11 +37,13 @@ const Footer = () => {
                 className="w-12 h-12 rounded-full p-0.5 bg-white object-contain hover:rotate-6 transition-transform duration-300 shadow-md border border-divineGold/35"
               />
               <div className="flex flex-col">
-                <span className="font-accent text-lg font-bold tracking-tight text-white leading-none">
-                  <span className="text-divineGold font-extrabold">DIVINE</span> GARBH
+                <span className="font-accent text-base font-bold tracking-widest text-white leading-none">
+                  DIVINE <span className="text-divineGold font-extrabold">GARBH</span>
                 </span>
-                <span className="font-devanagari text-[9px] text-divineGold/90 font-bold leading-none mt-1">
+                <span className="font-devanagari text-[9px] text-softCream/80 tracking-[0.22em] font-semibold leading-none mt-1.5 uppercase flex items-center gap-1">
+                  <span className="h-[1px] w-2 bg-divineGold/40"></span>
                   गर्भ संस्कार
+                  <span className="h-[1px] w-2 bg-divineGold/40"></span>
                 </span>
               </div>
             </Link>
@@ -173,8 +175,8 @@ const Footer = () => {
               </li>
               <li className="flex gap-3 items-center">
                 <Mail className="w-5 h-5 text-divineGold shrink-0" />
-                <a href="mailto:info@thedivinegarbhsanskar.com" className="hover:text-divineGold transition-colors">
-                  info@thedivinegarbhsanskar.com
+                <a href="mailto:divinegarbhsanskar0312@gmail.com" className="hover:text-divineGold transition-colors">
+                  divinegarbhsanskar0312@gmail.com
                 </a>
               </li>
             </ul>
