@@ -191,28 +191,18 @@ const Hero = () => {
                 </defs>
               </svg>
 
-              {/* Meditating pregnant woman silhouette at absolute center */}
+              {/* Divine logo image at absolute center */}
               <motion.div
                 initial={{ scale: 0.8, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ duration: 1, delay: 0.5, type: 'spring' }}
                 className="absolute w-40 h-40 flex items-center justify-center z-10"
               >
-                <svg viewBox="0 0 100 100" fill="none" className="w-full h-full text-sacredMaroon drop-shadow-md">
-                  {/* Silhouette */}
-                  <path
-                    d="M52 20C43 20 36 27 36 36C36 49 47 52 47 68C47 71 49 73 52 73C55 73 57 71 57 68C57 57 47 52 47 41C47 33 51 28 56 28C58 28 60 30 60 32C60 41 53 46 53 54C53 60 58 64 63 64C69 64 74 58 74 48C74 33 64 20 52 20Z"
-                    fill="currentColor"
-                  />
-                  {/* Child/Light element in womb */}
-                  <circle cx="53.5" cy="50" r="3.5" fill="#CC0000" className="animate-pulse" />
-                  {/* Lotus base */}
-                  <path
-                    d="M30 76C42 80 58 80 70 76C62 82 38 82 30 76Z"
-                    fill="#FF8C00"
-                    opacity="0.9"
-                  />
-                </svg>
+                <img
+                  src="/logo.jpg"
+                  alt="Divine Garbh Sanskar Logo"
+                  className="w-32 h-32 rounded-full object-contain shadow-lg border-2 border-divineGold p-0.5 bg-white"
+                />
               </motion.div>
 
               {/* Orbiting info chips (Staggered Floating Cards) */}

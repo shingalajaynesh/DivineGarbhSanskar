@@ -8,7 +8,7 @@ const Footer = () => {
 
   return (
     <footer className="bg-templeBrown text-softCream/80 relative overflow-hidden pt-16 pb-8 border-t-4 border-divineGold/35 z-10">
-      
+
       {/* Decors: Corner Watermark Mandalas */}
       <div className="absolute -bottom-24 -left-24 w-60 h-60 opacity-[0.05] text-divineGold pointer-events-none select-none">
         <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="1">
@@ -27,18 +27,15 @@ const Footer = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
-          
+
           {/* Column 1: Brand Info */}
           <div className="flex flex-col gap-4">
             <Link to="/" className="flex items-center gap-3">
-              <svg width="40" height="40" viewBox="0 0 100 100" className="text-divineGold">
-                <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" strokeWidth="2" strokeDasharray="5 3" />
-                <circle cx="50" cy="50" r="28" fill="#FFD600" />
-                <path
-                  d="M52 32C45 32 40 37 40 44C40 54 48 57 48 68C48 70 50 72 52 72C54 72 56 70 56 68C56 60 48 56 48 48C48 42 51 38 55 38C57 38 58 40 58 42C58 48 53 52 53 58C53 62 57 65 61 65C66 65 70 60 70 53C70 41 62 32 52 32Z"
-                  fill="#5D1A00"
-                />
-              </svg>
+              <img
+                src="/logo.jpg"
+                alt="Divine Garbh Sanskar Logo"
+                className="w-12 h-12 rounded-full p-0.5 bg-white object-contain hover:rotate-6 transition-transform duration-300 shadow-md border border-divineGold/35"
+              />
               <div className="flex flex-col">
                 <span className="font-accent text-lg font-bold tracking-tight text-white leading-none">
                   <span className="text-divineGold font-extrabold">DIVINE</span> GARBH

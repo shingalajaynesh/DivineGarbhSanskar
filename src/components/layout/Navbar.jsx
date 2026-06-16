@@ -52,48 +52,22 @@ const Navbar = () => {
 
       <nav
         aria-label="Main Navigation"
-        className={`fixed top-0 left-0 w-full z-40 transition-all duration-500 ${
-          isScrolled
+        className={`fixed top-0 left-0 w-full z-40 transition-all duration-500 ${isScrolled
             ? 'bg-white/95 backdrop-blur-md shadow-[0_4px_30px_rgba(93,26,0,0.08)] py-3 border-b border-divineGold/20'
             : 'bg-transparent py-5'
-        }`}
+          }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
-            
+
             {/* Logo area */}
             <Link to="/" className="flex items-center gap-3 focus:outline-none" aria-label="Divine Garbh Sanskar Home">
-              <svg width="48" height="48" viewBox="0 0 100 100" className="w-10 h-10 md:w-12 md:h-12 text-divineGold">
-                {/* Outer Rotating Mandala Layer */}
-                <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" strokeWidth="2.5" strokeDasharray="6 4" className="animate-rotate-slow" />
-                <circle cx="50" cy="50" r="38" fill="none" stroke="currentColor" strokeWidth="1" />
-                
-                {/* Sunrays */}
-                {[...Array(12)].map((_, i) => (
-                  <line
-                    key={i}
-                    x1="50"
-                    y1="50"
-                    x2={50 + 35 * Math.cos((i * 30 * Math.PI) / 180)}
-                    y2={50 + 35 * Math.sin((i * 30 * Math.PI) / 180)}
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                    opacity="0.3"
-                  />
-                ))}
+              <img
+                src="/logo.jpg"
+                alt="Divine Garbh Sanskar Logo"
+                className="w-12 h-12 md:w-14 md:h-14 rounded-full p-0.5 bg-white object-contain hover:rotate-6 transition-transform duration-300 shadow-md border border-divineGold/30"
+              />
 
-                {/* Golden background inner circle */}
-                <circle cx="50" cy="50" r="28" fill="#FFD600" className="animate-pulse-scale" />
-
-                {/* Pregnant mother / fetus silhouette */}
-                <path
-                  d="M52 32C45 32 40 37 40 44C40 54 48 57 48 68C48 70 50 72 52 72C54 72 56 70 56 68C56 60 48 56 48 48C48 42 51 38 55 38C57 38 58 40 58 42C58 48 53 52 53 58C53 62 57 65 61 65C66 65 70 60 70 53C70 41 62 32 52 32Z"
-                  fill="#5D1A00"
-                />
-                {/* Tiny baby heart/light */}
-                <circle cx="53" cy="50" r="2.5" fill="#CC0000" />
-              </svg>
-              
               <div className="flex flex-col">
                 <span className="font-accent text-lg md:text-xl font-bold tracking-tight text-sacredMaroon leading-none">
                   <span className="text-vermillion">DIVINE</span> GARBH
@@ -113,9 +87,8 @@ const Navbar = () => {
                     <Link
                       key={link.path}
                       to={link.path}
-                      className={`font-sans font-medium text-base relative py-2 transition-all duration-300 ${
-                        isActive ? 'text-vermillion font-semibold' : 'text-sacredMaroon hover:text-vermillion'
-                      }`}
+                      className={`font-sans font-medium text-base relative py-2 transition-all duration-300 ${isActive ? 'text-vermillion font-semibold' : 'text-sacredMaroon hover:text-vermillion'
+                        }`}
                     >
                       {t(link.label)}
                       {isActive && (
@@ -170,13 +143,12 @@ const Navbar = () => {
 
         {/* Mobile Navigation Panel */}
         <div
-          className={`lg:hidden fixed inset-0 top-[73px] bg-softCream z-30 transition-all duration-500 transform ${
-            isOpen ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'
-          }`}
+          className={`lg:hidden fixed inset-0 top-[73px] bg-softCream z-30 transition-all duration-500 transform ${isOpen ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'
+            }`}
         >
           {/* Watermark Mandala background */}
           <MandalaBg className="top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 opacity-[0.06] text-divineGold" />
-          
+
           <div className="flex flex-col items-center justify-start h-full pt-12 gap-8 px-6 relative z-10">
             {navLinks.map((link) => {
               const isActive = location.pathname === link.path;
@@ -184,15 +156,14 @@ const Navbar = () => {
                 <Link
                   key={link.path}
                   to={link.path}
-                  className={`font-sans text-2xl font-semibold transition-all duration-300 ${
-                    isActive ? 'text-vermillion' : 'text-sacredMaroon hover:text-vermillion'
-                  }`}
+                  className={`font-sans text-2xl font-semibold transition-all duration-300 ${isActive ? 'text-vermillion' : 'text-sacredMaroon hover:text-vermillion'
+                    }`}
                 >
                   {t(link.label)}
                 </Link>
               );
             })}
-            
+
             <Link to="/contact" className="w-full max-w-xs mt-6">
               <GoldenButton className="w-full text-center">
                 {t({ hi: 'निःशुल्क परामर्श', en: 'Free Counselling', gu: 'મફત પરામર્શ' })}
