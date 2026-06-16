@@ -2,8 +2,8 @@ export const getOrganizationSchema = () => ({
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "Divine Garbh Sanskar",
-  "url": "https://www.divinegarbhsanskar.com",
-  "logo": "https://www.divinegarbhsanskar.com/logo.jpg",
+  "url": "https://www.thedivinegarbhsanskar.com",
+  "logo": "https://www.thedivinegarbhsanskar.com/logo.jpg",
   "tagline": "Weaving Cultural Roots into Motherhood",
   "sameAs": [
     "https://www.instagram.com/divinegarbhsanskar/",
@@ -22,9 +22,9 @@ export const getLocalBusinessSchema = () => ({
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "name": "Divine Garbh Sanskar",
-  "image": "https://www.divinegarbhsanskar.com/logo.jpg",
-  "@id": "https://www.divinegarbhsanskar.com/#localbusiness",
-  "url": "https://www.divinegarbhsanskar.com",
+  "image": "https://www.thedivinegarbhsanskar.com/logo.jpg",
+  "@id": "https://www.thedivinegarbhsanskar.com/#localbusiness",
+  "url": "https://www.thedivinegarbhsanskar.com",
   "telephone": "+919638484545",
   "priceRange": "$$",
   "address": {
@@ -68,7 +68,7 @@ export const getCoursesSchema = (coursesList) => ({
       "provider": {
         "@type": "Organization",
         "name": "Divine Garbh Sanskar",
-        "sameAs": "https://www.divinegarbhsanskar.com"
+        "sameAs": "https://www.thedivinegarbhsanskar.com"
       }
     }
   }))

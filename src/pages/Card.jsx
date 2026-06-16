@@ -23,8 +23,8 @@ FN:Dr. Taruna Jiyani
 ORG:Divine Garbh Sanskar
 TITLE:Founder & CEO
 TEL;TYPE=WORK,VOICE:+919638484545
-EMAIL;TYPE=WORK:info@divinegarbhsanskar.com
-URL:https://www.divinegarbhsanskar.com
+EMAIL;TYPE=WORK:info@thedivinegarbhsanskar.com
+URL:https://www.thedivinegarbhsanskar.com
 ADR;TYPE=WORK:;;164, near ABC School, behind Royal Arcade, Marutidham Society, Sarthana Jakat Naka, Mani Nagar Society, Nana Varachha;Surat;Gujarat;395013;India
 NOTE:Reviving Vedic Prenatal Science for conscious motherhood.
 END:VCARD`;
@@ -224,24 +224,24 @@ END:VCARD`;
               </a>
 
               {/* Email */}
-              <a href="mailto:info@divinegarbhsanskar.com" className="flex items-center gap-4 p-3.5 bg-softCream/35 hover:bg-softCream/60 active:bg-softCream/80 rounded-2xl border border-divineGold/10 transition-colors">
+              <a href="mailto:info@thedivinegarbhsanskar.com" className="flex items-center gap-4 p-3.5 bg-softCream/35 hover:bg-softCream/60 active:bg-softCream/80 rounded-2xl border border-divineGold/10 transition-colors">
                 <div className="w-10 h-10 rounded-full bg-sacredMaroon/10 text-sacredMaroon flex items-center justify-center shrink-0">
                   <Mail className="w-4.5 h-4.5" />
                 </div>
                 <div className="flex flex-col text-left">
                   <span className="text-[10px] text-templeBrown/55 font-bold uppercase tracking-wider">{t({ hi: "ईमेल पता", en: "Email Support", gu: "ઇમેઇલ સરનામું" })}</span>
-                  <span className="text-sm font-semibold text-templeBrown truncate max-w-[280px]">info@divinegarbhsanskar.com</span>
+                  <span className="text-sm font-semibold text-templeBrown truncate max-w-[280px]">info@thedivinegarbhsanskar.com</span>
                 </div>
               </a>
 
               {/* Website */}
-              <a href="https://www.divinegarbhsanskar.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 p-3.5 bg-softCream/35 hover:bg-softCream/60 active:bg-softCream/80 rounded-2xl border border-divineGold/10 transition-colors">
+              <a href="https://www.thedivinegarbhsanskar.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 p-3.5 bg-softCream/35 hover:bg-softCream/60 active:bg-softCream/80 rounded-2xl border border-divineGold/10 transition-colors">
                 <div className="w-10 h-10 rounded-full bg-sacredMaroon/10 text-sacredMaroon flex items-center justify-center shrink-0">
                   <Globe className="w-4.5 h-4.5" />
                 </div>
                 <div className="flex flex-col text-left">
                   <span className="text-[10px] text-templeBrown/55 font-bold uppercase tracking-wider">{t({ hi: "वेबसाइट", en: "Official Website", gu: "વેબસાઇટ" })}</span>
-                  <span className="text-sm font-semibold text-templeBrown">www.divinegarbhsanskar.com</span>
+                  <span className="text-sm font-semibold text-templeBrown">www.thedivinegarbhsanskar.com</span>
                 </div>
               </a>
 

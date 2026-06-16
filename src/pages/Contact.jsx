@@ -14,7 +14,7 @@ const Contact = () => {
         <title>{t(meta.title)}</title>
         <meta name="description" content={t(meta.description)} />
         <meta name="keywords" content={meta.keywords} />
-        <link rel="canonical" href="https://www.divinegarbhsanskar.com/contact" />
+        <link rel="canonical" href="https://www.thedivinegarbhsanskar.com/contact" />
         <html lang={language} />
       </Helmet>
 

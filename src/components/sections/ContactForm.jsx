@@ -273,8 +273,8 @@ const ContactForm = () => {
                     <span className="font-bold text-white block mb-1">
                       {t({ hi: "ईमेल संपर्क:", en: "Email Support:", gu: "ઈમેલ સંપર્ક:" })}
                     </span>
-                    <a href="mailto:info@divinegarbhsanskar.com" className="hover:text-divineGold transition-colors">
-                      info@divinegarbhsanskar.com
+                    <a href="mailto:info@thedivinegarbhsanskar.com" className="hover:text-divineGold transition-colors">
+                      info@thedivinegarbhsanskar.com
                     </a>
                   </div>
                 </li>

@@ -55,7 +55,7 @@ const Blog = () => {
         <title>{t(meta.title)}</title>
         <meta name="description" content={t(meta.description)} />
         <meta name="keywords" content={meta.keywords} />
-        <link rel="canonical" href="https://www.divinegarbhsanskar.com/blog" />
+        <link rel="canonical" href="https://www.thedivinegarbhsanskar.com/blog" />
         <html lang={language} />
       </Helmet>
 

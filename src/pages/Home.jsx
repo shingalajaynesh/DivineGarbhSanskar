@@ -39,16 +39,16 @@ const Home = () => {
         <meta property="og:title" content={t(meta.title)} />
         <meta property="og:description" content={t(meta.description)} />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.divinegarbhsanskar.com/" />
-        <meta property="og:image" content="https://www.divinegarbhsanskar.com/og-image.jpg" />
+        <meta property="og:url" content="https://www.thedivinegarbhsanskar.com/" />
+        <meta property="og:image" content="https://www.thedivinegarbhsanskar.com/og-image.jpg" />
         
         {/* Twitter Card Tags */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={t(meta.title)} />
         <meta name="twitter:description" content={t(meta.description)} />
-        <meta name="twitter:image" content="https://www.divinegarbhsanskar.com/og-image.jpg" />
+        <meta name="twitter:image" content="https://www.thedivinegarbhsanskar.com/og-image.jpg" />
         
-        <link rel="canonical" href="https://www.divinegarbhsanskar.com/" />
+        <link rel="canonical" href="https://www.thedivinegarbhsanskar.com/" />
         <html lang={language} />
 
         {/* Structured Data Script Tags */}
