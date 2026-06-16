@@ -74,6 +74,9 @@ const Home = () => {
         {/* Numerical Stats Counters */}
         <StatsCounter />
 
+        {/* Simantonayan Teaser Promo Section */}
+        <SimantonayanTeaser />
+
         {/* 6 Reusable value cards */}
         <WhyChooseUs />
 
@@ -82,9 +85,6 @@ const Home = () => {
 
         {/* Course card options */}
         <Courses />
-
-        {/* Simantonayan Teaser Promo Section */}
-        <SimantonayanTeaser />
 
         {/* Parent carousel reviews */}
         <Testimonials />
