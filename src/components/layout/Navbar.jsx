@@ -50,8 +50,8 @@ const Navbar = () => {
       <nav
         aria-label="Main Navigation"
         className={`fixed top-0 left-0 w-full z-40 transition-all duration-500 ${isScrolled
-            ? 'bg-white/95 backdrop-blur-md shadow-[0_4px_30px_rgba(93,26,0,0.08)] py-3 border-b border-divineGold/20'
-            : 'bg-softCream/90 backdrop-blur-md border-b border-divineGold/20 py-3 lg:bg-transparent lg:backdrop-blur-none lg:border-none lg:py-5'
+            ? 'bg-white shadow-[0_4px_30px_rgba(93,26,0,0.08)] py-3 border-b border-divineGold/20'
+            : 'bg-softCream border-b border-divineGold/20 py-3 lg:bg-transparent lg:border-none lg:py-5'
           }`}
       >
         {/* Top Announcement Bar */}
