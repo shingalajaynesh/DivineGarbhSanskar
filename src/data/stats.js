@@ -11,7 +11,7 @@ export const stats = [
   },
   {
     id: 2,
-    value: 50,
+    value: 7,
     suffix: "+",
     label: {
       hi: "कवर किए गए शहर",
@@ -21,7 +21,7 @@ export const stats = [
   },
   {
     id: 3,
-    value: 500,
+    value: 25,
     suffix: "+",
     label: {
       hi: "आयोजित कार्यक्रम",

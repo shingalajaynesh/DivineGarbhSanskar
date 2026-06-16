@@ -7,7 +7,7 @@ const StatsCounter = () => {
   const { t } = useLanguage();
 
   return (
-    <section className="relative py-24 bg-gradient-to-r from-divineGold to-warmAmber border-y-2 border-divineGold/35 overflow-hidden">
+    <section className="relative py-24 bg-softCream overflow-hidden">
       
       {/* Background circles */}
       <div className="absolute top-1/2 left-10 -translate-y-1/2 w-72 h-72 rounded-full border-4 border-white/10 pointer-events-none" />

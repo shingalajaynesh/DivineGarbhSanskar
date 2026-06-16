@@ -6,7 +6,6 @@ import { getOrganizationSchema, getLocalBusinessSchema } from '../seo/structured
 
 // Section imports
 import Hero from '../components/sections/Hero';
-import TrustBar from '../components/sections/TrustBar';
 import WhyGarbhSanskar from '../components/sections/WhyGarbhSanskar';
 import StatsCounter from '../components/sections/StatsCounter';
 import WhyChooseUs from '../components/sections/WhyChooseUs';
@@ -17,6 +16,7 @@ import Testimonials from '../components/sections/Testimonials';
 import VideoGallery from '../components/sections/VideoGallery';
 import Faculty from '../components/sections/Faculty';
 import MediaCoverage from '../components/sections/MediaCoverage';
+import ClassGallery from '../components/sections/ClassGallery';
 import BookStore from '../components/sections/BookStore';
 import FAQ from '../components/sections/FAQ';
 import ContactForm from '../components/sections/ContactForm';
@@ -35,20 +35,20 @@ const Home = () => {
         <title>{t(meta.title)}</title>
         <meta name="description" content={t(meta.description)} />
         <meta name="keywords" content={meta.keywords} />
-        
+
         {/* Open Graph Tags */}
         <meta property="og:title" content={t(meta.title)} />
         <meta property="og:description" content={t(meta.description)} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.thedivinegarbhsanskar.com/" />
         <meta property="og:image" content="https://www.thedivinegarbhsanskar.com/og-image.jpg" />
-        
+
         {/* Twitter Card Tags */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={t(meta.title)} />
         <meta name="twitter:description" content={t(meta.description)} />
         <meta name="twitter:image" content="https://www.thedivinegarbhsanskar.com/og-image.jpg" />
-        
+
         <link rel="canonical" href="https://www.thedivinegarbhsanskar.com/" />
         <html lang={language} />
 
@@ -65,8 +65,7 @@ const Home = () => {
         {/* Hero Section */}
         <Hero />
 
-        {/* Media Trust Marquee */}
-        <TrustBar />
+
 
         {/* Why Garbh Sanskar explanations */}
         <WhyGarbhSanskar />
@@ -96,10 +95,13 @@ const Home = () => {
         <Faculty />
 
         {/* External write-up tiles */}
-        <MediaCoverage />
+        {/* <MediaCoverage /> */}
+
+        {/* Live Class & Rituals Gallery */}
+        <ClassGallery />
 
         {/* Books store */}
-        <BookStore />
+        {/* <BookStore /> */}
 
         {/* Standard FAQ details */}
         <FAQ />

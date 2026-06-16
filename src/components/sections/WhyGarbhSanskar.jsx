@@ -59,7 +59,7 @@ const WhyGarbhSanskar = () => {
   ];
 
   return (
-    <section className="relative py-20 bg-softCream/30 overflow-hidden border-b border-divineGold/10" aria-label="Why Garbh Sanskar">
+    <section className="relative py-20 bg-white overflow-hidden" aria-label="Why Garbh Sanskar">
       <MandalaBg className="top-24 right-10 w-96 h-96 opacity-[0.04] text-divineGold" />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">

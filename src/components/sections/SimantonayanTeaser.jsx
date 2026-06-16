@@ -69,7 +69,7 @@ const SimantonayanTeaser = () => {
       <MandalaBg className="top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[750px] h-[750px] opacity-[0.05] text-divineGold" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
+
         {/* Sanskrit Quote Ribbon */}
         <div className="flex justify-center mb-8">
           <div className="bg-white/5 backdrop-blur-sm border-y border-divineGold/30 px-6 py-2.5 rounded-full text-center">
@@ -92,7 +92,7 @@ const SimantonayanTeaser = () => {
 
         {/* Storytelling Path Layout */}
         <div className="relative mt-16 max-w-4xl mx-auto">
-          
+
           {/* Central Connecting Path Line */}
           <div className="absolute left-4 sm:left-1/2 top-4 bottom-4 w-0.5 sm:-translate-x-1/2 bg-dashed border-l-2 border-dashed border-divineGold/30 -z-10" />
 
@@ -101,16 +101,15 @@ const SimantonayanTeaser = () => {
             {steps.map((step, idx) => {
               const isEven = idx % 2 === 0;
               return (
-                <div 
-                  key={idx} 
-                  className={`flex flex-col sm:flex-row items-start sm:items-center w-full relative ${
-                    isEven ? 'sm:flex-row' : 'sm:flex-row-reverse'
-                  }`}
+                <div
+                  key={idx}
+                  className={`flex flex-col sm:flex-row items-start sm:items-center w-full relative ${isEven ? 'sm:flex-row' : 'sm:flex-row-reverse'
+                    }`}
                 >
                   {/* Step Card */}
                   <div className="w-full sm:w-[45%] pl-12 sm:pl-0">
                     <div className="bg-white/5 backdrop-blur-md border border-white/10 hover:border-divineGold/60 p-6 rounded-divine-md shadow-lg hover:shadow-xl hover:bg-white/10 transition-all duration-300 relative group">
-                      
+
                       {/* Floating Step Number */}
                       <span className="absolute -top-3 right-4 bg-sacredMaroon border border-divineGold text-[10px] font-accent font-black text-divineGold px-2 py-0.5 rounded-full shadow-md">
                         STEP 0{idx + 1}
@@ -141,7 +140,7 @@ const SimantonayanTeaser = () => {
 
         {/* CTA Actions and Clinical Specialist Block */}
         <div className="mt-20 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-8 max-w-4xl mx-auto">
-          
+
           {/* Clinical Specialist Badge */}
           <div className="flex items-center gap-3 bg-white/5 border border-white/10 px-4 py-2.5 rounded-full shadow-sm">
             <div className="w-10 h-10 rounded-full bg-sacredMaroon border border-divineGold/35 flex items-center justify-center text-lg shadow-inner">

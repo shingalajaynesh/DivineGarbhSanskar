@@ -6,6 +6,7 @@ import GoldenButton from '../components/ui/GoldenButton';
 import MandalaBg from '../components/ui/MandalaBg';
 import { BookOpen, Sparkles, Heart, Check, Phone, Star, Instagram } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import ClassGallery from '../components/sections/ClassGallery';
 
 const Simantonayan = () => {
   const { t } = useLanguage();
@@ -102,6 +103,8 @@ const Simantonayan = () => {
       }
     }
   ];
+
+
 
   return (
     <>
@@ -250,6 +253,9 @@ const Simantonayan = () => {
             ))}
           </div>
         </section>
+
+        {/* Live Session Photo Gallery Marquee */}
+        <ClassGallery />
 
         {/* Section 5: Trust Banner & CTA */}
         <section className="py-12 max-w-4xl mx-auto px-6">
