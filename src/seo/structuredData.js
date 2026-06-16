@@ -3,15 +3,16 @@ export const getOrganizationSchema = () => ({
   "@type": "Organization",
   "name": "Divine Garbh Sanskar",
   "url": "https://www.divinegarbhsanskar.com",
-  "logo": "https://www.divinegarbhsanskar.com/logo.svg",
+  "logo": "https://www.divinegarbhsanskar.com/logo.jpg",
   "tagline": "Weaving Cultural Roots into Motherhood",
   "sameAs": [
     "https://www.instagram.com/divinegarbhsanskar/",
-    "https://www.facebook.com/people/Divine-Garbhsanskar/100063998265079/"
+    "https://www.facebook.com/people/Divine-Garbhsanskar/100063998265079/",
+    "https://www.youtube.com/@DivineGarbhsanskar0312"
   ],
   "contactPoint": {
     "@type": "ContactPoint",
-    "telephone": "+91-9999999999",
+    "telephone": "+91-96384-84545",
     "contactType": "customer service",
     "availableLanguage": ["Hindi", "Gujarati", "English"]
   }
@@ -21,17 +22,17 @@ export const getLocalBusinessSchema = () => ({
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "name": "Divine Garbh Sanskar",
-  "image": "https://www.divinegarbhsanskar.com/logo.png",
+  "image": "https://www.divinegarbhsanskar.com/logo.jpg",
   "@id": "https://www.divinegarbhsanskar.com/#localbusiness",
   "url": "https://www.divinegarbhsanskar.com",
-  "telephone": "+919999999999",
+  "telephone": "+919638484545",
   "priceRange": "$$",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "Divine Garbh Sanskar Center, Ring Road",
+    "streetAddress": "164, near ABC School, behind Royal Arcade, Marutidham Society, Sarthana Jakat Naka, Mani Nagar Society, Nana Varachha",
     "addressLocality": "Surat",
     "addressRegion": "Gujarat",
-    "postalCode": "395003",
+    "postalCode": "395013",
     "addressCountry": "IN"
   },
   "geo": {

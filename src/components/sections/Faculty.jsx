@@ -10,8 +10,13 @@ const Faculty = () => {
     {
       name: { hi: "डॉ. तरुणा जियानी", en: "Dr. Taruna Jiyani", gu: "ડો. તરુણા જીયાણી" },
       role: { hi: "सीईओ और संस्थापक (CEO & Founder)", en: "Founder & CEO, Divine Garbh Sanskar", gu: "સીઈઓ અને સ્થાપક (CEO & Founder)" },
-      image: "https://images.unsplash.com/photo-1594824813573-246434de83fb?auto=format&fit=crop&q=80&w=250",
-      icon: "🕉️"
+      image: "/taruna.jpg",
+      icon: "🕉️",
+      bio: {
+        en: "Dr. Taruna Jiyani is a visionary educator and counselor dedicated to the revival of Vedic prenatal science. Under her guidance, more than 10,000 families have experienced the divine journey of conscious motherhood.",
+        hi: "डॉ. तरुणा जियानी एक दूरदर्शी शिक्षिका और परामर्शदाता हैं जो वैदिक गर्भ संस्कार विज्ञान के पुनरुत्थान के लिए समर्पित हैं। उनके मार्गदर्शन में 10,000 से अधिक परिवारों ने सचेत मातृत्व की दिव्य यात्रा का अनुभव किया है।",
+        gu: "ડો. તરુણા જીયાણી એક સ્વપ્નદ્રષ્ટા શિક્ષક અને પરામર્શદાતા છે જેઓ વૈદિક ગર્ભ સંસ્કાર વિજ્ઞાનના પુનરુત્થાન માટે સમર્પિત છે. તેમના માર્ગદર્શન હેઠળ ૧૦,૦૦૦ થી વધુ પરિવારોએ સભાન માતૃત્વની દિવ્ય યાત્રાનો અનુભવ કર્યો છે।"
+      }
     }
   ];
 
@@ -32,7 +37,7 @@ const Faculty = () => {
           {experts.map((expert, idx) => (
             <div
               key={idx}
-              className="flex flex-col items-center text-center p-6 bg-softCream/10 rounded-divine-md border border-divineGold/15 hover:border-divineGold/60 hover:shadow-lg transition-all duration-300 select-default"
+              className="flex flex-col items-center text-center p-8 bg-softCream/10 rounded-divine-md border border-divineGold/20 hover:border-divineGold/60 hover:shadow-lg transition-all duration-300 select-default max-w-md w-full"
               style={{
                 animation: `float 4.5s ease-in-out infinite`,
                 animationDelay: `${idx * 0.3}s`
@@ -66,9 +71,14 @@ const Faculty = () => {
               <h3 className="font-sans font-bold text-xl text-sacredMaroon mb-1">
                 {t(expert.name)}
               </h3>
-              <p className="font-sans text-sm text-templeBrown font-semibold italic opacity-85">
+              <p className="font-sans text-sm text-templeBrown font-semibold italic opacity-85 mb-4">
                 {t(expert.role)}
               </p>
+              {expert.bio && (
+                <p className="font-sans text-xs md:text-sm text-templeBrown/80 leading-relaxed border-t border-divineGold/25 pt-4">
+                  {t(expert.bio)}
+                </p>
+              )}
 
             </div>
           ))}

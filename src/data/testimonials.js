@@ -43,26 +43,42 @@ export const testimonials = [
 export const videoTestimonials = [
   {
     id: 1,
-    title: { hi: "माताओं का अनुभव - सूरत", en: "Mother's Experience - Surat", gu: "માતાઓનો અનુભવ - સુરત" },
-    videoId: "dQw4w9WgXcQ",
-    thumbnail: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&q=80&w=400"
+    title: {
+      en: "The Journey of Divine Garbh Sanskar: 15+ Branches Across Gujarat",
+      hi: "डिवाइन गर्भ संस्कार की यात्रा: पूरे गुजरात में 15+ शाखाएं",
+      gu: "ડિવાઇન ગર્ભ સંસ્કારની યાત્રા: સમગ્ર ગુજરાતમાં ૧૫+ શાખાઓ"
+    },
+    videoId: "9MCQP-agv4Y",
+    thumbnail: "https://img.youtube.com/vi/9MCQP-agv4Y/mqdefault.jpg"
   },
   {
     id: 2,
-    title: { hi: "प्राकृतिक प्रसव और गर्भ संस्कार", en: "Natural Birth & Garbh Sanskar", gu: "કુદરતી પ્રસૂતિ અને ગર્ભ સંસ્કાર" },
-    videoId: "dQw4w9WgXcQ",
-    thumbnail: "https://images.unsplash.com/photo-1590650046871-92c887180603?auto=format&fit=crop&q=80&w=400"
+    title: {
+      en: "Grand Center Opening: New Beginnings in Surat",
+      hi: "नया केंद्र भव्य उद्घाटन: सूरत में नई शुरुआत",
+      gu: "નવા કેન્દ્રનું ભવ્ય ઉદ્ઘાટન: સુરતમાં નવી શરૂઆત"
+    },
+    videoId: "mF6dKZWOFU0",
+    thumbnail: "https://img.youtube.com/vi/mF6dKZWOFU0/mqdefault.jpg"
   },
   {
     id: 3,
-    title: { hi: "गर्भ में शिशु का दिमागी विकास", en: "Fetal Brain Development Stories", gu: "ગર્ભમાં બાળકના મગજનો વિકાસ" },
-    videoId: "dQw4w9WgXcQ",
-    thumbnail: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=400"
+    title: {
+      en: "Divine Couple Tour: A Unique Experience in Nature's Lap",
+      hi: "डिवाइन कपल टूर: प्रकृति की गोद में एक अनूठा अनुभव",
+      gu: "ડિવાઇન કપલ ટૂર: પ્રકૃતિના ખોળે એક અનોખો અનુભવ"
+    },
+    videoId: "FBDPkakKba8",
+    thumbnail: "https://img.youtube.com/vi/FBDPkakKba8/mqdefault.jpg"
   },
   {
     id: 4,
-    title: { hi: "संगीत चिकित्सा का प्रभाव", en: "Impact of Music Therapy", gu: "સંગીત ચિકિત્સાની અસર" },
-    videoId: "dQw4w9WgXcQ",
-    thumbnail: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&q=80&w=400"
+    title: {
+      en: "Janmashtami Celebration: Garbh Sanskar with Kanha",
+      hi: "जन्माष्टमी उत्सव: कान्हा संग गर्भसंस्कार",
+      gu: "જન્માષ્ટમી મહોત્સવ: કાના સંગે ગર્ભસંસ્કાર"
+    },
+    videoId: "BopvEUtcmkU",
+    thumbnail: "https://img.youtube.com/vi/BopvEUtcmkU/mqdefault.jpg"
   }
 ];

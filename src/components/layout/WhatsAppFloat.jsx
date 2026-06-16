@@ -27,7 +27,7 @@ const WhatsAppFloat = () => {
       <div className="fixed bottom-6 right-6 flex flex-col gap-3.5 z-30 select-none">
         {/* Phone Button */}
         <a
-          href="tel:+919999999999"
+          href="tel:+919638484545"
           className="w-14 h-14 bg-sacredMaroon border-2 border-divineGold/50 text-white rounded-full flex items-center justify-center shadow-lg hover:scale-110 active:scale-95 transition-all duration-300 hover:rotate-12"
           aria-label="Call Us"
         >
@@ -36,7 +36,7 @@ const WhatsAppFloat = () => {
 
         {/* WhatsApp Button */}
         <a
-          href="https://wa.me/919999999999?text=Hello!%20I%20would%20like%20to%20know%20more%20about%20the%20Divine%20Garbh%20Sanskar%20program."
+          href="https://wa.me/919638484545?text=Hello!%20I%20would%20like%20to%20know%20more%20about%20the%20Divine%20Garbh%20Sanskar%20program."
           target="_blank"
           rel="noopener noreferrer"
           className="w-14 h-14 bg-[#25D366] border-2 border-white text-white rounded-full flex items-center justify-center shadow-lg hover:scale-110 active:scale-95 transition-all duration-300 animate-pulse-scale"

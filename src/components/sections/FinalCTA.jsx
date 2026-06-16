@@ -41,7 +41,7 @@ const FinalCTA = () => {
             <div className="flex flex-wrap justify-center lg:justify-start gap-4 mt-2">
               {/* Call Now */}
               <a
-                href="tel:+919999999999"
+                href="tel:+919638484545"
                 className="px-8 py-4 bg-sacredMaroon text-white font-accent font-bold text-sm tracking-wider uppercase rounded-divine-md hover:bg-templeBrown shadow-lg flex items-center gap-2.5 transition-all animate-glow-pulse"
               >
                 <Phone className="w-4.5 h-4.5" />
@@ -50,7 +50,7 @@ const FinalCTA = () => {
 
               {/* WhatsApp Us */}
               <a
-                href="https://wa.me/919999999999?text=Hello!%20I%20would%20like%20to%20know%20more%20about%20the%20Divine%20Garbh%20Sanskar%20program."
+                href="https://wa.me/919638484545?text=Hello!%20I%20would%20like%20to%20know%20more%20about%20the%20Divine%20Garbh%20Sanskar%20program."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-8 py-4 bg-[#25D366] text-white font-accent font-bold text-sm tracking-wider uppercase rounded-divine-md hover:bg-[#20ba5a] shadow-lg flex items-center gap-2.5 transition-all"
@@ -73,17 +73,13 @@ const FinalCTA = () => {
               {/* Core glow background */}
               <div className="absolute inset-8 rounded-full bg-white/20 blur-xl animate-pulse" />
               
-              {/* Central Womb Sphere */}
-              <div className="absolute inset-10 rounded-full bg-white/40 border-2 border-white/60 shadow-xl flex items-center justify-center p-4">
-                <svg viewBox="0 0 100 100" className="w-full h-full text-sacredMaroon drop-shadow-md">
-                  {/* Baby Fetus silhouette */}
-                  <path
-                    d="M50 22C42 22 36 28 36 36C36 46 44 49 44 60C44 62 46 64 48 64C50 64 52 62 52 60C52 52 44 48 44 40C44 34 47 30 51 30C53 30 54 31 54 33C54 39 49 43 49 49C49 53 53 56 57 56C62 56 66 52 66 46C66 36 59 22 50 22Z"
-                    fill="currentColor"
-                  />
-                  {/* Heartbeat light */}
-                  <circle cx="50" cy="46" r="3" fill="#CC0000" className="animate-pulse" />
-                </svg>
+              {/* Central Logo Sphere */}
+              <div className="absolute inset-10 rounded-full bg-white shadow-xl flex items-center justify-center p-3 border border-divineGold/35">
+                <img
+                  src="/logo.jpg"
+                  alt="Divine Garbh Sanskar Logo"
+                  className="w-full h-full rounded-full object-contain p-0.5"
+                />
               </div>
 
               {/* Orbiting Icons */}

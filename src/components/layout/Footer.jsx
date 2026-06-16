@@ -75,7 +75,7 @@ const Footer = () => {
                 <Facebook className="w-5 h-5" />
               </a>
               <a
-                href="https://www.youtube.com"
+                href="https://www.youtube.com/@DivineGarbhsanskar0312"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 bg-softCream/10 rounded-full text-divineGold hover:bg-divineGold hover:text-sacredMaroon transition-all"
@@ -159,16 +159,16 @@ const Footer = () => {
                 <MapPin className="w-5 h-5 text-divineGold shrink-0" />
                 <span>
                   {t({
-                    hi: "३०५, दिव्य प्लाजा, रिंग रोड, सूरत, गुजरात - ३९५००३",
-                    en: "305, Divine Plaza, Ring Road, Surat, Gujarat - 395003",
-                    gu: "૩૦૫, દિવ્ય પ્લાઝા, રીંગ રોડ, સુરત, ગુજરાત - ૩૯૫૦૦૩"
+                    hi: "१६४, एबीसी स्कूल के पास, रॉयल आर्केड के पीछे, मारुतिधाम सोसायटी, सरथाना जकात नाका, मणि नगर सोसायटी, नाना वराछा, सूरत, गुजरात - ३९५०१३",
+                    en: "164, near ABC School, behind Royal Arcade, Marutidham Society, Sarthana Jakat Naka, Mani Nagar Society, Nana Varachha, Surat, Gujarat - 395013",
+                    gu: "૧૬૪, એબીસી સ્કૂલ પાસે, રોયલ આર્કેડ પાછળ, મારુતિધામ સોસાયટી, સરથાણા જકાત નાકા, મણી નગર સોસાયટી, નાના વરાછા, સુરત, ગુજરાત - ૩૯૫૦૧૩"
                   })}
                 </span>
               </li>
               <li className="flex gap-3 items-center">
                 <Phone className="w-5 h-5 text-divineGold shrink-0" />
-                <a href="tel:+919999999999" className="hover:text-divineGold transition-colors">
-                  +91 99999 99999
+                <a href="tel:+919638484545" className="hover:text-divineGold transition-colors">
+                  +91 96384 84545
                 </a>
               </li>
               <li className="flex gap-3 items-center">

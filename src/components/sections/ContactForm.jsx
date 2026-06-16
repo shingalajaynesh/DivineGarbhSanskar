@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Mail, Phone, MapPin, CheckCircle, Send, Loader2 } from 'lucide-react';
+import { Mail, Phone, MapPin, CheckCircle, Send, Loader2, Star } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
 import SectionLabel from '../ui/SectionLabel';
 import MandalaBg from '../ui/MandalaBg';
@@ -247,9 +247,9 @@ const ContactForm = () => {
                     </span>
                     <span>
                       {t({
-                        hi: "३०५, दिव्य प्लाजा, रिंग रोड, सूरत, गुजरात - ३९५००३",
-                        en: "350, Divine Plaza, Ring Road, Surat, Gujarat - 395003",
-                        gu: "૩૦૫, દિવ્ય પ્લાઝા, રિંગ રોડ, સુરત, ગુજરાત - ૩૯૫૦૦૩"
+                        hi: "१६४, एबीसी स्कूल के पास, रॉयल आर्केड के पीछे, मारुतिधाम सोसायटी, सरथाना जकात नाका, मणि नगर सोसायटी, नाना वराछा, सूरत, गुजरात - ३९५०१३",
+                        en: "164, near ABC School, behind Royal Arcade, Marutidham Society, Sarthana Jakat Naka, Mani Nagar Society, Nana Varachha, Surat, Gujarat - 395013",
+                        gu: "૧૬૪, એબીસી સ્કૂલ પાસે, રોયલ આર્કેડ પાછળ, મારુતિધામ સોસાયટી, સરથાણા જકાત નાકા, મણી નગર સોસાયટી, નાના વરાછા, સુરત, ગુજરાત - ૩૯૫૦૧૩"
                       })}
                     </span>
                   </div>
@@ -259,10 +259,10 @@ const ContactForm = () => {
                   <Phone className="w-6 h-6 text-divineGold shrink-0 mt-0.5" />
                   <div>
                     <span className="font-bold text-white block mb-1">
-                      {t({ hi: "कॉल सेवा:", en: "Telephone Helpline:", gu: "ફોન સેવા:" })}
+                      {t({ hi: "कॉल / व्हाट्सएप सेवा:", en: "Helpline (Call & WhatsApp):", gu: "કૉલ / વોટ્સએપ સેવા:" })}
                     </span>
-                    <a href="tel:+919999999999" className="hover:text-divineGold transition-colors font-mono">
-                      +91 99999 99999
+                    <a href="tel:+919638484545" className="hover:text-divineGold transition-colors font-mono">
+                      +91 96384 84545
                     </a>
                   </div>
                 </li>
@@ -275,6 +275,30 @@ const ContactForm = () => {
                     </span>
                     <a href="mailto:info@divinegarbhsanskar.com" className="hover:text-divineGold transition-colors">
                       info@divinegarbhsanskar.com
+                    </a>
+                  </div>
+                </li>
+
+                {/* Google Reviews Badge */}
+                <li className="flex gap-4 items-start border-t border-white/10 pt-6">
+                  <div className="w-full">
+                    <span className="font-bold text-white block mb-3 text-sm">
+                      {t({ hi: "गूगल रेटिंग और समीक्षाएं:", en: "Google Rating & Reviews:", gu: "ગૂગલ રેટિંગ અને સમીક્ષાઓ:" })}
+                    </span>
+                    <a
+                      href="https://share.google/RGcRhq1kyraBvkA7j"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-3 p-3 bg-white/5 border border-divineGold/30 hover:border-divineGold hover:bg-white/10 transition-all rounded-divine-sm"
+                    >
+                      <div className="flex items-center text-[#FFD600] font-black text-lg gap-1">
+                        4.9 <Star className="w-5 h-5 fill-[#FFD600] stroke-[#FFD600]" />
+                      </div>
+                      <div className="h-6 w-px bg-white/20" />
+                      <div className="text-xs text-softCream/80 font-sans">
+                        <span className="font-bold text-white block">161+ {t({ hi: "सत्यापित समीक्षाएं", en: "Verified Reviews", gu: "ચકાસાયેલ સમીક્ષાઓ" })}</span>
+                        <span className="text-[10px] text-divineGold/90 hover:underline">{t({ hi: "गूगल पर देखें", en: "View on Google Maps", gu: "ગૂગલ પર જુઓ" })}</span>
+                      </div>
                     </a>
                   </div>
                 </li>

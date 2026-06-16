@@ -91,7 +91,7 @@ const Hero = () => {
               </Link>
               
               <a 
-                href="https://www.youtube.com"
+                href="https://www.youtube.com/@DivineGarbhsanskar0312"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-6 py-4 font-sans font-bold text-base text-sacredMaroon border-2 border-sacredMaroon rounded-divine-md flex items-center gap-2.5 hover:bg-sacredMaroon/5 transition-all duration-300"
