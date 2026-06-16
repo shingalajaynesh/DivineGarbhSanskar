@@ -1,0 +1,140 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --divine-gold: #FFD600;
+  --sacred-maroon: #5D1A00;
+  --temple-brown: #3B0F00;
+  --vermillion: #CC0000;
+  --cream: #FEFFC5;
+  --amber: #FF8C00;
+  
+  --float-duration: 4s;
+  --float-distance: 12px;
+  --glow-spread: 20px;
+  --reveal-duration: 0.6s;
+  --stagger-delay: 0.15s;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(calc(-1 * var(--float-distance))); }
+}
+
+@keyframes floatRotate {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33% { transform: translateY(-8px) rotate(1.5deg); }
+  66% { transform: translateY(-4px) rotate(-1deg); }
+}
+
+@keyframes particleRise {
+  0% { transform: translateY(100%) scale(1); opacity: 0; }
+  10% { opacity: 0.7; }
+  90% { opacity: 0.7; }
+  100% { transform: translateY(-100vh) scale(0.5); opacity: 0; }
+}
+
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 0 10px var(--divine-gold), 0 0 20px rgba(255,214,0,0.3); }
+  50% { box-shadow: 0 0 25px var(--divine-gold), 0 0 50px rgba(255,214,0,0.5), 0 0 80px rgba(255,140,0,0.2); }
+}
+
+@keyframes pulseScale {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes rotationSlow {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes rotationSlowCounter {
+  0% { transform: rotate(360deg); }
+  100% { transform: rotate(0deg); }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-float {
+  animation: float var(--float-duration) ease-in-out infinite;
+}
+
+.animate-float-rotate {
+  animation: floatRotate 5s ease-in-out infinite;
+}
+
+.animate-glow-pulse {
+  animation: glowPulse 3s ease-in-out infinite;
+}
+
+.animate-pulse-scale {
+  animation: pulseScale 3s ease-in-out infinite;
+}
+
+.animate-rotate-slow {
+  animation: rotationSlow 60s linear infinite;
+}
+
+.animate-rotate-slow-counter {
+  animation: rotationSlowCounter 90s linear infinite;
+}
+
+/* Scroll reveal classes */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity var(--reveal-duration) ease-out, transform var(--reveal-duration) ease-out;
+}
+
+.reveal-on-scroll.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #FEFFC5;
+}
+::-webkit-scrollbar-thumb {
+  background: #5D1A00;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3B0F00;
+}
+
+/* Glassmorphism rules */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 214, 0, 0.2);
+}
+
+/* Clean cards style */
+.divine-card {
+  background: #FFFFFF;
+  border: 2px solid rgba(255, 214, 0, 0.35);
+  border-radius: 24px;
+  box-shadow: 0 10px 30px -10px rgba(93, 26, 0, 0.05);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.divine-card:hover {
+  border-color: rgba(255, 214, 0, 0.8);
+  box-shadow: 0 20px 40px -15px rgba(255, 214, 0, 0.3);
+}
+
+body {
+  margin: 0;
+  background-color: #FEFFC5;
+  color: #3B0F00;
+}

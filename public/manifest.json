@@ -1,0 +1,16 @@
+{
+  "short_name": "DivineGarbh",
+  "name": "Divine Garbh Sanskar",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any"
+    }
+  ],
+  "start_url": ".",
+  "background_color": "#FEFFC5",
+  "theme_color": "#FFD600",
+  "display": "standalone",
+  "orientation": "portrait"
+}
