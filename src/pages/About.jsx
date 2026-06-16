@@ -29,8 +29,7 @@ const About = () => {
           {/* Headline */}
           <SectionLabel
             label={t({ hi: "हमारी विरासत", en: "Our Roots", gu: "અમારી વિરાસત" })}
-            titleHi={t({ hi: "दिव्य गर्भ संस्कार की स्थापना", gu: "દિવ્ય ગર્ભ સંસ્કારની સ્થાપના" })}
-            titleEn="Bridging Ancient Wisdom and Fetal Science"
+            titleHi={t({ hi: "दिव्य गर्भ संस्कार की स्थापना", en: "Establishment of Divine Garbh Sanskar", gu: "દિવ્ય ગર્ભ સંસ્કારની સ્થાપના" })}
           />
 
           {/* Vision Statement block */}

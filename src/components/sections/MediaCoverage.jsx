@@ -28,7 +28,7 @@ const MediaCoverage = () => {
       pub: "Times of India",
       date: { hi: "जनवरी २०२६", en: "January 2026", gu: "જાન્યુઆરી ૨૦૨૬" },
       headline: {
-        hi: "Ancient Vedic Garbh Sanskar practices validated by modern Epigenetics",
+        hi: "आधुनिक एपिजेनेटिक्स द्वारा प्राचीन वैदिक गर्भ संस्कार पद्धतियों को मान्यता",
         en: "Ancient Vedic Garbh Sanskar practices validated by modern Epigenetics",
         gu: "પ્રાચીન વૈદિક ગર્ભ સંસ્કાર પદ્ધતિઓ આધુનિક એપિજેનેટિક્સ દ્વારા પ્રમાણિત થઈ"
       },
@@ -65,8 +65,7 @@ const MediaCoverage = () => {
         {/* Headings */}
         <SectionLabel
           label={t({ hi: "प्रेस समाचार", en: "In the News", gu: "પ્રેસ સમાચાર" })}
-          titleHi={t({ hi: "मीडिया जगत में डिवाइन गर्भ संस्कार", gu: "મીડિયા જગતમાં ડિવાઇન ગર્ભ સંસ્કાર" })}
-          titleEn="Press Release & News Coverage Updates"
+          titleHi={t({ hi: "मीडिया जगत में डिवाइन गर्भ संस्कार", en: "Divine Garbh Sanskar in the Media", gu: "મીડિયા જગતમાં ડિવાઇન ગર્ભ સંસ્કાર" })}
         />
 
         {/* Masonry or Scrollable Grid */}

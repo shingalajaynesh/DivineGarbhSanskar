@@ -1,21 +1,25 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
 
 const LanguageContext = createContext();
 
 export const LanguageProvider = ({ children }) => {
-  const [language, setLanguage] = useState('hi'); // Default to Hindi
+  const [language, setLanguage] = useState('en'); // Default to English
+
+  useEffect(() => {
+    document.documentElement.lang = language;
+  }, [language]);
 
   const toggleLanguage = () => {
     setLanguage((prev) => {
+      if (prev === 'en') return 'hi';
       if (prev === 'hi') return 'gu';
-      if (prev === 'gu') return 'en';
-      return 'hi';
+      return 'en';
     });
   };
 
   const t = (translations) => {
     if (!translations) return '';
-    return translations[language] || translations['hi'] || translations['en'] || '';
+    return translations[language] || translations['en'] || translations['hi'] || '';
   };
 
   return (

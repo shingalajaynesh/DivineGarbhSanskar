@@ -91,8 +91,7 @@ const Courses = () => {
           {/* Headings */}
           <SectionLabel
             label={t({ hi: "पाठ्यक्रम रूपरेखा", en: "Curriculum Map", gu: "અભ્યાસક્રમ રૂપરેખા" })}
-            titleHi={t({ hi: "गर्भ संस्कार पाठ्यक्रम रूपरेखा", gu: "ગર્ભ સંસ્કાર અભ્યાસક્રમ રૂપરેખા" })}
-            titleEn="Trimester-by-Trimester Growth Plan"
+            titleHi={t({ hi: "गर्भ संस्कार पाठ्यक्रम रूपरेखा", en: "Garbh Sanskar Curriculum Map", gu: "ગર્ભ સંસ્કાર અભ્યાસક્રમ રૂપરેખા" })}
           />
 
           {/* Month-by-month syllabus list */}

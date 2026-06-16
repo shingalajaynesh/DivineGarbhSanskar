@@ -46,8 +46,7 @@ const HowItWorks = () => {
         {/* Section labels */}
         <SectionLabel
           label={t({ hi: "सरल प्रक्रिया", en: "Three-Step Flow", gu: "સરળ પ્રક્રિયા" })}
-          titleHi={t({ hi: "आपकी दिव्य यात्रा कैसे शुरू करें?", gu: "તમારી દિવ્ય યાત્રા કેવી રીતે શરૂ કરવી?" })}
-          titleEn="How to Begin Your Prenatal Program"
+          titleHi={t({ hi: "आपकी दिव्य यात्रा कैसे शुरू करें?", en: "How to Begin Your Prenatal Program", gu: "તમારી દિવ્ય યાત્રા કેવી રીતે શરૂ કરવી?" })}
         />
 
         {/* Steps Journey */}

@@ -74,8 +74,7 @@ const WhyChooseUs = () => {
         {/* Headings */}
         <SectionLabel
           label={t({ hi: "हमें क्यों चुनें", en: "Why Choose Us", gu: "શા માટે અમને પસંદ કરો" })}
-          titleHi={t({ hi: "सच्चा मातृत्व, श्रेष्ठ संस्कार", gu: "સાચું માતૃત્વ, શ્રેષ્ઠ સંસ્કાર" })}
-          titleEn="Cultivating Excellence from the Womb"
+          titleHi={t({ hi: "सच्चा मातृत्व, श्रेष्ठ संस्कार", en: "True Motherhood, Noble Values", gu: "સાચું માતૃત્વ, શ્રેષ્ઠ સંસ્કાર" })}
         />
 
         {/* 3x2 Grid */}

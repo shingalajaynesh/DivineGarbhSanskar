@@ -8,7 +8,7 @@ import MandalaBg from '../ui/MandalaBg';
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const { language, toggleLanguage, t } = useLanguage();
+  const { language, setLanguage, t } = useLanguage();
   const location = useLocation();
 
   useEffect(() => {
@@ -37,11 +37,7 @@ const Navbar = () => {
     { path: '/contact', label: { hi: 'संपर्क', en: 'Contact', gu: 'સંપર્ક' } }
   ];
 
-  const getLanguageLabel = () => {
-    if (language === 'hi') return 'ગુજરાતી';
-    if (language === 'gu') return 'English';
-    return 'हिंदी';
-  };
+
 
   return (
     <>
@@ -99,16 +95,26 @@ const Navbar = () => {
                 })}
               </div>
 
-              {/* Language + CTA */}
+              {/* Language Selector Dropdown + CTA */}
               <div className="flex items-center gap-4">
-                <button
-                  onClick={toggleLanguage}
-                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-sacredMaroon/20 hover:border-sacredMaroon text-sacredMaroon transition-all font-sans text-sm font-semibold"
-                  aria-label="Switch Language"
-                >
-                  <Globe className="w-4 h-4 text-vermillion" />
-                  <span>{getLanguageLabel()}</span>
-                </button>
+                <div className="relative flex items-center">
+                  <Globe className="absolute left-3 w-4 h-4 text-vermillion pointer-events-none" />
+                  <select
+                    value={language}
+                    onChange={(e) => setLanguage(e.target.value)}
+                    className="pl-9 pr-8 py-1.5 rounded-full border border-sacredMaroon/20 hover:border-sacredMaroon text-sacredMaroon transition-all font-sans text-sm font-semibold bg-white cursor-pointer focus:outline-none appearance-none shadow-sm hover:shadow"
+                    aria-label="Select Language"
+                  >
+                    <option value="en">English</option>
+                    <option value="hi">हिन्दी</option>
+                    <option value="gu">ગુજરાતી</option>
+                  </select>
+                  <div className="absolute right-3 pointer-events-none flex items-center text-sacredMaroon/70">
+                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </div>
+                </div>
 
                 <Link to="/contact">
                   <GoldenButton pulse={false} className="py-2.5 px-5 text-sm">
@@ -120,14 +126,24 @@ const Navbar = () => {
 
             {/* Mobile menu button */}
             <div className="lg:hidden flex items-center gap-3">
-              <button
-                onClick={toggleLanguage}
-                className="flex items-center gap-1 px-2.5 py-1 rounded-full border border-sacredMaroon/20 text-sacredMaroon font-sans text-xs font-semibold"
-                aria-label="Switch Language"
-              >
-                <Globe className="w-3.5 h-3.5 text-vermillion" />
-                <span>{getLanguageLabel()}</span>
-              </button>
+              <div className="relative flex items-center">
+                <Globe className="absolute left-2.5 w-3.5 h-3.5 text-vermillion pointer-events-none" />
+                <select
+                  value={language}
+                  onChange={(e) => setLanguage(e.target.value)}
+                  className="pl-7 pr-6 py-1 rounded-full border border-sacredMaroon/20 text-sacredMaroon font-sans text-xs font-semibold bg-white cursor-pointer focus:outline-none appearance-none shadow-sm"
+                  aria-label="Select Language"
+                >
+                  <option value="en">EN</option>
+                  <option value="hi">हिन्दी</option>
+                  <option value="gu">ગુજ</option>
+                </select>
+                <div className="absolute right-2 pointer-events-none flex items-center text-sacredMaroon/70">
+                  <svg className="w-2.5 h-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </div>
+              </div>
 
               <button
                 onClick={() => setIsOpen(!isOpen)}

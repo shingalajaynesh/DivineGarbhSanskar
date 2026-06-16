@@ -35,8 +35,7 @@ const Testimonials = () => {
         {/* Headings */}
         <SectionLabel
           label={t({ hi: "माताओं की कहानियाँ", en: "Success Stories", gu: "માતાઓનો અનુભવ" })}
-          titleHi={t({ hi: "संतुष्ट माताओं के दिव्य अनुभव", gu: "સંતુષ્ટ માતાઓના દિવ્ય અનુભવ" })}
-          titleEn="Heartwarming Stories of Garbh Sanskar Mothers"
+          titleHi={t({ hi: "संतुष्ट माताओं के दिव्य अनुभव", en: "Divine Experiences of Happy Mothers", gu: "સંતુષ્ટ માતાઓના દિવ્ય અનુભવ" })}
         />
 
         {/* Carousel Container */}

@@ -27,12 +27,16 @@ const TrustBar = () => {
       <Marquee speed={40} gradient={true} gradientColor={[255, 255, 255]} pauseOnHover={true}>
         <div className="flex items-center gap-16 md:gap-24 px-12">
           {mediaList.map((media, index) => (
-            <span
-              key={index}
-              className="font-latinDisplay text-lg md:text-2xl font-black tracking-wide text-templeBrown/40 hover:text-sacredMaroon hover:scale-105 transition-all duration-300 cursor-default"
-            >
-              {media}
-            </span>
+            <div key={index} className="flex items-center gap-3 md:gap-4">
+              <img
+                src="/logo.jpg"
+                alt="Divine Garbh Sanskar Logo"
+                className="w-7 h-7 md:w-8 md:h-8 rounded-full object-contain p-0.5 border border-divineGold/30 bg-white"
+              />
+              <span className="font-sans text-base md:text-xl font-bold tracking-wide text-templeBrown/50 hover:text-sacredMaroon transition-all duration-300 cursor-default">
+                {media}
+              </span>
+            </div>
           ))}
         </div>
       </Marquee>

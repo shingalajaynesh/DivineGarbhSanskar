@@ -18,8 +18,7 @@ const VideoGallery = () => {
         {/* Headings */}
         <SectionLabel
           label={t({ hi: "वीडियो अनुभव", en: "Video Stories", gu: "વિડિયો અનુભવ" })}
-          titleHi={t({ hi: "माताओं के वीडियो अनुभव", gu: "માતાઓનો વિડિયો અનુભવ" })}
-          titleEn="Real Video Feedback from Expectant Mothers"
+          titleHi={t({ hi: "माताओं के वीडियो अनुभव", en: "Mothers' Video Experiences", gu: "માતાઓનો વિડિયો અનુભવ" })}
         />
 
         {/* Video Grid */}

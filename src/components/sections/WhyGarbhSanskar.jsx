@@ -84,22 +84,12 @@ const WhyGarbhSanskar = () => {
               {/* Outer Golden Glow Circle */}
               <div className="absolute inset-2 rounded-full border-2 border-dashed border-divineGold/40 animate-rotate-slow" />
               <div className="absolute inset-8 rounded-full border border-divineGold/30" />
-              <div className="absolute inset-10 rounded-full bg-white shadow-xl flex items-center justify-center p-6">
-                
-                {/* SVG Illustration of mother and fetus */}
-                <svg viewBox="0 0 100 100" fill="none" className="w-full h-full text-sacredMaroon">
-                  {/* Mother shape */}
-                  <path
-                    d="M48 24C44 24 41 27 41 32C41 40 47 43 47 55C47 58 49 60 52 60C55 60 57 58 57 55C57 46 48 43 48 35C48 29 51 26 55 26C57 26 58 27 58 28C58 36 53 40 53 47C53 52 57 55 61 55C66 55 70 51 70 45C70 35 62 24 52 24Z"
-                    fill="currentColor"
-                  />
-                  {/* Glowing Connection / Aura */}
-                  <circle cx="53" cy="46" r="3" fill="#CC0000" className="animate-pulse" />
-                  
-                  {/* Rays of warmth connecting */}
-                  <path d="M42 36 Q32 30 25 35 Q18 40 25 50" stroke="#FFD600" strokeWidth="1" strokeDasharray="3 2" />
-                  <path d="M62 36 Q72 30 78 35 Q84 40 78 50" stroke="#FF8C00" strokeWidth="1" strokeDasharray="3 2" />
-                </svg>
+              <div className="absolute inset-10 rounded-full bg-white shadow-xl flex items-center justify-center p-3">
+                <img
+                  src="/logo.jpg"
+                  alt="Divine Garbh Sanskar Logo"
+                  className="w-full h-full rounded-full object-contain p-0.5 border border-divineGold/35"
+                />
               </div>
 
               {/* Floating Symbols orbiting */}
@@ -108,7 +98,7 @@ const WhyGarbhSanskar = () => {
                 animate={{ y: [0, -6, 0] }}
                 transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
                 className="absolute top-2 right-12 w-11 h-11 bg-divineGold/20 border border-divineGold rounded-full flex items-center justify-center text-lg shadow-sm"
-                title="Positive Thoughts (विचार)"
+                title={t({ en: "Positive Thoughts (Vichar)", hi: "सकारात्मक विचार", gu: "હકારાત્મક વિચારો" })}
               >
                 ☀️
               </motion.div>
@@ -118,7 +108,7 @@ const WhyGarbhSanskar = () => {
                 animate={{ y: [0, 8, 0] }}
                 transition={{ duration: 4.2, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}
                 className="absolute bottom-6 left-12 w-11 h-11 bg-white/90 border border-divineGold rounded-full flex items-center justify-center text-lg shadow-sm"
-                title="Purity (पवित्रता)"
+                title={t({ en: "Purity (Pavitrata)", hi: "पवित्रता", gu: "પવિત્રતા" })}
               >
                 🌸
               </motion.div>
@@ -128,7 +118,7 @@ const WhyGarbhSanskar = () => {
                 animate={{ y: [0, -8, 0] }}
                 transition={{ duration: 3.8, repeat: Infinity, ease: "easeInOut", delay: 0.6 }}
                 className="absolute top-1/2 -right-4 w-11 h-11 bg-white/90 border border-divineGold rounded-full flex items-center justify-center text-lg shadow-sm"
-                title="Cultural Roots (कलश)"
+                title={t({ en: "Cultural Roots (Kalash)", hi: "सांस्कृतिक जड़ें (कलश)", gu: "સાંસ્કૃતિક મૂળ (કળશ)" })}
               >
                 🏺
               </motion.div>

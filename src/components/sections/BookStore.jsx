@@ -87,8 +87,7 @@ const BookStore = () => {
         {/* Headings */}
         <SectionLabel
           label={t({ hi: "हमारी पुस्तकें", en: "Vedic Literature", gu: "અમારા પુસ્તકો" })}
-          titleHi={t({ hi: "सच्चा ज्ञान, घर बैठे पाएं", gu: "સાચું જ્ઞાન, ઘરે બેઠા મેળવો" })}
-          titleEn="Authored Guides & Literature for Expectant Parents"
+          titleHi={t({ hi: "सच्चा ज्ञान, घर बैठे पाएं", en: "Authored Guides & Literature for Expectant Parents", gu: "સાચું જ્ઞાન, ઘરે બેઠા મેળવો" })}
         />
 
         {/* Books cards */}

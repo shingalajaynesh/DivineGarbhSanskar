@@ -8,40 +8,10 @@ const Faculty = () => {
 
   const experts = [
     {
-      name: { hi: "डॉ. मानसी पटेल", en: "Dr. Mansi Patel", gu: "ડો. માનસી પટેલ" },
-      role: { hi: "स्त्री रोग विशेषज्ञ (Gynaecologist)", en: "Senior Gynaecologist & IVF Expert", gu: "સ્ત્રી રોગ નિષ્ણાત (Gynaecologist)" },
-      image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=250",
-      icon: "🩺"
-    },
-    {
-      name: { hi: "वैद्य राजेश शर्मा", en: "Vaidya Rajesh Sharma", gu: "વૈદ્ય રાજેશ શર્મા" },
-      role: { hi: "आयुर्वेद एवं गर्भ विज्ञान विशेषज्ञ", en: "Ayurveda Garbh Vigyan Specialist", gu: "આયુર્વેદ અને ગર્ભ વિજ્ઞાન નિષ્ણાત" },
-      image: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=250",
-      icon: "🌿"
-    },
-    {
-      name: { hi: "आचार्य हरीश जोशी", en: "Acharya Harish Joshi", gu: "આચાર્ય હરીશ જોશી" },
-      role: { hi: "योग, चक्र एवं ध्यान प्रशिक्षक", en: "Yoga, Chakra & Meditation Trainer", gu: "યોગ, ચક્ર અને ધ્યાન પ્રશિક્ષક" },
-      image: "https://images.unsplash.com/photo-1545205597-3d9d02c29597?auto=format&fit=crop&q=80&w=250",
-      icon: "🧘"
-    },
-    {
-      name: { hi: "डॉ. सीमा शर्मा", en: "Dr. Seema Sharma", gu: "ડો. સીમા શર્મા" },
-      role: { hi: "बाल रोग विशेषज्ञ (Pediatrician)", en: "Consultant Pediatrician", gu: "બાળ રોગ નિષ્ણાત (Pediatrician)" },
+      name: { hi: "डॉ. तरुणा जियानी", en: "Dr. Taruna Jiyani", gu: "ડો. તરુણા જીયાણી" },
+      role: { hi: "सीईओ और संस्थापक (CEO & Founder)", en: "Founder & CEO, Divine Garbh Sanskar", gu: "સીઈઓ અને સ્થાપક (CEO & Founder)" },
       image: "https://images.unsplash.com/photo-1594824813573-246434de83fb?auto=format&fit=crop&q=80&w=250",
-      icon: "👶"
-    },
-    {
-      name: { hi: "श्रीमती सुनीता व्यास", en: "Mrs. Sunita Vyas", gu: "શ્રીમતી સુનીતા વ્યાસ" },
-      role: { hi: "आध्यात्मिक एवं सुसंस्कार मार्गदर्शक", en: "Spiritual & Values Coach", gu: "આધ્યાત્મિક અને સુસંસ્કાર માર્ગદર્શક" },
-      image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=250",
       icon: "🕉️"
-    },
-    {
-      name: { hi: "डॉ. अमित मेहता", en: "Dr. Amit Mehta", gu: "ડો. અમિત મહેતા" },
-      role: { hi: "बाल मनोवैज्ञानिक (Child Psychologist)", en: "Fetal & Child Psychologist", gu: "બાળ મનોવૈજ્ઞાનિક (Child Psychologist)" },
-      image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=250",
-      icon: "🧠"
     }
   ];
 
@@ -53,13 +23,12 @@ const Faculty = () => {
         
         {/* Headings */}
         <SectionLabel
-          label={t({ hi: "हमारी फैकल्टी", en: "Our Gurus & Experts", gu: "અમારા માર્ગદર્શકો અને નિષ્ણાતો" })}
-          titleHi={t({ hi: "विशेषज्ञ डॉक्टरों और गुरुओं का मार्गदर्शन", gu: "નિષ્ણાત ડોકટરો અને ગુરુઓનું માર્ગદર્શન" })}
-          titleEn="Learn from Doctors, Psychologists, & Spiritual Coaches"
+          label={t({ hi: "संस्थापक एवं सीईओ", en: "Founder & CEO", gu: "સ્થાપક અને સીઈઓ" })}
+          titleHi={t({ hi: "मार्गदर्शक और मार्गप्रदर्शक", en: "Our Leadership & Visionary Guide", gu: "માર્ગદર્શક અને પથદર્શક" })}
         />
 
-        {/* Hexagonal/Circular Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 mt-16">
+        {/* Centered Founder Card */}
+        <div className="flex justify-center items-center mt-16">
           {experts.map((expert, idx) => (
             <div
               key={idx}

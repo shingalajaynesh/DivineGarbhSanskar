@@ -36,8 +36,7 @@ const ContactForm = () => {
         {/* Headings */}
         <SectionLabel
           label={t({ hi: "निःशुल्क परामर्श", en: "Free Counselling Call", gu: "મફત પરામર્શ" })}
-          titleHi={t({ hi: "आज ही निःशुल्क परामर्श सत्र बुक करें", gu: "આજે જ મફત પરામર્શ સત્ર બુક કરો" })}
-          titleEn="Schedule Your Free Expert Counseling Call"
+          titleHi={t({ hi: "आज ही निःशुल्क परामर्श सत्र बुक करें", en: "Schedule Your Free Expert Counseling Call", gu: "આજે જ મફત પરામર્શ સત્ર બુક કરો" })}
         />
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mt-12 items-stretch">

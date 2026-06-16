@@ -67,8 +67,7 @@ const Blog = () => {
           {/* Headings */}
           <SectionLabel
             label={t({ hi: "ज्ञान गंगा", en: "Pregnancy Wisdom", gu: "જ્ઞાન ગંગા" })}
-            titleHi={t({ hi: "गर्भ संस्कार ब्लॉग एवं स्वास्थ्य चर्चा", gu: "ગર્ભ સંસ્કાર બ્લોગ અને સ્વાસ્થ્ય ચર્ચા" })}
-            titleEn="Expert Guides on Prenatal Health & Chaining"
+            titleHi={t({ hi: "गर्भ संस्कार ब्लॉग एवं स्वास्थ्य चर्चा", en: "Garbh Sanskar Blog & Articles", gu: "ગર્ભ સંસ્કાર બ્લોગ અને સ્વાસ્થ્ય ચર્ચા" })}
           />
 
           {/* Grid of articles */}

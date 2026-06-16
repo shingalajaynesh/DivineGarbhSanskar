@@ -18,8 +18,7 @@ const Courses = () => {
         {/* Headings */}
         <SectionLabel
           label={t({ hi: "प्रवेश योजनाएं", en: "Pricing & Programs", gu: "પ્રવેશ યોજનાઓ" })}
-          titleHi={t({ hi: "हमारे कार्यक्रम एवं शुल्क विवरण", gu: "અમારા કાર્યક્રમો અને ફી વિગતો" })}
-          titleEn="Explore Our Divine Garbh Sanskar Programs"
+          titleHi={t({ hi: "हमारे कार्यक्रम एवं शुल्क विवरण", en: "Explore Our Divine Garbh Sanskar Programs", gu: "અમારા કાર્યક્રમો અને ફી વિગતો" })}
         />
 
         {/* 3-Column Grid */}

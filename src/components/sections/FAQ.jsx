@@ -51,8 +51,7 @@ const FAQ = () => {
         {/* Headings */}
         <SectionLabel
           label={t({ hi: "जिज्ञासा समाधान", en: "Frequently Asked Questions", gu: "જિજ્ઞાસા સમાધાન" })}
-          titleHi={t({ hi: "अक्सर पूछे जाने वाले प्रश्न", gu: "વારંવાર પૂછાતા પ્રશ્નો" })}
-          titleEn="Got Questions? We Have Scientific Answers"
+          titleHi={t({ hi: "अक्सर पूछे जाने वाले प्रश्न", en: "Got Questions? We Have Scientific Answers", gu: "વારંવાર પૂછાતા પ્રશ્નો" })}
         />
 
         {/* 2-Column Accordion Grid */}
