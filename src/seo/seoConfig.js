@@ -76,5 +76,32 @@ export const seoConfig = {
       gu: "માફ કરશો, આ પેજ ઉપલબ્ધ નથી. મુખ્ય પેજ પર પાછા જાઓ."
     },
     keywords: "404, page not found"
+  },
+  simantonayan: {
+    title: {
+      hi: "सीमंतोन्नयन संस्कार मार्गदर्शन कार्यक्रम | Divine Garbh Sanskar",
+      en: "Simantonayan Sanskar Program | Vedic Pregnancy Ritual Guidance",
+      gu: "સીમંતોન્નયન સંસ્કાર માર્ગદર્શન કાર્યક્રમ | Divine Garbh Sanskar"
+    },
+    description: {
+      hi: "गर्भावस्था के 7वें या 8वें महीने में सीमंतोन्नयन (गोद भराई) संस्कार के माध्यम से अजन्मे शिशु के सर्वोत्तम मानसिक विकास और माँ की सुरक्षा का वैदिक मार्गदर्शन प्राप्त करें।",
+      en: "Discover the sacred Vedic prenatal ritual of Simantonayan Sanskar (baby shower). Learn how to optimize fetal brain development and maternal wellness under expert guidance.",
+      gu: "ગર્ભાવસ્થાના ૭મા કે ૮મા મહિનામાં સીમંતોન્નયન (ખોળો ભરાવવો) વિધિ દ્વારા બાળકના માનસિક વિકાસ અને માતાની સુરક્ષાનું પરંપરાગત માર્ગદર્શન મેળવો।"
+    },
+    keywords: "Simantonayan Sanskar, baby shower India, Vedic pregnancy ritual, prenatal brain development, Surat, Dr Taruna Jiyani"
+  },
+  card: {
+    title: {
+      hi: "डॉ. तरुणा जियानी - डिजिटल बिजनेस कार्ड | Divine Garbh Sanskar",
+      en: "Dr. Taruna Jiyani - Digital Business Card | Divine Garbh Sanskar",
+      gu: "ડો. તરુણા જીયાણી - ડિજિટલ બિઝનેસ કાર્ડ | Divine Garbh Sanskar"
+    },
+    description: {
+      hi: "डॉ. तरुणा जियानी (संस्थापक, दिव्य गर्भ संस्कार) का डिजिटल संपर्क कार्ड। वैदिक गर्भ संस्कार कक्षाओं और व्यक्तिगत परामर्श के लिए हमसे संपर्क करें।",
+      en: "Digital business card for Dr. Taruna Jiyani, Founder of Divine Garbh Sanskar. Connect with us for Vedic Prenatal Science classes and 1:1 counseling.",
+      gu: "ડો. તરુણા જીયાણી (સ્થાપક, ડિવાઇન ગર્ભ સંસ્કાર) નું ડિજિટલ બિઝનેસ કાર્ડ. વૈદિક ગર્ભ સંસ્કાર વર્ગો અને કાઉન્સેલિંગ માટે સંપર્ક કરો।"
+    },
+    keywords: "Dr Taruna Jiyani, Garbh Sanskar contact, pregnancy counselor Surat, Vedic business card"
   }
 };
+

@@ -5,12 +5,19 @@ import { seoConfig } from '../seo/seoConfig';
 import SectionLabel from '../components/ui/SectionLabel';
 import FloatingCard from '../components/ui/FloatingCard';
 import MandalaBg from '../components/ui/MandalaBg';
+import { getBreadcrumbSchema } from '../seo/structuredData';
 
 const Blog = () => {
   const { t, language } = useLanguage();
   const meta = seoConfig.blog;
 
+  const breadcrumbSchema = getBreadcrumbSchema([
+    { name: "Home", url: "https://www.thedivinegarbhsanskar.com/" },
+    { name: "Blog", url: "https://www.thedivinegarbhsanskar.com/blog" }
+  ]);
+
   const posts = [
+
     {
       id: 1,
       category: { hi: "आहार (NUTRITION)", en: "NUTRITION", gu: "આહાર (NUTRITION)" },
@@ -57,6 +64,9 @@ const Blog = () => {
         <meta name="keywords" content={meta.keywords} />
         <link rel="canonical" href="https://www.thedivinegarbhsanskar.com/blog" />
         <html lang={language} />
+        <script type="application/ld+json">
+          {JSON.stringify(breadcrumbSchema)}
+        </script>
       </Helmet>
 
       <div className="relative pt-32 pb-20 overflow-hidden bg-softCream">
@@ -66,6 +76,7 @@ const Blog = () => {
           
           {/* Headings */}
           <SectionLabel
+            isPageHeader={true}
             label={t({ hi: "ज्ञान गंगा", en: "Pregnancy Wisdom", gu: "જ્ઞાન ગંગા" })}
             titleHi={t({ hi: "गर्भ संस्कार ब्लॉग एवं स्वास्थ्य चर्चा", en: "Garbh Sanskar Blog & Articles", gu: "ગર્ભ સંસ્કાર બ્લોગ અને સ્વાસ્થ્ય ચર્ચા" })}
           />

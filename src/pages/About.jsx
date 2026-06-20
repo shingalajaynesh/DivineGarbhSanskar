@@ -5,10 +5,16 @@ import { seoConfig } from '../seo/seoConfig';
 import SectionLabel from '../components/ui/SectionLabel';
 import MandalaBg from '../components/ui/MandalaBg';
 import FloatingCard from '../components/ui/FloatingCard';
+import { getBreadcrumbSchema } from '../seo/structuredData';
 
 const About = () => {
   const { t, language } = useLanguage();
   const meta = seoConfig.about;
+
+  const breadcrumbSchema = getBreadcrumbSchema([
+    { name: "Home", url: "https://www.thedivinegarbhsanskar.com/" },
+    { name: "About", url: "https://www.thedivinegarbhsanskar.com/about" }
+  ]);
 
   return (
     <>
@@ -18,6 +24,9 @@ const About = () => {
         <meta name="keywords" content={meta.keywords} />
         <link rel="canonical" href="https://www.thedivinegarbhsanskar.com/about" />
         <html lang={language} />
+        <script type="application/ld+json">
+          {JSON.stringify(breadcrumbSchema)}
+        </script>
       </Helmet>
 
       <div className="relative pt-32 pb-20 overflow-hidden bg-softCream">
@@ -28,9 +37,11 @@ const About = () => {
           
           {/* Headline */}
           <SectionLabel
+            isPageHeader={true}
             label={t({ hi: "हमारी विरासत", en: "Our Roots", gu: "અમારી વિરાસત" })}
             titleHi={t({ hi: "दिव्य गर्भ संस्कार की स्थापना", en: "Establishment of Divine Garbh Sanskar", gu: "દિવ્ય ગર્ભ સંસ્કારની સ્થાપના" })}
           />
+
 
           {/* Vision Statement block */}
           <div className="bg-white border-2 border-divineGold/35 rounded-divine-md p-8 md:p-12 shadow-md mb-16 relative overflow-hidden">

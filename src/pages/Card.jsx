@@ -3,11 +3,22 @@ import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { Phone, Mail, Globe, MapPin, Share2, UserPlus, Star, Check } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import { seoConfig } from '../seo/seoConfig';
+import { getBreadcrumbSchema } from '../seo/structuredData';
+
 
 const Card = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const meta = seoConfig.card;
+
+  const breadcrumbSchema = getBreadcrumbSchema([
+    { name: "Home", url: "https://www.thedivinegarbhsanskar.com/" },
+    { name: "Digital Card", url: "https://www.thedivinegarbhsanskar.com/card" }
+  ]);
+
   const [toastMessage, setToastMessage] = useState('');
   const [showToast, setShowToast] = useState(false);
+
 
   const triggerToast = (msg) => {
     setToastMessage(msg);
@@ -80,9 +91,15 @@ END:VCARD`;
   return (
     <>
       <Helmet>
-        <title>Dr. Taruna Jiyani - Digital Business Card | Divine Garbh Sanskar</title>
-        <meta name="description" content="Digital business card for Dr. Taruna Jiyani, Founder & CEO of Divine Garbh Sanskar. Get in touch for Vedic Prenatal Science classes and counseling." />
+        <title>{t(meta.title)}</title>
+        <meta name="description" content={t(meta.description)} />
+        <meta name="keywords" content={meta.keywords} />
+        <link rel="canonical" href="https://www.thedivinegarbhsanskar.com/card" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <html lang={language} />
+        <script type="application/ld+json">
+          {JSON.stringify(breadcrumbSchema)}
+        </script>
       </Helmet>
 
       {/* Standalone card display wrapping outer section */}
@@ -104,7 +121,7 @@ END:VCARD`;
               <div className="absolute bottom-3 left-4 z-10 flex items-center gap-2">
                 <img
                   src="/logo.jpg"
-                  alt="DGS Logo"
+                  alt={t({ hi: "दिव्य गर्भ संस्कार लोगो", en: "Divine Garbh Sanskar Logo", gu: "દિવ્ય ગર્ભ સંસ્કાર લોગો" })}
                   className="w-8 h-8 rounded-full bg-white p-0.5 object-contain"
                 />
                 <span className="font-accent text-xs font-bold text-divineGold tracking-widest uppercase">
@@ -112,15 +129,16 @@ END:VCARD`;
                 </span>
               </div>
             </div>
-
+ 
             {/* Profile Photo */}
             <div className="relative flex justify-center -mt-16 z-10">
               <div className="relative w-32 h-32">
                 <div className="absolute inset-0 rounded-full border-4 border-white bg-white shadow-lg overflow-hidden">
                   <img
                     src="/taruna.jpg"
-                    alt="Dr. Taruna Jiyani"
+                    alt={t({ hi: "डॉ. तरुणा जियानी - संस्थापक", en: "Dr. Taruna Jiyani - Founder", gu: "ડો. તરુણા જીયાણી - સ્થાપક" })}
                     className="w-full h-full object-cover"
+
                     onError={(e) => {
                       e.target.src = "https://ui-avatars.com/api/?name=Dr+Taruna+Jiyani&background=5D1A00&color=fff&size=200&bold=true";
                     }}

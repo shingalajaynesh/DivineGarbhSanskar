@@ -200,9 +200,10 @@ const Hero = () => {
               >
                 <img
                   src="/logo.jpg"
-                  alt="Divine Garbh Sanskar Logo"
+                  alt={t({ hi: "दिव्य गर्भ संस्कार लोगो", en: "Divine Garbh Sanskar Logo", gu: "દિવ્ય ગર્ભ સંસ્કાર લોગો" })}
                   className="w-32 h-32 rounded-full object-contain shadow-lg border-2 border-divineGold p-0.5 bg-white"
                 />
+
               </motion.div>
 
               {/* Orbiting info chips (Staggered Floating Cards) */}

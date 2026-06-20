@@ -7,11 +7,21 @@ import MandalaBg from '../components/ui/MandalaBg';
 import { BookOpen, Sparkles, Heart, Check, Phone, Star, Instagram } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import ClassGallery from '../components/sections/ClassGallery';
+import { seoConfig } from '../seo/seoConfig';
+import { getBreadcrumbSchema } from '../seo/structuredData';
+
 
 const Simantonayan = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const meta = seoConfig.simantonayan;
+
+  const breadcrumbSchema = getBreadcrumbSchema([
+    { name: "Home", url: "https://www.thedivinegarbhsanskar.com/" },
+    { name: "Simantonayan", url: "https://www.thedivinegarbhsanskar.com/simantonayan" }
+  ]);
 
   const benefits = [
+
     {
       title: {
         en: "Brain & Sensory Stimulation",
@@ -109,9 +119,16 @@ const Simantonayan = () => {
   return (
     <>
       <Helmet>
-        <title>Simantonayan Sanskar Program | Vedic Pregnancy Ritual Guidance</title>
-        <meta name="description" content="Discover the sacred Vedic prenatal ritual of Simantonayan Sanskar (baby shower). Learn how Dr. Taruna Jiyani guides couples to achieve optimal brain development for their child." />
+        <title>{t(meta.title)}</title>
+        <meta name="description" content={t(meta.description)} />
+        <meta name="keywords" content={meta.keywords} />
+        <link rel="canonical" href="https://www.thedivinegarbhsanskar.com/simantonayan" />
+        <html lang={language} />
+        <script type="application/ld+json">
+          {JSON.stringify(breadcrumbSchema)}
+        </script>
       </Helmet>
+
 
       <div className="pt-24 pb-16 min-h-screen bg-softCream/30">
         
@@ -159,9 +176,10 @@ const Simantonayan = () => {
             <div className="absolute inset-0 bg-divineGold/10 rounded-divine-lg blur-2xl -z-10" />
             <img
               src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&q=80&w=600"
-              alt="Sacred Pregnancy Ceremony"
+              alt={t({ hi: "पवित्र सीमंतोन्नयन संस्कार समारोह", en: "Sacred Simantonayan Sanskar Ceremony", gu: "પવિત્ર સીમંતોન્નયન સંસ્કાર વિધિ" })}
               className="rounded-divine-lg border-2 border-divineGold/40 shadow-xl w-full h-[320px] md:h-[400px] object-cover"
             />
+
             <div className="absolute -bottom-4 -right-4 bg-white border border-divineGold/35 p-3 rounded-2xl shadow-lg flex items-center gap-2">
               <span className="text-xl">🩺</span>
               <div className="text-left">

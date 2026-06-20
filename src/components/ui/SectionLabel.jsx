@@ -1,6 +1,8 @@
 import React from 'react';
 
-const SectionLabel = ({ label, titleHi, titleEn, center = true }) => {
+const SectionLabel = ({ label, titleHi, titleEn, center = true, isPageHeader = false }) => {
+  const TitleTag = isPageHeader ? 'h1' : 'h2';
+
   return (
     <div className={`flex flex-col mb-12 ${center ? 'items-center text-center' : 'items-start text-left'}`}>
       {label && (
@@ -8,9 +10,9 @@ const SectionLabel = ({ label, titleHi, titleEn, center = true }) => {
           ✦ {label} ✦
         </span>
       )}
-      <h2 className="font-devanagari text-3xl md:text-5xl text-sacredMaroon leading-tight font-normal mb-2">
+      <TitleTag className="font-devanagari text-3xl md:text-5xl text-sacredMaroon leading-tight font-normal mb-2">
         {titleHi}
-      </h2>
+      </TitleTag>
       {titleEn && (
         <p className="font-latinDisplay text-lg md:text-xl text-templeBrown italic font-medium opacity-85">
           {titleEn}
@@ -20,5 +22,6 @@ const SectionLabel = ({ label, titleHi, titleEn, center = true }) => {
     </div>
   );
 };
+
 
 export default SectionLabel;

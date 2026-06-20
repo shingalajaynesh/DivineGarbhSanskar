@@ -5,10 +5,18 @@ import { seoConfig } from '../seo/seoConfig';
 import SectionLabel from '../components/ui/SectionLabel';
 import CoursesSection from '../components/sections/Courses';
 import MandalaBg from '../components/ui/MandalaBg';
+import { getCoursesSchema, getBreadcrumbSchema } from '../seo/structuredData';
+import { courses } from '../data/courses';
 
 const Courses = () => {
   const { t, language } = useLanguage();
   const meta = seoConfig.courses;
+
+  const coursesSchema = getCoursesSchema(courses);
+  const breadcrumbSchema = getBreadcrumbSchema([
+    { name: "Home", url: "https://www.thedivinegarbhsanskar.com/" },
+    { name: "Courses", url: "https://www.thedivinegarbhsanskar.com/courses" }
+  ]);
 
   const curriculum = [
     {
@@ -81,6 +89,12 @@ const Courses = () => {
         <meta name="keywords" content={meta.keywords} />
         <link rel="canonical" href="https://www.thedivinegarbhsanskar.com/courses" />
         <html lang={language} />
+        <script type="application/ld+json">
+          {JSON.stringify(coursesSchema)}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify(breadcrumbSchema)}
+        </script>
       </Helmet>
 
       <div className="relative pt-32 pb-12 overflow-hidden bg-softCream">
@@ -90,9 +104,11 @@ const Courses = () => {
           
           {/* Headings */}
           <SectionLabel
+            isPageHeader={true}
             label={t({ hi: "पाठ्यक्रम रूपरेखा", en: "Curriculum Map", gu: "અભ્યાસક્રમ રૂપરેખા" })}
             titleHi={t({ hi: "गर्भ संस्कार पाठ्यक्रम रूपरेखा", en: "Garbh Sanskar Curriculum Map", gu: "ગર્ભ સંસ્કાર અભ્યાસક્રમ રૂપરેખા" })}
           />
+
 
           {/* Month-by-month syllabus list */}
           <div className="flex flex-col gap-6 mb-16 mt-12">

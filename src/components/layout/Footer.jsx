@@ -33,9 +33,10 @@ const Footer = () => {
             <Link to="/" className="flex items-center gap-3">
               <img
                 src="/logo.jpg"
-                alt="Divine Garbh Sanskar Logo"
+                alt={t({ hi: "दिव्य गर्भ संस्कार लोगो", en: "Divine Garbh Sanskar Logo", gu: "દિવ્ય ગર્ભ સંસ્કાર લોગો" })}
                 className="w-12 h-12 rounded-full p-0.5 bg-white object-contain hover:rotate-6 transition-transform duration-300 shadow-md border border-divineGold/35"
               />
+
               <div className="flex flex-col">
                 <span className="font-accent text-base font-bold tracking-widest text-white leading-none">
                   DIVINE <span className="text-divineGold font-extrabold">GARBH</span>

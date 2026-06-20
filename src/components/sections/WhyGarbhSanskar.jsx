@@ -87,9 +87,10 @@ const WhyGarbhSanskar = () => {
               <div className="absolute inset-10 rounded-full bg-white shadow-xl flex items-center justify-center p-3">
                 <img
                   src="/logo.jpg"
-                  alt="Divine Garbh Sanskar Logo"
+                  alt={t({ hi: "दिव्य गर्भ संस्कार लोगो", en: "Divine Garbh Sanskar Logo", gu: "દિવ્ય ગર્ભ સંસ્કાર લોગો" })}
                   className="w-full h-full rounded-full object-contain p-0.5 border border-divineGold/35"
                 />
+
               </div>
 
               {/* Floating Symbols orbiting */}
