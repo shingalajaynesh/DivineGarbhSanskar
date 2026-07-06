@@ -4,11 +4,13 @@ import { Mail, Phone, MapPin, CheckCircle, Send, Loader2, Star } from 'lucide-re
 import { useLanguage } from '../../context/LanguageContext';
 import SectionLabel from '../ui/SectionLabel';
 import MandalaBg from '../ui/MandalaBg';
+import { submitInquiry } from '../../services/inquiryApi';
 
 const ContactForm = () => {
   const { t } = useLanguage();
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [submitError, setSubmitError] = useState('');
 
   const {
     register,
@@ -17,14 +19,28 @@ const ContactForm = () => {
     reset
   } = useForm();
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     setIsLoading(true);
-    // Simulate API Submission
-    setTimeout(() => {
+    setSubmitError('');
+    const languageCodes = { Hindi: 'hi', Gujarati: 'gu', English: 'en' };
+    try {
+      await submitInquiry({
+        name: data.name,
+        email: data.email || null,
+        phone: `+91${data.mobile}`,
+        city: data.city,
+        language: languageCodes[data.language] || 'en',
+        preferredCallTime: data.callTime || null,
+        message: data.message || null,
+        source: 'marketing_website',
+      });
       setIsLoading(false);
       setIsSubmitted(true);
       reset();
-    }, 1500);
+    } catch (error) {
+      setIsLoading(false);
+      setSubmitError(error.message);
+    }
   };
 
   return (
@@ -198,6 +214,12 @@ const ContactForm = () => {
                     {...register("message")}
                   />
                 </div>
+
+                {submitError && (
+                  <p role="alert" className="text-sm text-vermillion bg-red-50 border border-red-200 rounded-divine-sm p-3">
+                    {submitError}
+                  </p>
+                )}
 
                 {/* Submit button */}
                 <button
