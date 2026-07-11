@@ -97,3 +97,27 @@ export const getBreadcrumbSchema = (crumbs) => ({
     "item": crumb.url
   }))
 });
+
+export const getArticleSchema = (post) => ({
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": post.title.en,
+  "description": post.description.en,
+  "image": [post.image],
+  "datePublished": post.date,
+  "dateModified": post.date,
+  "author": {
+    "@type": "Organization",
+    "name": "Divine Garbh Sanskar"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Divine Garbh Sanskar",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.thedivinegarbhsanskar.com/logo.jpg"
+    }
+  },
+  "mainEntityOfPage": `https://www.thedivinegarbhsanskar.com/blog/${post.slug}`,
+  "keywords": post.keywords
+});

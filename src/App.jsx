@@ -13,6 +13,7 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Courses from './pages/Courses';
 import Blog from './pages/Blog';
+import BlogPost from './pages/BlogPost';
 import Contact from './pages/Contact';
 import Card from './pages/Card';
 import Simantonayan from './pages/Simantonayan';
@@ -32,6 +33,7 @@ const AppContent = () => {
           <Route path="/about" element={<About />} />
           <Route path="/courses" element={<Courses />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/card" element={<Card />} />
           <Route path="/simantonayan" element={<Simantonayan />} />
