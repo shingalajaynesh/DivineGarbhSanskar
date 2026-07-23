@@ -185,16 +185,28 @@ const Footer = () => {
 
         </div>
 
+        {/* Medical Disclaimer Banner in Footer */}
+        <div className="bg-sacredMaroon/60 border border-divineGold/30 rounded-divine-sm p-4 text-xs text-softCream/80 leading-relaxed text-center mb-8">
+          <p>
+            <strong className="text-divineGold font-semibold">Medical Disclaimer:</strong> Content on Divine Garbh Sanskar is for educational, traditional, and general wellness purposes only and does not replace medical advice, diagnosis, or treatment. Always consult your gynecologist or qualified healthcare provider regarding your pregnancy care.{' '}
+            <Link to="/disclaimer" className="text-divineGold underline font-semibold">Read Disclaimer</Link> •{' '}
+            <Link to="/editorial-policy" className="text-divineGold underline font-semibold">Editorial Policy</Link> •{' '}
+            <Link to="/authors" className="text-divineGold underline font-semibold">Authors & Team</Link>
+          </p>
+        </div>
+
         {/* Divider */}
         <div className="w-full h-px bg-divineGold/20 my-8" />
 
         {/* Bottom copyright details */}
         <div className="flex flex-col md:flex-row items-center justify-between text-xs text-softCream/60 gap-4 text-center">
           <p>© {new Date().getFullYear()} Divine Garbh Sanskar. All Rights Reserved. Built with devotion.</p>
-          <div className="flex gap-6">
-            <Link to="/" className="hover:text-divineGold transition-colors">Privacy Policy</Link>
-            <Link to="/" className="hover:text-divineGold transition-colors">Terms of Service</Link>
-            <Link to="/" className="hover:text-divineGold transition-colors">Refund Policy</Link>
+          <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
+            <Link to="/privacy-policy" className="hover:text-divineGold transition-colors">Privacy Policy</Link>
+            <Link to="/terms-of-service" className="hover:text-divineGold transition-colors">Terms of Service</Link>
+            <Link to="/refund-policy" className="hover:text-divineGold transition-colors">Refund Policy</Link>
+            <Link to="/cookie-policy" className="hover:text-divineGold transition-colors">Cookie Policy</Link>
+            <Link to="/disclaimer" className="hover:text-divineGold transition-colors">Disclaimer</Link>
           </div>
         </div>
 

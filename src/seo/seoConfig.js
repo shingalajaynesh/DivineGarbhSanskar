@@ -102,6 +102,97 @@ export const seoConfig = {
       gu: "ડો. તરુણા જીયાણી (સ્થાપક, ડિવાઇન ગર્ભ સંસ્કાર) નું ડિજિટલ બિઝનેસ કાર્ડ. વૈદિક ગર્ભ સંસ્કાર વર્ગો અને કાઉન્સેલિંગ માટે સંપર્ક કરો।"
     },
     keywords: "Dr Taruna Jiyani, Garbh Sanskar contact, pregnancy counselor Surat, Vedic business card"
+  },
+  privacy: {
+    title: {
+      hi: "गोपनीयता नीति | Privacy Policy | Divine Garbh Sanskar",
+      en: "Privacy Policy | Divine Garbh Sanskar",
+      gu: "ગોપનીયતા નીતિ | Privacy Policy | Divine Garbh Sanskar"
+    },
+    description: {
+      hi: "दिव्य गर्भ संस्कार की गोपनीयता नीति। जानें कि हम उपयोगकर्ताओं के डेटा, कुकीज़ और Google AdSense प्राथमिकताओं की सुरक्षा कैसे करते हैं।",
+      en: "Read the official Privacy Policy for Divine Garbh Sanskar. Learn about data usage, analytics, cookies, and Google AdSense privacy practices.",
+      gu: "દિવ્ય ગર્ભ સંસ્કારની ગોપનીયતા નીતિ. જાણો કે અમે વપરાશકર્તા ડેટા અને કૂકીઝની સુરક્ષા કેવી રીતે કરીએ છીએ."
+    },
+    keywords: "Privacy Policy, Divine Garbh Sanskar privacy, data protection, AdSense privacy"
+  },
+  terms: {
+    title: {
+      hi: "सेवा की शर्तें | Terms of Service | Divine Garbh Sanskar",
+      en: "Terms & Conditions | Divine Garbh Sanskar",
+      gu: "સેવાની શરતો | Terms of Service | Divine Garbh Sanskar"
+    },
+    description: {
+      hi: "दिव्य गर्भ संस्कार की सेवा की शर्तें और नियम। वेबसाइट उपयोग, पाठ्यक्रम पंजीकरण और बौद्धिक संपदा अधिकार।",
+      en: "Terms of Service and Website Usage Rules for Divine Garbh Sanskar. Program access, disclaimers, and user terms.",
+      gu: "દિવ્ય ગર્ભ સંસ્કારની સેવાની શરતો અને નિયમો."
+    },
+    keywords: "Terms of Service, Terms and Conditions, Divine Garbh Sanskar legal terms"
+  },
+  refund: {
+    title: {
+      hi: "रिफंड एवं रद्दीकरण नीति | Refund Policy | Divine Garbh Sanskar",
+      en: "Refund & Cancellation Policy | Divine Garbh Sanskar",
+      gu: "રિફંડ નીતિ | Refund Policy | Divine Garbh Sanskar"
+    },
+    description: {
+      hi: "दिव्य गर्भ संस्कार पाठ्यक्रमों के लिए हमारी स्पष्ट और पारदर्शी रिफंड एवं रद्दीकरण नीति पढ़ें।",
+      en: "Transparent Refund and Cancellation Policy for Divine Garbh Sanskar courses, workshops, and digital guides.",
+      gu: "દિવ્ય ગર્ભ સંસ્કાર કોર્સ માટે અમારી રિફંડ નીતિ વાંચો."
+    },
+    keywords: "Refund Policy, cancellation policy, Garbh Sanskar course refund"
+  },
+  cookie: {
+    title: {
+      hi: "कुकी नीति | Cookie Policy | Divine Garbh Sanskar",
+      en: "Cookie Policy | Divine Garbh Sanskar",
+      gu: "કૂકી નીતિ | Cookie Policy | Divine Garbh Sanskar"
+    },
+    description: {
+      hi: "दिव्य गर्भ संस्कार की कुकी नीति। जानें कि हम तकनीकी, विश्लेषणात्मक और विज्ञापन कुकीज़ का उपयोग कैसे करते हैं।",
+      en: "Understand how Divine Garbh Sanskar uses essential, analytical, and advertising cookies on our website.",
+      gu: "દિવ્ય ગર્ભ સંસ્કારની કૂકી નીતિ વિશે જાણો."
+    },
+    keywords: "Cookie Policy, AdSense cookies, cookie management, GDPR cookies"
+  },
+  disclaimer: {
+    title: {
+      hi: "स्वास्थ्य एवं चिकित्सा अस्वीकरण | Medical Disclaimer | Divine Garbh Sanskar",
+      en: "Medical & Health Disclaimer | Divine Garbh Sanskar",
+      gu: "સ્વાસ્થ્ય અસ્વીકરણ | Medical Disclaimer | Divine Garbh Sanskar"
+    },
+    description: {
+      hi: "दिव्य गर्भ संस्कार चिकित्सा अस्वीकरण। हमारी सामग्री केवल शैक्षणिक और सांस्कृतिक कल्याण के लिए है, चिकित्सा सलाह नहीं।",
+      en: "Medical and Health Disclaimer. Divine Garbh Sanskar content is for educational and wellness purposes only, not a substitute for professional medical care.",
+      gu: "દિવ્ય ગર્ભ સંસ્કાર સ્વાસ્થ્ય અસ્વીકરણ. માહિતી માત્ર શૈક્ષણિક હેતુ માટે છે."
+    },
+    keywords: "Medical Disclaimer, pregnancy health disclaimer, Garbh Sanskar disclaimer"
+  },
+  editorial: {
+    title: {
+      hi: "संपादकीय नीति | Editorial Policy | Divine Garbh Sanskar",
+      en: "Editorial & Content Quality Policy | Divine Garbh Sanskar",
+      gu: "સંપાદકીય નીતિ | Editorial Policy | Divine Garbh Sanskar"
+    },
+    description: {
+      hi: "दिव्य गर्भ संस्कार की संपादकीय नीति। हमारी तथ्य-जांच, स्रोत सत्यापन और AI सामग्री उपयोग दिशानिर्देश।",
+      en: "Read our Editorial Policy detailing content standards, medical information verification, research sources, and ethical AI assistance practices.",
+      gu: "દિવ્ય ગર્ભ સંસ્કારની સંપાદકીય નીતિ અને માહિતી પ્રમાણિકતા વિગતો."
+    },
+    keywords: "Editorial Policy, content standards, fact checking, medical content review"
+  },
+  authors: {
+    title: {
+      hi: "संपादकीय टीम एवं लेखक | Authors & Editorial Team | Divine Garbh Sanskar",
+      en: "Authors & Editorial Team | Divine Garbh Sanskar",
+      gu: "લેખક અને સંપાદકીય ટીમ | Authors | Divine Garbh Sanskar"
+    },
+    description: {
+      hi: "डॉ. तरुणा जियानी और दिव्य गर्भ संस्कार की विशेषज्ञ संपादकीय टीम से मिलें।",
+      en: "Meet Dr. Taruna Jiyani and the dedicated editorial team behind Divine Garbh Sanskar content and programs.",
+      gu: "ડો. તરુણા જીયાણી અને અમારી સંપાદકીય ટીમ વિશે જાણો."
+    },
+    keywords: "Dr Taruna Jiyani, Garbh Sanskar authors, editorial team, pregnancy experts"
   }
 };
 

@@ -107,12 +107,15 @@ export const getArticleSchema = (post) => ({
   "datePublished": post.date,
   "dateModified": post.date,
   "author": {
-    "@type": "Organization",
-    "name": "Divine Garbh Sanskar"
+    "@type": "Person",
+    "name": "Dr. Taruna Jiyani",
+    "jobTitle": "Founder & Lead Counselor",
+    "url": "https://www.thedivinegarbhsanskar.com/authors"
   },
   "publisher": {
     "@type": "Organization",
     "name": "Divine Garbh Sanskar",
+    "url": "https://www.thedivinegarbhsanskar.com",
     "logo": {
       "@type": "ImageObject",
       "url": "https://www.thedivinegarbhsanskar.com/logo.jpg"

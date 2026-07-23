@@ -4,6 +4,7 @@ import { Link, useParams } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 import MandalaBg from '../components/ui/MandalaBg';
 import { blogPosts, getBlogPostBySlug } from '../data/blogPosts';
+import MedicalDisclaimerBanner from '../components/ui/MedicalDisclaimerBanner';
 import { getArticleSchema, getBreadcrumbSchema, getFAQSchema } from '../seo/structuredData';
 import NotFound from './NotFound';
 
@@ -84,10 +85,23 @@ const BlogPost = () => {
             <p className="mt-4 text-base md:text-lg text-templeBrown/80 leading-relaxed">
               {t(post.description)}
             </p>
-            <p className="mt-4 text-sm text-templeBrown/60">
-              Published on {post.date}
-            </p>
+            
+            {/* Author & Reviewer Attribution */}
+            <div className="mt-6 flex flex-wrap items-center gap-4 py-3 px-4 bg-white rounded-divine-sm border border-divineGold/25 text-xs text-templeBrown/80 font-medium">
+              <span className="flex items-center gap-1.5 text-sacredMaroon font-bold">
+                ✍️ Authored by: <Link to="/authors" className="underline hover:text-vermillion">Dr. Taruna Jiyani</Link>
+              </span>
+              <span>•</span>
+              <span className="flex items-center gap-1.5 text-templeBrown">
+                🔍 Reviewed by: <Link to="/editorial-policy" className="underline hover:text-vermillion">Editorial Board</Link>
+              </span>
+              <span>•</span>
+              <span>📅 Published: {post.date}</span>
+            </div>
           </header>
+
+          {/* Medical Disclaimer Box */}
+          <MedicalDisclaimerBanner />
 
           <div className="mt-10 bg-white/90 rounded-[28px] border border-divineGold/20 p-6 md:p-10 shadow-sm">
             <div className="space-y-10">
