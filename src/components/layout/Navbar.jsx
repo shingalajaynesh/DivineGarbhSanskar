@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Globe } from 'lucide-react';
+import { Menu, X, Globe, ArrowRight } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
 import GoldenButton from '../ui/GoldenButton';
 import MandalaBg from '../ui/MandalaBg';
@@ -38,8 +38,6 @@ const Navbar = () => {
     { path: '/contact', label: { hi: 'संपर्क', en: 'Contact', gu: 'સંપર્ક' } }
   ];
 
-
-
   return (
     <>
       {/* Skip to Content */}
@@ -60,17 +58,18 @@ const Navbar = () => {
             isScrolled ? 'max-h-0 py-0 opacity-0' : 'max-h-12 py-1.5 opacity-100'
           }`}
         >
-          <Link to="/simantonayan" className="hover:underline flex items-center justify-center gap-1.5">
-            <span className="animate-pulse">✨</span>
+          <Link to="/simantonayan" className="hover:underline inline-flex items-center justify-center gap-1.5">
             <span>
               {t({
-                hi: "नया: सीमंतोन्नयन (गोद भराई) संस्कार मार्गदर्शन कार्यक्रम ➜",
-                en: "New: Sacred Simantonayan Prenatal Guidance Program ➜",
-                gu: "નવું: સીમંતોન્નયન સંસ્કાર માર્ગદર્શન કાર્યક્રમ ➜"
+                hi: "नया: सीमंतोन्नयन (गोद भराई) संस्कार मार्गदर्शन कार्यक्रम",
+                en: "New: Sacred Simantonayan Prenatal Guidance Program",
+                gu: "નવું: સીમંતોન્નયન સંસ્કાર માર્ગદર્શન કાર્યક્રમ"
               })}
             </span>
+            <ArrowRight className="w-3.5 h-3.5 shrink-0" />
           </Link>
         </div>
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
 
@@ -81,7 +80,6 @@ const Navbar = () => {
                 alt={t({ hi: "दिव्य गर्भ संस्कार लोगो", en: "Divine Garbh Sanskar Logo", gu: "દિવ્ય ગર્ભ સંસ્કાર લોગો" })}
                 className="w-12 h-12 md:w-14 md:h-14 rounded-full p-0.5 bg-white object-contain hover:rotate-6 transition-transform duration-300 shadow-md border border-divineGold/30"
               />
-
 
               <div className="flex flex-col">
                 <span className="font-accent text-base md:text-lg font-bold tracking-widest text-sacredMaroon leading-none">

@@ -3,13 +3,14 @@ import { useLanguage } from '../../context/LanguageContext';
 import SectionLabel from '../ui/SectionLabel';
 import FloatingCard from '../ui/FloatingCard';
 import MandalaBg from '../ui/MandalaBg';
+import { BookOpen, Heart, Music, Activity, Smartphone, Globe } from 'lucide-react';
 
 const WhyChooseUs = () => {
   const { t } = useLanguage();
 
   const cardsData = [
     {
-      icon: "🕉️",
+      icon: <BookOpen className="w-7 h-7 text-sacredMaroon" />,
       title: { hi: "वैदिक एवं वैज्ञानिक", en: "Vedic & Scientific", gu: "વૈદિક અને વૈજ્ઞાનિક" },
       desc: {
         hi: "हमारे सत्र प्राचीन ग्रन्थों के ज्ञान और आधुनिक भ्रूण विज्ञान (Embryology) के तर्कों पर आधारित हैं।",
@@ -18,7 +19,7 @@ const WhyChooseUs = () => {
       }
     },
     {
-      icon: "👩‍👧",
+      icon: <Heart className="w-7 h-7 text-vermillion" />,
       title: { hi: "व्यक्तिगत मार्गदर्शन", en: "Personalized Guidance", gu: "વ્યક્તિગત માર્ગદર્શન" },
       desc: {
         hi: "हर माँ और शिशु विशिष्ट होते हैं। हमारी काउंसलर हर चरण में आपसे जुड़कर सलाह देती हैं।",
@@ -27,7 +28,7 @@ const WhyChooseUs = () => {
       }
     },
     {
-      icon: "🎵",
+      icon: <Music className="w-7 h-7 text-sacredMaroon" />,
       title: { hi: "राग संगीत चिकित्सा", en: "Raag Music Therapy", gu: "રાગ સંગીત ચિકિત્સા" },
       desc: {
         hi: "विशेष रूप से चयनित राग संगीत जो गर्भ में शिशु के मस्तिष्क के स्नायुओं के विकास को उत्तेजित करता है।",
@@ -36,7 +37,7 @@ const WhyChooseUs = () => {
       }
     },
     {
-      icon: "🧘",
+      icon: <Activity className="w-7 h-7 text-vermillion" />,
       title: { hi: "योग एवं ध्यान", en: "Yoga & Meditation", gu: "યોગ અને ધ્યાન" },
       desc: {
         hi: "सुरक्षित प्रसव और मानसिक शांति के लिए योग, प्राणायाम और गहरी साँस लेने के विशेष अभ्यास।",
@@ -45,7 +46,7 @@ const WhyChooseUs = () => {
       }
     },
     {
-      icon: "📱",
+      icon: <Smartphone className="w-7 h-7 text-sacredMaroon" />,
       title: { hi: "100% ऑनलाइन", en: "100% Online Access", gu: "૧૦૦% ઓનલાઇન એક્સેસ" },
       desc: {
         hi: "आप घर बैठे, अपनी सुविधा के समय हमारे लाइव वर्कशॉप और मोबाइल ऐप गतिविधियों में शामिल हो सकती हैं।",
@@ -54,7 +55,7 @@ const WhyChooseUs = () => {
       }
     },
     {
-      icon: "🌍",
+      icon: <Globe className="w-7 h-7 text-vermillion" />,
       title: { hi: "विश्वव्यापी पहुँच", en: "Available Worldwide", gu: "વિશ્વવ્યાપી પહોંચ" },
       desc: {
         hi: "भारत, यूएसए, यूके और दुनिया के अन्य हिस्सों से हजारों गर्भवती माताएं हमारी कक्षाओं का लाभ ले रही हैं।",
@@ -82,7 +83,7 @@ const WhyChooseUs = () => {
           {cardsData.map((card, index) => (
             <FloatingCard key={index} delay={index * 0.1} className="flex flex-col items-center text-center p-8 bg-white border border-divineGold/20 rounded-divine-md">
               {/* Pulsing Icon */}
-              <div className="w-16 h-16 rounded-full bg-softCream border border-divineGold/30 flex items-center justify-center text-3xl mb-6 shadow-inner group-hover:animate-pulse">
+              <div className="w-16 h-16 rounded-full bg-softCream border border-divineGold/30 flex items-center justify-center mb-6 shadow-inner group-hover:scale-105 transition-transform">
                 {card.icon}
               </div>
               

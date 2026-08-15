@@ -3,7 +3,7 @@ import { useLanguage } from '../../context/LanguageContext';
 import MandalaBg from '../ui/MandalaBg';
 import GoldenButton from '../ui/GoldenButton';
 import { Link } from 'react-router-dom';
-import { Sparkles, Heart, ArrowRight, Instagram, ShieldCheck, Brain, Compass, Music } from 'lucide-react';
+import { Heart, ArrowRight, Instagram, ShieldCheck, Sun, Compass, Music } from 'lucide-react';
 
 const SimantonayanTeaser = () => {
   const { t } = useLanguage();
@@ -23,7 +23,7 @@ const SimantonayanTeaser = () => {
       }
     },
     {
-      icon: <Brain className="w-4 h-4 text-divineGold" />,
+      icon: <Sun className="w-4 h-4 text-divineGold" />,
       title: {
         hi: "२. सीमंतोन्नयन विधि (Sacred Hair-Parting)",
         en: "2. Sacred Hair-Parting Science",
@@ -81,8 +81,8 @@ const SimantonayanTeaser = () => {
 
         {/* Custom Dark-Mode Section Header */}
         <div className="flex flex-col mb-12 items-center text-center">
-          <span className="font-accent text-divineGold font-bold text-sm tracking-widest mb-3 uppercase animate-pulse">
-            ✦ {t({ hi: "विशेष गर्भावस्था अनुष्ठान", en: "Vedic Prenatal Science", gu: "વિશેષ ગર્ભાવસ્થા સંસ્કાર વિધિ" })} ✦
+          <span className="text-divineGold font-bold text-xs md:text-sm tracking-wider mb-3 uppercase bg-white/10 px-3.5 py-1 rounded-full border border-divineGold/30">
+            {t({ hi: "विशेष गर्भावस्था अनुष्ठान", en: "Vedic Prenatal Science", gu: "વિશેષ ગર્ભાવસ્થા સંસ્કાર વિધિ" })}
           </span>
           <h2 className="font-devanagari text-3xl md:text-5xl text-white leading-tight font-normal mb-2">
             {t({ hi: "सीमंतोन्नयन (गोद भराई) संस्कार मार्गदर्शन", en: "Sacred Simantonayan Sanskar Guidance", gu: "સીમંતોન્નયન (ખોળો ભરાવવો) સંસ્કાર માર્ગદર્શન" })}
@@ -143,8 +143,8 @@ const SimantonayanTeaser = () => {
 
           {/* Clinical Specialist Badge */}
           <div className="flex items-center gap-3 bg-white/5 border border-white/10 px-4 py-2.5 rounded-full shadow-sm">
-            <div className="w-10 h-10 rounded-full bg-sacredMaroon border border-divineGold/35 flex items-center justify-center text-lg shadow-inner">
-              🩺
+            <div className="w-10 h-10 rounded-full bg-sacredMaroon border border-divineGold/35 flex items-center justify-center shadow-inner">
+              <Heart className="w-5 h-5 text-divineGold" />
             </div>
             <div className="text-left">
               <span className="text-[9px] text-divineGold font-accent font-black tracking-widest uppercase block">

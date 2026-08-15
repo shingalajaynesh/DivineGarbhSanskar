@@ -1,31 +1,31 @@
 export const courses = [
   {
-    id: "starter",
+    id: "foundation",
     title: {
-      hi: "🌱 गर्भ संस्कार परिचय (स्टार्टर)",
-      en: "🌱 Starter Garbh Sanskar Guide",
-      gu: "🌱 ગર્ભ સંસ્કાર પરિચય (સ્ટાર્ટર)"
+      hi: "आरंभिक गर्भ संस्कार (फाउंडेशन)",
+      en: "Foundation Garbh Sanskar Program",
+      gu: "પ્રારંભિક ગર્ભ સંસ્કાર (ફાઉન્ડેશન)"
     },
     duration: {
-      hi: "३ महीने का मार्गदर्शिका",
-      en: "3-Month Guide",
-      gu: "૩ મહિનાની માર્ગદર્શિકા"
+      hi: "३ महीने का परिचयात्मक कार्यक्रम",
+      en: "3-Month Initial Foundation",
+      gu: "૩ મહિનાનો પાયાનો કાર્યક્રમ"
     },
     price: {
-      hi: "₹1,999",
-      en: "₹1,999",
-      gu: "₹1,999"
+      hi: "₹2,499",
+      en: "₹2,499",
+      gu: "₹2,499"
     },
     popular: false,
     features: {
       hi: [
-        "बुनियादी दैनिक गतिविधियाँ (Basic Activities)",
-        "साप्ताहिक ध्यान सत्र (Weekly Meditation)",
-        "मोबाइल ऐप द्वारा पहुँच (Mobile App Access)",
-        "3 महीने का गर्भ आहार चार्ट (Diet Chart)"
+        "दैनिक गतिविधियाँ और कार्य (Daily Activities)",
+        "साप्ताहिक सामूहिक ध्यान सत्र",
+        "ऑनलाइन/मोबाइल ऐप एक्सेस",
+        "3 महीने का गर्भ आहार चार्ट"
       ],
       en: [
-        "Basic daily activities & tasks",
+        "Basic daily activities and tasks",
         "Weekly group meditation sessions",
         "Online/Mobile app access",
         "3-month customized diet guide"
@@ -38,17 +38,17 @@ export const courses = [
       ]
     },
     cta: {
-      hi: "जानें और शुरू करें ➜",
-      en: "Learn More & Start ➜",
-      gu: "જાણો અને શરૂ કરો ➜"
+      hi: "जानें और शुरू करें",
+      en: "Learn More and Start",
+      gu: "જાણો અને શરૂ કરો"
     }
   },
   {
     id: "complete",
     title: {
-      hi: "🌸 सम्पूर्ण गर्भ संस्कार (कम्प्लीट)",
-      en: "🌸 Complete Garbh Sanskar Program",
-      gu: "🌸 સંપૂર્ણ ગર્ભ સંસ્કાર (કમ્પ્લીટ)"
+      hi: "सम्पूर्ण गर्भ संस्कार (कम्प्लीट)",
+      en: "Complete Garbh Sanskar Program",
+      gu: "સંપૂર્ણ ગર્ભ સંસ્કાર (કમ્પ્લીટ)"
     },
     duration: {
       hi: "९ महीने का सम्पूर्ण कार्यक्रम",
@@ -71,10 +71,10 @@ export const courses = [
       ],
       en: [
         "9 months of guided daily activities",
-        "Raag Music therapy & soundscapes",
+        "Raag Music therapy and soundscapes",
         "Weekly live sessions with counselors",
-        "Monthly gynecologist & yoga expert calls",
-        "Personalized diet & prenatal yoga plans"
+        "Monthly gynecologist and yoga expert calls",
+        "Personalized diet and prenatal yoga plans"
       ],
       gu: [
         "૯ મહિનાની માર્ગદર્શિત દૈનિક પ્રવૃત્તિઓ",
@@ -85,17 +85,17 @@ export const courses = [
       ]
     },
     cta: {
-      hi: "अभी शामिल हों ➜",
-      en: "Enroll Now ➜",
-      gu: "અત્યારે જ જોડાઓ ➜"
+      hi: "अभी शामिल हों",
+      en: "Enroll Now",
+      gu: "અત્યારે જ જોડાઓ"
     }
   },
   {
     id: "divine-plus",
     title: {
-      hi: "👑 दिव्य प्रीमियम (डिवाइन प्लस)",
-      en: "👑 Divine Plus Premium Program",
-      gu: "👑 દિવ્ય પ્રીમિયમ (ડિવાઇન પ્લસ)"
+      hi: "दिव्य प्रीमियम (डिवाइन प्लस)",
+      en: "Divine Plus Premium Program",
+      gu: "દિવ્ય પ્રીમિયમ (ડિવાઇન પ્લસ)"
     },
     duration: {
       hi: "९ महीने + ३ महीने प्रसवोत्तर देखभाल",
@@ -120,7 +120,7 @@ export const courses = [
         "9 Months pregnancy + 3 Months postpartum care",
         "Dedicated 1:1 expert personal counselor",
         "Physical Divine Garbh Sanskar Kit (delivered home)",
-        "Postpartum recovery, yoga & diet planning",
+        "Postpartum recovery, yoga and diet planning",
         "Special prenatal workshops for husbands"
       ],
       gu: [
@@ -132,9 +132,11 @@ export const courses = [
       ]
     },
     cta: {
-      hi: "जानें और बुक करें ➜",
-      en: "Book Premium ➜",
-      gu: "જાણો અને બુક કરો ➜"
+      hi: "जानें और बुक करें",
+      en: "Book Premium Plan",
+      gu: "જાણો અને બુક કરો"
     }
   }
 ];
+
+export const coursesData = courses;

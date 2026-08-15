@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Phone, MessageCircle } from 'lucide-react';
+import { Phone, MessageCircle, Music, Activity, BookOpen } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
 import MandalaBg from '../ui/MandalaBg';
 
@@ -18,8 +18,8 @@ const FinalCTA = () => {
           
           {/* Left Side: Call-to-action text and buttons */}
           <div className="lg:col-span-7 text-center lg:text-left flex flex-col gap-6">
-            <span className="font-accent text-xs font-bold tracking-widest uppercase text-vermillion block">
-              ✦ {t({ hi: "मातृत्व का दिव्य उपहार", en: "A Divine Gift of Motherhood", gu: "માતૃત્વની દિવ્ય ભેટ" })} ✦
+            <span className="text-xs font-bold tracking-wider uppercase text-vermillion block">
+              {t({ hi: "मातृत्व का दिव्य उपहार", en: "A Divine Gift of Motherhood", gu: "માતૃત્વની દિવ્ય ભેટ" })}
             </span>
             
             <h2 className="font-devanagari text-3xl sm:text-5xl font-black leading-tight">
@@ -55,7 +55,9 @@ const FinalCTA = () => {
                 rel="noopener noreferrer"
                 className="px-8 py-4 bg-[#25D366] text-white font-accent font-bold text-sm tracking-wider uppercase rounded-divine-md hover:bg-[#20ba5a] shadow-lg flex items-center gap-2.5 transition-all"
               >
-                <MessageCircle className="w-5 h-5 fill-white text-[#25D366]" />
+                <svg viewBox="0 0 24 24" className="w-5 h-5 fill-white" aria-hidden="true">
+                  <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.698c.97.531 1.77.818 2.796.818 3.18 0 5.767-2.587 5.768-5.766.001-3.182-2.585-5.77-5.768-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.715.068-2.072-.497-1.733-.722-2.827-2.483-2.913-2.598-.087-.116-.704-.937-.704-1.787 0-.85.448-1.267.607-1.44.159-.174.346-.217.462-.217.116 0 .231.002.332.007.107.006.25-.041.391.297.144.347.491 1.2.534 1.287.043.087.072.188.014.303-.058.116-.087.188-.173.289l-.26.303c-.087.087-.178.181-.077.355.101.173.449.741.964 1.2.662.591 1.221.774 1.394.86.174.087.275.073.376-.044.101-.116.433-.506.549-.68.116-.173.232-.144.39-.087.159.058 1.011.477 1.184.564.173.087.289.13.332.202.044.072.044.42-.1.825zM12 2C6.477 2 2 6.477 2 12c0 1.891.524 3.66 1.434 5.178L2 22l4.981-1.306A9.948 9.948 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18.154c-1.614 0-3.12-.464-4.403-1.267l-.316-.197-2.964.778.791-2.888-.214-.341A8.115 8.115 0 013.846 12c0-4.496 3.658-8.154 8.154-8.154s8.154 3.658 8.154 8.154-3.658 8.154-8.154 8.154z"/>
+                </svg>
                 <span>{t({ hi: "व्हाट्सएप करें", en: "WhatsApp Us", gu: "વોટ્સએપ કરો" })}</span>
               </a>
             </div>
@@ -88,27 +90,27 @@ const FinalCTA = () => {
               <motion.div
                 animate={{ y: [0, -8, 0] }}
                 transition={{ duration: 3.4, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute top-2 left-6 w-10 h-10 bg-white/95 rounded-full flex items-center justify-center text-base shadow-md"
+                className="absolute top-2 left-6 w-10 h-10 bg-white/95 rounded-full flex items-center justify-center shadow-md text-sacredMaroon"
               >
-                🎵
+                <Music className="w-4 h-4 text-sacredMaroon" />
               </motion.div>
               
               {/* Yoga */}
               <motion.div
                 animate={{ y: [0, 8, 0] }}
                 transition={{ duration: 3.9, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}
-                className="absolute bottom-4 right-6 w-10 h-10 bg-white/95 rounded-full flex items-center justify-center text-base shadow-md"
+                className="absolute bottom-4 right-6 w-10 h-10 bg-white/95 rounded-full flex items-center justify-center shadow-md text-sacredMaroon"
               >
-                🧘
+                <Activity className="w-4 h-4 text-sacredMaroon" />
               </motion.div>
               
               {/* Literature/Book */}
               <motion.div
                 animate={{ y: [0, -6, 0] }}
                 transition={{ duration: 4.3, repeat: Infinity, ease: "easeInOut", delay: 0.6 }}
-                className="absolute top-1/2 -right-4 w-10 h-10 bg-white/95 rounded-full flex items-center justify-center text-base shadow-md"
+                className="absolute top-1/2 -right-4 w-10 h-10 bg-white/95 rounded-full flex items-center justify-center shadow-md text-sacredMaroon"
               >
-                📚
+                <BookOpen className="w-4 h-4 text-sacredMaroon" />
               </motion.div>
 
             </div>

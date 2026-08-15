@@ -175,8 +175,8 @@ export const seoConfig = {
       gu: "સંપાદકીય નીતિ | Editorial Policy | Divine Garbh Sanskar"
     },
     description: {
-      hi: "दिव्य गर्भ संस्कार की संपादकीय नीति। हमारी तथ्य-जांच, स्रोत सत्यापन और AI सामग्री उपयोग दिशानिर्देश।",
-      en: "Read our Editorial Policy detailing content standards, medical information verification, research sources, and ethical AI assistance practices.",
+      hi: "दिव्य गर्भ संस्कार की संपादकीय नीति। हमारी तथ्य-जांच, स्रोत सत्यापन और विशेषज्ञ गुणवत्ता नियंत्रण दिशानिर्देश।",
+      en: "Read our Editorial Policy detailing content standards, medical information verification, research sources, and expert human authorship standards.",
       gu: "દિવ્ય ગર્ભ સંસ્કારની સંપાદકીય નીતિ અને માહિતી પ્રમાણિકતા વિગતો."
     },
     keywords: "Editorial Policy, content standards, fact checking, medical content review"

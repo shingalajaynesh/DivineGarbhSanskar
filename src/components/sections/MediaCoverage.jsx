@@ -112,13 +112,13 @@ const MediaCoverage = () => {
                 </div>
                 <div className="flex flex-col gap-2">
                   <h4 className="font-sans font-bold text-base md:text-lg">
-                    {t({ hi: "मीडिया फ़ोटो स्थान धारक", en: "Media Photo Placeholder", gu: "મીડિયા ફોટો પ્લેસહોલ્ડર" })}
+                    {t({ hi: "प्रेस एवं समाचार कवरेज", en: "Press & News Coverage", gu: "પ્રેસ અને સમાચાર કવરેજ" })}
                   </h4>
                   <p className="font-sans text-xs md:text-sm text-templeBrown/70 max-w-md">
                     {t({
-                      hi: `कृपया public/media/ 📂 फोल्डर में इस फाइल को बदलें: media${currentIndex + 1}.jpg`,
-                      en: `Please replace the file: media${currentIndex + 1}.jpg inside public/media/ 📂 folder with your actual photo.`,
-                      gu: `કૃપા કરીને public/media/ 📂 ફોલ્ડરમાં આ ફાઇલ બદલો: media${currentIndex + 1}.jpg`
+                      hi: "प्रमुख क्षेत्रीय समाचार पत्रों और मीडिया चैनलों में दिव्य गर्भ संस्कार का उल्लेख।",
+                      en: "Featured news clippings and reports on Divine Garbh Sanskar across prominent regional media publications.",
+                      gu: "મુખ્ય પ્રાદેશિક સમાચાર પત્રોમાં દિવ્ય ગર્ભ સંસ્કારનો ઉલ્લેખ."
                     })}
                   </p>
                 </div>

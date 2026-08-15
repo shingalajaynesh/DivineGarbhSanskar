@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Play } from 'lucide-react';
+import { Play, Music, Activity, BookOpen, Check } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
 import GoldenButton from '../ui/GoldenButton';
 import ParticleField from '../ui/ParticleField';
@@ -37,16 +37,18 @@ const Hero = () => {
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="font-accent text-vermillion font-bold text-sm tracking-widest uppercase"
+              className="inline-flex items-center gap-2 text-vermillion font-bold text-xs md:text-sm tracking-wider uppercase bg-vermillion/5 px-3.5 py-1.5 rounded-full border border-vermillion/15 w-fit"
             >
-              ✦ {t({ hi: "वैदिक विज्ञान", en: "Vedic Science", gu: "વૈદિક વિજ્ઞાન" })} · {t({ hi: "आधुनिक गर्भावस्था", en: "Modern Motherhood", gu: "આધુનિક માતૃત્વ" })} ✦
+              <span>{t({ hi: "वैदिक विज्ञान", en: "Vedic Science", gu: "વૈદિક વિજ્ઞાન" })}</span>
+              <span className="text-vermillion/40">•</span>
+              <span>{t({ hi: "आधुनिक गर्भावस्था", en: "Modern Motherhood", gu: "આધુનિક માતૃત્વ" })}</span>
             </motion.span>
 
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="font-devanagari text-4xl sm:text-5xl md:text-[68px] text-sacredMaroon leading-[1.15] font-normal"
+              className="font-serif text-4xl sm:text-5xl md:text-[64px] text-sacredMaroon leading-[1.15] font-normal"
             >
               {t({
                 hi: "गर्भ संस्कार से दिव्य संतान की नींव रखें",
@@ -61,10 +63,10 @@ const Hero = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="flex flex-col gap-3"
             >
-              <h2 className="font-latinDisplay text-xl sm:text-2xl text-templeBrown italic font-semibold">
+              <h2 className="text-xl sm:text-2xl text-templeBrown font-serif font-semibold leading-snug tracking-normal">
                 {t({
                   hi: "प्राचीन वैदिक ज्ञान और आधुनिक भ्रूण विज्ञान का समन्वय",
-                  en: "Weaving Vedic wisdom & modern embryology into parenting",
+                  en: "Weaving Vedic wisdom and modern embryology into parenting",
                   gu: "પ્રાચીન વૈદિક જ્ઞાન અને આધુનિક ભ્રૂણ વિજ્ઞાનનો સમન્વય"
                 })}
               </h2>
@@ -86,7 +88,7 @@ const Hero = () => {
             >
               <Link to="/contact">
                 <GoldenButton className="flex items-center gap-2">
-                  🌸 {t({ hi: "निःशुल्क परामर्श लें", en: "Free Counselling", gu: "મફત પરામર્શ લો" })}
+                  {t({ hi: "निःशुल्क परामर्श लें", en: "Free Counselling", gu: "મફત પરામર્શ લો" })}
                 </GoldenButton>
               </Link>
               
@@ -108,9 +110,9 @@ const Hero = () => {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="flex flex-wrap gap-x-6 gap-y-2 mt-4 text-xs font-semibold text-templeBrown/70 border-t border-sacredMaroon/10 pt-4"
             >
-              <span>✓ {t({ hi: "10,000+ परिवार बदले", en: "10,000+ Families Transformed", gu: "10,000+ પરિવારો બદલાયા" })}</span>
-              <span>✓ {t({ hi: "वैदिक + वैज्ञानिक", en: "Vedic + Scientific", gu: "વૈદિક + વૈજ્ઞાનિક" })}</span>
-              <span>✓ {t({ hi: "100% ऑनलाइन कार्यशाला", en: "100% Online Workshops", gu: "100% ઓનલાઇન વર્કશોપ" })}</span>
+              <span className="inline-flex items-center"><Check className="w-3.5 h-3.5 text-sacredMaroon mr-1.5 shrink-0" />{t({ hi: "10,000+ परिवार बदले", en: "10,000+ Families Transformed", gu: "10,000+ પરિવારો બદલાયા" })}</span>
+              <span className="inline-flex items-center"><Check className="w-3.5 h-3.5 text-sacredMaroon mr-1.5 shrink-0" />{t({ hi: "वैदिक + वैज्ञानिक", en: "Vedic + Scientific", gu: "વૈદિક + વૈજ્ઞાનિક" })}</span>
+              <span className="inline-flex items-center"><Check className="w-3.5 h-3.5 text-sacredMaroon mr-1.5 shrink-0" />{t({ hi: "100% ऑनलाइन कार्यशाला", en: "100% Online Workshops", gu: "100% ઓનલાઇન વર્કશોપ" })}</span>
             </motion.div>
           </div>
 
@@ -213,7 +215,8 @@ const Hero = () => {
                 transition={{ duration: 3.2, repeat: Infinity, ease: "easeInOut" }}
                 className="absolute top-0 -left-6 bg-white/95 border border-divineGold/55 shadow-md px-3 py-1.5 rounded-full text-xs font-bold text-sacredMaroon flex items-center gap-1.5 z-20 cursor-default"
               >
-                <span>🎵</span> {t({ hi: "राग संगीत", en: "Vedic Music", gu: "રાગ સંગીત" })}
+                <Music className="w-3.5 h-3.5 text-divineGold shrink-0" />
+                <span>{t({ hi: "राग संगीत", en: "Vedic Music", gu: "રાગ સંગીત" })}</span>
               </motion.div>
 
               {/* Chip 2: Yoga & Meditation */}
@@ -222,7 +225,8 @@ const Hero = () => {
                 transition={{ duration: 3.8, repeat: Infinity, ease: "easeInOut", delay: 0.4 }}
                 className="absolute bottom-6 -right-6 bg-white/95 border border-divineGold/55 shadow-md px-3 py-1.5 rounded-full text-xs font-bold text-sacredMaroon flex items-center gap-1.5 z-20 cursor-default"
               >
-                <span>🧘</span> {t({ hi: "योग और ध्यान", en: "Yoga & Meditation", gu: "યોગ અને ધ્યાન" })}
+                <Activity className="w-3.5 h-3.5 text-divineGold shrink-0" />
+                <span>{t({ hi: "योग और ध्यान", en: "Yoga & Meditation", gu: "યોગ અને ધ્યાન" })}</span>
               </motion.div>
 
               {/* Chip 3: Brain Development */}
@@ -231,7 +235,8 @@ const Hero = () => {
                 transition={{ duration: 4.2, repeat: Infinity, ease: "easeInOut", delay: 0.8 }}
                 className="absolute -bottom-2 -left-4 bg-white/95 border border-divineGold/55 shadow-md px-3 py-1.5 rounded-full text-xs font-bold text-sacredMaroon flex items-center gap-1.5 z-20 cursor-default"
               >
-                <span>🧠</span> {t({ hi: "दिमागी विकास", en: "Brain Development", gu: "મગજનો વિકાસ" })}
+                <BookOpen className="w-3.5 h-3.5 text-divineGold shrink-0" />
+                <span>{t({ hi: "दिमागी विकास", en: "Brain Development", gu: "મગજનો વિકાસ" })}</span>
               </motion.div>
 
             </div>

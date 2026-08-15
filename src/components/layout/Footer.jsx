@@ -145,8 +145,8 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/" className="hover:text-divineGold transition-colors">
-                  {t({ hi: "हमारी पुस्तकें एवं साहित्य", en: "Garbh Sanskar Books", gu: "અમારી પુસ્તકો અને સાહિત્ય" })}
+                <Link to="/blog" className="hover:text-divineGold transition-colors">
+                  {t({ hi: "हमारी पुस्तकें एवं साहित्य", en: "Garbh Sanskar Books & Wisdom", gu: "અમારી પુસ્તકો અને સાહિત્ય" })}
                 </Link>
               </li>
             </ul>

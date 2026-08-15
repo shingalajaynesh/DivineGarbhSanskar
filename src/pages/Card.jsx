@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
-import { Phone, Mail, Globe, MapPin, Share2, UserPlus, Star, Check } from 'lucide-react';
+import { Phone, Mail, Globe, MapPin, Share2, UserPlus, Star, Check, Sun } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { seoConfig } from '../seo/seoConfig';
 import { getBreadcrumbSchema } from '../seo/structuredData';
@@ -145,8 +145,8 @@ END:VCARD`;
                   />
                 </div>
                 {/* Gold Crest Ribbon Badge */}
-                <div className="absolute -bottom-1.5 -right-1.5 w-8 h-8 bg-gradient-to-r from-divineGold to-warmAmber border-2 border-white rounded-full flex items-center justify-center shadow-md text-[11px]" title="Founder & CEO">
-                  🩺
+                <div className="absolute -bottom-1.5 -right-1.5 w-8 h-8 bg-gradient-to-r from-divineGold to-warmAmber border-2 border-white rounded-full flex items-center justify-center shadow-md text-sacredMaroon" title="Founder & CEO">
+                  <Star className="w-4 h-4 fill-sacredMaroon text-sacredMaroon" />
                 </div>
               </div>
             </div>
@@ -182,8 +182,8 @@ END:VCARD`;
                 className="w-11 h-11 rounded-full bg-[#25D366] text-white flex items-center justify-center text-lg hover:scale-105 transition-transform shadow-md"
                 aria-label="WhatsApp"
               >
-                <svg viewBox="0 0 24 24" className="w-5 h-5 fill-current">
-                  <path d="M12.004 2C6.51 2 2.014 6.5 2.014 12c0 2.13.67 4.11 1.81 5.73L2.03 23l5.44-1.42A9.9 9.9 0 0012 22c5.49 0 9.986-4.5 9.986-10S17.494 2 12.004 2zm0 18.2a8.2 8.2 0 01-4.22-1.18l-.3-.18-3.13.82.83-3.04-.2-.3a8.2 8.2 0 117.02 3.88z" />
+                <svg viewBox="0 0 24 24" className="w-5 h-5 fill-current" aria-hidden="true">
+                  <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.698c.97.531 1.77.818 2.796.818 3.18 0 5.767-2.587 5.768-5.766.001-3.182-2.585-5.77-5.768-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.715.068-2.072-.497-1.733-.722-2.827-2.483-2.913-2.598-.087-.116-.704-.937-.704-1.787 0-.85.448-1.267.607-1.44.159-.174.346-.217.462-.217.116 0 .231.002.332.007.107.006.25-.041.391.297.144.347.491 1.2.534 1.287.043.087.072.188.014.303-.058.116-.087.188-.173.289l-.26.303c-.087.087-.178.181-.077.355.101.173.449.741.964 1.2.662.591 1.221.774 1.394.86.174.087.275.073.376-.044.101-.116.433-.506.549-.68.116-.173.232-.144.39-.087.159.058 1.011.477 1.184.564.173.087.289.13.332.202.044.072.044.42-.1.825zM12 2C6.477 2 2 6.477 2 12c0 1.891.524 3.66 1.434 5.178L2 22l4.981-1.306A9.948 9.948 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18.154c-1.614 0-3.12-.464-4.403-1.267l-.316-.197-2.964.778.791-2.888-.214-.341A8.115 8.115 0 013.846 12c0-4.496 3.658-8.154 8.154-8.154s8.154 3.658 8.154 8.154-3.658 8.154-8.154 8.154z"/>
                 </svg>
               </a>
 
@@ -285,7 +285,7 @@ END:VCARD`;
               <Link to="/simantonayan" className="flex items-center justify-between p-3.5 bg-gradient-to-r from-sacredMaroon/5 to-warmAmber/5 hover:from-sacredMaroon/10 rounded-2xl border border-divineGold/20 transition-all">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-full bg-warmAmber/10 text-warmAmber flex items-center justify-center shrink-0">
-                    ✨
+                    <Sun className="w-5 h-5 text-warmAmber" />
                   </div>
                   <div className="flex flex-col text-left">
                     <span className="text-[10px] text-sacredMaroon font-bold uppercase tracking-wider">Special Program</span>
@@ -300,12 +300,12 @@ END:VCARD`;
               {/* Google Reviews rating inline snippet */}
               <a href="https://share.google/RGcRhq1kyraBvkA7j" target="_blank" rel="noopener noreferrer" className="flex items-center justify-between p-3.5 bg-gradient-to-r from-divineGold/10 to-warmAmber/5 hover:from-divineGold/20 rounded-2xl border border-divineGold/20 transition-all">
                 <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center border border-divineGold/35 shadow-sm text-sm">
-                    ⭐
+                  <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center border border-divineGold/35 shadow-sm text-warmAmber">
+                    <Star className="w-4 h-4 fill-warmAmber text-warmAmber" />
                   </div>
                   <div className="flex flex-col text-left">
                     <span className="text-[10px] text-sacredMaroon font-bold uppercase tracking-wider">Google Rating</span>
-                    <span className="text-xs font-bold text-templeBrown">4.9 ★ (161+ Reviews)</span>
+                    <span className="text-xs font-bold text-templeBrown">4.9 / 5.0 (161+ Reviews)</span>
                   </div>
                 </div>
                 <span className="text-xs text-sacredMaroon font-semibold underline hover:text-vermillion transition-colors">

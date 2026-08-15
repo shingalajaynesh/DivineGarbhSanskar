@@ -106,11 +106,21 @@ export const getArticleSchema = (post) => ({
   "image": [post.image],
   "datePublished": post.date,
   "dateModified": post.date,
+  "inLanguage": ["en", "hi", "gu"],
+  "about": {
+    "@type": "Thing",
+    "name": "Vedic Garbh Sanskar & Maternal Wellness"
+  },
   "author": {
     "@type": "Person",
     "name": "Dr. Taruna Jiyani",
-    "jobTitle": "Founder & Lead Counselor",
+    "jobTitle": "Founder & Lead Garbh Sanskar Counselor",
     "url": "https://www.thedivinegarbhsanskar.com/authors"
+  },
+  "reviewedBy": {
+    "@type": "Organization",
+    "name": "Editorial & Wellness Advisory Board",
+    "url": "https://www.thedivinegarbhsanskar.com/editorial-policy"
   },
   "publisher": {
     "@type": "Organization",
@@ -121,6 +131,10 @@ export const getArticleSchema = (post) => ({
       "url": "https://www.thedivinegarbhsanskar.com/logo.jpg"
     }
   },
+  "citation": post.references || [
+    "Charaka Samhita, Sharira Sthana",
+    "ICMR-NIN Maternal Dietary Guidelines"
+  ],
   "mainEntityOfPage": `https://www.thedivinegarbhsanskar.com/blog/${post.slug}`,
   "keywords": post.keywords
 });

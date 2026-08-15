@@ -5,6 +5,7 @@ import { seoConfig } from '../seo/seoConfig';
 import SectionLabel from '../components/ui/SectionLabel';
 import MandalaBg from '../components/ui/MandalaBg';
 import FloatingCard from '../components/ui/FloatingCard';
+import { BookOpen, Activity } from 'lucide-react';
 import { getBreadcrumbSchema } from '../seo/structuredData';
 
 const About = () => {
@@ -46,8 +47,8 @@ const About = () => {
           {/* Vision Statement block */}
           <div className="bg-white border-2 border-divineGold/35 rounded-divine-md p-8 md:p-12 shadow-md mb-16 relative overflow-hidden">
             <div className="absolute top-0 left-0 w-2 h-full bg-gradient-to-b from-divineGold to-warmAmber" />
-            <h3 className="font-accent text-xs font-black text-vermillion tracking-wider uppercase mb-4">
-              {t({ hi: "✦ हमारा लक्ष्य · OUR VISION ✦", en: "✦ OUR MISSION & VISION ✦", gu: "✦ અમારું લક્ષ્ય · OUR VISION ✦" })}
+            <h3 className="text-xs font-bold text-vermillion tracking-wider uppercase mb-4">
+              {t({ hi: "हमारा लक्ष्य · Our Vision", en: "Our Mission and Vision", gu: "અમારું લક્ષ્ય · Our Vision" })}
             </h3>
             
             <p className="font-sans text-lg md:text-xl font-bold text-sacredMaroon leading-relaxed mb-6">
@@ -71,7 +72,9 @@ const About = () => {
             
             {/* Historical Card */}
             <FloatingCard className="bg-white p-8 rounded-divine-md border border-divineGold/35">
-              <div className="text-3xl mb-4">📜</div>
+              <div className="w-12 h-12 rounded-full bg-sacredMaroon/10 flex items-center justify-center mb-4">
+                <BookOpen className="w-6 h-6 text-sacredMaroon" />
+              </div>
               <h3 className="font-sans font-bold text-xl text-sacredMaroon mb-3">
                 {t({ hi: "ऐतिहासिक परंपरा (Vedic History)", en: "Vedic Prenatal Science", gu: "ઐતિહાસિક પરંપરા (Vedic History)" })}
               </h3>
@@ -86,7 +89,9 @@ const About = () => {
 
             {/* Scientific Card */}
             <FloatingCard className="bg-white p-8 rounded-divine-md border border-divineGold/35" delay={0.2}>
-              <div className="text-3xl mb-4">🧬</div>
+              <div className="w-12 h-12 rounded-full bg-vermillion/10 flex items-center justify-center mb-4">
+                <Activity className="w-6 h-6 text-vermillion" />
+              </div>
               <h3 className="font-sans font-bold text-xl text-sacredMaroon mb-3">
                 {t({ hi: "वैज्ञानिक दृष्टिकोण (Modern Science)", en: "Epigenetics & Biology", gu: "વૈજ્ઞાનિક દ્રષ્ટિકોણ (Modern Science)" })}
               </h3>
@@ -118,6 +123,45 @@ const About = () => {
                   <p className="font-sans text-xs md:text-sm text-templeBrown/80 leading-relaxed">{t(pillar.desc)}</p>
                 </div>
               ))}
+            </div>
+          </div>
+
+          {/* Founder & Physical Center Spotlight for E-E-A-T */}
+          <div className="mt-16 bg-white border-2 border-divineGold/35 rounded-divine-md p-8 md:p-10 shadow-sm flex flex-col md:flex-row gap-8 items-center">
+            <img
+              src="/taruna.jpg"
+              alt="Dr. Taruna Jiyani"
+              className="w-32 h-32 rounded-full object-cover border-4 border-divineGold/40 shadow-md shrink-0"
+              loading="lazy"
+            />
+            <div className="flex-1 text-center md:text-left space-y-3">
+              <span className="inline-block px-3 py-1 bg-divineGold/20 text-sacredMaroon rounded-full text-xs font-bold uppercase tracking-wider">
+                {t({ hi: "संस्थापक एवं मुख्य मार्गदर्शक", en: "Founder & Lead Counselor", gu: "સ્થાપક અને મુખ્ય સલાહકાર" })}
+              </span>
+              <h3 className="text-2xl font-serif text-sacredMaroon font-bold">
+                Dr. Taruna Jiyani
+              </h3>
+              <p className="text-sm font-sans text-templeBrown/85 leading-relaxed">
+                {t({
+                  hi: "डॉ. तरुणा जियानी के मार्गदर्शन में 10,000+ से अधिक परिवारों ने वैदिक गर्भ संस्कार के माध्यम से सचेत मातृत्व का अनुभव किया है। हमारा मार्गदर्शन केंद्र सूरत, गुजरात में स्थित है।",
+                  en: "Under Dr. Taruna Jiyani's leadership, over 10,000+ families have embraced conscious parenting through Vedic Garbh Sanskar. Our physical guidance center is located in Surat, Gujarat.",
+                  gu: "ડૉ. તરુણા જીયાણીના માર્ગદર્શન હેઠળ ૧૦,૦૦૦+ થી વધુ પરિવારોએ વૈદિક ગર્ભ સંસ્કાર દ્વારા સભાન માતૃત્વનો અનુભવ કર્યો છે. અમારું માર્ગદર્શન કેન્દ્ર સુરત, ગુજરાતમાં આવેલું છે."
+                })}
+              </p>
+              <div className="pt-2 flex flex-wrap gap-4 justify-center md:justify-start text-xs font-semibold">
+                <a
+                  href="/authors"
+                  className="text-sacredMaroon font-bold hover:text-vermillion underline"
+                >
+                  {t({ hi: "संपादकीय टीम एवं लेखक प्रोफाइल देखें →", en: "View Authors & Editorial Team →", gu: "સંપાદકીય ટીમ અને લેખક પરિચય જુઓ →" })}
+                </a>
+                <a
+                  href="/editorial-policy"
+                  className="text-sacredMaroon font-bold hover:text-vermillion underline"
+                >
+                  {t({ hi: "संपादकीय नीति →", en: "Editorial Policy →", gu: "સંપાદકીય નીતિ →" })}
+                </a>
+              </div>
             </div>
           </div>
 

@@ -235,7 +235,7 @@ const ContactForm = () => {
                   ) : (
                     <>
                       <Send className="w-4.5 h-4.5" />
-                      <span>{t({ hi: "🌸 निःशुल्क सत्र बुक करें", en: "🌸 Book Free Session", gu: "🌸 મફત સત્ર બુક કરો" })}</span>
+                      <span>{t({ hi: "निःशुल्क सत्र बुक करें", en: "Book Free Session", gu: "મફત સત્ર બુક કરો" })}</span>
                     </>
                   )}
                 </button>
@@ -252,8 +252,8 @@ const ContactForm = () => {
             <div className="absolute -top-16 -right-16 w-40 h-40 bg-white/5 rounded-full pointer-events-none" />
 
             <div>
-              <span className="font-accent text-divineGold font-bold text-xs tracking-widest uppercase mb-4 block">
-                ✦ {t({ hi: "संपर्क कार्यालय", en: "Our HQ Coordinates", gu: "સંપર્ક કાર્યાલય" })} ✦
+              <span className="text-divineGold font-bold text-xs tracking-wider uppercase mb-4 block">
+                {t({ hi: "संपर्क कार्यालय", en: "Our HQ Coordinates", gu: "સંપર્ક કાર્યાલય" })}
               </span>
               
               <h3 className="font-sans font-black text-2xl text-white mb-6 leading-snug">

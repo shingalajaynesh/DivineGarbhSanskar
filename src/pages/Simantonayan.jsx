@@ -4,7 +4,7 @@ import { useLanguage } from '../context/LanguageContext';
 import SectionLabel from '../components/ui/SectionLabel';
 import GoldenButton from '../components/ui/GoldenButton';
 import MandalaBg from '../components/ui/MandalaBg';
-import { BookOpen, Sparkles, Heart, Check, Phone, Star, Instagram } from 'lucide-react';
+import { BookOpen, Heart, Check, Phone, Star, Instagram, Sun, ShieldCheck } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import ClassGallery from '../components/sections/ClassGallery';
 import { seoConfig } from '../seo/seoConfig';
@@ -33,7 +33,7 @@ const Simantonayan = () => {
         hi: "तीसरी तिमाही के महत्वपूर्ण समय में गर्भ में पल रहे बच्चे के संज्ञानात्मक कार्यों और सक्रिय इंद्रियों को उत्तेजित करने की वैदिक तकनीकें।",
         gu: "ત્રીજી ત્રિમાસિકના મહત્વપૂર્ણ સમયમાં ગર્ભમાં રહેલા બાળકના જ્ઞાનાત્મક કાર્યો અને સક્રિય ઇન્દ્રિયોને ઉત્તેજિત કરવાની વૈદિક પદ્ધતિઓ."
       },
-      icon: "🧠"
+      icon: <Sun className="w-6 h-6 text-sacredMaroon" />
     },
     {
       title: {
@@ -46,7 +46,7 @@ const Simantonayan = () => {
         hi: "सकारात्मक तरंगों, वैदिक मंत्रोच्चार और पारिवारिक जुड़ाव से माँ में कोर्टिसोल के स्तर को कम करना और आंतरिक प्रसन्नता को बढ़ावा देना।",
         gu: "હકારાત્મક સ્પંદનો, વૈદિક મંત્રોચ્ચાર અને પારિવારિક સ્નેહ દ્વારા માતામાં તણાવ હોર્મોન્સ ઘટાડી આંતરિક ખુશી વધારવી."
       },
-      icon: "🧘"
+      icon: <Heart className="w-6 h-6 text-vermillion" />
     },
     {
       title: {
@@ -59,7 +59,7 @@ const Simantonayan = () => {
         hi: "माँ और अजन्मे बच्चे की सुरक्षा और स्वस्थ विकास के लिए पवित्र मंत्रों के माध्यम से ब्रह्मांडीय ऊर्जा और दिव्य आशीर्वाद का आह्वान करना।",
         gu: "માતા અને અજાત બાળકની રક્ષા અને તંદુરસ્ત વિકાસ માટે પવિત્ર મંત્રો દ્વારા દિવ્ય આશીર્વાદ પ્રાપ્ત કરવા."
       },
-      icon: "🕉️"
+      icon: <ShieldCheck className="w-6 h-6 text-sacredMaroon" />
     }
   ];
 
@@ -175,16 +175,18 @@ const Simantonayan = () => {
           <div className="relative">
             <div className="absolute inset-0 bg-divineGold/10 rounded-divine-lg blur-2xl -z-10" />
             <img
-              src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&q=80&w=600"
-              alt={t({ hi: "पवित्र सीमंतोन्नयन संस्कार समारोह", en: "Sacred Simantonayan Sanskar Ceremony", gu: "પવિત્ર સીમંતોન્નયન સંસ્કાર વિધિ" })}
-              className="rounded-divine-lg border-2 border-divineGold/40 shadow-xl w-full h-[320px] md:h-[400px] object-cover"
+              src="/gallery/gallery4.jpg"
+              alt={t({ hi: "डॉ. तरुणा जियाणी - सीमंतोन्नयन संस्कार विशेषज्ञ", en: "Dr. Taruna Jiyani - Simantonayan Sanskar Specialist", gu: "ડૉ. તરુણા જીયાણી - સીમંતોન્નયન સંસ્કાર નિષ્ણાત" })}
+              className="rounded-divine-lg border-2 border-divineGold/40 shadow-xl w-full h-[340px] md:h-[420px] object-cover object-center"
             />
 
-            <div className="absolute -bottom-4 -right-4 bg-white border border-divineGold/35 p-3 rounded-2xl shadow-lg flex items-center gap-2">
-              <span className="text-xl">🩺</span>
+            <div className="absolute -bottom-4 -right-4 bg-white border border-divineGold/35 py-2.5 px-4 rounded-2xl shadow-lg flex items-center gap-3">
+              <div className="w-9 h-9 rounded-full bg-sacredMaroon/10 flex items-center justify-center text-sacredMaroon shrink-0">
+                <Star className="w-4.5 h-4.5 fill-divineGold text-divineGold" />
+              </div>
               <div className="text-left">
-                <span className="text-[10px] text-sacredMaroon font-bold uppercase tracking-wider block">Specialist</span>
-                <span className="text-xs font-black text-templeBrown">Dr. Taruna Jiyani</span>
+                <span className="text-[10px] text-sacredMaroon font-bold uppercase tracking-wider block">Lead Counselor</span>
+                <span className="text-xs md:text-sm font-black text-templeBrown">Dr. Taruna Jiyani</span>
               </div>
             </div>
           </div>
@@ -224,7 +226,7 @@ const Simantonayan = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12 items-stretch">
               {benefits.map((benefit, idx) => (
                 <div key={idx} className="p-6 bg-softCream/10 rounded-divine-md border border-divineGold/20 hover:border-divineGold/55 transition-all flex flex-col items-center text-center">
-                  <div className="w-12 h-12 bg-sacredMaroon/5 rounded-full flex items-center justify-center text-3xl mb-4 shrink-0 shadow-inner">
+                  <div className="w-12 h-12 bg-sacredMaroon/5 rounded-full flex items-center justify-center mb-4 shrink-0 shadow-inner">
                     {benefit.icon}
                   </div>
                   <h3 className="font-sans font-bold text-base md:text-lg text-sacredMaroon mb-2">

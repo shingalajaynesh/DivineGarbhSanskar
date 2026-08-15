@@ -61,12 +61,12 @@ const EditorialPolicy = () => {
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-sacredMaroon mb-4">3. AI-Content & Human Quality Control</h2>
+              <h2 className="text-2xl font-bold text-sacredMaroon mb-4">3. Expert Human Authorship & Editorial Quality Control</h2>
               <p>
-                We adhere strictly to Google's People-First Content Guidance. AI tools may assist in research structuring or language drafting, but all published articles undergo rigorous human review, fact-checking, and editorial editing for originality and usefulness before publication.
+                We adhere strictly to Google's People-First Content Guidance and authentic Ayurvedic scholarship standards. All published articles are authored, fact-checked, and reviewed by certified prenatal educators and wellness counselors for absolute accuracy, cultural authenticity, and practical usefulness before publication.
               </p>
               <p className="mt-3 font-semibold text-sacredMaroon">
-                We do not publish mass-produced, repetitive, or unverified automated content.
+                We do not publish mass-produced, automated, or unverified generic content.
               </p>
             </section>
 

@@ -137,4 +137,71 @@ body {
   margin: 0;
   background-color: #FEFFC5;
   color: #3B0F00;
+  font-family: 'Inter', 'Mukta', 'Noto Sans Devanagari', 'Noto Sans Gujarati', -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
+
+/* =========================================================
+   AUTHENTIC HUMAN-CRAFTED MULTILINGUAL TYPOGRAPHY
+   ========================================================= */
+
+/* English Typography (Prestigious, Human & Authoritative) */
+html[lang="en"] body,
+html[lang="en"] .font-sans {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+html[lang="en"] h1,
+html[lang="en"] h2,
+html[lang="en"] h3,
+html[lang="en"] .font-serif,
+html[lang="en"] .font-devanagari,
+html[lang="en"] .font-latinDisplay {
+  font-family: 'Lora', Georgia, 'Times New Roman', serif;
+}
+html[lang="en"] .font-accent {
+  font-family: 'Inter', -apple-system, sans-serif;
+  letter-spacing: 0.12em;
+  font-weight: 700;
+}
+
+/* Hindi Typography (Traditional Sacred Indian Heritage) */
+html[lang="hi"] body,
+html[lang="hi"] .font-sans {
+  font-family: 'Mukta', 'Noto Sans Devanagari', -apple-system, sans-serif;
+}
+html[lang="hi"] h1,
+html[lang="hi"] h2,
+html[lang="hi"] h3,
+html[lang="hi"] .font-devanagari,
+html[lang="hi"] .font-serif,
+html[lang="hi"] .font-latinDisplay {
+  font-family: 'Noto Serif Devanagari', 'Tiro Devanagari Hindi', 'Mukta', serif;
+  font-style: normal;
+}
+html[lang="hi"] .font-accent {
+  font-family: 'Mukta', 'Noto Sans Devanagari', sans-serif;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+}
+
+/* Gujarati Typography (Authentic Literary Gujarati) */
+html[lang="gu"] body,
+html[lang="gu"] .font-sans {
+  font-family: 'Noto Sans Gujarati', 'Mukta', -apple-system, sans-serif;
+}
+html[lang="gu"] h1,
+html[lang="gu"] h2,
+html[lang="gu"] h3,
+html[lang="gu"] .font-devanagari,
+html[lang="gu"] .font-serif,
+html[lang="gu"] .font-latinDisplay {
+  font-family: 'Noto Serif Gujarati', 'Noto Sans Gujarati', serif;
+  font-style: normal;
+}
+html[lang="gu"] .font-accent {
+  font-family: 'Noto Sans Gujarati', sans-serif;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+}
+

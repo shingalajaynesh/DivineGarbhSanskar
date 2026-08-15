@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Sun, Heart, ShieldCheck } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
 import SectionLabel from '../ui/SectionLabel';
 import MandalaBg from '../ui/MandalaBg';
@@ -98,30 +99,30 @@ const WhyGarbhSanskar = () => {
               <motion.div
                 animate={{ y: [0, -6, 0] }}
                 transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute top-2 right-12 w-11 h-11 bg-divineGold/20 border border-divineGold rounded-full flex items-center justify-center text-lg shadow-sm"
+                className="absolute top-2 right-12 w-11 h-11 bg-divineGold/20 border border-divineGold rounded-full flex items-center justify-center shadow-sm"
                 title={t({ en: "Positive Thoughts (Vichar)", hi: "सकारात्मक विचार", gu: "હકારાત્મક વિચારો" })}
               >
-                ☀️
+                <Sun className="w-5 h-5 text-sacredMaroon" />
               </motion.div>
 
-              {/* Lotus Symbol (Purity) */}
+              {/* Heart Symbol (Purity/Bhav) */}
               <motion.div
                 animate={{ y: [0, 8, 0] }}
                 transition={{ duration: 4.2, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}
-                className="absolute bottom-6 left-12 w-11 h-11 bg-white/90 border border-divineGold rounded-full flex items-center justify-center text-lg shadow-sm"
+                className="absolute bottom-6 left-12 w-11 h-11 bg-white/90 border border-divineGold rounded-full flex items-center justify-center shadow-sm"
                 title={t({ en: "Purity (Pavitrata)", hi: "पवित्रता", gu: "પવિત્રતા" })}
               >
-                🌸
+                <Heart className="w-5 h-5 text-vermillion" />
               </motion.div>
 
-              {/* Kalash Symbol (Culture) */}
+              {/* Shield Symbol (Culture/Suraksha) */}
               <motion.div
                 animate={{ y: [0, -8, 0] }}
                 transition={{ duration: 3.8, repeat: Infinity, ease: "easeInOut", delay: 0.6 }}
-                className="absolute top-1/2 -right-4 w-11 h-11 bg-white/90 border border-divineGold rounded-full flex items-center justify-center text-lg shadow-sm"
-                title={t({ en: "Cultural Roots (Kalash)", hi: "सांस्कृतिक जड़ें (कलश)", gu: "સાંસ્કૃતિક મૂળ (કળશ)" })}
+                className="absolute top-1/2 -right-4 w-11 h-11 bg-white/90 border border-divineGold rounded-full flex items-center justify-center shadow-sm"
+                title={t({ en: "Cultural Roots (Sanskriti)", hi: "सांस्कृतिक जड़ें", gu: "સાંસ્કૃતિક મૂળ" })}
               >
-                🏺
+                <ShieldCheck className="w-5 h-5 text-sacredMaroon" />
               </motion.div>
             </motion.div>
           </div>

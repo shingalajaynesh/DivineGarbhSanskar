@@ -15,10 +15,13 @@ export default {
         warmAmber: '#FF8C00',
       },
       fontFamily: {
-        devanagari: ['"Tiro Devanagari Hindi"', 'serif'],
-        latinDisplay: ['"Playfair Display"', 'serif'],
-        sans: ['"Poppins"', 'sans-serif'],
-        accent: ['"Cinzel"', 'serif'],
+        devanagari: ['"Noto Serif Devanagari"', '"Tiro Devanagari Hindi"', '"Mukta"', 'serif'],
+        hindi: ['"Mukta"', '"Noto Sans Devanagari"', 'sans-serif'],
+        gujarati: ['"Noto Serif Gujarati"', 'serif'],
+        gujaratiSans: ['"Noto Sans Gujarati"', 'sans-serif'],
+        serif: ['"Lora"', '"Noto Serif Devanagari"', '"Noto Serif Gujarati"', 'Georgia', 'serif'],
+        sans: ['"Inter"', '"Noto Sans Devanagari"', '"Noto Sans Gujarati"', '-apple-system', 'sans-serif'],
+        accent: ['"Inter"', 'sans-serif'],
       },
       borderRadius: {
         'divine-sm': '16px',

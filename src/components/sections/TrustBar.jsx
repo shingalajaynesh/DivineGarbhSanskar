@@ -11,56 +11,56 @@ const TrustBar = () => {
       font: "font-serif tracking-tighter font-extrabold italic text-slate-800 text-sm sm:text-base",
       hi: "टाइम्स ऑफ इंडिया",
       gu: "ટાઇમ્સ ઓફ ઇન્ડિયા",
-      tag: { en: "🏆 National Press", hi: "🏆 राष्ट्रीय समाचार", gu: "🏆 રાષ્ટ્રીય સમાચાર" }
+      tag: { en: "National Press", hi: "राष्ट्रीय समाचार", gu: "રાષ્ટ્રીય સમાચાર" }
     },
     {
       name: "Divya Bhaskar",
       font: "font-sans font-black text-[#E12B30] tracking-wide text-base sm:text-lg",
       hi: "दिव्य भास्कर",
       gu: "દિવ્ય ભાસ્કર",
-      tag: { en: "📰 No. 1 Gujarati", hi: "📰 नं. १ गुजराती दैनिक", gu: "📰 નં. ૧ ગુજરાતી દૈનિક" }
+      tag: { en: "No. 1 Gujarati Daily", hi: "नं. १ गुजराती दैनिक", gu: "નં. ૧ ગુજરાતી દૈનિક" }
     },
     {
       name: "Gujarat Samachar",
       font: "font-sans font-extrabold text-[#0D3B66] text-sm sm:text-base",
       hi: "गुजरात समाचार",
       gu: "ગુજરાત સમાચાર",
-      tag: { en: "🌟 Trusted Media", hi: "🌟 विश्वसनीय दैनिक", gu: "🌟 વિશ્વસનીય દૈનિક" }
+      tag: { en: "Trusted Media", hi: "विश्वसनीय दैनिक", gu: "વિશ્વસનીય દૈનિક" }
     },
     {
       name: "Dainik Bhaskar",
       font: "font-sans font-extrabold text-[#F47A20] tracking-tight text-sm sm:text-base",
       hi: "दैनिक भास्कर",
       gu: "દૈનિક ભાસ્કર",
-      tag: { en: "📢 Leading Hindi", hi: "📢 अग्रणी हिंदी दैनिक", gu: "📢 અગ્રણી હિન્દી દૈનિક" }
+      tag: { en: "Leading Hindi", hi: "अग्रणी हिंदी दैनिक", gu: "અગ્રણી હિન્દી દૈનિક" }
     },
     {
       name: "VTV News",
       font: "font-sans font-black uppercase tracking-widest text-[#E63946] text-xs sm:text-sm",
       hi: "वीटीवी न्यूज़",
       gu: "વીટીવી ન્યૂઝ",
-      tag: { en: "📺 Digital Network", hi: "📺 डिजिटल नेटवर्क", gu: "📺 ડિજિટલ નેટવર્ક" }
+      tag: { en: "Digital Network", hi: "डिजिटल नेटवर्क", gu: "ડિજિટલ નેટવર્ક" }
     },
     {
       name: "TV9 Gujarati",
       font: "font-sans font-black tracking-wider text-slate-700 text-sm sm:text-base",
       hi: "टीवी9 गुजराती",
       gu: "ટીવી૯ ગુજરાતી",
-      tag: { en: "⚡ News Channel", hi: "⚡ न्यूज़ चैनल", gu: "⚡ ન્યૂઝ ચેનલ" }
+      tag: { en: "News Channel", hi: "न्यूज़ चैनल", gu: "ન્યૂઝ ચેનલ" }
     },
     {
       name: "Sandesh News",
       font: "font-sans font-extrabold text-[#31572C] text-sm sm:text-base",
       hi: "संदेश न्यूज़",
       gu: "સંદેશ ન્યૂઝ",
-      tag: { en: "🎖️ Royal Legacy", hi: "🎖️ रॉयल लेगेसी", gu: "🎖️ રોયલ લેગેસી" }
+      tag: { en: "Royal Legacy", hi: "रॉयल लेगेसी", gu: "રોયલ લેગેસી" }
     },
     {
       name: "Chitralekha",
       font: "font-serif italic font-extrabold text-[#5E503F] text-sm sm:text-base",
       hi: "चित्रलेखा",
       gu: "ચિત્રલેખા",
-      tag: { en: "🎨 Weekly Mag", hi: "🎨 साप्ताहिक पत्रिका", gu: "🎨 સાપ્તાહિક પત્રિકા" }
+      tag: { en: "Weekly Mag", hi: "साप्ताहिक पत्रिका", gu: "સાપ્તાહિક પત્રિકા" }
     }
   ];
 
@@ -72,8 +72,8 @@ const TrustBar = () => {
       <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-48 h-48 bg-warmAmber/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 mb-8 text-center relative z-10">
-        <span className="font-accent text-xs font-bold text-sacredMaroon tracking-widest uppercase mb-2 block">
-          ✦ {t({ hi: "प्रमाणित विश्वसनीयता", en: "Media Presence", gu: "મીડિયા પ્રમાણપત્ર" })} ✦
+        <span className="text-xs font-bold text-sacredMaroon tracking-wider uppercase mb-2 block">
+          {t({ hi: "प्रमाणित विश्वसनीयता", en: "Media Presence", gu: "મીડિયા પ્રમાણપત્ર" })}
         </span>
         <h3 className="font-sans font-black text-2xl md:text-3xl text-templeBrown leading-snug">
           {t({

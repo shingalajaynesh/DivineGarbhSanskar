@@ -36,8 +36,8 @@ const Courses = () => {
               {/* Popular ribbon */}
               {course.popular && (
                 <div className="absolute top-0 right-8 transform -translate-y-1/2">
-                  <span className="bg-vermillion text-white text-xs font-accent font-bold px-3 py-1.5 rounded-full uppercase tracking-wider shadow-md">
-                    {t({ hi: "★ सबसे लोकप्रिय", en: "★ MOST POPULAR", gu: "★ સૌથી લોકપ્રિય" })}
+                  <span className="bg-vermillion text-white text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wider shadow-md">
+                    {t({ hi: "सबसे लोकप्रिय", en: "MOST POPULAR", gu: "સૌથી લોકપ્રિય" })}
                   </span>
                 </div>
               )}

@@ -8,6 +8,7 @@ import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import WhatsAppFloat from './components/layout/WhatsAppFloat';
 import CookieConsent from './components/ui/CookieConsent';
+import ScrollToTop from './components/layout/ScrollToTop';
 
 // Pages
 import Home from './pages/Home';
@@ -34,6 +35,7 @@ const AppContent = () => {
 
   return (
     <div className="flex flex-col min-h-screen bg-softCream">
+      <ScrollToTop />
       {!isCardPage && <Navbar />}
       <div className="flex-grow">
         <Routes>

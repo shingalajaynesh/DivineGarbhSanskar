@@ -27,8 +27,8 @@ const MedicalDisclaimerBanner = ({ fullPage = false }) => {
             en: "This content is provided for general educational and traditional wellness purposes only and does not constitute medical advice, diagnosis, or treatment. Always consult your obstetrician or qualified doctor before following diet, yoga, or wellness routines.",
             gu: "આ માહિતી માત્ર શૈક્ષણિક અને કલ્યાણકારી માર્ગદર્શન માટે છે, તબીબી સલાહનો વિકલ્પ નથી. હંમેશા તમારા ડૉક્ટરની સલાહ લો."
           })}{' '}
-          <Link to="/disclaimer" className="underline font-bold text-amber-950 hover:text-vermillion">
-            {t({ hi: "पूर्ण अस्वीकरण पढ़ें ➜", en: "Read full disclaimer ➜", gu: "સંપૂર્ણ અસ્વીકરણ વાંચો ➜" })}
+          <Link to="/disclaimer" className="underline font-bold text-amber-950 hover:text-vermillion ml-1">
+            {t({ hi: "पूर्ण अस्वीकरण पढ़ें »", en: "Read full disclaimer »", gu: "સંપૂર્ણ અસ્વીકરણ વાંચો »" })}
           </Link>
         </p>
       </div>

@@ -16,6 +16,7 @@ const NotFound = () => {
       <Helmet>
         <title>{t(meta.title)}</title>
         <meta name="description" content={t(meta.description)} />
+        <meta name="robots" content="noindex, nofollow" />
         <link rel="canonical" href="https://www.thedivinegarbhsanskar.com/404" />
         <html lang={language} />
       </Helmet>

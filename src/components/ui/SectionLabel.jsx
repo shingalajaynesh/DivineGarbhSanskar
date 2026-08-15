@@ -6,15 +6,15 @@ const SectionLabel = ({ label, titleHi, titleEn, center = true, isPageHeader = f
   return (
     <div className={`flex flex-col mb-12 ${center ? 'items-center text-center' : 'items-start text-left'}`}>
       {label && (
-        <span className="font-accent text-vermillion font-bold text-sm tracking-widest mb-3 uppercase">
-          ✦ {label} ✦
+        <span className="text-vermillion font-bold text-xs md:text-sm tracking-wider mb-3 uppercase bg-vermillion/5 px-3.5 py-1 rounded-full border border-vermillion/15 w-fit">
+          {label}
         </span>
       )}
-      <TitleTag className="font-devanagari text-3xl md:text-5xl text-sacredMaroon leading-tight font-normal mb-2">
+      <TitleTag className="font-serif text-3xl md:text-5xl text-sacredMaroon leading-tight font-medium mb-2">
         {titleHi}
       </TitleTag>
       {titleEn && (
-        <p className="font-latinDisplay text-lg md:text-xl text-templeBrown italic font-medium opacity-85">
+        <p className="text-base md:text-xl text-templeBrown font-sans font-medium opacity-85 mt-1">
           {titleEn}
         </p>
       )}
