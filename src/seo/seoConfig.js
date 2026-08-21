@@ -84,11 +84,11 @@ export const seoConfig = {
       gu: "સીમંતોન્નયન સંસ્કાર માર્ગદર્શન કાર્યક્રમ | Divine Garbh Sanskar"
     },
     description: {
-      hi: "गर्भावस्था के 7वें या 8वें महीने में सीमंतोन्नयन (गोद भराई) संस्कार के माध्यम से अजन्मे शिशु के सर्वोत्तम मानसिक विकास और माँ की सुरक्षा का वैदिक मार्गदर्शन प्राप्त करें।",
-      en: "Discover the sacred Vedic prenatal ritual of Simantonayan Sanskar (baby shower). Learn how to optimize fetal brain development and maternal wellness under expert guidance.",
-      gu: "ગર્ભાવસ્થાના ૭મા કે ૮મા મહિનામાં સીમંતોન્નયન (ખોળો ભરાવવો) વિધિ દ્વારા બાળકના માનસિક વિકાસ અને માતાની સુરક્ષાનું પરંપરાગત માર્ગદર્શન મેળવો।"
+      hi: "गर्भावस्था के 7वें या 8वें महीने में सीमंतोन्नयन (गोद भराई) संस्कार के माध्यम से माँ की मानसिक शांति और मंगलमय वातावरण का वैदिक मार्गदर्शन प्राप्त करें।",
+      en: "Discover the sacred Vedic prenatal ritual of Simantonayan Sanskar (baby shower). Learn traditional practices for maternal wellness and joyful family celebrations.",
+      gu: "ગર્ભાવસ્થાના ૭મા કે ૮મા મહિનામાં સીમંતોન્નયન (ખોળો ભરાવવો) વિધિ દ્વારા માતાની માનસિક શાંતિ અને માંગલિક વાતાવરણનું પરંપરાગત માર્ગદર્શન મેળવો।"
     },
-    keywords: "Simantonayan Sanskar, baby shower India, Vedic pregnancy ritual, prenatal brain development, Surat, Dr Taruna Jiyani"
+    keywords: "Simantonayan Sanskar, baby shower India, Vedic pregnancy ritual, prenatal wellness, Surat, Dr Taruna Jiyani"
   },
   card: {
     title: {

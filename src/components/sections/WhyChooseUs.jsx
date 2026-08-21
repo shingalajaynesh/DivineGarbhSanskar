@@ -31,9 +31,9 @@ const WhyChooseUs = () => {
       icon: <Music className="w-7 h-7 text-sacredMaroon" />,
       title: { hi: "राग संगीत चिकित्सा", en: "Raag Music Therapy", gu: "રાગ સંગીત ચિકિત્સા" },
       desc: {
-        hi: "विशेष रूप से चयनित राग संगीत जो गर्भ में शिशु के मस्तिष्क के स्नायुओं के विकास को उत्तेजित करता है।",
-        en: "Curated Classical Indian Ragas that lower prenatal stress and stimulate fetal neural pathways.",
-        gu: "ખાસ પસંદ કરેલા રાગ સંગીત જે ગર્ભમાં બાળકના મગજના કોષોના વિકાસને ઉત્તેજિત કરે છે."
+        hi: "विशेष रूप से चयनित शास्त्रीय राग संगीत जो गर्भावस्था में तनाव को कम कर मन को शांत और प्रफुल्लित रखता है।",
+        en: "Curated Classical Indian Ragas and soothing melodies designed to relieve prenatal stress and foster maternal peace.",
+        gu: "ખાસ પસંદ કરેલા શાસ્ત્રીય રાગ સંગીત જે ગર્ભાવસ્થામાં તણાવ ઓછો કરી મનને શાંત અને પ્રસન્ન રાખે છે."
       }
     },
     {

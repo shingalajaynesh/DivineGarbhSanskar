@@ -54,8 +54,8 @@ export const faqs = [
       gu: "૫. શું આમાં પતિની ભાગીદારી પણ જરૂરી છે?"
     },
     answer: {
-      hi: "हाँ, पति की भागीदारी अत्यंत महत्वपूर्ण है। गर्भ में पल रहे शिशु पर पिता की आवाज और माँ के प्रति उनके स्नेह का सीधा सकारात्मक प्रभाव पड़ता है। हमारे कोर्स में विशेष रूप से डिज़ाइन किए गए सत्र हैं जिनमें पति-पत्नी साथ मिलकर गतिविधियाँ करते हैं।",
-      en: "Yes, the husband's active participation is highly recommended. The baby in the womb recognizes the father's voice, and a loving, supportive partner keeps the mother happy, directly boosting the baby's EQ. Our courses include special activities tailored for couples.",
+      hi: "हाँ, पति की भागीदारी अत्यंत महत्वपूर्ण है। गर्भ में पल रहे शिशु पर पिता की आवाज और माँ के प्रति उनके स्नेह का सीधा सकारात्मक प्रभाव पड़ता है। हमारे कोर्स में विशेष रूप से तैयार किए गए सत्र हैं जिनमें पति-पत्नी साथ मिलकर गतिविधियाँ करते हैं।",
+      en: "Yes, the husband's active participation is highly recommended. The baby in the womb recognizes familiar voices, and a loving, supportive partner keeps the mother happy, fostering emotional well-being and strong family bonding. Our courses include special activities tailored for couples.",
       gu: "હા, પતિની ભાગીદારી અત્યંત મહત્વપૂર્ણ છે. ગર્ભમાં રહેલા બાળક પર પિતાના અવાજ અને માતા પ્રત્યેના તેમના સ્નેહની સીધી હકારાત્મક અસર પડે છે. અમારા કોર્સમાં ખાસ તૈયાર કરેલા સત્રો છે જેમાં પતિ-પત્ની સાથે મળીને પ્રવૃત્તિઓ કરે છે."
     }
   },
@@ -97,26 +97,26 @@ export const faqs = [
   },
   {
     question: {
-      hi: "९. इस कार्यक्रम से मुझे क्या परिणाम मिलने की उम्मीद है?",
-      en: "9. What results can I expect from the program?",
-      gu: "૯. આ કાર્યક્રમથી મને કેવા પરિણામો મળવાની આશા રાખી શકાય?"
+      hi: "९. इस कार्यक्रम से मुझे क्या लाभ मिलने की उम्मीद है?",
+      en: "9. What benefits can I expect from the program?",
+      gu: "૯. આ કાર્યક્રમથી મને કેવા લાભો મળવાની આશા રાખી શકાય?"
     },
     answer: {
-      hi: "नियमित अभ्यास से माँ का तनाव ९०% तक कम होता है, प्रसव के दौरान घबराहट कम होती है और प्राकृतिक प्रसव की संभावना बढ़ती है। नवजात शिशु का स्लीप पैटर्न बेहतर होता है, उनका आईक्यू (IQ) व इक्यू (EQ) उच्च रहता है, और वे शांत, आज्ञाकारी व मुस्कुराते हुए बच्चे बनते हैं।",
-      en: "Expectant mothers experience up to a 90% reduction in stress and anxiety, leading to a much smoother, positive labor experience. Babies born under this program typically display excellent sleeping patterns, higher cognitive capabilities (IQ), high emotional resilience (EQ), and calm, cheerful dispositions.",
-      gu: "નિયમિત અભ્યાસથી માતાનો તણાવ ૯૦% સુધી ઓછો થાય છે, પ્રસૂતિ દરમિયાન ગભરામણ ઓછી થાય છે અને નોર્મલ ડિલિવરીની શક્યતા વધે છે. નવજાત શિશુની ઊંઘની પેટર્ન સારી રહે છે, તેમનો IQ અને EQ ઊંચો રહે છે, અને તેઓ શાંત તથા હસમુખા બને છે."
+      hi: "नियमित अभ्यास से माँ का तनाव और प्रसव संबंधी चिंता कम करने में सहायता मिलती है। ध्यान, सात्विक आहार और शांत दिनचर्या से माँ का मानसिक संतुलन बेहतर रहता है, प्रसव के प्रति सकारात्मक आत्मविश्वास बढ़ता है और माँ व शिशु के बीच गहरा स्नेहपूर्ण जुड़ाव स्थापित होता है।",
+      en: "Regular participation helps significantly lower maternal stress and anxiety, fostering a peaceful mindset for childbirth. Expectant mothers build confidence, practice healthy lifestyle routines, and nurture an early, loving bond with their baby.",
+      gu: "નિયમિત અભ્યાસથી માતાનો તણાવ અને પ્રસૂતિ સંબંધિત ચિંતા ઘટાડવામાં મદદ મળે છે. ધ્યાન, સાત્વિક આહાર અને શાંત દિનચર્યાથી માતાનું માનસિક સંતુલન સુધરે છે, પ્રસૂતિ પ્રત્યે હકારાત્મક આત્મવિશ્વાસ વધે છે અને માતા તેમજ બાળક વચ્ચે મજબૂત સ્નેહપૂર્ણ જોડાણ રચાય છે."
     }
   },
   {
     question: {
-      hi: "१०. गर्भ संस्कार के पीछे वैज्ञानिक आधार क्या है?",
-      en: "10. What is the scientific foundation behind Garbh Sanskar?",
-      gu: "૧૦. ગર્ભ સંસ્કાર પાછળ વૈજ્ઞાનિક આધાર શું છે?"
+      hi: "१०. गर्भ संस्कार का समग्र एवं आधुनिक दृष्टिकोण क्या है?",
+      en: "10. What is the holistic understanding behind Garbh Sanskar?",
+      gu: "૧૦. ગર્ભ સંસ્કારનો સર્વાંગી અને આધુનિક દ્રષ્ટિકોણ શું છે?"
     },
     answer: {
-      hi: "आधुनिक न्यूरोबायोलॉजी और एपिजेनेटिक्स (Epigenetics) बताते हैं कि गर्भ में शिशु का ८०% मस्तिष्क का विकास होता है। माँ के विचार, भावनाएं, आहार और परिवेश में होने वाली ध्वनियाँ हॉर्मोन्स (जैसे कॉर्टिसोल, एंडोर्फिन) के माध्यम से गर्भनाल द्वारा बच्चे के मस्तिष्क कनेक्शन को आकार देती हैं। वैदिक गर्भ संस्कार इसी वैज्ञानिक सिद्धांत पर काम करता है।",
-      en: "Modern neurobiology and Epigenetics prove that 80% of a baby's brain develops in the womb. The mother's thoughts, emotions, diet, and acoustic environment release hormones (like cortisol or endorphins) that actively sculpt the neural connections of the fetus. Vedic Garbh Sanskar leverages these very scientific principles.",
-      gu: "આધુનિક ન્યુરોબાયોલોજી અને એપીજેનેટિક્સ (Epigenetics) દર્શાવે છે કે ગર્ભમાં બાળકના ૮૦% મગજનો વિકાસ થાય છે. માતાના વિચારો, લાગણીઓ, આહાર અને આસપાસના અવાજો પ્લેસેન્ટા દ્વારા બાળકના મગજના કનેક્શનને આકાર આપે છે. વૈદિક ગર્ભ સંસ્કાર આ જ વૈજ્ઞાનિક સિદ્ધાંત પર કામ કરે છે."
+      hi: "प्राचीन वैदिक ज्ञान और आधुनिक प्रसवपूर्व अध्ययन दोनों इस बात पर जोर देते हैं कि गर्भावस्था में माँ की भावनात्मक स्थिति, पोषण, सकारात्मक वातावरण और सुखद ध्वनियाँ माँ और शिशु दोनों के समग्र स्वास्थ्य के लिए अत्यंत लाभकारी हैं। वैदिक गर्भ संस्कार दैनिक आहार, योग, ध्यान और संगीत के माध्यम से माँ के लिए एक सकारात्मक व तनावमुक्त परिवेश तैयार करता है।",
+      en: "Both classical Ayurvedic principles and modern maternal health studies highlight the importance of maternal emotional well-being, nutritious diet, and a serene auditory environment during pregnancy. Garbh Sanskar provides a holistic framework combining daily nutrition, gentle yoga, meditation, and uplifting music to support a positive, calm pregnancy journey.",
+      gu: "પ્રાચીન વૈદિક જ્ઞાન અને આધુનિક પ્રિનેટલ અધ્યયન બંને દર્શાવે છે કે ગર્ભાવસ્થા દરમિયાન માતાની ભાવનાત્મક સ્થિરતા, પૌષ્ટિક આહાર અને હકારાત્મક વાતાવરણ માતા તેમજ બાળકના સર્વાંગી સ્વાસ્થ્ય માટે અત્યંત લાભદાયી છે. વૈદિક ગર્ભ સંસ્કાર આહાર, યોગ, ધ્યાન અને સંગીત દ્વારા માતા માટે તણાવમુક્ત વાતાવરણ પૂરું પાડે છે."
     }
   }
 ];

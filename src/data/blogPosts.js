@@ -234,22 +234,22 @@ export const blogPosts = [
     "sections": [
       {
         "heading": {
-          "en": "The Neuro-Acoustic Connection Between Mother and Womb",
-          "hi": "माँ और गर्भ के बीच तंत्रिका-ध्वनिक संबंध",
-          "gu": "માતા અને ગર્ભ વચ્ચેનું ન્યુરો-એકોસ્ટિક જોડાણ"
+          "en": "The Calming Acoustic Connection Between Mother and Womb",
+          "hi": "माँ और गर्भ के बीच सुखद ध्वनिक संबंध",
+          "gu": "માતા અને ગર્ભ વચ્ચેનું શાંતિપૂર્ણ ધ્વનિ જોડાણ"
         },
         "paragraphs": {
           "en": [
-            "By the 16th to 18th week of gestation, the fetal auditory apparatus—including the cochlea, middle ear ossicles, and auditory brainstem pathways—begins functioning. By week 24, the unborn baby actively listens, reacts with heart rate variations, and encodes auditory memory patterns. The amniotic fluid acts as a resonant acoustic transducer, conducting the soothing cadence of maternal voice and harmonious sound waves directly to the baby.",
-            "In modern psycho-neuro-immunology, peaceful music is shown to stimulate the maternal parasympathetic nervous system, significantly reducing serum cortisol (stress hormone) while elevating oxytocin and endorphin levels. These calming biochemicals cross the placenta, creating an optimal biochemical environment for fetal neural synaptogenesis."
+            "By the middle of pregnancy (weeks 18 to 24), the developing auditory system begins registering sound vibrations. The unborn baby perceives the soothing cadence of the mother's voice and surrounding harmonic soundscapes carried through amniotic fluid, supporting early auditory familiarity.",
+            "Listening to peaceful, rhythmic music promotes relaxation in expectant mothers, supporting mental calmness and stress reduction. This relaxed maternal state fosters an emotionally serene and balanced intrauterine environment for healthy development."
           ],
           "hi": [
-            "गर्भधारण के 16वें से 18वें सप्ताह तक, भ्रूण का श्रवण तंत्र-जिसमें कोक्लीअ, मध्य कान की अस्थियां और श्रवण मस्तिष्क पथ शामिल हैं-काम करना शुरू कर देता है। 24वें सप्ताह तक, अजन्मा बच्चा सक्रिय रूप से सुनता है, हृदय गति में बदलाव के साथ प्रतिक्रिया करता है, और श्रवण स्मृति पैटर्न को एन्कोड करता है। एमनियोटिक द्रव एक गुंजयमान ध्वनिक ट्रांसड्यूसर के रूप में कार्य करता है, जो मातृ आवाज की सुखदायक लय और सामंजस्यपूर्ण ध्वनि तरंगों को सीधे बच्चे तक पहुंचाता है।",
-            "आधुनिक साइको-न्यूरो-इम्यूनोलॉजी में, शांतिपूर्ण संगीत को मातृ पैरासिम्पेथेटिक तंत्रिका तंत्र को उत्तेजित करने के लिए दिखाया गया है, जो ऑक्सीटोसिन और एंडोर्फिन के स्तर को बढ़ाते हुए सीरम कोर्टिसोल (तनाव हार्मोन) को काफी कम करता है। ये शांत करने वाले जैव रसायन नाल को पार करते हैं, जिससे भ्रूण के तंत्रिका सिनैप्टोजेनेसिस के लिए एक इष्टतम जैव रासायनिक वातावरण बनता है।"
+            "गर्भावस्था के मध्य (18 से 24 सप्ताह) तक भ्रूण का श्रवण तंत्र ध्वनि तरंगों को महसूस करने लगता है। अजन्मा शिशु एमनियोटिक द्रव के माध्यम से माँ की आवाज की सुखद लय और परिवेशीय ध्वनियों को ग्रहण करता है, जिससे प्रारंभिक श्रवण जुड़ाव बनता है।",
+            "शांत और मधुर संगीत सुनने से गर्भवती माँ में तनाव कम होता है और मानसिक शांति मिलती है। यह शांत अवस्था गर्भस्थ शिशु के लिए एक सकारात्मक और संतुलित परिवेश का निर्माण करती है।"
           ],
           "gu": [
-            "સગર્ભાવસ્થાના 16માથી 18મા સપ્તાહ સુધીમાં, ગર્ભનું શ્રાવ્ય ઉપકરણ-કોક્લીઆ, મધ્ય કાનના ઓસીકલ અને શ્રાવ્ય મગજના માર્ગો સહિત-કાર્ય કરવાનું શરૂ કરે છે. અઠવાડિયું 24 સુધીમાં, અજાત બાળક સક્રિય રીતે સાંભળે છે, હૃદયના ધબકારાનાં ફેરફારો સાથે પ્રતિક્રિયા આપે છે અને શ્રાવ્ય મેમરી પેટર્નને એન્કોડ કરે છે. એમ્નિઅટિક પ્રવાહી એક રેઝોનન્ટ એકોસ્ટિક ટ્રાન્સડ્યુસર તરીકે કામ કરે છે, જે માતાના અવાજની શાંત લહેર અને સુમેળભર્યા ધ્વનિ તરંગોને સીધા બાળક સુધી પહોંચાડે છે.",
-            "આધુનિક સાયકો-ન્યુરો-ઇમ્યુનોલોજીમાં, શાંતિપૂર્ણ સંગીત માતાની પેરાસિમ્પેથેટિક નર્વસ સિસ્ટમને ઉત્તેજીત કરવા માટે બતાવવામાં આવે છે, જે ઓક્સીટોસિન અને એન્ડોર્ફિનના સ્તરને વધારીને સીરમ કોર્ટિસોલ (સ્ટ્રેસ હોર્મોન) નોંધપાત્ર રીતે ઘટાડે છે. આ શાંત બાયોકેમિકલ્સ પ્લેસેન્ટાને પાર કરે છે, જે ગર્ભના ન્યુરલ સિનેપ્ટોજેનેસિસ માટે શ્રેષ્ઠ બાયોકેમિકલ વાતાવરણ બનાવે છે."
+            "ગર્ભાવસ્થાના મધ્ય તબક્કામાં (18 થી 24 અઠવાડિયા) ગર્ભસ્થ શિશુ ધ્વનિ તરંગોને અનુભવવાનું શરૂ કરે છે. અજાત બાળક એમ્નિઓટિક પ્રવાહી દ્વારા માતાના અવાજની શાંત લય અને આસપાસના સુમેળભર્યા અવાજોને અનુભવે છે, જે પ્રારંભિક શ્રાવ્ય જોડાણ બનાવે છે.",
+            "શાંતિપૂર્ણ અને મધુર સંગીત સાંભળવાથી સગર્ભા માતામાં તણાવ ઓછો થાય છે અને માનસિક શાંતિ મળે છે. આ શાંત સ્થિતિ બાળકના વિકાસ માટે હકારાત્મક અને સંતુલિત વાતાવરણ પૂરું પાડે છે."
           ]
         }
       },
@@ -599,62 +599,62 @@ export const blogPosts = [
       "gu": "વૈદિક વિજ્ઞાન અને રાગ સંગીત"
     },
     "title": {
-      "en": "The Scientific & Spiritual Benefits of Garbh Sanskar for Mother and Baby",
-      "hi": "माता और शिशु के लिए गर्भ संस्कार के वैज्ञानिक एवं आध्यात्मिक लाभ",
-      "gu": "માતા અને બાળક માટે ગર્ભ સંસ્કારના વૈજ્ઞાનિક અને આધ્યાત્મિક ફાયદા"
+      "en": "The Holistic & Spiritual Benefits of Garbh Sanskar for Mother and Baby",
+      "hi": "माता और शिशु के लिए गर्भ संस्कार के समग्र एवं आध्यात्मिक लाभ",
+      "gu": "માતા અને બાળક માટે ગર્ભ સંસ્કારના સર્વાંગી અને આધ્યાત્મિક ફાયદા"
     },
     "description": {
-      "en": "Explore how the holistic practice of Garbh Sanskar shapes fetal neurodevelopment, epigenetics, emotional bonding, maternal resilience, and lifelong positive behavioral traits.",
-      "hi": "जानिए कैसे गर्भ संस्कार का समग्र अभ्यास गर्भस्थ शिशु के न्यूरोलॉजिकल विकास, एपिजेनेटिक्स, भावनात्मक जुड़ाव और माँ के स्वास्थ्य को संवारता है।",
-      "gu": "જાણો કેવી રીતે ગર્ભ સંસ્કાર ગર્ભસ્થ બાળકના ન્યુરોલોજીકલ વિકાસ અને માતાના સ્વાસ્થ્યને સમૃદ્ધ બનાવે છે."
+      "en": "Explore how the holistic practice of Garbh Sanskar nurtures maternal well-being, emotional bonding, positive mindset, and peaceful pregnancy routines.",
+      "hi": "जानिए कैसे गर्भ संस्कार का समग्र अभ्यास माँ के मानसिक स्वास्थ्य, भावनात्मक जुड़ाव और सुखद गर्भावस्था दिनचर्या को संवारता है।",
+      "gu": "જાણો કેવી રીતે ગર્ભ સંસ્કાર માતૃત્વ સુખાકારી, ભાવનાત્મક જોડાણ અને શાંતિપૂર્ણ દિનચર્યાને પ્રોત્સાહિત કરે છે."
     },
-    "keywords": "garbh sanskar benefits, benefits of garbh sanskar, pregnancy positivity, prenatal bonding, vedic pregnancy benefits, fetal epigenetics, conscious parenting",
+    "keywords": "garbh sanskar benefits, benefits of garbh sanskar, pregnancy positivity, prenatal bonding, vedic pregnancy benefits, maternal mindfulness, conscious parenting",
     "sections": [
       {
         "heading": {
-          "en": "What Is Garbh Sanskar: Beyond Myth to Pure Prenatal Science",
-          "hi": "गर्भ संस्कार क्या है: मिथक से परे शुद्ध प्रसव पूर्व विज्ञान तक",
-          "gu": "ગર્ભ સંસ્કાર શું છે: બિયોન્ડ મિથ ટુ પ્યોર પ્રિનેટલ સાયન્સ"
+          "en": "What Is Garbh Sanskar: A Timeless Tradition of Maternal Care",
+          "hi": "गर्भ संस्कार क्या है: मातृत्व देखभाल की कालजयी वैदिक परंपरा",
+          "gu": "ગર્ભ સંસ્કાર શું છે: માતૃત્વ સંભાળની કાલાતીત વૈદિક પરંપરા"
         },
         "paragraphs": {
           "en": [
-            "The word 'Garbh' translates to the womb, and 'Sanskar' signifies the process of refining, purifying, and cultivating virtuous qualities. Garbh Sanskar is not an orthodox superstition or a rigid set of rituals; it is a profound, structured science of prenatal psychology, maternal chronobiology, and sensory stimulation developed over thousands of years in the Indian Vedic tradition.",
-            "Ancient Ayurvedic treatises—such as the Sushruta Samhita and Kashyapa Samhita—documented that the mind of the mother (Manas) directly interlinks with the developing fetal psyche through the channel of the Hridaya (cardiac-neurological axis). Today, modern epigenetic science confirms that the intrauterine environment directly affects which fetal genes are expressed or silenced."
+            "The word 'Garbh' translates to the womb, and 'Sanskar' signifies the process of refining, purifying, and cultivating virtuous qualities. Garbh Sanskar is not an orthodox superstition or a rigid set of rituals; it is a profound, structured wellness philosophy of prenatal mindfulness, maternal chronobiology, and peaceful routines developed over thousands of years in the Indian Vedic tradition.",
+            "Ancient Ayurvedic treatises—such as the Sushruta Samhita and Kashyapa Samhita—documented that the emotional state and mental peace of the mother directly influence her overall well-being and the intrauterine environment. Modern prenatal psychology also emphasizes the vital role of maternal calm, balanced nutrition, and emotional support during pregnancy."
           ],
           "hi": [
-            "'गर्भ' शब्द का अर्थ गर्भ है, और 'संस्कार' सद्गुणों को परिष्कृत करने, शुद्ध करने और विकसित करने की प्रक्रिया को दर्शाता है। गर्भ संस्कार कोई रूढ़िवादी अंधविश्वास या अनुष्ठानों का एक कठोर समूह नहीं है; यह भारतीय वैदिक परंपरा में हजारों वर्षों से विकसित प्रसव पूर्व मनोविज्ञान, मातृ कालक्रम और संवेदी उत्तेजना का एक गहन, संरचित विज्ञान है।",
-            "प्राचीन आयुर्वेदिक ग्रंथ - जैसे सुश्रुत संहिता और कश्यप संहिता - ने प्रमाणित किया कि माँ का मन (मानस) हृदय (हृदय-तंत्रिका अक्ष) के माध्यम से विकासशील भ्रूण मानस के साथ सीधे जुड़ा हुआ है। आज, आधुनिक एपिजेनेटिक विज्ञान इस बात की पुष्टि करता है कि अंतर्गर्भाशयी वातावरण सीधे प्रभावित करता है कि कौन से भ्रूण के जीन व्यक्त या मौन हैं।"
+            "'गर्भ' शब्द का अर्थ गर्भ है, और 'संस्कार' सद्गुणों को परिष्कृत करने, शुद्ध करने और विकसित करने की प्रक्रिया को दर्शाता है। गर्भ संस्कार कोई रूढ़िवादी अंधविश्वास या अनुष्ठानों का एक कठोर समूह नहीं है; यह भारतीय वैदिक परंपरा में हजारों वर्षों से विकसित प्रसव पूर्व सजगता, मातृ दिनचर्या और शांतिपूर्ण जीवनशैली का एक गहन दर्शन है।",
+            "प्राचीन आयुर्वेदिक ग्रंथ - जैसे सुश्रुत संहिता और कश्यप संहिता - ने उल्लेख किया है कि माँ की मानसिक शांति और भावनात्मक स्थिति गर्भस्थ परिवेश को गहराई से प्रभावित करती है। आधुनिक प्रसवपूर्व मनोविज्ञान भी गर्भावस्था में माता के मानसिक विश्राम, संतुलित पोषण और पारिवारिक सहयोग के महत्व की पुष्टि करता है।"
           ],
           "gu": [
-            "'ગર્ભ' શબ્દનો અર્થ ગર્ભાશયમાં થાય છે, અને 'સંસ્કાર' શુદ્ધિકરણ, શુદ્ધિકરણ અને સદ્ગુણોના સંવર્ધનની પ્રક્રિયાને દર્શાવે છે. ગર્ભ સંસ્કાર એ રૂઢિચુસ્ત અંધશ્રદ્ધા કે ધાર્મિક વિધિઓનો કઠોર સમૂહ નથી; તે ભારતીય વૈદિક પરંપરામાં હજારો વર્ષોથી વિકસિત પ્રિનેટલ સાયકોલોજી, મેટરનલ ક્રોનોબાયોલોજી અને સંવેદનાત્મક ઉત્તેજનાનું ગહન, સંરચિત વિજ્ઞાન છે.",
-            "પ્રાચીન આયુર્વેદિક ગ્રંથો - જેમ કે સુશ્રુત સંહિતા અને કશ્યપ સંહિતા - દસ્તાવેજ કરે છે કે માતાનું મન (માનસ) હૃદય (હૃદય-ન્યુરોલોજિકલ અક્ષ) ની ચેનલ દ્વારા વિકાસશીલ ગર્ભના માનસ સાથે સીધું જોડાણ કરે છે. આજે, આધુનિક એપિજેનેટિક વિજ્ઞાન પુષ્ટિ કરે છે કે ગર્ભાશયના વાતાવરણની સીધી અસર થાય છે કે કયા ગર્ભના જનીનો વ્યક્ત અથવા શાંત છે."
+            "'ગર્ભ' શબ્દનો અર્થ ગર્ભાશય થાય છે, અને 'સંસ્કાર' સદ્ગુણોના સંવર્ધન અને શુદ્ધિકરણની પ્રક્રિયાને દર્શાવે છે. ગર્ભ સંસ્કાર એ કોઈ અંધશ્રદ્ધા કે ધાર્મિક વિધિઓનો કઠોર સમૂહ નથી; તે ભારતીય વૈદિક પરંપરામાં હજારો વર્ષોથી વિકસિત પ્રિનેટલ માઇન્ડફુલનેસ અને શાંતિપૂર્ણ જીવનશૈલીનું ગહન દર્શન છે.",
+            "પ્રાચીન આયુર્વેદિક ગ્રંથો - જેમ કે સુશ્રુત સંહિતા અને કશ્યપ સંહિતા - નોંધે છે કે માતાની માનસિક શાંતિ અને ભાવનાત્મક સ્થિતિ ગર્ભાવસ્થાના વાતાવરણને ઊંડી અસર કરે છે. આધુનિક પ્રિનેટલ સાયકોલોજી પણ ગર્ભાવસ્થા દરમિયાન માતાના માનસિક વિશ્રામ અને પૌષ્ટિક આહારના મહત્વને સમર્થન આપે છે."
           ]
         }
       },
       {
         "heading": {
-          "en": "Transformative Biological and Emotional Benefits for the Baby",
-          "hi": "शिशु के लिए परिवर्तनकारी जैविक और भावनात्मक लाभ",
-          "gu": "બાળક માટે પરિવર્તનશીલ જૈવિક અને ભાવનાત્મક લાભો"
+          "en": "Nurturing Growth and Emotional Bonding for the Baby",
+          "hi": "शिशु के लिए सकारात्मक परिवेश और भावनात्मक लाभ",
+          "gu": "બાળક માટે હકારાત્મક વાતાવરણ અને ભાવનાત્મક લાભો"
         },
         "paragraphs": {
           "en": [
-            "1. Accelerated Cognitive Development (IQ & Memory): Enriched sensory stimulation—through classical music, positive reading, and multilingual exposure—triggers dendritic branching in the fetal cerebral cortex, laying solid foundations for early learning and curiosity.",
-            "2. Emotional Stability & High Emotional Quotient (EQ): Mothers who maintain low stress levels throughout pregnancy produce balanced levels of serotonin and dopamine. Babies born in such serene prenatal environments typically exhibit lower colic rates, calmer sleep cycles, and higher emotional adaptability.",
-            "3. Stronger Innate Immunity (Prana & Ojas): A satvik maternal diet coupled with minimal adrenal fatigue ensures optimal placental micro-nutrient delivery, fostering resilient metabolic and cellular immunity.",
-            "4. Lifelong Cultural and Moral Values (Sanskars): Subconscious impressions registered in the womb leave lasting blueprints for empathy, respect, mental focus, and moral integrity."
+            "1. Early Sensory Familiarity & Auditory Comfort: Soothing sensory inputs—through soft classical melodies, positive reading, and loving parental voices—create a calm, comforting prenatal experience for the baby.",
+            "2. Emotional Serenity & Mother-Baby Connection: When mothers practice daily relaxation, their emotional stability fosters a peaceful womb environment, supporting calm natural rhythms and gentle maternal-fetal bonding.",
+            "3. Wholesome Satvik Nutrition: A balanced maternal diet rich in essential natural nutrients ensures sustained energy for the mother and supports healthy fetal development.",
+            "4. Cultural and Moral Foundations (Sanskars): Uplifting thoughts and virtuous literature create a harmonious home environment centered around compassion, mindfulness, and serenity."
           ],
           "hi": [
-            "1. त्वरित संज्ञानात्मक विकास (आईक्यू और मेमोरी): शास्त्रीय संगीत, सकारात्मक पढ़ने और बहुभाषी प्रदर्शन के माध्यम से समृद्ध संवेदी उत्तेजना - भ्रूण के सेरेब्रल कॉर्टेक्स में डेंड्रिटिक शाखाओं को ट्रिगर करती है, जिससे प्रारंभिक शिक्षा और जिज्ञासा के लिए ठोस नींव रखी जाती है।",
-            "2. भावनात्मक स्थिरता और उच्च भावनात्मक भागफल (ईक्यू): जो माताएं पूरी गर्भावस्था के दौरान तनाव का स्तर कम रखती हैं, वे सेरोटोनिन और डोपामाइन के संतुलित स्तर का उत्पादन करती हैं। ऐसे शांत प्रसवपूर्व वातावरण में पैदा होने वाले बच्चे आम तौर पर कम शूल दर, शांत नींद चक्र और उच्च भावनात्मक अनुकूलनशीलता प्रदर्शित करते हैं।",
-            "3. मजबूत जन्मजात प्रतिरक्षा (प्राण और ओजस): न्यूनतम अधिवृक्क थकान के साथ सात्विक मातृ आहार इष्टतम प्लेसेंटल सूक्ष्म पोषक तत्व वितरण सुनिश्चित करता है, लचीला चयापचय और सेलुलर प्रतिरक्षा को बढ़ावा देता है।",
-            "4. आजीवन सांस्कृतिक और नैतिक मूल्य (संस्कार): गर्भ में पंजीकृत अवचेतन प्रभाव सहानुभूति, सम्मान, मानसिक ध्यान और नैतिक अखंडता के लिए स्थायी ब्लूप्रिंट छोड़ते हैं।"
+            "1. प्रारंभिक संवेदी सहजता और श्रवण शांति: सुखद शास्त्रीय संगीत, सकारात्मक अध्ययन और माता-पिता की स्नेहपूर्ण आवाज़ शिशु के लिए एक शांत और सुखद अनुभव तैयार करती है।",
+            "2. भावनात्मक स्थिरता और माँ-शिशु जुड़ाव: जब माताएं दैनिक ध्यान और विश्राम का अभ्यास करती हैं, तो यह मानसिक शांति गर्भस्थ शिशु के लिए एक शांत और प्रेमपूर्ण परिवेश बनाती है।",
+            "3. संतुलित सात्विक पोषण: पोषक तत्वों से भरपूर सात्विक आहार माँ को ऊर्जा प्रदान करता है और स्वस्थ गर्भावस्था का आधार बनता है।",
+            "4. सांस्कृतिक और नैतिक संस्कार: प्रेरणादायक विचार और सद्ग्रंथों का स्वाध्याय घर में सकारात्मकता, करुणा और आत्मीयता का वातावरण निर्मित करते हैं।"
           ],
           "gu": [
-            "1. એક્સિલરેટેડ કોગ્નિટિવ ડેવલપમેન્ટ (આઈક્યુ અને મેમરી): ક્લાસિકલ સંગીત, સકારાત્મક વાંચન અને બહુભાષી એક્સપોઝર દ્વારા સમૃદ્ધ સંવેદનાત્મક ઉત્તેજના-ગર્ભ સેરેબ્રલ કોર્ટેક્સમાં ડેંડ્રિટિક શાખાઓ શરૂ કરે છે, પ્રારંભિક શિક્ષણ અને જિજ્ઞાસા માટે નક્કર પાયો નાખે છે.",
-            "2. ભાવનાત્મક સ્થિરતા અને ઉચ્ચ ભાવનાત્મક ગુણાંક (EQ): જે માતાઓ ગર્ભાવસ્થા દરમિયાન નીચા તાણનું સ્તર જાળવી રાખે છે તેઓ સેરોટોનિન અને ડોપામાઇનનું સંતુલિત સ્તર ઉત્પન્ન કરે છે. આવા શાંત પ્રિનેટલ વાતાવરણમાં જન્મેલા બાળકો સામાન્ય રીતે નીચા કોલિક દર, શાંત ઊંઘના ચક્ર અને ઉચ્ચ ભાવનાત્મક અનુકૂલનક્ષમતા દર્શાવે છે.",
-            "3. મજબૂત જન્મજાત રોગપ્રતિકારક શક્તિ (પ્રાણ અને ઓજસ): ન્યૂનતમ એડ્રેનલ થાક સાથેનો સાત્વિક માતૃત્વ આહાર શ્રેષ્ઠ પ્લેસેન્ટલ સૂક્ષ્મ પોષકતત્વોની ડિલિવરી સુનિશ્ચિત કરે છે, જે સ્થિતિસ્થાપક ચયાપચય અને સેલ્યુલર રોગપ્રતિકારક શક્તિને પ્રોત્સાહન આપે છે.",
-            "4. આજીવન સાંસ્કૃતિક અને નૈતિક મૂલ્યો (સંસ્કારો): ગર્ભાશયમાં નોંધાયેલી અર્ધજાગ્રત છાપ સહાનુભૂતિ, આદર, માનસિક ધ્યાન અને નૈતિક અખંડિતતા માટે કાયમી બ્લુપ્રિન્ટ છોડી દે છે."
+            "1. પ્રારંભિક સંવેદી શાંતિ અને શ્રવણ જોડાણ: મધુર શાસ્ત્રીય સંગીત, સકારાત્મક વાચન અને માતા-પિતાનો સ્નેહાળ અવાજ ગર્ભસ્થ શિશુ માટે શાંત અને સુખદ અનુભવ ઊભો કરે છે.",
+            "2. ભાવનાત્મક સ્થિરતા અને મા-બાળક જોડાણ: જ્યારે માતા દૈનિક ધ્યાન અને આરામ કરે છે, ત્યારે આ માનસિક શાંતિ બાળક માટે એક હકારાત્મક વાતાવરણ પૂરું પાડે છે.",
+            "3. સંતુલિત સાત્વિક પોષણ: પૌષ્ટિક સાત્વિક આહાર માતાને ઊર્જાવાન રાખે છે અને બાળકના તંદુરસ્ત વિકાસમાં સહાય કરે છે.",
+            "4. સાંસ્કૃતિક અને નૈતિક સંસ્કારો: પ્રેરણાદાયી વિચારો અને શુભ વાચન ઘરમાં કરુણા, સ્નેહ અને શાંતિનું વાતાવરણ બનાવે છે."
           ]
         }
       },
@@ -2628,15 +2628,15 @@ export const blogPosts = [
         "paragraphs": {
           "en": [
             "Gestational Diabetes Mellitus (GDM) is a temporary metabolic condition characterized by elevated blood glucose levels that first appear during pregnancy, most commonly diagnosed between weeks 24 and 28 via an Oral Glucose Tolerance Test (OGTT). It occurs because the placenta produces high levels of human placental lactogen (hPL) and progesterone, which induce physiological insulin resistance to ensure adequate glucose supply for fetal growth.",
-            "When the mother's pancreas cannot produce enough additional insulin to overcome this resistance, maternal blood sugar levels rise. Fortunately, with structured satvik dietary adjustments, mindful meal pacing, gentle post-meal mobility, and stress management, over 80% of expectant mothers can maintain optimal glycemic control without pharmacological insulin."
+            "When maternal blood sugar levels rise, adopting a structured low-glycemic dietary plan, mindful meal portions, gentle doctor-approved post-meal walking, and stress management form the foundation of supportive lifestyle care under your physician's ongoing guidance."
           ],
           "hi": [
             "जेस्टेशनल डायबिटीज मेलिटस (जीडीएम) एक अस्थायी चयापचय स्थिति है जो ऊंचे रक्त शर्करा के स्तर की विशेषता है जो पहली बार गर्भावस्था के दौरान दिखाई देती है, जिसका निदान आमतौर पर 24 और 28 सप्ताह के बीच ओरल ग्लूकोज टॉलरेंस टेस्ट (ओजीटीटी) के माध्यम से किया जाता है। ऐसा इसलिए होता है क्योंकि प्लेसेंटा मानव प्लेसेंटल लैक्टोजेन (एचपीएल) और प्रोजेस्टेरोन के उच्च स्तर का उत्पादन करता है, जो भ्रूण के विकास के लिए पर्याप्त ग्लूकोज आपूर्ति सुनिश्चित करने के लिए शारीरिक इंसुलिन प्रतिरोध को प्रेरित करता है।",
-            "जब मां का अग्न्याशय इस प्रतिरोध को दूर करने के लिए पर्याप्त अतिरिक्त इंसुलिन का उत्पादन नहीं कर पाता है, तो मातृ रक्त शर्करा का स्तर बढ़ जाता है। सौभाग्य से, संरचित सात्विक आहार समायोजन, सावधानीपूर्वक भोजन गति, भोजन के बाद कोमल गतिशीलता और तनाव प्रबंधन के साथ, 80% से अधिक गर्भवती माताएं औषधीय इंसुलिन के बिना इष्टतम ग्लाइसेमिक नियंत्रण बनाए रख सकती हैं।"
+            "जब रक्त शर्करा का स्तर बढ़ता है, तो संरचित लो-ग्लाइसेमिक आहार योजना, भोजन का उचित समय, डॉक्टर की सलाह से भोजन के बाद टहलना और तनाव प्रबंधन आपके चिकित्सक के मार्गदर्शन में सहायक जीवनशैली देखभाल का आधार बनते हैं।"
           ],
           "gu": [
             "સગર્ભાવસ્થા ડાયાબિટીસ મેલીટસ (જીડીએમ) એ એક અસ્થાયી મેટાબોલિક સ્થિતિ છે જે એલિવેટેડ બ્લડ ગ્લુકોઝ સ્તર દ્વારા વર્ગીકૃત થયેલ છે જે પ્રથમ વખત ગર્ભાવસ્થા દરમિયાન દેખાય છે, જેનું સામાન્ય રીતે ઓરલ ગ્લુકોઝ ટોલરન્સ ટેસ્ટ (ઓજીટીટી) દ્વારા 24 અને 28 અઠવાડિયા વચ્ચે નિદાન થાય છે. તે એટલા માટે થાય છે કારણ કે પ્લેસેન્ટા માનવ પ્લેસેન્ટલ લેક્ટોજન (hPL) અને પ્રોજેસ્ટેરોનના ઉચ્ચ સ્તરનું ઉત્પાદન કરે છે, જે ગર્ભના વિકાસ માટે પૂરતા પ્રમાણમાં ગ્લુકોઝ પુરવઠો સુનિશ્ચિત કરવા માટે શારીરિક ઇન્સ્યુલિન પ્રતિકારને પ્રેરિત કરે છે.",
-            "જ્યારે માતાનું સ્વાદુપિંડ આ પ્રતિકારને દૂર કરવા માટે પૂરતું વધારાનું ઇન્સ્યુલિન ઉત્પન્ન કરી શકતું નથી, ત્યારે માતાના લોહીમાં શર્કરાનું સ્તર વધે છે. સદભાગ્યે, સંરચિત સાત્વિક આહારમાં ગોઠવણો, માઇન્ડફુલ ભોજન પેસિંગ, ભોજન પછીની હળવી ગતિશીલતા અને તણાવ વ્યવસ્થાપન સાથે, 80% થી વધુ સગર્ભા માતાઓ ફાર્માકોલોજીકલ ઇન્સ્યુલિન વિના શ્રેષ્ઠ ગ્લાયકેમિક નિયંત્રણ જાળવી શકે છે."
+            "જ્યારે બ્લડ સુગરનું સ્તર વધે છે, ત્યારે લો-ગ્લાયકેમિક આહાર યોજના, ભોજનનો યોગ્ય સમય, ડૉક્ટરની સલાહ મુજબ હળવું ચાલવું અને તણાવ વ્યવસ્થાપન તમારા ચિકિત્સકના માર્ગદર્શન હેઠળ મહત્વપૂર્ણ ભૂમિકા ભજવે છે."
           ]
         }
       },
@@ -3185,35 +3185,35 @@ export const blogPosts = [
       "gu": "વૈદિક વિજ્ઞાન અને રાગ સંગીત"
     },
     "title": {
-      "en": "Prenatal Creative Arts & Fetal Brain Stimulation: Vedic Shlokas, Painting & Rhythmic Chanting",
-      "hi": "गर्भस्थ शिशु का बौद्धिक एवं सृजनात्मक विकास: चित्रकला, वैदिक श्लोक और संगीत का प्रभाव",
-      "gu": "ગર્ભસ્થ બાળકના બૌદ્ધિક અને સર્જનાત્મક વિકાસ: ચિત્રકલા, વૈદિક શ્લોક અને સંગીતનો પ્રભાવ"
+      "en": "Prenatal Creative Arts & Maternal Well-being: Vedic Shlokas, Painting & Mindful Chanting",
+      "hi": "मातृ कल्याण एवं रचनात्मक गतिविधियां: चित्रकला, वैदिक श्लोक और संगीत का प्रभाव",
+      "gu": "માતૃ કલ્યાણ અને સર્જનાત્મક પ્રવૃત્તિઓ: ચિત્રકલા, વૈદિક શ્લોક અને સંગીતનો પ્રભાવ"
     },
     "description": {
-      "en": "Explore how prenatal creative arts, mandala drawing, classical Indian music, and mathematical problem-solving stimulate neurogenesis and synaptic connectivity in the fetal brain during pregnancy.",
-      "hi": "गर्भावस्था में रचनात्मक कला, मंडला पेंटिंग, गणितीय पहेलियां और वैदिक मंत्रोच्चार कैसे शिशु के मस्तिष्क के स्नायुओं (Neurons) को सक्रिय करते हैं।",
-      "gu": "ગર્ભાવસ્થામાં ચિત્રકળા, મંડલા ડ્રોઇંગ, વૈદિક મંત્રો અને સંગીત દ્વારા બાળકના મગજના કોષોને ઉત્તેજિત કરવાની પદ્ધતિઓ."
+      "en": "Explore how prenatal creative arts, mandala drawing, classical Indian music, and mindful puzzles nurture maternal relaxation and create a peaceful prenatal environment.",
+      "hi": "गर्भावस्था में रचनात्मक कला, मंडला पेंटिंग, शांत संगीत और वैदिक मंत्रोच्चार कैसे माँ के मानसिक विश्राम और सकारात्मक परिवेश को समृद्ध करते हैं।",
+      "gu": "ગર્ભાવસ્થામાં ચિત્રકળા, મંડલા ડ્રોઇંગ, શાંત સંગીત અને વૈદિક મંત્રો દ્વારા માતાના માનસિક વિશ્રામ અને હકારાત્મક વાતાવરણનું નિર્માણ."
     },
-    "keywords": "fetal brain stimulation, prenatal creative arts, garbh sanskar brain development, mandala painting pregnancy, vedic shloka chanting pregnancy, prenatal intelligence, womb learning",
+    "keywords": "prenatal mindfulness, prenatal creative arts, garbh sanskar creative activities, mandala painting pregnancy, vedic shloka chanting pregnancy, maternal relaxation, prenatal bonding",
     "sections": [
       {
         "heading": {
-          "en": "The Neuroplasticity of the Fetal Brain in the 2nd and 3rd Trimesters",
-          "hi": "दूसरी और तीसरी तिमाही में भ्रूण के मस्तिष्क की न्यूरोप्लास्टिकिटी",
-          "gu": "2જી અને 3જી ત્રિમાસિકમાં ગર્ભના મગજની ન્યુરોપ્લાસ્ટીસીટી"
+          "en": "The Developing Senses and Prenatal Environment in the 2nd and 3rd Trimesters",
+          "hi": "दूसरी और तीसरी तिमाही में संवेदी विकास और प्रसव पूर्व परिवेश",
+          "gu": "2જી અને 3જી ત્રિમાસિકમાં સંવેદી વિકાસ અને પ્રિનેટલ વાતાવરણ"
         },
         "paragraphs": {
           "en": [
-            "By the 24th week of gestation, the fetal cerebral cortex contains approximately 100 billion neurons—the maximum number of brain cells a human will ever possess. What determines intelligence, emotional stability, and cognitive capacity throughout life is not the number of neurons, but the density of synaptic connections (synaptogenesis) formed between them.",
-            "Neurobiological research reveals that maternal sensory experiences directly influence fetal brain mapping. When a mother engages in creative, intellectually stimulating, or deeply aesthetic activities, her brain releases neurotransmitters (dopamine, serotonin, and endorphins) that cross the placenta and stimulate fetal neural development."
+            "During the second and third trimesters, the fetus undergoes rapid developmental milestones, becoming increasingly responsive to maternal rhythms and external sounds. Creating an enriched, peaceful environment nurtures maternal calmness and supports positive prenatal bonding.",
+            "Engaging in creative, relaxing, and reflective activities helps expectant mothers experience greater emotional well-being. A calm, stress-free maternal state supports balanced circulation and provides a harmonious womb environment throughout pregnancy."
           ],
           "hi": [
-            "गर्भधारण के 24वें सप्ताह तक, भ्रूण के सेरेब्रल कॉर्टेक्स में लगभग 100 बिलियन न्यूरॉन्स होते हैं - एक मानव के पास मस्तिष्क कोशिकाओं की अधिकतम संख्या होगी। जीवन भर बुद्धिमत्ता, भावनात्मक स्थिरता और संज्ञानात्मक क्षमता जो निर्धारित करती है वह न्यूरॉन्स की संख्या नहीं है, बल्कि उनके बीच बनने वाले सिनैप्टिक कनेक्शन (सिनैप्टोजेनेसिस) का घनत्व है।",
-            "न्यूरोबायोलॉजिकल शोध से पता चलता है कि मातृ संवेदी अनुभव सीधे भ्रूण के मस्तिष्क मानचित्रण को प्रभावित करते हैं। जब एक माँ रचनात्मक, बौद्धिक रूप से उत्तेजक, या गहन सौंदर्य संबंधी गतिविधियों में संलग्न होती है, तो उसका मस्तिष्क न्यूरोट्रांसमीटर (डोपामाइन, सेरोटोनिन और एंडोर्फिन) छोड़ता है जो नाल को पार करता है और भ्रूण के तंत्रिका विकास को उत्तेजित करता है।"
+            "दूसरी और तीसरी तिमाही के दौरान गर्भस्थ शिशु तेजी से विकसित होता है और माँ की गतिविधियों व बाहरी ध्वनियों के प्रति अधिक संवेदनशील हो जाता है। एक शांत और सकारात्मक वातावरण माँ के मानसिक स्वास्थ्य और मातृत्व जुड़ाव को समृद्ध करता है।",
+            "रचनात्मक, आनंददायक और शांत गतिविधियों में भाग लेने से भावी माँ का तनाव दूर होता है और भावनात्मक संतुलन बना रहता है। यह मानसिक शांति गर्भावस्था के दौरान एक सुखद परिवेश प्रदान करती है।"
           ],
           "gu": [
-            "સગર્ભાવસ્થાના 24મા સપ્તાહ સુધીમાં, ગર્ભના મગજના આચ્છાદનમાં આશરે 100 બિલિયન ન્યુરોન્સ હોય છે-જે માનવી પાસે મગજના કોષોની મહત્તમ સંખ્યા હોય છે. સમગ્ર જીવનમાં બુદ્ધિ, ભાવનાત્મક સ્થિરતા અને જ્ઞાનાત્મક ક્ષમતા જે નક્કી કરે છે તે ચેતાકોષોની સંખ્યા નથી, પરંતુ તેમની વચ્ચે રચાયેલા સિનેપ્ટિક જોડાણો (સિનેપ્ટોજેનેસિસ) ની ઘનતા છે.",
-            "ન્યુરોબાયોલોજીકલ સંશોધન દર્શાવે છે કે માતાના સંવેદના અનુભવો ગર્ભના મગજના મેપિંગને સીધી અસર કરે છે. જ્યારે માતા સર્જનાત્મક, બૌદ્ધિક રીતે ઉત્તેજક અથવા ઊંડા સૌંદર્યલક્ષી પ્રવૃત્તિઓમાં વ્યસ્ત હોય છે, ત્યારે તેનું મગજ ચેતાપ્રેષકો (ડોપામાઇન, સેરોટોનિન અને એન્ડોર્ફિન્સ) મુક્ત કરે છે જે પ્લેસેન્ટાને પાર કરે છે અને ગર્ભના ચેતા વિકાસને ઉત્તેજિત કરે છે."
+            "બીજી અને ત્રીજી ત્રિમાસિક દરમિયાન ગર્ભસ્થ શિશુ ઝડપી વિકાસમાંથી પસાર થાય છે અને માતાના ધબકારા તેમજ આસપાસના અવાજો પ્રત્યે વધુ સંવેદનશીલ બને છે. શાંત અને હકારાત્મક વાતાવરણ માતાના માનસિક સ્વાસ્થ્ય અને બાળકના જોડાણને મજબૂત બનાવે છે.",
+            "સર્જનાત્મક અને શાંત પ્રવૃત્તિઓમાં જોડાવાથી સગર્ભા માતાનો તણાવ દૂર થાય છે અને ભાવનાત્મક સંતુલન જળવાય છે. આ માનસિક સ્થિરતા ગર્ભાવસ્થાને સુખદ અને મંગળમય બનાવે છે."
           ]
         }
       },

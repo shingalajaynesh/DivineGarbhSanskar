@@ -11,26 +11,26 @@ const WhyGarbhSanskar = () => {
   const points = [
     {
       title: {
-        hi: "१. वैदिक एवं वैज्ञानिक आधार (Vedic + Scientific)",
-        en: "1. Vedic & Scientific Foundation",
-        gu: "૧. વૈદિક અને વૈજ્ઞાનિક આધાર (Vedic + Scientific)"
+        hi: "१. वैदिक परंपरा एवं मातृत्व पोषण (Vedic Tradition & Maternal Care)",
+        en: "1. Vedic Wisdom & Maternal Well-being",
+        gu: "૧. વૈદિક પરંપરા અને માતૃત્વ પોષણ (Vedic Tradition & Care)"
       },
       desc: {
-        hi: "शिशु के मस्तिष्क का ८०% विकास गर्भकाल में होता है। गर्भावस्था में माँ के विचारों और हॉर्मोन्स से शिशु के IQ, EQ और व्यक्तित्व का निर्माण होता है।",
-        en: "80% of a baby's brain development happens in the womb. The mother's thoughts, stress levels, and environment directly sculpt the child's IQ and EQ.",
-        gu: "બાળકના મગજનો ૮૦% વિકાસ ગર્ભકાળ દરમિયાન થાય છે. ગર્ભાવસ્થામાં માતાના વિચારો અને હોર્મોન્સ બાળકના IQ, EQ અને વ્યક્તિત્વનું ઘડતર કરે છે."
+        hi: "गर्भावस्था में माँ का शांत मन, संतुलित आहार और सकारात्मक विचार गर्भस्थ शिशु के भावनात्मक विकास और स्वस्थ परिवेश के लिए एक मजबूत आधार तैयार करते हैं।",
+        en: "During pregnancy, maternal peace of mind, balanced nutrition, and positive surroundings support a healthy prenatal environment and nurturing mother-baby bond.",
+        gu: "ગર્ભાવસ્થામાં માતાનું શાંત મન, સંતુલિત આહાર અને હકારાત્મક વિચારો ગર્ભસ્થ બાળકના ભાવનાત્મક વિકાસ અને તંદુરસ્ત વાતાવરણ માટે મજબૂત પાયો પૂરો પાડે છે."
       }
     },
     {
       title: {
-        hi: "२. ऐतिहासिक साक्ष्य (Historical Proof)",
-        en: "2. Proven Historical Heritage",
-        gu: "૨. ઐતિહાસિક પુરાવા (Historical Proof)"
+        hi: "२. समृद्ध सांस्कृतिक परंपरा (Cultural Heritage)",
+        en: "2. Cherished Cultural Traditions",
+        gu: "૨. સમૃદ્ધ સાંસ્કૃતિક વારસો (Cultural Heritage)"
       },
       desc: {
-        hi: "अभिमन्यु, प्रह्लाद, छत्रपति शिवाजी और स्वामी विवेकानंद जैसी महान विभूतियों की कथाएं सिद्ध करती हैं कि गर्भ में ही संस्कार दिए जा सकते हैं।",
-        en: "The legendary stories of Abhimanyu learning military formations, Prahlad learning devotion, and Shivaji receiving statecraft lessons in the womb prove prenatal learning.",
-        gu: "અભિમન્યુ, પ્રહલાદ, છત્રપતિ શિવાજી અને સ્વામી વિવેકાનંદ જેવા મહાન વિભૂતિઓની કથાઓ સાબિત કરે છે કે ગર્ભમાં જ સંસ્કાર આપી શકાય છે."
+        hi: "अभिमन्यु, प्रह्लाद और छत्रपति शिवाजी जैसी महान विभूतियों की प्रेरक कथाएं दर्शाती हैं कि प्रसव पूर्व सकारात्मक वातावरण और उच्च संस्कारों को कितना महत्वपूर्ण माना गया है।",
+        en: "Inspiring traditional narratives of Abhimanyu, Prahlad, and Shivaji reflect India's timeless cultural belief in surrounding an expectant mother with noble values and uplifting thoughts.",
+        gu: "અભિમન્યુ, પ્રહલાદ અને છત્રપતિ શિવાજી જેવી મહાન વિભૂતિઓની પ્રેરક કથાઓ દર્શાવે છે કે ગર્ભાવસ્થા દરમિયાન હકારાત્મક વાતાવરણ અને સંસ્કારોને કેટલું મહત્વ આપવામાં આવ્યું છે."
       }
     },
     {
@@ -67,7 +67,7 @@ const WhyGarbhSanskar = () => {
         
         {/* Headings */}
         <SectionLabel
-          label={t({ hi: "वैज्ञानिक महत्त्व", en: "Vedic Wisdom & Science", gu: "વૈજ્ઞાનિક મહત્વ" })}
+          label={t({ hi: "वैदिक एवं समग्र महत्त्व", en: "Vedic Wisdom & Holistic Care", gu: "વૈદિક અને સર્વાંગી મહત્વ" })}
           titleHi={t({ hi: "गर्भ संस्कार क्यों आवश्यक है?", en: "Why Garbh Sanskar?", gu: "ગર્ભ સંસ્કાર કેમ જરૂરી છે?" })}
           titleEn={t({ hi: "Why Choose Garbh Sanskar?", en: "Why Choose Garbh Sanskar?", gu: "Why Choose Garbh Sanskar?" })}
           center={true}

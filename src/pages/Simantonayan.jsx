@@ -4,12 +4,11 @@ import { useLanguage } from '../context/LanguageContext';
 import SectionLabel from '../components/ui/SectionLabel';
 import GoldenButton from '../components/ui/GoldenButton';
 import MandalaBg from '../components/ui/MandalaBg';
-import { BookOpen, Heart, Check, Phone, Star, Instagram, Sun, ShieldCheck } from 'lucide-react';
+import { Heart, Phone, Star, Instagram, Sun, ShieldCheck } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import ClassGallery from '../components/sections/ClassGallery';
 import { seoConfig } from '../seo/seoConfig';
 import { getBreadcrumbSchema } from '../seo/structuredData';
-
 
 const Simantonayan = () => {
   const { t, language } = useLanguage();
@@ -21,17 +20,16 @@ const Simantonayan = () => {
   ]);
 
   const benefits = [
-
     {
       title: {
-        en: "Brain & Sensory Stimulation",
-        hi: "मस्तिष्क और संवेदी उत्तेजना",
-        gu: "મગજ અને સંવેદનાત્મક ઉત્તેજના"
+        en: "Maternal Serenity & Bonding",
+        hi: "मातृत्व शांति और भावनात्मक जुड़ाव",
+        gu: "માતૃત્વ શાંતિ અને ભાવનાત્મક જોડાણ"
       },
       desc: {
-        en: "Vedic techniques to stimulate the fetus's cognitive functions and active senses in the womb during the critical third trimester.",
-        hi: "तीसरी तिमाही के महत्वपूर्ण समय में गर्भ में पल रहे बच्चे के संज्ञानात्मक कार्यों और सक्रिय इंद्रियों को उत्तेजित करने की वैदिक तकनीकें।",
-        gu: "ત્રીજી ત્રિમાસિકના મહત્વપૂર્ણ સમયમાં ગર્ભમાં રહેલા બાળકના જ્ઞાનાત્મક કાર્યો અને સક્રિય ઇન્દ્રિયોને ઉત્તેજિત કરવાની વૈદિક પદ્ધતિઓ."
+        en: "Traditional practices to nurture maternal mindfulness and foster a deep, loving connection with the unborn child during the third trimester.",
+        hi: "तीसरी तिमाही के महत्वपूर्ण समय में माँ की मानसिक शांति बढ़ाने और गर्भस्थ शिशु के साथ गहरा स्नेहपूर्ण जुड़ाव स्थापित करने की वैदिक परंपराएं।",
+        gu: "ત્રીજી ત્રિમાસિકના મહત્વપૂર્ણ સમયમાં માતાની માનસિક શાંતિ વધારવા અને ગર્ભસ્થ શિશુ સાથે સ્નેહપૂર્ણ જોડાણ સ્થાપવાની પરંપરાગત પદ્ધતિઓ."
       },
       icon: <Sun className="w-6 h-6 text-sacredMaroon" />
     },
@@ -42,22 +40,22 @@ const Simantonayan = () => {
         gu: "તણાવ મુક્તિ અને માનસિક શાંતિ"
       },
       desc: {
-        en: "Surrounding the mother with positive vibrations, scriptural chanting, and family bonding to lower cortisol levels and nurture happiness.",
-        hi: "सकारात्मक तरंगों, वैदिक मंत्रोच्चार और पारिवारिक जुड़ाव से माँ में कोर्टिसोल के स्तर को कम करना और आंतरिक प्रसन्नता को बढ़ावा देना।",
-        gu: "હકારાત્મક સ્પંદનો, વૈદિક મંત્રોચ્ચાર અને પારિવારિક સ્નેહ દ્વારા માતામાં તણાવ હોર્મોન્સ ઘટાડી આંતરિક ખુશી વધારવી."
+        en: "Surrounding the mother with positive vibrations, scriptural chanting, and family bonding to support relaxation and nurture happiness.",
+        hi: "सकारात्मक परिवेश, वैदिक मंत्रोच्चार और पारिवारिक जुड़ाव से माँ के मानसिक तनाव को दूर करना और आंतरिक प्रसन्नता को बढ़ावा देना।",
+        gu: "હકારાત્મક વાતાવરણ, વૈદિક મંત્રોચ્ચાર અને પારિવારિક સ્નેહ દ્વારા માતામાં માનસિક તણાવ ઘટાડી આંતરિક ખુશી વધારવી."
       },
       icon: <Heart className="w-6 h-6 text-vermillion" />
     },
     {
       title: {
-        en: "Spiritual Protection (Garbh Raksha)",
-        hi: "आध्यात्मिक सुरक्षा कवच",
-        gu: "આધ્યાત્મિક સુરક્ષા કવચ"
+        en: "Spiritual Well-being & Blessings",
+        hi: "आध्यात्मिक मंगल एवं आशीर्वाद",
+        gu: "આધ્યાત્મિક મંગળ અને આશીર્વાદ"
       },
       desc: {
-        en: "Invoking cosmic energies and divine blessings through sacred mantras for the safety and healthy development of the mother and unborn child.",
-        hi: "माँ और अजन्मे बच्चे की सुरक्षा और स्वस्थ विकास के लिए पवित्र मंत्रों के माध्यम से ब्रह्मांडीय ऊर्जा और दिव्य आशीर्वाद का आह्वान करना।",
-        gu: "માતા અને અજાત બાળકની રક્ષા અને તંદુરસ્ત વિકાસ માટે પવિત્ર મંત્રો દ્વારા દિવ્ય આશીર્વાદ પ્રાપ્ત કરવા."
+        en: "Invoking auspicious blessings and spiritual serenity through sacred Vedic mantras for the overall wellness of the mother and child.",
+        hi: "माँ और अजन्मे बच्चे के समग्र कल्याण और मानसिक शांति के लिए पवित्र वैदिक मंत्रों के माध्यम से मंगलमय आशीर्वाद प्राप्त करना।",
+        gu: "માતા અને અજાत બાળકના સર્વાંગી કલ્યાણ અને માનસિક શાંતિ માટે પવિત્ર મંત્રો દ્વારા શુભ આશીર્વાદ પ્રાપ્ત કરવા."
       },
       icon: <ShieldCheck className="w-6 h-6 text-sacredMaroon" />
     }
@@ -83,21 +81,21 @@ const Simantonayan = () => {
         gu: "2. સીમંતોન્નયન વિધિ (વાળ ઓળવા)"
       },
       desc: {
-        en: "Symbolic parting of the mother's hair upward, accompanied by sacred mantras, designed to stimulate the brain center of the child.",
-        hi: "माँ के बालों को ऊपर की ओर संवारने की प्रतीकात्मक विधि, जिसे बच्चे के मस्तिष्क केंद्र को सक्रिय करने वाले पवित्र मंत्रों के साथ किया जाता है।",
-        gu: "માતાના વાળને ઉપરની તરફ ઓળવાની પ્રતીકાત્મક વિધિ, જે બાળકના મગજના કેન્દ્રોને ઉત્તેજિત કરતા પવિત્ર મંત્રોચ્ચાર સાથે કરવામાં આવે છે."
+        en: "Traditional parting of the mother's hair upward with sacred chants, honoring her transition into motherhood and cultivating joyful serenity.",
+        hi: "माँ के सम्मान और मानसिक प्रसन्नता के लिए वैदिक मंत्रों के साथ बालों को संवारने की पारंपरिक मंगल विधि।",
+        gu: "માતાના સન્માન અને માનસિક ખુશી માટે પવિત્ર મંત્રો સાથે વાળ ઓળવાની પરંપરાગત મંગળ વિધિ."
       }
     },
     {
       title: {
         en: "3. Sacred Sound (Mantra) Infusion",
-        hi: "3. दिव्य ध्वनि और ध्वनि चिकित्सा",
-        gu: "3. દિવ્ય ધ્વનિ અને નાદ ચિકિત્સા"
+        hi: "3. दिव्य ध्वनि और नाद श्रवण",
+        gu: "3. દિવ્ય ધ્વનિ અને નાદ શ્રવણ"
       },
       desc: {
-        en: "Infusing the home environment with specific Raag music and soundscapes that match the biological rhythm of the fetus.",
-        hi: "घर के वातावरण को विशिष्ट राग संगीत और मंत्र तरंगों से भरना जो गर्भ में पल रहे बच्चे की जैविक लय के साथ मेल खाते हैं।",
-        gu: "ઘરના વાતાવરણને વિશિષ્ટ રાગ સંગીત અને મંત્ર તરંગોથી સમૃદ્ધ બનાવવું જે ગર્ભસ્થ શિશુની જૈવિક લય સાથે મેળ ખાય છે."
+        en: "Infusing the home environment with specific classical ragas and calming soundscapes that encourage deep relaxation for the mother.",
+        hi: "घर के वातावरण को विशिष्ट शास्त्रीय राग संगीत और सुखद मंत्र ध्वनियों से भरना जो माँ के मन को शांत और प्रफुल्लित रखते हैं।",
+        gu: "ઘરના વાતાવરણને વિશિષ્ટ શાસ્ત્રીય રાગ સંગીત અને સુખદ મંત્ર ધ્વનિથી સમૃદ્ધ બનાવવું જે માતાના મનને શાંત રાખે છે."
       }
     },
     {
@@ -114,8 +112,6 @@ const Simantonayan = () => {
     }
   ];
 
-
-
   return (
     <>
       <Helmet>
@@ -128,7 +124,6 @@ const Simantonayan = () => {
           {JSON.stringify(breadcrumbSchema)}
         </script>
       </Helmet>
-
 
       <div className="pt-24 pb-16 min-h-screen bg-softCream/30">
         
@@ -145,9 +140,9 @@ const Simantonayan = () => {
             </h1>
             <p className="font-sans text-sm md:text-lg text-softCream/80 max-w-2xl mx-auto mt-6 leading-relaxed">
               {t({
-                hi: "गर्भावस्था के ७वें या ८वें महीने में किया जाने वाला एक पवित्र अनुष्ठान, जो अजन्मे बच्चे के सर्वोत्तम मानसिक व बौद्धिक विकास तथा माँ की पूर्ण सुरक्षा सुनिश्चित करता है।",
-                en: "A divine prenatal ceremony performed during the 7th or 8th month of pregnancy, designed to elevate the mother's state of mind and stimulate the child's intellect in the womb.",
-                gu: "ગર્ભાવસ્થાના ૭મા કે ૮મા મહિનામાં કરવામાં આવતી એક પવિત્ર વિધિ, જે અજાત બાળકના શ્રેષ્ઠ માનસિક વિકાસ અને માતાની પૂર્ણ સુરક્ષા સુનિશ્ચિત કરે છે."
+                hi: "गर्भावस्था के ७वें या ८वें महीने में किया जाने वाला एक पारंपरिक मंगल अनुष्ठान, जो माँ के मानसिक उल्लास, मातृत्व के सम्मान और शांतिपूर्ण पारिवारिक परिवेश के लिए समर्पित है।",
+                en: "A cherished Vedic prenatal ceremony celebrated during the 7th or 8th month of pregnancy to honor the mother-to-be, bestow family blessings, and cultivate peaceful joy.",
+                gu: "ગર્ભાવસ્થાના ૭મા કે ૮મા મહિનામાં કરવામાં આવતી એક પરંપરાગત મંગળ વિધિ, જે માતાના માનસિક ઉત્સાહ, માતૃત્વના સન્માન અને શાંતિપૂર્ણ પારિવારિક વાતાવરણ માટે સમર્પિત છે."
               })}
             </p>
             
@@ -200,16 +195,16 @@ const Simantonayan = () => {
             </h2>
             <p className="font-sans text-sm md:text-base text-templeBrown/85 leading-relaxed mt-4">
               {t({
-                hi: "सीमंतोन्नयन शब्द दो शब्दों से मिलकर बना है: 'सीमंत' (मांग/बालों का मध्य) और 'उन्नयन' (ऊपर उठाना)। इस अनुष्ठान में पति द्वारा पत्नी के बालों को ऊपर की ओर संवारा जाता है। यह क्रिया माँ के तंत्रिका तंत्र और बच्चे की संवेदी इंद्रियों को सक्रिय करने का कार्य करती है।",
-                en: "The word Simantonayan translates to 'elevating the hairline' or 'parting the hair upward'. In Vedic tradition, the husband tenderly parts the mother's hair, a ritual symbolically associated with balancing the mother's nervous system and stimulating the intellectual capacities of the child in the womb.",
-                gu: "સીમંતોન્નયન શબ્દ બે શબ્દોનો બનેલો છે: 'સીમંત' (સેંથો/વાળનો મધ્ય ભાગ) અને 'ઓળવું' (ઉપર ઉઠાવવું). આ વિધિમાં પતિ દ્વારા પત્નીના વાળને ઉપરની તરફ ઓળવામાં આવે છે, જે માતાની ચેતાતંત્રને સંતુલિત કરે છે અને ગર્ભસ્થ શિશુના મગજના જ્ઞાનતંતુઓને જાગ્રત કરે છે."
+                hi: "सीमंतोन्नयन शब्द दो शब्दों से मिलकर बना है: 'सीमंत' (मांग/बालों का मध्य) और 'उन्नयन' (ऊपर उठाना)। इस अनुष्ठान में पति द्वारा पत्नी के बालों को ऊपर की ओर संवारा जाता है। यह क्रिया माँ के प्रति सम्मान, प्रेम और मानसिक प्रसन्नता को समर्पित एक सुंदर वैदिक परंपरा है।",
+                en: "The word Simantonayan translates to 'elevating the hairline' or 'parting the hair upward'. In Vedic tradition, the husband tenderly parts the mother's hair with natural herbal elements, symbolically honoring the mother and creating a peaceful, joyful atmosphere for the family.",
+                gu: "સીમંતોન્નયન શબ્દ બે શબ્દોનો બનેલો છે: 'સીમંત' (સેંથો/વાળનો મધ્ય ભાગ) અને 'ઉન્નયન' (ઉપર ઉઠાવવું). આ વિધિમાં પતિ દ્વારા પત્નીના વાળને ઉપરની તરફ ઓળવામાં આવે છે, જે માતા પ્રત્યે આદર, પ્રેમ અને માનસિક શાંતિ વ્યક્ત કરતી સુંદર વૈદિક પરંપરા છે."
               })}
             </p>
             <p className="font-sans text-sm md:text-base text-templeBrown/80 leading-relaxed mt-3">
               {t({
-                hi: "प्राचीन ग्रंथों के अनुसार, गर्भस्थ शिशु ६ठे महीने के बाद बाहर की ध्वनियों, विचारों और वातावरण को ग्रहण करना शुरू कर देता है। इसलिए इस समय माँ को आनंदित और तनावमुक्त रखना सबसे महत्वपूर्ण है।",
-                en: "By the third trimester, the fetus is highly sensitive to external sound waves, emotions, and environmental vibes. Conducting this program traditionally ensures the mother is surrounded by positive energy, protective mantras, and loving vibrations.",
-                gu: "પ્રાચીન શાસ્ત્રો અનુસાર, ગર્ભસ્થ શિશુ ૬ઠ્ઠા મહિના પછી બહારના અવાજો, વિચારો અને વાતાવરણને ગ્રહણ કરવા લાગે છે. તેથી આ સમયે માતાને આનંદિત અને તણાવમુક્ત રાખવી અનિવાર્ય છે."
+                hi: "प्राचीन ग्रंथों के अनुसार, गर्भावस्था की अंतिम तिमाही में माँ का मन शांत और प्रसन्न रहना आवश्यक है। इसलिए इस समय माँ को आनंदित और सकारात्मक परिवेश में रखना सबसे महत्वपूर्ण है।",
+                en: "By the third trimester, familiar soothing sounds and a calm maternal environment nurture positive emotional bonding. Conducting this ceremony traditionally ensures the mother is surrounded by loving care, prayers, and family warmth.",
+                gu: "પ્રાચીન શાસ્ત્રો અનુસાર, ગર્ભાવસ્થાના અંતિમ તબક્કામાં માતાનું મન શાંત અને ખુશ રહેવું આવશ્યક છે. તેથી આ સમયે માતાને આનંદિત અને હકારાત્મક વાતાવરણમાં રાખવી અત્યંત મહત્વપૂર્ણ છે."
               })}
             </p>
           </div>
@@ -219,7 +214,7 @@ const Simantonayan = () => {
         <section className="py-16 bg-white border-t border-b border-divineGold/10">
           <div className="max-w-5xl mx-auto px-6 text-center">
             <SectionLabel
-              label={t({ hi: "महत्वपूर्ण लाभ", en: "Vedic & Scientific Benefits", gu: "મહત્વપૂર્ણ લાભ" })}
+              label={t({ hi: "महत्वपूर्ण लाभ", en: "Vedic & Well-being Benefits", gu: "મહત્વપૂર્ણ લાભ" })}
               titleHi={t({ hi: "यह अनुष्ठान माता-शिशु के लिए क्यों लाभकारी है?", en: "Why is this Program Essential for You?", gu: "આ સંસ્કાર વિધિ શા માટે લાભદાયી છે?" })}
             />
 
@@ -249,9 +244,9 @@ const Simantonayan = () => {
           />
           <p className="font-sans text-sm md:text-base text-templeBrown/75 max-w-2xl mx-auto mb-12 mt-6">
             {t({
-              hi: "हम सीमंतोन्नयन संस्कार को केवल एक सामाजिक गोद भराई तक सीमित नहीं रखते, बल्कि इसे एक पूर्ण वैज्ञानिक और आध्यात्मिक प्रक्रिया के रूप में दंपत्तियों के साथ आयोजित करते हैं।",
-              en: "We design and facilitate the Simantonayan program not just as a social gathering, but as a deeply scientific, mental, and spiritual process tailored for couples.",
-              gu: "અમે સીમંતોન્નયન સંસ્કારને માત્ર એક સામાજિક પ્રસંગ તરીકે નહીં, પરંતુ એક વૈજ્ઞાનિક અને આધ્યાત્મિક પ્રક્રિયા તરીકે દંપતીઓ માટે આયોજિત કરીએ છીએ."
+              hi: "हम सीमंतोन्नयन संस्कार को केवल एक सामाजिक आयोजन नहीं, बल्कि दंपत्ति के लिए एक अत्यंत अर्थपूर्ण, आध्यात्मिक और सकारात्मक पारिवारिक अनुभव के रूप में आयोजित करते हैं।",
+              en: "We guide families in conducting the Simantonayan ceremony not just as an event, but as a deeply meaningful, traditional, and uplifting experience for the expectant couple.",
+              gu: "અમે સીમંતોન્નયન સંસ્કારને માત્ર એક સામાજિક પ્રસંગ તરીકે નહીં, પરંતુ દંપતી માટે એક અર્થપૂર્ણ, આધ્યાત્મિક અને સકારાત્મક પારિવારિક અનુભવ તરીકે આયોજિત કરીએ છીએ."
             })}
           </p>
 
@@ -287,8 +282,8 @@ const Simantonayan = () => {
             </h2>
             <p className="font-sans text-xs md:text-sm text-templeBrown/80 max-w-xl mx-auto mt-4 leading-relaxed">
               {t({
-                hi: "डॉ. तरुणा जियानी के मार्गदर्शन में अपने सीमंतोन्नयन संस्कार को पारंपरिक और वैदिक पद्धति से संपन्न करें। निःशुल्क कॉल बैक के लिए संपर्क करें।",
-                en: "Establish a positive, stress-free, and intellectually nurturing atmosphere during your pregnancy under the guidance of Dr. Taruna Jiyani.",
+                hi: "डॉ. तरुणा जियाणी के मार्गदर्शन में अपने सीमंतोन्नयन संस्कार को पारंपरिक और वैदिक पद्धति से संपन्न करें। निःशुल्क कॉल बैक के लिए संपर्क करें।",
+                en: "Establish a positive, stress-free, and nurturing atmosphere during your pregnancy under the guidance of Dr. Taruna Jiyani.",
                 gu: "ડો. તરુણા જીયાણીના માર્ગદર્શન હેઠળ તમારા સીમંતોન્નયન સંસ્કારને પરંપરાગત અને વૈદિક પદ્ધતિથી આયોજિત કરો."
               })}
             </p>

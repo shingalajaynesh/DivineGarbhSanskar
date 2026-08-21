@@ -43,17 +43,17 @@ const Courses = () => {
       month: { hi: "महीना ४ - ६ (Trimester 2)", en: "Month 4 - 6 (Trimester 2)", gu: "મહિના ૪ - ૬ (Trimester 2)" },
       topics: {
         hi: [
-          "शिशु के मस्तिष्क और ज्ञानेंद्रियों का तेजी से विकास",
+          "शिशु के संवेदी विकास और सौम्य श्रवण उत्तेजना",
           "राग संगीत चिकित्सा (Raga Therapy) और सृजनात्मक क्रियाएं",
           "गर्भ संवाद (Talk to Baby) - पिता की भूमिका की शुरुआत"
         ],
         en: [
-          "Sensory organ formation and neural synapse stimulation",
-          "Classical Indian Ragas for fetal acoustic response",
-          "Garbh Samvad (womb talk) and husband-led voice training"
+          "Sensory development and gentle auditory stimulation",
+          "Classical Indian Ragas for soothing maternal relaxation",
+          "Garbh Samvad (womb talk) and husband-led voice bonding"
         ],
         gu: [
-          "બાળકના મગજ અને જ્ઞાનેન્દ્રિયોનો ઝડપી વિકાસ",
+          "બાળકના સંવેદી વિકાસ અને સૌમ્ય શ્રવણ ઉત્તેજના",
           "રાગ સંગીત ચિકિત્સા (Raga Therapy) અને સર્જનાત્મક પ્રવૃત્તિઓ",
           "ગર્ભ સંવાદ (Talk to Baby) - પિતાની ભૂમિકાની શરૂઆત"
         ]

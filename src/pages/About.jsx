@@ -76,13 +76,13 @@ const About = () => {
                 <BookOpen className="w-6 h-6 text-sacredMaroon" />
               </div>
               <h3 className="font-sans font-bold text-xl text-sacredMaroon mb-3">
-                {t({ hi: "ऐतिहासिक परंपरा (Vedic History)", en: "Vedic Prenatal Science", gu: "ઐતિહાસિક પરંપરા (Vedic History)" })}
+                {t({ hi: "सांस्कृतिक एवं वैदिक परंपरा (Vedic Heritage)", en: "Vedic Prenatal Tradition", gu: "સાંસ્કૃતિક અને વૈદિક પરંપરા" })}
               </h3>
               <p className="font-sans text-sm text-templeBrown/85 leading-relaxed text-left">
                 {t({
-                  hi: "वेदों और उपनिषदों में स्पष्ट उल्लेख है कि गर्भ में पल रहा शिशु सुनता है, समझता है और सीखता है। अभिमन्यु ने चक्रव्यूह भेदने की कला अपनी माँ सुभद्रा के गर्भ में ही सीखी थी। इसी प्रकार प्रह्लाद ने गर्भ में ही नारद मुनि से भक्ति मार्ग का ज्ञान प्राप्त किया था।",
-                  en: "Vedic literature explains that the fetus possesses active sensory registers. Abhimanyu learned the art of penetrating military formations in Subhadra's womb, while Prahlad received spiritual lessons from Sage Narada before birth.",
-                  gu: "વેદો અને ઉપનિષદોમાં સ્પષ્ટ ઉલ્લેખ છે કે ગર્ભમાં ઉછરી રહેલું બાળક સાંભળે છે, સમજે છે અને શીખે છે. અભિમન્યુએ ચક્રવ્યૂહ ભેદવાની કળા પોતાની માતા સુભદ્રાના ગર્ભમાં જ શીખી હતી. તેવી જ રીતે પ્રહલાદે ગર્ભમાં જ નારદ મુનિ પાસેથી ભક્તિ માર્ગનું જ્ઞાન મેળવ્યું હતું."
+                  hi: "भारतीय वैदिक परंपरा में गर्भावस्था के दौरान माँ के सकारात्मक परिवेश, स्वाध्याय और संस्कारों को विशेष महत्व दिया गया है। अभिमन्यु और प्रह्लाद की पारंपरिक कथाएं प्रसव पूर्व माता की मानसिक स्थिति और संस्कारों के महत्व को रेखांकित करती हैं।",
+                  en: "Vedic tradition places profound emphasis on surrounding an expectant mother with positive thoughts, uplifting literature, and serene surroundings, celebrating the sacred journey of bringing life into the world.",
+                  gu: "ભારતીય વૈદિક પરંપરામાં ગર્ભાવસ્થા દરમિયાન માતાના હકારાત્મક વાતાવરણ, સ્વાધ્યાય અને સંસ્કારોને વિશેષ મહત્વ આપવામાં આવ્યું છે. પૌરાણિક કથાઓ પ્રિનેટલ સંસ્કારોના મહત્વને પ્રતિબિંબિત કરે છે."
                 })}
               </p>
             </FloatingCard>
@@ -93,13 +93,13 @@ const About = () => {
                 <Activity className="w-6 h-6 text-vermillion" />
               </div>
               <h3 className="font-sans font-bold text-xl text-sacredMaroon mb-3">
-                {t({ hi: "वैज्ञानिक दृष्टिकोण (Modern Science)", en: "Epigenetics & Biology", gu: "વૈજ્ઞાનિક દ્રષ્ટિકોણ (Modern Science)" })}
+                {t({ hi: "समग्र स्वास्थ्य दृष्टिकोण (Holistic Well-being)", en: "Maternal Health & Psychology", gu: "સર્વાંગી સ્વાસ્થ્ય અભિગમ" })}
               </h3>
               <p className="font-sans text-sm text-templeBrown/85 leading-relaxed text-left">
                 {t({
-                  hi: "आधुनिक एपिजेनेटिक्स (Epigenetics) और न्यूरो-एम्ब्रियोलॉजी बताती है कि गर्भस्थ शिशु का मस्तिष्क तेजी से न्यूरॉन्स का निर्माण करता है। माँ के भावनात्मक हॉर्मोन्स (ऑक्सीटोसिन, एंडोर्फिन) गर्भनाल के जरिए शिशु के विकास को सीधे प्रभावित करते हैं।",
-                  en: "Modern science corroborates that maternal emotions generate neurotransmitters and chemical hormones that cross the placental barrier. Epigenetics shows that parent environments literally activate or silence genes in the fetus.",
-                  gu: "આધુનિક એપિજેનેટિક્સ (Epigenetics) અને ન્યુરો-એમ્બ્રીયોલોજી દર્શાવે છે કે ગર્ભસ્થ બાળકનું મગજ ઝડપથી ન્યુરોન્સનું નિર્માણ કરે છે. માતાના ભાવનાત્મક હોર્મોન્સ (ઓક્સિટોસિન, એન્ડોર્ફિન) પ્લેસેન્ટા દ્વારા બાળકના વિકાસને સીધી અસર કરે છે."
+                  hi: "आधुनिक मातृत्व स्वास्थ्य विज्ञान भी इस बात को स्वीकार करता है कि माँ का मानसिक तनाव कम होना, संतुलित पोषण और सकारात्मक विचार गर्भावस्था को सुखद बनाने और माँ-शिशु के स्वास्थ्य के लिए अत्यंत लाभकारी हैं।",
+                  en: "Modern maternal health research emphasizes that managing stress, maintaining balanced nutrition, and cultivating emotional peace significantly benefit maternal well-being and mother-child bonding during pregnancy.",
+                  gu: "આધુનિક માતૃત્વ સ્વાસ્થ્ય વિજ્ઞાન પણ સ્વીકારે છે કે માતાનો તણાવ ઓછો થવો, સંતુલિત પોષણ અને હકારાત્મક વિચારો ગર્ભાવસ્થાને સુખદ બનાવવા તેમજ માતા-બાળકના સ્વાસ્થ્ય માટે લાભદાયી છે."
                 })}
               </p>
             </FloatingCard>

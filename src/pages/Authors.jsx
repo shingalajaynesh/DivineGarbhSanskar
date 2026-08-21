@@ -80,8 +80,8 @@ const Authors = () => {
       desc: { hi: "सामान्य प्रसव के लिए पेल्विक लचीलापन (मलासन, तितली आसन) और भ्रामरी प्राणायाम।", en: "Pelvic mobility for gentle birth (Malasana, Baddha Konasana) and soothing breathwork.", gu: "સામાન્ય પ્રસૂતિ માટે પેલ્વિક કસરતો અને પ્રાણાયામ." }
     },
     {
-      title: { hi: "भ्रूण मस्तिष्क एवं एपिजेनेटिक्स", en: "Fetal Epigenetics & Cognitive Growth", gu: "ભ્રૂણ મગજ અને એપિજેનેટિક્સ" },
-      desc: { hi: "माता के हार्मोन्स, विचार और रचनात्मक गतिविधियों द्वारा शिशु के न्यूरोनल विकास का संवर्धन।", en: "Optimizing fetal brain synaptogenesis through maternal relaxation and creative arts.", gu: "માતાના વિચારો અને કલાત્મક પ્રવૃત્તિઓ દ્વારા બાળકના મગજનો વિકાસ." }
+      title: { hi: "प्रसव पूर्व सकारात्मक परिवेश एवं शिशु जुड़ाव", en: "Prenatal Environment & Emotional Bonding", gu: "પ્રિનેટલ વાતાવરણ અને ભાવનાત્મક જોડાણ" },
+      desc: { hi: "माता के मानसिक विश्राम, शांत वातावरण और रचनात्मक गतिविधियों द्वारा गर्भस्थ शिशु के साथ भावनात्मक जुड़ाव।", en: "Nurturing emotional connection and maternal calmness through relaxation, creative engagement, and mindfulness.", gu: "માતાના માનસિક વિશ્રામ અને સર્જનાત્મક પ્રવૃત્તિઓ દ્વારા બાળકના સાનુકૂળ વિકાસમાં સહાય." }
     },
     {
       title: { hi: "प्रसवोत्तर सूतिका परिचर्या", en: "Postpartum Care (Sutika Paricharya)", gu: "પ્રસૂતિ પછીની સૂતિકા પરિચર્યા" },

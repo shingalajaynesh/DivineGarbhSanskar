@@ -12,53 +12,53 @@ const SimantonayanTeaser = () => {
     {
       icon: <Compass className="w-4 h-4 text-divineGold" />,
       title: {
-        hi: "१. दंपत्ति संकल्प (Couples Alignment)",
-        en: "1. Couples Energy Alignment",
-        gu: "૧. દંપતી સંકલ્પ (Couples Alignment)"
+        hi: "१. दंपत्ति संकल्प (Couples Harmony)",
+        en: "1. Couple Emotional Alignment",
+        gu: "૧. દંપતી સંકલ્પ (Couples Harmony)"
       },
       desc: {
-        hi: "पति-पत्नी के ऊर्जा क्षेत्र को जोड़ना और घरेलू वातावरण को सकारात्मक व तनावमुक्त बनाना।",
-        en: "Connecting the parents' energy fields through counseling to establish a peaceful, loving home sanctuary.",
-        gu: "પતિ-પત્નીના ઊર્જા ક્ષેત્રોને જોડવું અને ઘરના વાતાવરણને સકારાત્મક અને તણાવમુક્ત બનાવવું."
+        hi: "माता-पिता के बीच भावनात्मक सामंजस्य और घरेलू वातावरण को सकारात्मक व तनावमुक्त बनाना।",
+        en: "Fostering mutual understanding and supportive counseling between parents to establish a calm, peaceful home environment.",
+        gu: "માતા-પિતા વચ્ચે ભાવનાત્મક સુમેળ સાધી ઘરના વાતાવરણને સકારાત્મક અને તણાવમુક્ત બનાવવું."
       }
     },
     {
       icon: <Sun className="w-4 h-4 text-divineGold" />,
       title: {
-        hi: "२. सीमंतोन्नयन विधि (Sacred Hair-Parting)",
-        en: "2. Sacred Hair-Parting Science",
-        gu: "૨. સીમંતોન્નયન વિધિ (Sacred Hair-Parting)"
+        hi: "२. सीमंतोन्नयन विधि (Sacred Hair-Parting Ritual)",
+        en: "2. Sacred Hair-Parting Ritual (Seemantham)",
+        gu: "૨. સીમંતોન્નયન વિધિ (Sacred Hair-Parting Ritual)"
       },
       desc: {
-        hi: "पवित्र औषधियों के साथ बालों को ऊपर संवारने की विधि, जो गर्भस्थ शिशु के मस्तिष्क केंद्र को सक्रिय करती है।",
-        en: "The symbolic hair-parting using sacred herbs, scientifically designed to stimulate cognitive registers.",
-        gu: "પવિત્ર ઔષધિઓથી વાળ ઓળવાની પ્રતીકાત્મક વિધિ, જે ગર્ભસ્થ બાળકના મગજના કેન્દ્રોને ઉત્તેજિત કરે છે."
+        hi: "माँ के सम्मान और मानसिक प्रसन्नता के लिए पारंपरिक वैदिक विधि, जो मातृत्व के उल्लास का उत्सव मनाती है।",
+        en: "The traditional symbolic hair-parting ritual performed with auspicious herbal preparations to honor the expectant mother and bring joyful serenity.",
+        gu: "માતાના સન્માન અને માનસિક ખુશી માટે પરંપરાગત વૈદિક વિધિ, જે માતૃત્વના ઉત્સાહની ઉજવણી કરે છે."
       }
     },
     {
       icon: <Music className="w-4 h-4 text-divineGold" />,
       title: {
-        hi: "३. राग-नाद चिकित्सा (Soundscape Therapy)",
-        en: "3. Mantra & Raga Soundscape",
-        gu: "૩. રાગ-નાદ ચિકિત્સા (Soundscape Therapy)"
+        hi: "३. राग-नाद श्रवण (Mantra & Classical Music)",
+        en: "3. Mantra & Classical Soundscapes",
+        gu: "૩. રાગ-નાદ શ્રવણ (Mantra & Classical Music)"
       },
       desc: {
-        hi: "शिशु की जैविक घड़ी के अनुकूल शास्त्रीय राग संगीत और सकारात्मक ध्वनि तरंगों का संचार।",
-        en: "Month-specific classical Indian ragas and protective chanting aligned with the baby's biological clock.",
-        gu: "બાળકની જૈવિક ઘડિયાળને અનુકૂળ શાસ્ત્રીય રાગ સંગીત અને હકારાત્મક ધ્વનિ તરંગોનો સંચાર."
+        hi: "शास्त्रीय राग संगीत और सकारात्मक मंत्र ध्वनियों द्वारा घर में शांत और सुखद वातावरण का निर्माण।",
+        en: "Gentle classical Indian ragas and calming mantras curated to foster a restful, soothing environment for mother and baby.",
+        gu: "શાસ્ત્રીય રાગ સંગીત અને હકારાત્મક મંત્ર ધ્વનિ દ્વારા ઘરમાં શાંત અને સુખદ વાતાવરણનું નિર્માણ."
       }
     },
     {
       icon: <ShieldCheck className="w-4 h-4 text-divineGold" />,
       title: {
-        hi: "४. गर्भ रक्षा कवच (Spiritual Womb Shield)",
-        en: "4. Womb Protection & Blessings",
-        gu: "૪. ગર્ભ રક્ષા કવચ (Spiritual Womb Shield)"
+        hi: "४. मातृत्व रक्षा एवं आशीर्वाद (Blessings & Well-being)",
+        en: "4. Mother & Baby Blessings",
+        gu: "૪. માતૃત્વ રક્ષા અને આશીર્વાદ"
       },
       desc: {
-        hi: "गर्भ की पूर्ण सुरक्षा और सुखद प्रसव के लिए वैदिक मंत्रों के माध्यम से दिव्य ऊर्जा का आह्वान।",
-        en: "Invoking cosmic energy through Vedic mantras for safe fetal development and natural, healthy delivery.",
-        gu: "ગર્ભની પૂર્ણ સુરક્ષા અને સુખદ પ્રસૂતિ માટે વૈદિક મંત્રો દ્વારા દિવ્ય ઊર્જાનું આવાહાન."
+        hi: "माँ और शिशु के समग्र कल्याण और सुखद मातृत्व यात्रा के लिए वैदिक मंत्रों एवं परिवार के शुभ संकल्पों का आशीर्वाद।",
+        en: "Traditional prayers and family blessings dedicated to the mother's peace of mind, healthy pregnancy journey, and safe childbirth.",
+        gu: "માતા અને બાળકના સર્વાંગી કલ્યાણ અને સુખદ માતૃત્વ યાત્રા માટે વૈદિક મંત્રો અને પરિવારના શુભ આશીર્વાદ."
       }
     }
   ];
