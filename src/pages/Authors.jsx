@@ -41,14 +41,23 @@ const Authors = () => {
     "mainEntity": {
       "@type": "Person",
       "name": "Dr. Taruna Jiyani",
-      "jobTitle": "Founder, Lead Counselor & Chief Editor",
+      "jobTitle": "Founder, Lead Vedic Prenatal Counselor & Chief Editor",
       "worksFor": {
         "@type": "Organization",
         "name": "Divine Garbh Sanskar",
         "url": "https://www.thedivinegarbhsanskar.com"
       },
-      "description": "Visionary educator, Vedic Garbh Sanskar counselor, and maternal wellbeing specialist based in Surat, Gujarat with over 10,000+ families guided.",
+      "description": "Vedic Garbh Sanskar specialist, maternal wellness counselor, and holistic prenatal educator based in Surat, Gujarat with over 8+ years of experience and 10,000+ expectant mothers guided.",
       "image": "https://www.thedivinegarbhsanskar.com/taruna.jpg",
+      "knowsAbout": [
+        "Vedic Garbh Sanskar",
+        "Garbh Samvad (Fetal Communication)",
+        "Prenatal Nada Yoga & Classical Ragas",
+        "Trimester Satvik Nutrition",
+        "Maternal Stress Reduction & Relaxation",
+        "Gentle Prenatal Yoga & Pelvic Exercises",
+        "Postpartum Sutika Paricharya"
+      ],
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "164, near ABC School, behind Royal Arcade, Marutidham Society, Sarthana Jakat Naka, Nana Varachha",
@@ -287,6 +296,21 @@ const Authors = () => {
                       gu: "તેઓ તમામ શૈક્ષણિક સામગ્રી, અભ્યાસક્રમ રચના અને સંપાદકીય ગુણવત્તાના મુખ્ય સંચાલક છે."
                     })}
                   </p>
+
+                  {/* Professional Scope & Clinical Collaboration Clarification */}
+                  <div className="p-3.5 bg-softCream/60 border border-divineGold/30 rounded-xl text-xs sm:text-sm text-templeBrown/90 space-y-1 mt-3">
+                    <p className="font-bold text-sacredMaroon flex items-center gap-1.5">
+                      <ShieldCheck className="w-4 h-4 text-sacredMaroon shrink-0" />
+                      <span>{t({ hi: "परामर्श कार्यक्षेत्र एवं चिकित्सा समन्वय (Scope of Practice)", en: "Scope of Practice & Medical Collaboration", gu: "પરામર્શ કાર્યક્ષેત્ર અને તબીબી સમન્વય" })}</span>
+                    </p>
+                    <p className="leading-relaxed">
+                      {t({
+                        hi: "डॉ. तरुणा जियाणी वैदिक गर्भ संस्कार, मातृत्व मनोविज्ञान और सात्विक जीवनशैली परामर्श में विशेषज्ञता रखती हैं। हमारा मार्गदर्शन शैक्षिक और भावनात्मक कल्याण के लिए है तथा यह आपके पंजीकृत प्रसूति रोग विशेषज्ञ (Gynecologist/Obstetrician) की चिकित्सा देखभाल का पूरक (Complementary) है, उसका विकल्प नहीं।",
+                        en: "Dr. Taruna Jiyani specializes in Vedic prenatal education, maternal lifestyle wellness, and prenatal psychology. Divine Garbh Sanskar provides educational and holistic wellness support designed to complement—never replace—the medical diagnostics, treatments, and prescriptions of your treating obstetrician.",
+                        gu: "ડૉ. તરુણા જીયાણી વૈદિક ગર્ભ સંસ્કાર અને માતૃત્વ મનોવિજ્ઞાન સલાહકાર તરીકે માર્ગદર્શન આપે છે. આ માર્ગદર્શન શૈક્ષણિક અને સુખાકારી માટે છે અને તમારા સ્ત્રીરોગ નિષ્ણાત (ગાયનેકોલોજિસ્ટ) ની તબીબી સારવારનું પૂરક છે."
+                      })}
+                    </p>
+                  </div>
                 </div>
 
                 {/* Consultation Direct Button */}

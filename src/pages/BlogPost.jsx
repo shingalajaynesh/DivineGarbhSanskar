@@ -4,7 +4,7 @@ import { Link, useParams } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 import MandalaBg from '../components/ui/MandalaBg';
 import { blogPosts, getBlogPostBySlug } from '../data/blogPosts';
-import { User, CheckCircle2, Calendar, BookOpen, ArrowRight, Heart } from 'lucide-react';
+import { User, CheckCircle2, Calendar, BookOpen, ArrowRight, Heart, ShieldCheck } from 'lucide-react';
 import MedicalDisclaimerBanner from '../components/ui/MedicalDisclaimerBanner';
 import { getArticleSchema, getBreadcrumbSchema, getFAQSchema } from '../seo/structuredData';
 import NotFound from './NotFound';
@@ -136,21 +136,44 @@ const BlogPost = () => {
               <span>•</span>
               <span className="flex items-center gap-1.5 text-templeBrown">
                 <CheckCircle2 className="w-3.5 h-3.5 text-divineGold" />
-                <span>{t({ hi: "समीक्षा:", en: "Reviewed by:", gu: "ચકાસણી:" })}</span>
+                <span>{t({ hi: "समीक्षा:", en: "Fact-Checked & Reviewed:", gu: "ચકાસણી:" })}</span>
                 <Link to="/editorial-policy" className="underline hover:text-vermillion">
-                  {t({ hi: "संपादकीय बोर्ड", en: "Editorial Board", gu: "સંપાદકીય બોર્ડ" })}
+                  {t({ hi: "मातृत्व स्वास्थ्य समीक्षा मंडल", en: "Prenatal Health Advisory Board", gu: "માતૃત્વ સ્વાસ્થ્ય સમીક્ષા બોર્ડ" })}
                 </Link>
               </span>
               <span>•</span>
               <span className="flex items-center gap-1.5 text-templeBrown">
                 <Calendar className="w-3.5 h-3.5 text-templeBrown/70" />
-                <span>{t({ hi: "प्रकाशित:", en: "Published:", gu: "પ્રકાશિત:" })} {post.date}</span>
+                <span>{t({ hi: "प्रकाशन:", en: "Updated:", gu: "પ્રકાશન:" })} {post.date}</span>
               </span>
             </div>
           </header>
 
           {/* Medical Disclaimer Box */}
           <MedicalDisclaimerBanner />
+
+          {/* Traditional Wisdom vs Clinical Evidence Demarcation Box */}
+          <div className="mt-6 p-4 md:p-5 bg-amber-50/70 border border-amber-200/80 rounded-2xl text-xs md:text-sm text-templeBrown/90 leading-relaxed font-sans shadow-xs">
+            <div className="flex items-start gap-2.5">
+              <ShieldCheck className="w-5 h-5 text-sacredMaroon shrink-0 mt-0.5" />
+              <div>
+                <p className="font-bold text-sacredMaroon text-xs uppercase tracking-wider mb-1">
+                  {t({
+                    hi: "वैदिक परंपरा एवं आधुनिक चिकित्सा साक्ष्य समन्वय (Evidence & Tradition Balance)",
+                    en: "Vedic Prenatal Tradition & Modern Clinical Evidence Notice",
+                    gu: "વૈદિક પરંપરા અને આધુનિક તબીબી સાક્ષ્ય સમન્વય"
+                  })}
+                </p>
+                <p>
+                  {t({
+                    hi: "यह मार्गदर्शिका प्राचीन आयुर्वेदिक गर्भिणी परिचर्या और मातृत्व कल्याण सिद्धांतों पर आधारित है। वैदिक गर्भ संस्कार की विधियां गर्भावस्था के दौरान मानसिक शांति, भावनात्मक जुड़ाव और सात्विक जीवनशैली के लिए समग्र पूरक (Complementary Support) हैं। किसी भी नैदानिक जांच, गर्भावस्था जटिलता या दवा के लिए हमेशा अपने पंजीकृत प्रसूति रोग विशेषज्ञ की सलाह लें।",
+                    en: "This educational guide integrates classical Ayurvedic Garbhini Paricharya with maternal wellness principles. Vedic Garbh Sanskar practices serve as holistic, non-invasive lifestyle complements supporting relaxation and fetal bonding, and are designed to accompany—never replace—clinical obstetric care.",
+                    gu: "આ માર્ગદર્શિકા આયુર્વેદિક ગર્ભિણી પરિચર્યા અને પ્રિનેટલ સુખાકારી પર આધારિત છે. વૈદિક ગર્ભ સંસ્કાર પદ્ધતિઓ માનસિક શાંતિ માટેનું પૂરક માર્ગદર્શન છે. કોઈપણ તબીબી નિદાન કે સારવાર માટે હંમેશા તમારા ગાયનેકોલોજિસ્ટની સલાહ લો."
+                  })}
+                </p>
+              </div>
+            </div>
+          </div>
 
           {/* Article Main Body Sections */}
           <div className="mt-10 bg-white/95 rounded-[28px] border border-divineGold/25 p-6 md:p-10 shadow-sm">
