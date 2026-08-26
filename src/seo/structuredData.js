@@ -119,7 +119,7 @@ export const getArticleSchema = (post) => ({
   },
   "reviewedBy": {
     "@type": "Organization",
-    "name": "Editorial & Wellness Advisory Board",
+    "name": "Divine Garbh Sanskar Editorial Standards",
     "url": "https://www.thedivinegarbhsanskar.com/editorial-policy"
   },
   "publisher": {

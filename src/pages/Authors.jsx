@@ -368,16 +368,16 @@ const Authors = () => {
           <div className="mt-20 bg-white border-2 border-divineGold/35 rounded-divine-lg p-8 sm:p-12 shadow-sm">
             <div className="max-w-3xl mb-10 text-left">
               <span className="text-xs font-bold uppercase tracking-wider text-vermillion bg-vermillion/10 px-3.5 py-1 rounded-full border border-vermillion/20">
-                {t({ hi: "समीक्षा मंडल", en: "Multidisciplinary Review Board", gu: "સમીક્ષા મંડળ" })}
+                {t({ hi: "संपादकीय मानक", en: "Evidence & Review Standards", gu: "સંપાદકીય ધોરણો" })}
               </span>
               <h3 className="font-serif text-2xl sm:text-3xl text-sacredMaroon font-bold mt-2">
-                {t({ hi: "संपादकीय एवं तथ्य-जांच सलाहकार मंडल", en: "Our Editorial & Fact-Checking Advisory Panels", gu: "સંપાદકીય અને તથ્ય-તપાસ સલાહકાર મંડળ" })}
+                {t({ hi: "हमारी 4-स्तंभीय तथ्य-जांच एवं समीक्षा प्रणाली", en: "Our 4-Pillar Fact-Checking & Review Standards", gu: "અમારી ૪-સ્તંભીય તથ્ય-તપાસ અને સમીક્ષા પ્રણાલી" })}
               </h3>
               <p className="font-sans text-sm sm:text-base text-templeBrown/80 leading-relaxed mt-2">
                 {t({
-                  hi: "वेबसाइट पर प्रकाशित सभी लेख और सलाह निम्नलिखित 4 प्रमुख विशेषज्ञ शाखाओं द्वारा सहकर्मी-समीक्षित की जाती हैं:",
-                  en: "To guarantee clinical accuracy, safety boundaries, and cultural fidelity, all published content is reviewed across 4 dedicated advisory panels:",
-                  gu: "તબીબી ચોકસાઈ અને સુરક્ષા સુનિશ્ચિત કરવા માટે તમામ સામગ્રી નીચેના ૪ નિષ્ણાત પેનલ દ્વારા ચકાસાય છે:"
+                  hi: "तथ्यात्मक सटीकता, सुरक्षा सीमाओं और सांस्कृतिक प्रामाणिकता की गारंटी के लिए प्रत्येक लेख को डब्ल्यूएचओ (WHO), आईसीएमआर (ICMR) और आयुष मंत्रालय (AYUSH) के दिशानिर्देशों के अनुरूप 4 विशेषज्ञ शाखाओं में परखा जाता है:",
+                  en: "To guarantee clinical safety boundaries, factual accuracy, and Vedic authenticity, all content is evaluated across 4 core educational pillars cross-referenced with WHO, ICMR, and Ministry of AYUSH guidelines:",
+                  gu: "તબીબી સુરક્ષા અને શાસ્ત્રીય ચોકસાઈ સુનિશ્ચિત કરવા માટે તમામ સામગ્રીને WHO, ICMR અને આયુષ માર્ગદર્શિકા સાથે સુસંગત ૪ શાખાઓમાં ચકાસવામાં આવે છે:"
                 })}
               </p>
             </div>

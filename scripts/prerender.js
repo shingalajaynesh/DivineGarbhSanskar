@@ -577,8 +577,8 @@ blogPosts.forEach(post => {
         <h1 style="color: #5D1A00; font-size: 2.2rem; margin: 0 0 1rem 0; line-height: 1.3;">${escapeHtml(titleText)}</h1>
         <p style="font-size: 1.15rem; color: #5D1A00; line-height: 1.6; margin: 0 0 1rem 0;">${escapeHtml(descText)}</p>
         <div style="font-size: 0.9rem; color: #5D1A00; background: #FFFDF9; padding: 0.75rem 1rem; border: 1px solid #D4AF37; border-radius: 6px;">
-          <span><strong>Authored by:</strong> <a href="/authors" style="color: #8B2500;">Dr. Taruna Jiyani</a> (Founder & Lead Counselor)</span> • 
-          <span><strong>Reviewed by:</strong> <a href="/editorial-policy" style="color: #8B2500;">Prenatal Health Advisory Panel</a></span> • 
+          <span><strong>Authored by:</strong> <a href="/authors" style="color: #8B2500;">Dr. Taruna Jiyani</a> (Founder & Lead Prenatal Counselor)</span> • 
+          <span><strong>Evidence Standards:</strong> <a href="/editorial-policy" style="color: #8B2500;">WHO, ICMR & AYUSH Evidence Standards</a></span> • 
           <span><strong>Published / Updated:</strong> ${escapeHtml(post.date)}</span>
         </div>
       </header>
@@ -646,47 +646,64 @@ routes.forEach(route => {
     html = html.replace('</head>', `${jsonLdScripts}\n  </head>`);
   }
 
-  // 7. Inject Semantic Static Fallback into <noscript> and initial crawlable container
+  // 7. Inject Semantic Static Content into <div id="root"> and <noscript>
+  const staticBody = `
+    <div style="padding: 2rem; max-width: 900px; margin: 0 auto; font-family: sans-serif; line-height: 1.6; color: #3B0F00; background-color: #FFFDF9;">
+      ${route.htmlContent}
+      <footer style="margin-top: 3rem; border-top: 1px solid #D4AF37; padding-top: 1.5rem; font-size: 0.85rem; color: #777;">
+        <p>© ${new Date().getFullYear()} Divine Garbh Sanskar • Surat, Gujarat, India • All Rights Reserved.</p>
+        <p>
+          <a href="/" style="color: #8B2500;">Home</a> • 
+          <a href="/about" style="color: #8B2500;">About</a> • 
+          <a href="/authors" style="color: #8B2500;">Authors</a> • 
+          <a href="/editorial-policy" style="color: #8B2500;">Editorial Policy</a> • 
+          <a href="/disclaimer" style="color: #8B2500;">Medical Disclaimer</a> • 
+          <a href="/courses" style="color: #8B2500;">Courses</a> • 
+          <a href="/simantonayan" style="color: #8B2500;">Simantonayan</a> • 
+          <a href="/blog" style="color: #8B2500;">Blog</a> • 
+          <a href="/contact" style="color: #8B2500;">Contact</a>
+        </p>
+      </footer>
+    </div>
+  `;
+
+  // Inject directly inside #root for immediate first-paint / headless crawler DOM visibility
+  html = html.replace('<div id="root"></div>', `<div id="root">${staticBody}</div>`);
+
+  // Also replace noscript
   const noscriptBlock = `
     <!-- Semantic Static Crawlable Content for Mediapartners-Google & Non-JS Bots -->
     <noscript>
-      <div style="padding: 2rem; max-width: 900px; margin: 0 auto; font-family: sans-serif; line-height: 1.6; color: #3B0F00; background-color: #FFFDF9;">
-        ${route.htmlContent}
-        <footer style="margin-top: 3rem; border-top: 1px solid #D4AF37; padding-top: 1.5rem; font-size: 0.85rem; color: #777;">
-          <p>© ${new Date().getFullYear()} Divine Garbh Sanskar • Surat, Gujarat, India • All Rights Reserved.</p>
-          <p>
-            <a href="/">Home</a> • 
-            <a href="/about">About</a> • 
-            <a href="/authors">Authors</a> • 
-            <a href="/editorial-policy">Editorial Policy</a> • 
-            <a href="/disclaimer">Medical Disclaimer</a> • 
-            <a href="/courses">Courses</a> • 
-            <a href="/simantonayan">Simantonayan</a> • 
-            <a href="/blog">Blog</a> • 
-            <a href="/contact">Contact</a>
-          </p>
-        </footer>
-      </div>
+      ${staticBody}
     </noscript>
   `;
-
-  // Replace existing <noscript>...</noscript> with route-specific one
   html = html.replace(/<noscript>[\s\S]*?<\/noscript>/i, noscriptBlock.trim());
 
-  // Determine output directory path
-  let targetDir = distDir;
-  if (route.path !== '/') {
+  // Determine output directory path and write dual static files
+  if (route.path === '/') {
+    fs.writeFileSync(path.join(distDir, 'index.html'), html, 'utf8');
+  } else {
     const cleanPath = route.path.replace(/^\//, '');
-    targetDir = path.join(distDir, cleanPath);
+    const targetDir = path.join(distDir, cleanPath);
+
+    if (!fs.existsSync(targetDir)) {
+      fs.mkdirSync(targetDir, { recursive: true });
+    }
+
+    // 1. Write /path/index.html
+    const targetIndexFile = path.join(targetDir, 'index.html');
+    fs.writeFileSync(targetIndexFile, html, 'utf8');
+
+    // 2. Write /path.html for clean URL routing
+    const targetDirectFile = path.join(distDir, `${cleanPath}.html`);
+    const parentOfDirectFile = path.dirname(targetDirectFile);
+    if (!fs.existsSync(parentOfDirectFile)) {
+      fs.mkdirSync(parentOfDirectFile, { recursive: true });
+    }
+    fs.writeFileSync(targetDirectFile, html, 'utf8');
   }
 
-  if (!fs.existsSync(targetDir)) {
-    fs.mkdirSync(targetDir, { recursive: true });
-  }
-
-  const targetFile = path.join(targetDir, 'index.html');
-  fs.writeFileSync(targetFile, html, 'utf8');
   generatedCount++;
 });
 
-console.log(` Successfully prerendered and saved ${generatedCount} static routes to dist/`);
+console.log(` Successfully prerendered and saved ${generatedCount} static routes (both /index.html and .html) to dist/`);

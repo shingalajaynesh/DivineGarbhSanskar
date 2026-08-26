@@ -136,9 +136,9 @@ const BlogPost = () => {
               <span>•</span>
               <span className="flex items-center gap-1.5 text-templeBrown">
                 <CheckCircle2 className="w-3.5 h-3.5 text-divineGold" />
-                <span>{t({ hi: "समीक्षा:", en: "Fact-Checked & Reviewed:", gu: "ચકાસણી:" })}</span>
+                <span>{t({ hi: "संपादकीय मानक:", en: "Evidence Standards:", gu: "સંપાદકીય ધોરણો:" })}</span>
                 <Link to="/editorial-policy" className="underline hover:text-vermillion">
-                  {t({ hi: "मातृत्व स्वास्थ्य समीक्षा मंडल", en: "Prenatal Health Advisory Board", gu: "માતૃત્વ સ્વાસ્થ્ય સમીક્ષા બોર્ડ" })}
+                  {t({ hi: "डब्ल्यूएचओ व आयुष दिशानिर्देश", en: "WHO, ICMR & AYUSH Standards", gu: "WHO અને આયુષ માર્ગદર્શિકા" })}
                 </Link>
               </span>
               <span>•</span>

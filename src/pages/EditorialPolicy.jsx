@@ -40,49 +40,56 @@ const EditorialPolicy = () => {
 
           <div className="mt-8 bg-white border border-divineGold/25 rounded-divine-md p-8 md:p-12 shadow-sm space-y-8 font-sans text-templeBrown/85 text-base leading-relaxed">
             <p className="text-xs text-templeBrown/60 uppercase font-semibold tracking-wider">
-              Last Updated: July 2026 • Quality & Fact-Checking Standard
+              Last Updated: August 2026 • Evidence & Quality Standard
             </p>
 
             <section>
-              <h2 className="text-2xl font-bold text-sacredMaroon mb-4">1. Editorial Mission</h2>
+              <h2 className="text-2xl font-bold text-sacredMaroon mb-4">1. Editorial Mission & Guiding Principles</h2>
               <p>
-                At Divine Garbh Sanskar, our editorial mission is to publish original, accurate, culturally respectful, and practical content about Vedic prenatal science, pregnancy diet, prenatal yoga safety, music therapy, and emotional wellbeing.
+                At Divine Garbh Sanskar, our mission is to provide authentic, culturally rich, and practically grounded educational content on Vedic prenatal science, satvik trimester nutrition, gentle yoga practices, classical sound therapy (Nada Yoga), and maternal emotional wellbeing.
+              </p>
+              <p className="mt-3">
+                All guides are crafted to nurture a calm, positive, and healthy pregnancy environment while strictly respecting the boundaries of modern obstetric medicine.
               </p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-sacredMaroon mb-4">2. Author & Reviewer Standards</h2>
+              <h2 className="text-2xl font-bold text-sacredMaroon mb-4">2. Authorship & Editorial Leadership</h2>
               <p>
-                - <strong>Author Identification:</strong> Articles are authored by identified counselors and educators led by Dr. Taruna Jiyani (Founder).
+                - <strong>Lead Counselor & Chief Editor:</strong> Content is authored and overseen by <strong>Dr. Taruna Jiyani</strong> (Founder), a certified Vedic Garbh Sanskar educator and maternal lifestyle counselor with over 8+ years of field experience in Surat, Gujarat.
               </p>
-              <p className="mt-2">
-                - <strong>Medical Clarification:</strong> Health and nutrition topics clearly demarcate traditional wellness practices from clinical medical advice, providing mandatory disclaimers to consult a gynecologist.
+              <p className="mt-3">
+                - <strong>Non-Allopathic Educational Scope:</strong> Divine Garbh Sanskar provides holistic lifestyle, emotional bonding, and cultural education. We do not provide allopathic medical diagnoses, clinical prescriptions, or surgical advice. Every article explicitly reminds expectant mothers to maintain active supervision with their registered obstetrician/gynecologist.
               </p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-sacredMaroon mb-4">3. Expert Human Authorship & Editorial Quality Control</h2>
+              <h2 className="text-2xl font-bold text-sacredMaroon mb-4">3. Evidence-Based & Classical Citation Framework</h2>
               <p>
-                We adhere strictly to Google's People-First Content Guidance and authentic Ayurvedic scholarship standards. All published articles are authored, fact-checked, and reviewed by certified prenatal educators and wellness counselors for absolute accuracy, cultural authenticity, and practical usefulness before publication.
+                To maintain high factual integrity and safety, our educational material synthesizes traditional Ayurvedic wisdom with established public health and clinical benchmarks:
               </p>
-              <p className="mt-3 font-semibold text-sacredMaroon">
-                We do not publish mass-produced, automated, or unverified generic content.
+              <ul className="list-disc pl-6 mt-3 space-y-2">
+                <li><strong>Public Health Guidelines:</strong> World Health Organization (WHO) Antenatal Care Standards and ICMR-NIN Dietary Guidelines for Indian Women.</li>
+                <li><strong>Traditional Classical Texts:</strong> Charaka Samhita, Sushruta Samhita, and Kashyapa Samhita (Garbhini Paricharya protocols).</li>
+                <li><strong>Obstetric Safety Standards:</strong> Adherence to safety advisories from the Federation of Obstetric and Gynaecological Societies of India (FOGSI).</li>
+              </ul>
+            </section>
+
+            <section>
+              <h2 className="text-2xl font-bold text-sacredMaroon mb-4">4. Human-First Content & No Mass Automation</h2>
+              <p>
+                We adhere strictly to Google's People-First Content standards. Every published guide undergoes human drafting, thorough fact-checking, and cultural review. We do not generate mass automated or unverified content.
               </p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-sacredMaroon mb-4">4. Sources & Citation</h2>
+              <h2 className="text-2xl font-bold text-sacredMaroon mb-4">5. Reader Feedback & Corrections Protocol</h2>
               <p>
-                Factual statements regarding Ayurveda, classical music ragas, fetal sensory development, and nutritional guidelines are referenced from traditional Vedic texts or recognized prenatal biology sources.
+                If you identify any outdated reference, medical nuance, or typographical error in our published material, our editorial team will review and update the guide promptly:
               </p>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-bold text-sacredMaroon mb-4">5. Corrections Policy</h2>
-              <p>
-                If an error or outdated piece of information is identified in any published article, our editorial team corrects it promptly with updated dates. Readers may submit factual corrections to:
+              <p className="mt-2 font-semibold text-sacredMaroon">
+                Email: divinegarbhsanskar0312@gmail.com (Subject: Editorial Correction)
               </p>
-              <p className="mt-2 font-semibold">Email: divinegarbhsanskar0312@gmail.com</p>
             </section>
           </div>
         </div>
