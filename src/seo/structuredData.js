@@ -114,12 +114,13 @@ export const getArticleSchema = (post) => ({
   "author": {
     "@type": "Person",
     "name": "Dr. Taruna Jiyani",
-    "jobTitle": "Founder & Lead Garbh Sanskar Counselor",
+    "honorificPrefix": "Dr.",
+    "jobTitle": "Founder, Vedic Prenatal Counselor & Holistic Wellness Educator (N.D.)",
     "url": "https://www.thedivinegarbhsanskar.com/authors"
   },
   "reviewedBy": {
     "@type": "Organization",
-    "name": "Divine Garbh Sanskar Editorial Standards",
+    "name": "Divine Garbh Sanskar 4-Pillar Editorial Framework",
     "url": "https://www.thedivinegarbhsanskar.com/editorial-policy"
   },
   "publisher": {

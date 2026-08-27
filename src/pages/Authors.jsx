@@ -41,13 +41,14 @@ const Authors = () => {
     "mainEntity": {
       "@type": "Person",
       "name": "Dr. Taruna Jiyani",
-      "jobTitle": "Founder, Lead Vedic Prenatal Counselor & Chief Editor",
+      "honorificPrefix": "Dr.",
+      "jobTitle": "Founder, Lead Vedic Prenatal Counselor & Holistic Wellness Educator",
       "worksFor": {
         "@type": "Organization",
         "name": "Divine Garbh Sanskar",
         "url": "https://www.thedivinegarbhsanskar.com"
       },
-      "description": "Vedic Garbh Sanskar specialist, maternal wellness counselor, and holistic prenatal educator based in Surat, Gujarat with over 8+ years of experience and 10,000+ expectant mothers guided.",
+      "description": "N.D. (Alternative Wellness / Naturopathy), Certified Vedic Garbh Sanskar Educator and Maternal Lifestyle Counselor based in Surat, Gujarat with over 8+ years of experience guiding expectant families.",
       "image": "https://www.thedivinegarbhsanskar.com/taruna.jpg",
       "knowsAbout": [
         "Vedic Garbh Sanskar",
@@ -81,8 +82,8 @@ const Authors = () => {
       desc: { hi: "माह-दर-माह आयुर्वेद सम्मत संतुलित आहार, सूक्ष्म पोषक तत्व और मॉर्निंग सिकनेस निवारण।", en: "Month-by-month Ayurvedic nutrition, essential micronutrients, and nausea management.", gu: "મહિના મુજબ આયુર્વેદિક સંતુલિત આહાર અને પોષણ." }
     },
     {
-      title: { hi: "राग संगीत एवं नाद योग चिकित्सा", en: "Raga Music Therapy & Nada Yoga", gu: "રાગ સંગીત અને નાદ યોગ ચિકિત્સા" },
-      desc: { hi: "भारतीय शास्त्रीय रागों (यमन, भूपाली) द्वारा एम्नियोटिक द्रव में ध्वनि तरंगों का संतुलन।", en: "Harmonizing acoustic sound waves in amniotic fluid via classical Indian ragas.", gu: "શાસ્ત્રીય રાગો દ્વારા ગર્ભમાં ધ્વનિ તરંગોનું સંતુલન." }
+      title: { hi: "राग संगीत एवं नाद योग विश्राम", en: "Raga Music & Nada Yoga Relaxation", gu: "રાગ સંગીત અને નાદ યોગ વિશ્રામ" },
+      desc: { hi: "भारतीय शास्त्रीय रागों (यमन, भूपाली) द्वारा मातृ मन की शांति और सुखद परिवेश।", en: "Cultivating maternal peace and emotional comfort via classical Indian ragas.", gu: "શાસ્ત્રીય રાગો દ્વારા માતાની માનસિક શાંતિ અને સુખદ વાતાવરણ." }
     },
     {
       title: { hi: "सुरक्षित प्रसव पूर्व योग एवं प्राणायाम", en: "Safe Prenatal Yoga & Labor Breathwork", gu: "સુરક્ષિત પ્રીનેટલ યોગ અને પ્રાણાયામ" },
@@ -98,40 +99,40 @@ const Authors = () => {
     }
   ];
 
-  const editorialPanels = [
+  const editorialPillars = [
     {
       icon: <BookOpen className="w-6 h-6 text-sacredMaroon shrink-0" />,
-      title: { hi: "आयुर्वेदिक गर्भिणी परिचर्या समीक्षा मंडल", en: "Ayurvedic Prenatal Science Panel", gu: "આયુર્વેદિક ગર્ભિણી પરિચર્યા સમીક્ષા મંડળ" },
+      title: { hi: "आयुर्वेदिक गर्भिणी परिचर्या संदर्भ ढांचा", en: "Ayurvedic Prenatal Reference Framework", gu: "આયુર્વેદિક ગર્ભિણી પરિચર્યા સંદર્ભ માળખું" },
       desc: {
         hi: "चरक संहिता, सुश्रुत संहिता और काश्यप संहिता के शास्त्रीय सिद्धांतों के अनुसार आहार, जड़ी-बूटियों की सुरक्षा और मासिक परिवर्तनों की प्रामाणिकता की समीक्षा।",
-        en: "Reviewing classical scriptural accuracy (Charaka, Sushruta & Kashyapa Samhitas), trimester-wise satvik diets, and herbal safety guidelines.",
+        en: "Synthesizing classical scriptural guidance (Charaka, Sushruta & Kashyapa Samhitas), trimester-wise satvik diets, and herbal safety boundaries.",
         gu: "શાસ્ત્રીય ગ્રંથો અનુસાર આહાર, ઔષધિઓની સુરક્ષા અને માસિક ફેરફારોની ચકાસણી."
       }
     },
     {
       icon: <Activity className="w-6 h-6 text-vermillion shrink-0" />,
-      title: { hi: "प्रसव पूर्व योग एवं शरीर क्रिया विज्ञान सलाहकार", en: "Prenatal Yoga & Pelvic Anatomy Board", gu: "પ્રીનેટલ યોગ અને શરીર વિજ્ઞાન સલાહકાર" },
+      title: { hi: "प्रसव पूर्व योग एवं शारीरिक सुरक्षा मानक", en: "Prenatal Movement & Anatomy Safety Standards", gu: "પ્રીનેટલ મુવમેન્ટ અને શારીરિક સુરક્ષા ધોરણો" },
       desc: {
         hi: "गर्भावस्था के दौरान आसन संशोधनों, शारीरिक सीमाओं, रक्तचाप नियंत्रण और प्रसव पीड़ा प्रबंधन तकनीकों की सुरक्षा जांच।",
-        en: "Evaluating anatomical safety, trimester-specific asana modifications, contraindications, and gentle pelvic floor preparation.",
+        en: "Evaluating movement safety, trimester-specific asana modifications, contraindications, and gentle pelvic floor preparation under obstetric guidelines.",
         gu: "ગર્ભાવસ્થા દરમિયાન યોગાસનોની સુરક્ષા, પેલ્વિક લચીલાપણું અને શ્વાસ નિયંત્રણની સમીક્ષા."
       }
     },
     {
       icon: <Music className="w-6 h-6 text-sacredMaroon shrink-0" />,
-      title: { hi: "शास्त्रीय नाद योग एवं संगीत अनुसंधान", en: "Classical Sound Therapy Researchers", gu: "શાસ્ત્રીય નાદ યોગ અને સંગીત સંશોધન" },
+      title: { hi: "शास्त्रीय नाद योग एवं संगीत दिशानिर्देश", en: "Classical Nada Yoga & Acoustic Guidelines", gu: "શાસ્ત્રીય નાદ યોગ અને સંગીત માર્ગદર્શિકા" },
       desc: {
-        hi: "भारतीय शास्त्रीय रागों की आवृत्तियों, भ्रूण श्रवण तंत्र के विकास और वैदिक मंत्रोच्चार (गायत्री मंत्र) के वैज्ञानिक प्रभावों का विश्लेषण।",
-        en: "Analyzing acoustic frequencies, fetal auditory pathway formation, and the vibrational impact of Vedic chanting in the womb.",
-        gu: "શાસ્ત્રીય રાગોની ફ્રીક્વન્સી અને ગર્ભસ્થ શિશુના શ્રવણ વિકાસ પર સંશોધન."
+        hi: "भारतीय शास्त्रीय रागों की सुखदायक धुनों, शांत वातावरण निर्माण और वैदिक मंत्रोच्चार के सांस्कृतिक महत्व का समन्वय।",
+        en: "Curating soothing classical Indian ragas and mindful audio environments for maternal relaxation and gentle womb bonding.",
+        gu: "શાસ્ત્રીય રાગો અને શાંત વાતાવરણ નિર્માણ દ્વારા માતાની માનસિક શાંતિ."
       }
     },
     {
       icon: <Heart className="w-6 h-6 text-vermillion shrink-0" />,
-      title: { hi: "मातृ मानसिक स्वास्थ्य एवं पारिवारिक परामर्श", en: "Maternal Mental Health & Counseling Panel", gu: "માતૃ માનસિક સ્વાસ્થ્ય અને પારિવારિક પરામર્શ" },
+      title: { hi: "मातृ मानसिक स्वास्थ्य एवं भावनात्मक परामर्श", en: "Maternal Mental Wellbeing & Counseling Framework", gu: "માતૃ માનસિક સ્વાસ્થ્ય અને પારિવારિક પરામર્શ" },
       desc: {
-        hi: "कोर्टिसोल (तनाव हार्मोन) के स्तर को कम करने, प्रसव भय (टोकोफोबिया) निवारण, योग निद्रा और पिता की सक्रिय सहभागिता का मार्गदर्शन।",
-        en: "Advising on maternal stress reduction, guided Yoga Nidra, birth confidence, and father's active emotional partnership.",
+        hi: "तनाव मुक्ति, प्रसव भय निवारण, योग निद्रा और पिता की सक्रिय भावनात्मक सहभागिता का मार्गदर्शन।",
+        en: "Providing structured guidance on maternal stress reduction, guided Yoga Nidra, birth confidence, and father's active emotional partnership.",
         gu: "તણાવ મુક્તિ, યોગ નિદ્રા અને પિતાની સક્રિય ભાગીદારી અંગે માર્ગદર્શન."
       }
     }
@@ -151,7 +152,7 @@ const Authors = () => {
     {
       step: "03",
       title: { hi: "विशेषज्ञ समीक्षा एवं सुरक्षा प्रमाणीकरण", en: "Expert Fact-Checking & Safety Review", gu: "નિષ્ણાત સમીક્ષા અને સુરક્ષા ચકાસણી" },
-      desc: { hi: "वरिष्ठ परामर्शदाताओं द्वारा सामग्री की तथ्यात्मक जांच, सुरक्षित खुराक और अनिवार्य चिकित्सा अस्वीकरण का सत्यापन।", en: "Rigorous fact-checking by senior prenatal educators and verifying medical disclaimer boundaries.", gu: "સામગ્રીની સચોટતા અને તબીબી અસ્વીકરણની કડક ચકાસણી." }
+      desc: { hi: "वरिष्ठ परामर्शदाताओं द्वारा सामग्री की तथ्यात्मक जांच, सुरक्षित खुराक और अनिवार्य चिकित्सा अस्वीकरण का सत्यापन।", en: "Rigorous fact-checking by certified prenatal educators and verifying medical disclaimer boundaries.", gu: "સામગ્રીની સચોટતા અને તબીબી અસ્વીકરણની કડક ચકાસણી." }
     },
     {
       step: "04",
@@ -190,19 +191,19 @@ const Authors = () => {
           {/* Header */}
           <SectionLabel
             isPageHeader={true}
-            label={t({ hi: "संपादकीय नेतृत्व एवं विशेषज्ञ", en: "Editorial Leadership & Authority", gu: "સંપાદકીય નેતૃત્વ અને નિષ્ણાતો" })}
+            label={t({ hi: "संपादकीय नेतृत्व एवं अनुसंधान", en: "Editorial Leadership & Framework", gu: "સંપાદકીય નેતૃત્વ અને માળખું" })}
             titleHi={t({
-              hi: "संपादकीय टीम, लेखक एवं विशेषज्ञ सलाहकार मंडल",
-              en: "Authors, Clinical Reviewers & Editorial Board",
-              gu: "સંપાદકીય ટીમ, લેખક અને સલાહકાર મંડળ"
+              hi: "लेखक, संपादकीय नेतृत्व एवं 4-स्तंभीय शोध ढांचा",
+              en: "Authors, Editorial Leadership & Review Framework",
+              gu: "લેખક, સંપાદકીય નેતૃત્વ અને ૪-સ્તંભીય સમીક્ષા માળખું"
             })}
           />
 
           <p className="mt-4 max-w-3xl mx-auto text-center text-base md:text-lg text-templeBrown/80 leading-relaxed font-sans">
             {t({
-              hi: "दिव्य गर्भ संस्कार पर प्रकाशित प्रत्येक लेख और मार्गदर्शन सामग्री वरिष्ठ वैदिक शिक्षकों, मातृत्व परामर्शदाताओं और स्वास्थ्य शोधकर्ताओं की एक समर्पित टीम द्वारा तैयार और जांची जाती है।",
-              en: "Every guide, nutritional chart, and prenatal practice published on Divine Garbh Sanskar is authored and rigorously fact-checked by experienced Vedic educators, maternal wellness counselors, and researchers.",
-              gu: "દિવ્ય ગર્ભ સંસ્કાર પર પ્રકાશિત દરેક લેખ અને માર્ગદર્શન સામગ્રી વરિષ્ઠ વૈદિક શિક્ષકો અને માતૃત્વ સલાહકારોની સમર્પિત ટીમ દ્વારા તૈયાર અને ચકાસાયેલ છે."
+              hi: "दिव्य गर्भ संस्कार पर प्रकाशित प्रत्येक लेख और मार्गदर्शन सामग्री वरिष्ठ वैदिक शिक्षकों, मातृत्व परामर्शदाताओं और स्वास्थ्य शोधकर्ताओं की समर्पित संपादकीय टीम द्वारा 4-स्तंभीय साक्ष्य ढांचे के तहत जांची जाती है।",
+              en: "Every guide, nutritional chart, and prenatal practice published on Divine Garbh Sanskar is authored and rigorously verified by certified prenatal educators and researchers following our documented 4-pillar evidence framework.",
+              gu: "દિવ્ય ગર્ભ સંસ્કાર પર પ્રકાશિત દરેક લેખ અને માર્ગદર્શન સામગ્રી પ્રમાણિત પ્રિનેટલ શિક્ષકો દ્વારા ૪-સ્તંભીય માળખા હેઠળ તૈયાર અને ચકાસાયેલ છે."
             })}
           </p>
 
@@ -274,9 +275,9 @@ const Authors = () => {
                   </h2>
                   <p className="font-sans text-sm sm:text-base text-templeBrown/85 font-medium mt-1">
                     {t({
-                      hi: "वैदिक गर्भ संस्कार विशेषज्ञ, मातृत्व स्वास्थ्य परामर्शदाता एवं प्रसव पूर्व शिक्षिका",
-                      en: "Vedic Garbh Sanskar Specialist, Maternal Health Counselor & Prenatal Educator",
-                      gu: "વૈદિક ગર્ભ સંસ્કાર નિષ્ણાત, માતૃત્વ સ્વાસ્થ્ય સલાહકાર અને પ્રીનેટલ શિક્ષક"
+                      hi: "एन.डी. (नेचरोपैथी एवं वैकल्पिक चिकित्सा) • प्रमाणित वैदिक गर्भ संस्कार विशेषज्ञ एवं मातृत्व परामर्शदाता",
+                      en: "N.D. (Alternative Wellness / Naturopathy) • Certified Vedic Garbh Sanskar Educator & Maternal Counselor",
+                      gu: "એન.ડી. (નેચરોપેથી અને વૈકલ્પિક સુખાકારી) • પ્રમાણિત વૈદિક ગર્ભ સંસ્કાર નિષ્ણાત અને માતૃત્વ સલાહકાર"
                     })}
                   </p>
                 </div>
@@ -284,15 +285,15 @@ const Authors = () => {
                 <div className="font-sans text-sm sm:text-base text-templeBrown/85 leading-relaxed space-y-3 border-t border-divineGold/20 pt-4">
                   <p>
                     {t({
-                      hi: "डॉ. तरुणा जियाणी वैदिक गर्भ संस्कार और आधुनिक भ्रूण मनोविज्ञान के पुनरुत्थान के लिए समर्पित एक प्रमुख विशेषज्ञ हैं। उन्होंने सूरत (गुजरात) स्थित दिव्य गर्भ संस्कार केंद्र के माध्यम से 10,000 से अधिक गर्भवती माताओं और परिवारों को व्यक्तिगत रूप से प्रशिक्षित किया है।",
-                      en: "Dr. Taruna Jiyani is a pioneering educator and counselor dedicated to the revival of authentic Vedic prenatal science harmonized with modern embryology and maternal wellness. Based at Divine Garbh Sanskar HQ in Surat, Gujarat, she has personally mentored over 10,000+ expectant families through pregnancy.",
-                      gu: "ડૉ. તરુણા જીયાણી વૈદિક ગર્ભ સંસ્કાર અને આધુનિક ભ્રૂણ મનોવિજ્ઞાનના પુનરુત્થાન માટે સમર્પિત અગ્રણી નિષ્ણાત છે. તેમણે સુરત સ્થિત દિવ્ય ગર્ભ સંસ્કાર કેન્દ્ર દ્વારા ૧૦,૦૦૦ થી વધુ પરિવારોને માર્ગદર્શન આપ્યું છે."
+                      hi: "डॉ. तरुणा जियाणी नेचरोपैथी एवं वैकल्पिक चिकित्सा (N.D.) की डिग्री के साथ प्रमाणित वैदिक गर्भ संस्कार परामर्शदाता हैं। उन्होंने सूरत (गुजरात) स्थित दिव्य गर्भ संस्कार केंद्र तथा ऑनलाइन कार्यशालाओं के माध्यम से 10,000 से अधिक गर्भवती माताओं और परिवारों को मातृत्व का मार्गदर्शन प्रदान किया है।",
+                      en: "Dr. Taruna Jiyani holds qualifications in Naturopathy & Alternative Wellness (N.D.) alongside specialized certification in Vedic Garbh Sanskar counseling. For over 8+ years, she has guided expectant mothers across Gujarat through structured prenatal workshops, trimester-specific satvik diet planning, and emotional wellbeing counseling.",
+                      gu: "ડૉ. તરુણા જીયાણી નેચરોપેથી અને વૈકલ્પિક સુખાકારી (N.D.) ની પદવી સાથે પ્રમાણિત વૈદિક ગર્ભ સંસ્કાર સલાહકાર છે. તેમણે સુરત સ્થિત દિવ્ય ગર્ભ સંસ્કાર કેન્દ્ર અને ઓનલાઇન વર્કશોપ દ્વારા ૧૦,૦૦૦ થી વધુ પરિવારોને માર્ગદર્શન આપ્યું છે."
                     })}
                   </p>
                   <p>
                     {t({
-                      hi: "वे दिव्य गर्भ संस्कार की संपूर्ण शैक्षिक सामग्री, पाठ्यक्रम संरचना और संपादकीय गुणवत्ता की प्रमुख सूत्रधार हैं। उनका उद्देश्य प्रत्येक माता को भयमुक्त, सुसंस्कृत और वैज्ञानिक रूप से जागरूक मातृत्व का उपहार देना है।",
-                      en: "She oversees all curriculum design, content accuracy, and editorial standards across the platform. Her methodology focuses on non-invasive lifestyle interventions: satvik trimester nutrition, Nada Yoga raga therapy, cortisol reduction, and conscious fetal communication (Garbh Samvad).",
+                      hi: "वे दिव्य गर्भ संस्कार की संपूर्ण शैक्षिक सामग्री, पाठ्यक्रम संरचना और संपादकीय गुणवत्ता की प्रमुख सूत्रधार हैं। उनका मार्गदर्शन गैर-आक्रामक जीवनशैली विधियों: त्रैमासिक सात्विक पोषण, नाद योग राग संगीत, विश्राम प्राणायाम और गर्भ संवाद पर केंद्रित है।",
+                      en: "She oversees curriculum design, content accuracy, and editorial standards across the platform. Her methodology focuses on non-invasive lifestyle interventions: satvik trimester nutrition, Nada Yoga raga therapy, mindful relaxation, and conscious fetal communication (Garbh Samvad).",
                       gu: "તેઓ તમામ શૈક્ષણિક સામગ્રી, અભ્યાસક્રમ રચના અને સંપાદકીય ગુણવત્તાના મુખ્ય સંચાલક છે."
                     })}
                   </p>
@@ -305,9 +306,9 @@ const Authors = () => {
                     </p>
                     <p className="leading-relaxed">
                       {t({
-                        hi: "डॉ. तरुणा जियाणी वैदिक गर्भ संस्कार, मातृत्व मनोविज्ञान और सात्विक जीवनशैली परामर्श में विशेषज्ञता रखती हैं। हमारा मार्गदर्शन शैक्षिक और भावनात्मक कल्याण के लिए है तथा यह आपके पंजीकृत प्रसूति रोग विशेषज्ञ (Gynecologist/Obstetrician) की चिकित्सा देखभाल का पूरक (Complementary) है, उसका विकल्प नहीं।",
-                        en: "Dr. Taruna Jiyani specializes in Vedic prenatal education, maternal lifestyle wellness, and prenatal psychology. Divine Garbh Sanskar provides educational and holistic wellness support designed to complement—never replace—the medical diagnostics, treatments, and prescriptions of your treating obstetrician.",
-                        gu: "ડૉ. તરુણા જીયાણી વૈદિક ગર્ભ સંસ્કાર અને માતૃત્વ મનોવિજ્ઞાન સલાહકાર તરીકે માર્ગદર્શન આપે છે. આ માર્ગદર્શન શૈક્ષણિક અને સુખાકારી માટે છે અને તમારા સ્ત્રીરોગ નિષ્ણાત (ગાયનેકોલોજિસ્ટ) ની તબીબી સારવારનું પૂરક છે."
+                        hi: "डॉ. तरुणा जियाणी प्राकृतिक एवं वैदिक मातृत्व जीवनशैली परामर्श में विशेषज्ञता रखती हैं। वे एलोपैथिक डॉक्टर अथवा प्रसूति सर्जन नहीं हैं। हमारा मार्गदर्शन शैक्षिक और भावनात्मक कल्याण के लिए है तथा यह आपके पंजीकृत प्रसूति रोग विशेषज्ञ (Gynecologist/Obstetrician) की चिकित्सा देखभाल का पूरक (Complementary) है, उसका विकल्प नहीं।",
+                        en: "Dr. Taruna Jiyani practices as a holistic prenatal wellness educator and Garbh Sanskar counselor. She is not an allopathic medical doctor/obstetric surgeon. Divine Garbh Sanskar provides educational and holistic lifestyle guidance designed to complement—never replace—the medical diagnostics, treatments, and prescriptions of your treating obstetrician.",
+                        gu: "ડૉ. તરુણા જીયાણી વૈદિક ગર્ભ સંસ્કાર અને માતૃત્વ સુખાકારી સલાહકાર તરીકે માર્ગદર્શન આપે છે. તેઓ એલોપેથિક ડૉક્ટર કે સર્જન નથી. આ માર્ગદર્શન શૈક્ષણિક છે અને તમારા ગાયનેકોલોજિસ્ટની તબીબી સારવારનું પૂરક છે."
                       })}
                     </p>
                   </div>
@@ -364,7 +365,7 @@ const Authors = () => {
             </div>
           </div>
 
-          {/* Multidisciplinary Advisory & Review Board */}
+          {/* Multidisciplinary 4-Pillar Review Standards */}
           <div className="mt-20 bg-white border-2 border-divineGold/35 rounded-divine-lg p-8 sm:p-12 shadow-sm">
             <div className="max-w-3xl mb-10 text-left">
               <span className="text-xs font-bold uppercase tracking-wider text-vermillion bg-vermillion/10 px-3.5 py-1 rounded-full border border-vermillion/20">
@@ -383,7 +384,7 @@ const Authors = () => {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {editorialPanels.map((panel, idx) => (
+              {editorialPillars.map((panel, idx) => (
                 <div key={idx} className="p-6 bg-softCream/30 border border-divineGold/25 rounded-divine-md flex gap-4 items-start">
                   <div className="p-3 bg-white rounded-xl shadow-xs border border-divineGold/20 shrink-0">
                     {panel.icon}

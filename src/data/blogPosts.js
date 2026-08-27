@@ -264,21 +264,21 @@ export const blogPosts = [
             "Indian classical music is rooted in microtonal frequencies (Shrutis) designed to balance bio-energetic rhythms. Specific ragas are selected based on diurnal timing and emotional resonance:",
             "1. Raga Yaman & Raga Bhupali (Morning / Dawn): Known for creating a profound sense of devotion (Bhakti), tranquility, and peace. Listening between 6:00 AM and 8:00 AM gently awakens the maternal mind and establishes emotional equilibrium.",
             "2. Raga Bilawal & Raga Desh (Midday): Vibrant, joyful melodies that dispel lethargy, uplift depressive moods, and enhance positive psychological outlook.",
-            "3. Raga Bageshri & Raga Kafi (Evening): Deeply grounding ragas that relax arterial tension, reduce blood pressure spikes, and ease daytime anxiety.",
+            "3. Raga Bageshri & Raga Kafi (Evening): Deeply soothing ragas that promote emotional relaxation, relieve evening fatigue, and ease daytime restlessness.",
             "4. Raga Darbari Kanhada & Raga Bihag (Night / Bedtime): Soothing nocturnal frequencies that promote deep, restorative REM sleep, relieving insomnia and muscle fatigue."
           ],
           "hi": [
             "भारतीय शास्त्रीय संगीत जैव-ऊर्जावान लय को संतुलित करने के लिए डिज़ाइन की गई माइक्रोटोनल आवृत्तियों (श्रुति) में निहित है। दैनिक समय और भावनात्मक अनुनाद के आधार पर विशिष्ट रागों का चयन किया जाता है:",
             "1. राग यमन और राग भूपाली (सुबह / भोर): भक्ति (भक्ति), शांति और शांति की गहरी भावना पैदा करने के लिए जाना जाता है। सुबह 6:00 बजे से 8:00 बजे के बीच सुनने से मातृ मन धीरे से जागृत होता है और भावनात्मक संतुलन स्थापित होता है।",
             "2. राग बिलावल और राग देश (दोपहर): जीवंत, आनंददायक धुनें जो सुस्ती दूर करती हैं, अवसादग्रस्त मनोदशाओं को ऊपर उठाती हैं और सकारात्मक मनोवैज्ञानिक दृष्टिकोण को बढ़ाती हैं।",
-            "3. राग बागेश्री और राग काफ़ी (शाम): गहराई से रचे गए राग जो धमनियों के तनाव को कम करते हैं, रक्तचाप की वृद्धि को कम करते हैं और दिन की चिंता को कम करते हैं।",
+            "3. राग बागेश्री और राग काफ़ी (शाम): शांत और सुखदायक राग जो मानसिक तनाव को दूर करते हैं, दिनभर की थकान मिटाते हैं और विश्राम को बढ़ावा देते हैं।",
             "4. राग दरबारी कान्हड़ा और राग बिहाग (रात / सोने का समय): सुखदायक रात्रि आवृत्तियाँ जो गहरी, आरामदेह आरईएम नींद को बढ़ावा देती हैं, अनिद्रा और मांसपेशियों की थकान से राहत देती हैं।"
           ],
           "gu": [
             "ભારતીય શાસ્ત્રીય સંગીત જૈવ-ઊર્જાયુક્ત લયને સંતુલિત કરવા માટે રચાયેલ માઇક્રોટોનલ ફ્રીક્વન્સીઝ (શ્રુતિસ)માં મૂળ છે. ચોક્કસ રાગો દૈનિક સમય અને ભાવનાત્મક પડઘોના આધારે પસંદ કરવામાં આવે છે:",
             "1. રાગ યમન અને રાગ ભૂપાલી (સવાર/સવાર): ભક્તિ (ભક્તિ), શાંતિ અને શાંતિની ગહન ભાવના બનાવવા માટે જાણીતા છે. 6:00 AM અને 8:00 AM વચ્ચે સાંભળવાથી માતૃ મનને હળવાશથી જાગૃત કરે છે અને ભાવનાત્મક સંતુલન સ્થાપિત થાય છે.",
             "2. રાગ બિલાવલ અને રાગ દેશ (મિડડે): વાઇબ્રન્ટ, આનંદદાયક ધૂન જે સુસ્તી દૂર કરે છે, ડિપ્રેસિવ મૂડને ઉત્તેજન આપે છે અને હકારાત્મક મનોવૈજ્ઞાનિક દૃષ્ટિકોણને વધારે છે.",
-            "3. રાગ બાગેશ્રી અને રાગ કાફી (સાંજે): ઊંડે ગ્રાઉન્ડિંગ રાગો કે જે ધમનીના તાણને હળવા કરે છે, બ્લડ પ્રેશરમાં વધારો કરે છે અને દિવસની ચિંતા હળવી કરે છે.",
+            "3. રાગ બાગેશ્રી અને રાગ કાફી (સાંજે): શાંત અને સુખદાયક રાગો જે માનસિક તણાવ દૂર કરે છે, દિવસનો થાક ઘટાડે છે અને આરામ આપે છે.",
             "4. રાગ દરબારી કાન્હાડા અને રાગ બિહાગ (રાત / સૂવાનો સમય): શાંત નિશાચર ફ્રીક્વન્સીઝ જે ઊંડી, પુનઃસ્થાપિત આરઈએમ ઊંઘને ​​પ્રોત્સાહન આપે છે, અનિદ્રા અને સ્નાયુઓના થાકને દૂર કરે છે."
           ]
         }
@@ -483,19 +483,19 @@ export const blogPosts = [
         },
         "paragraphs": {
           "en": [
-            "• Anulom Vilom (Alternate Nostril Breathing without retention): Balances the sympathetic and parasympathetic nervous systems, clears nasal passages, and delivers high oxygenation to maternal-fetal circulation.",
-            "• Bhramari Pranayama (Humming Bee Breath): The soothing humming sound induces nitric oxide production in nasal sinuses, lowers arterial blood pressure, and deeply calms the amygdala.",
-            "• Ujjayi Pranayama (Ocean Breath): Helps expectant mothers master rhythmic, sustained exhalations—a vital skill for staying grounded during active labor surges."
+            "• Anulom Vilom (Alternate Nostril Breathing without retention): Encourages gentle, relaxed breathing patterns, mental clarity, and maternal peace without breath holding.",
+            "• Bhramari Pranayama (Humming Bee Breath): The gentle, rhythmic humming vibration helps soothe mental chatter, relieves daily restlessness, and creates a deeply relaxing sensation for the expectant mother.",
+            "• Ujjayi Pranayama (Ocean Breath): Helps expectant mothers master rhythmic, sustained exhalations—a vital skill for staying grounded and calm during labor."
           ],
           "hi": [
-            "• अनुलोम-विलोम (बिना अवरोध के वैकल्पिक नासिका श्वास): सहानुभूतिपूर्ण और पैरासिम्पेथेटिक तंत्रिका तंत्र को संतुलित करता है, नाक के मार्ग को साफ करता है, और मातृ-भ्रूण परिसंचरण को उच्च ऑक्सीजन प्रदान करता है।",
-            "• भ्रामरी प्राणायाम (हमिंग बी ब्रीथ): सुखदायक गुंजन ध्वनि नाक के साइनस में नाइट्रिक ऑक्साइड उत्पादन को प्रेरित करती है, धमनी रक्तचाप को कम करती है, और अमिगडाला को गहराई से शांत करती है।",
-            "• उज्जायी प्राणायाम (समुद्री सांस): गर्भवती माताओं को लयबद्ध, निरंतर साँस छोड़ने में मदद करता है - सक्रिय प्रसव के दौरान जमीन पर बने रहने के लिए एक महत्वपूर्ण कौशल।"
+            "• अनुलोम-विलोम (बिना सांस रोके): बिना सांस रोके स्वाभाविक रूप से गहरी और शांत सांस लेने का अभ्यास, जो मानसिक स्पष्टता और शांति को बढ़ावा देता है।",
+            "• भ्रामरी प्राणायाम (हमिंग बी ब्रीथ): यह सौम्य गुंजन ध्वनि मन की चंचलता को शांत करने, मानसिक तनाव को दूर करने और माता को गहन विश्राम का अनुभव कराने में मदद करती है।",
+            "• उज्जायी प्राणायाम (समुद्री सांस): गर्भवती माताओं को लयबद्ध, निरंतर साँस छोड़ने में मदद करता है - प्रसव के दौरान शांत और एकाग्र रहने के लिए एक उपयोगी अभ्यास।"
           ],
           "gu": [
-            "• અનુલોમ વિલોમ (વધારા વિના વૈકલ્પિક નસકોરું શ્વાસ): સહાનુભૂતિશીલ અને પેરાસિમ્પેથેટિક નર્વસ સિસ્ટમને સંતુલિત કરે છે, અનુનાસિક માર્ગો સાફ કરે છે, અને માતૃ-ગર્ભ પરિભ્રમણને ઉચ્ચ ઓક્સિજન પહોંચાડે છે.",
-            "• ભ્રમરી પ્રાણાયામ (હમિંગ બી બ્રીથ): શાંત ગુંજારવાળો અવાજ અનુનાસિક સાઇનસમાં નાઈટ્રિક ઑકસાઈડનું ઉત્પાદન પ્રેરિત કરે છે, ધમનીનું બ્લડ પ્રેશર ઘટાડે છે અને એમીગડાલાને ઊંડાણપૂર્વક શાંત કરે છે.",
-            "• ઉજ્જયી પ્રાણાયામ (ઓશન બ્રીથ): સગર્ભા માતાઓને લયબદ્ધ, સતત શ્વાસ બહાર કાઢવામાં મદદ કરે છે-સક્રિય પ્રસૂતિ દરમિયાન ગ્રાઉન્ડેડ રહેવા માટે એક મહત્વપૂર્ણ કૌશલ્ય."
+            "• અનુલોમ વિલોમ (શ્વાસ રોક્યા વિના): શ્વાસ રોક્યા વગર કુદરતી રીતે ઊંડો અને શાંત શ્વાસ લેવાની પદ્ધતિ, જે માનસિક સ્પષ્ટતા અને શાંતિ વધારે છે.",
+            "• ભ્રમરી પ્રાણાયામ (હમિંગ બી બ્રીથ): આ હળવો ગુંજારવ મનની અશાંતિ દૂર કરી, તણાવ ઘટાડી માતાને માનસિક શાંતિ અને ઊંડો વિશ્રામ આપે છે.",
+            "• ઉજ્જયી પ્રાણાયામ (ઓશન બ્રીથ): સગર્ભા માતાઓને લયબદ્ધ, સતત શ્વાસ બહાર કાઢવામાં મદદ કરે છે - પ્રસૂતિ દરમિયાન શાંત રહેવા માટેનું ઉપયોગી કૌશલ્ય."
           ]
         }
       },
@@ -1103,30 +1103,30 @@ export const blogPosts = [
       "gu": "ગર્ભાવસ્થામાં ધ્યાન અને મંત્ર જાપ: ગર્ભસ્થ બાળકના માનસિક વિકાસ માટે વૈજ્ઞાનિક ફાયદા"
     },
     "description": {
-      "en": "Learn how daily pregnancy meditation, breath awareness, and sound mantras calm the maternal nervous system, enhance neuroplasticity, and nurture emotional bonding.",
-      "hi": "जानिए कैसे दैनिक ध्यान और मंत्रोच्चार माँ के तनाव को दूर कर शिशु के मस्तिष्क को शांत और तेजस्वी बनाते हैं।",
-      "gu": "જાણો કેવી રીતે દૈનિક ધ્યાન અને મંત્રોચ્ચાર માતાના તણાવને દૂર કરી બાળકના મનને શાંત અને તેજસ્વી બનાવે છે."
+      "en": "Learn how daily pregnancy meditation, breath awareness, and sound mantras calm the maternal mind, ease pregnancy worries, and nurture emotional bonding.",
+      "hi": "जानिए कैसे दैनिक ध्यान और मंत्रोच्चार माँ के तनाव को दूर कर मन को शांत और सकारात्मक बनाते हैं।",
+      "gu": "જાણો કેવી રીતે દૈનિક ધ્યાન અને મંત્રોચ્ચાર માતાના તણાવને દૂર કરી મનને શાંત અને હકારાત્મક બનાવે છે."
     },
     "keywords": "pregnancy meditation, mantra during pregnancy, garbh sanskar meditation, calm mind in pregnancy, guided womb meditation, om chanting pregnancy",
     "sections": [
       {
         "heading": {
-          "en": "The Neurobiology of Meditation in Expectant Mothers",
-          "hi": "गर्भवती माताओं में ध्यान की तंत्रिका जीव विज्ञान",
-          "gu": "સગર્ભા માતાઓમાં ધ્યાનની ન્યુરોબાયોલોજી"
+          "en": "The Emotional & Calming Benefits of Meditation for Expectant Mothers",
+          "hi": "गर्भवती माताओं के लिए ध्यान के मानसिक एवं शांतिदायक लाभ",
+          "gu": "સગર્ભા માતાઓ માટે ધ્યાનના માનસિક અને શાંતિદાયક ફાયદા"
         },
         "paragraphs": {
           "en": [
-            "During pregnancy, a mother's brain undergoes significant neuro-architectural remodeling. Elevated levels of progesterone and estrogen enhance emotional sensitivity, but can also trigger heightened vulnerability to worry, fear of childbirth, and cognitive fatigue. Regular meditation acts as a neurological anchor, strengthening gray matter density in the prefrontal cortex while down-regulating hyperactive responses in the amygdala (the brain's fear and stress center).",
-            "When an expectant mother enters a meditative state, her heart rate slows, arterial resistance decreases, and systemic oxygen delivery to the uterine artery increases. The fetus experiences this physiological shift as a soothing wave of tranquility."
+            "During pregnancy, a mother naturally experiences heightened emotional sensitivity, along with occasional worries about health, changes in routine, and childbirth. Regular meditation acts as a calming anchor, fostering emotional balance and helping release everyday mental fatigue.",
+            "When an expectant mother enters a meditative state, her breathing slows and deepens, cultivating an inner state of relaxation. This serene and tranquil atmosphere provides a soothing and comforting environment for mother and baby alike."
           ],
           "hi": [
-            "गर्भावस्था के दौरान, एक माँ का मस्तिष्क महत्वपूर्ण न्यूरो-आर्किटेक्चरल रीमॉडलिंग से गुजरता है। प्रोजेस्टेरोन और एस्ट्रोजन का ऊंचा स्तर भावनात्मक संवेदनशीलता को बढ़ाता है, लेकिन चिंता, बच्चे के जन्म के डर और संज्ञानात्मक थकान के प्रति संवेदनशीलता भी बढ़ा सकता है। नियमित ध्यान एक न्यूरोलॉजिकल एंकर के रूप में कार्य करता है, जो प्रीफ्रंटल कॉर्टेक्स में ग्रे मैटर घनत्व को मजबूत करता है, जबकि एमिग्डाला (मस्तिष्क का भय और तनाव केंद्र) में अतिसक्रिय प्रतिक्रियाओं को नियंत्रित करता है।",
-            "जब एक गर्भवती माँ ध्यान की स्थिति में प्रवेश करती है, तो उसकी हृदय गति धीमी हो जाती है, धमनी प्रतिरोध कम हो जाता है, और गर्भाशय धमनी में प्रणालीगत ऑक्सीजन वितरण बढ़ जाता है। भ्रूण इस शारीरिक बदलाव को शांति की सुखदायक लहर के रूप में अनुभव करता है।"
+            "गर्भावस्था के दौरान माँ स्वाभाविक रूप से भावनात्मक संवेदनशीलता का अनुभव करती है, साथ ही दिनचर्या और प्रसव को लेकर कभी-कभार चिंताएं भी हो सकती हैं। नियमित ध्यान मन को स्थिर रखने, भावनात्मक संतुलन बनाए रखने और मानसिक थकान दूर करने में एक मजबूत संबल बनता है।",
+            "जब एक गर्भवती माँ ध्यान की शांत अवस्था में होती है, तो उसकी सांसें धीमी और गहरी हो जाती हैं, जिससे आंतरिक शांति का संचार होता है। यह सुखद वातावरण माँ और शिशु दोनों के लिए अत्यंत लाभकारी होता है।"
           ],
           "gu": [
-            "સગર્ભાવસ્થા દરમિયાન, માતાનું મગજ નોંધપાત્ર ન્યુરો-આર્કિટેક્ચરલ રિમોડેલિંગમાંથી પસાર થાય છે. પ્રોજેસ્ટેરોન અને એસ્ટ્રોજનનું એલિવેટેડ લેવલ ભાવનાત્મક સંવેદનશીલતામાં વધારો કરે છે, પરંતુ તે ચિંતા, બાળજન્મનો ડર અને જ્ઞાનાત્મક થાકને પણ ઉત્તેજિત કરી શકે છે. નિયમિત ધ્યાન ન્યુરોલોજિકલ એન્કર તરીકે કામ કરે છે, પ્રીફ્રન્ટલ કોર્ટેક્સમાં ગ્રે મેટરની ઘનતાને મજબૂત બનાવે છે જ્યારે એમીગડાલા (મગજનું ડર અને તણાવ કેન્દ્ર) માં અતિસક્રિય પ્રતિક્રિયાઓને ડાઉન-રેગ્યુલેટ કરે છે.",
-            "જ્યારે સગર્ભા માતા ધ્યાનની સ્થિતિમાં પ્રવેશે છે, ત્યારે તેના હૃદયના ધબકારા ધીમો પડી જાય છે, ધમનીનો પ્રતિકાર ઘટે છે અને ગર્ભાશયની ધમનીમાં પ્રણાલીગત ઓક્સિજનની ડિલિવરી વધે છે. ગર્ભ આ શારીરિક પરિવર્તનને શાંતિની સુખદાયક તરંગ તરીકે અનુભવે છે."
+            "ગર્ભાવસ્થા દરમિયાન માતા સ્વાભાવિક રીતે જ ભાવનાત્મક સંવેદનશીલતા અનુભવે છે. નિયમિત ધ્યાન મનને શાંત રાખવામાં, ભાવનાત્મક સંતુલન જાળવવામાં અને માનસિક થાક દૂર કરવામાં ખૂબ મદદરૂપ સાબિત થાય છે.",
+            "જ્યારે સગર્ભા માતા ધ્યાનની સ્થિતિમાં હોય છે, ત્યારે તેના શ્વાસ ઊંડા અને સ્થિર બને છે, જે આંતરિક શાંતિ આપે છે. આ શાંત વાતાવરણ માતા અને બાળક બંને માટે સુખદ અનુભવ બને છે."
           ]
         }
       },
@@ -1614,19 +1614,19 @@ export const blogPosts = [
         "paragraphs": {
           "en": [
             "1. Nadi Shodhana (Anulom Vilom without Kumbhaka): Alternate nostril breathing performed gently without holding the breath. This balances sympathetic and parasympathetic tones.",
-            "2. Bhramari Pranayama (Humming Sound): Closing the ears softly and producing a low-pitch humming bee vibration on exhalation. Clinically shown to release nitric oxide and lower systemic vascular tension.",
+            "2. Bhramari Pranayama (Humming Sound): Closing the ears softly and producing a low-pitch humming bee vibration on exhalation. Produces a soothing inner sound that quiets an overactive mind and induces deep maternal tranquility.",
             "3. Sheetali & Sheetkari Pranayama (Cooling Breaths): Inhaling through a curled tongue or closed teeth and exhaling through the nose. Highly effective for cooling hot flashes, hyperacidity, and summer fatigue.",
             "4. Golden Thread Breath: Inhaling deeply through the nose and exhaling slowly through softly parted lips as if sending a golden thread across the room. Ideal for labor relaxation."
           ],
           "hi": [
             "1. नाड़ी शोधन (कुंभक के बिना अनुलोम-विलोम): सांस को रोके बिना धीरे-धीरे नाक से बारी-बारी से सांस लेना। यह सहानुभूतिपूर्ण और परानुकंपी स्वरों को संतुलित करता है।",
-            "2. भ्रामरी प्राणायाम (गुंजन ध्वनि): कानों को धीरे से बंद करना और साँस छोड़ते समय धीमी गति से गुंजन ध्वनि उत्पन्न करना। चिकित्सकीय रूप से नाइट्रिक ऑक्साइड जारी करने और प्रणालीगत संवहनी तनाव को कम करने के लिए दिखाया गया है।",
+            "2. भ्रामरी प्राणायाम (गुंजन ध्वनि): कानों को धीरे से बंद करना और साँस छोड़ते समय धीमी गति से गुंजन ध्वनि उत्पन्न करना, जो मन को शांत कर गहरी आंतरिक शांति प्रदान करता है।",
             "3. शीतली और शीतकारी प्राणायाम (ठंडी सांसें): मुड़ी हुई जीभ या बंद दांतों से सांस लेना और नाक से सांस छोड़ना। गर्म चमक, हाइपरएसिडिटी और गर्मी की थकान को शांत करने के लिए अत्यधिक प्रभावी।",
             "4. सुनहरे धागे वाली सांस: नाक के माध्यम से गहरी सांस लेना और धीरे-धीरे खुले होठों के माध्यम से सांस छोड़ना जैसे कि पूरे कमरे में एक सुनहरा धागा भेज रहा हो। श्रम विश्राम के लिए आदर्श."
           ],
           "gu": [
             "1. નાડી શોધ (કુંભકા વિના અનુલોમ વિલોમ): વૈકલ્પિક નસકોરામાં શ્વાસ રોક્યા વગર હળવેથી કરવામાં આવે છે. આ સહાનુભૂતિ અને પેરાસિમ્પેથેટિક ટોનને સંતુલિત કરે છે.",
-            "2. ભ્રમરી પ્રાણાયામ (હમિંગ સાઉન્ડ): કાનને હળવેથી બંધ કરીને અને શ્વાસ છોડવા પર મધમાખીના નીચા-પીચ હમિંગ વાઇબ્રેશન ઉત્પન્ન કરે છે. તબીબી રીતે નાઈટ્રિક ઓક્સાઇડ અને નીચલા પ્રણાલીગત વેસ્ક્યુલર તણાવને મુક્ત કરવા માટે દર્શાવવામાં આવ્યું છે.",
+            "2. ભ્રમરી પ્રાણાયામ (હમિંગ સાઉન્ડ): કાનને હળવેથી બંધ કરીને શ્વાસ બહાર કાઢતી વખતે ધીમો ગુંજારવ કરવો, જે મનને શાંત કરી ઊંડી આંતરિક શાંતિ પ્રદાન કરે છે.",
             "3. શીતલી અને શીતકારી પ્રાણાયામ (ઠંડક શ્વાસ): વાંકડિયા જીભ અથવા બંધ દાંત દ્વારા શ્વાસ લેવો અને નાક દ્વારા શ્વાસ બહાર કાઢવો. ગરમ સામાચારો, અતિશય એસિડિટી અને ઉનાળાના થાકને ઠંડુ કરવા માટે અત્યંત અસરકારક.",
             "4. ગોલ્ડન થ્રેડ બ્રેથ: નાકમાંથી ઊંડો શ્વાસ લેવો અને ધીમે ધીમે વિભાજિત હોઠ દ્વારા શ્વાસ બહાર કાઢવો જાણે કે આખા ઓરડામાં સોનેરી દોરો મોકલતો હોય. શ્રમ છૂટછાટ માટે આદર્શ."
           ]
@@ -2672,40 +2672,40 @@ export const blogPosts = [
       },
       {
         "heading": {
-          "en": "Post-Meal Movement & Safe Prenatal Yoga for Blood Sugar Balance",
-          "hi": "भोजन के बाद की गतिविधि और रक्त शर्करा संतुलन के लिए सुरक्षित प्रसवपूर्व योग",
-          "gu": "ભોજન પછીની હિલચાલ અને બ્લડ સુગરના સંતુલન માટે સલામત પ્રિનેટલ યોગ"
+          "en": "Gentle Movement & Safe Prenatal Activity for Maternal Wellbeing",
+          "hi": "मातृ स्वास्थ्य के लिए सौम्य शारीरिक गतिविधि और सुरक्षित प्रसवपूर्व योग",
+          "gu": "માતૃ સુખાકારી માટે હળવી શારીરિક હિલચાલ અને સલામત પ્રિનેટલ યોગ"
         },
         "paragraphs": {
           "en": [
-            "Physical muscle contraction acts as an insulin-independent pathway for glucose uptake. A gentle 15-to-20 minute walk immediately after breakfast, lunch, and dinner helps muscles burn circulating blood sugar and prevents post-meal glucose surges.",
-            "Safe prenatal yoga postures such as Marjariasana (Cat-Cow pose), Baddha Konasana (Bound Angle pose), and gentle seated pelvic circles encourage lower-body circulation and pelvic mobility without abdominal strain. All exercises must be cleared with your treating obstetrician to safely complement your medical blood sugar care."
+            "Gentle, clinician-approved prenatal movement can contribute to overall physical activity during pregnancy. A light 15-to-20 minute walk at a comfortable pace after meals supports everyday maternal fitness and digestion.",
+            "Safe prenatal yoga postures such as Marjariasana (Cat-Cow pose), Baddha Konasana (Bound Angle pose), and gentle seated pelvic circles encourage lower-body circulation and pelvic mobility without abdominal strain. Specific yoga practices should always be adapted to individual medical circumstances under the direct guidance of your treating obstetrician."
           ],
           "hi": [
-            "शारीरिक मांसपेशी संकुचन ग्लूकोज ग्रहण के लिए इंसुलिन-स्वतंत्र मार्ग के रूप में कार्य करता है। नाश्ते, दोपहर के भोजन और रात के खाने के तुरंत बाद 15 से 20 मिनट की हल्की सैर मांसपेशियों को रक्त शर्करा को जलाने में मदद करती है और भोजन के बाद ग्लूकोज की वृद्धि को रोकती है।",
-            "सुरक्षित प्रसव पूर्व योगासन जैसे मार्जरीआसन, बद्ध कोणासन और कोमल बैठे पेल्विक सर्कल पेट पर दबाव डाले बिना निचले शरीर के परिसंचरण और लचीलेपन को बढ़ावा देते हैं। किसी भी योगाभ्यास को शुरू करने से पहले अपने चिकित्सक की स्वीकृति अवश्य लें।"
+            "चिकित्सक द्वारा स्वीकृत सौम्य प्रसवपूर्व शारीरिक गतिविधियां गर्भावस्था के दौरान सामान्य शारीरिक सक्रियता और स्वास्थ्य में योगदान देती हैं। भोजन के बाद 15 से 20 मिनट की आरामदायक सैर दैनिक स्वास्थ्य और पाचन में सहायक होती है।",
+            "सुरक्षित प्रसव पूर्व योगासन जैसे मार्जरीआसन, बद्ध कोणासन और कोमल बैठे पेल्विक सर्कल पेट पर दबाव डाले बिना निचले शरीर के परिसंचरण और लचीलेपन को बढ़ावा देते हैं। किसी भी योगाभ्यास को अपनी व्यक्तिगत चिकित्सकीय स्थिति के अनुसार डॉक्टर की अनुमति से ही करें।"
           ],
           "gu": [
-            "શારીરિક સ્નાયુ સંકોચન ગ્લુકોઝના શોષણ માટે ઇન્સ્યુલિન-સ્વતંત્ર માર્ગ તરીકે કામ કરે છે. નાસ્તો, લંચ અને રાત્રિભોજન પછી તરત જ 15-થી-20 મિનિટનું હળવું ચાલવાથી સ્નાયુઓને પરિભ્રમણ કરતી રક્ત ખાંડ બર્ન કરવામાં મદદ મળે છે અને ભોજન પછી ગ્લુકોઝના વધારાને અટકાવે છે.",
-            "સલામત પ્રિનેટલ યોગાસનો જેમ કે માર્જારિયાસન, બદ્ધ કોનાસન અને હળવી પેલ્વિક કસરતો પેટ પર દબાણ લાવ્યા વિના રક્ત પરિભ્રમણ અને લવચીકતા વધારે છે. કોઈપણ યોગાસન શરૂ કરતા પહેલા તમારા ડૉક્ટરની મંજૂરી મેળવવી જરૂરી છે."
+            "તબીબી સલાહ મુજબ હળવી શારીરિક હિલચાલ ગર્ભાવસ્થા દરમિયાન સામાન્ય સુખાકારીમાં મદદરૂપ બને છે. ભોજન પછી 15-થી-20 મિનિટનું હળવું ચાલવું દૈનિક ફિટનેસ અને પાચનમાં સહાયક બને છે.",
+            "સલામત પ્રિનેટલ યોગાસનો જેમ કે માર્જારિયાસન, બદ્ધ કોનાસન અને હળવી પેલ્વિક કસરતો પેટ પર દબાણ લાવ્યા વિના રક્ત પરિભ્રમણ અને લવચીકતા વધારે છે. કોઈપણ યોગાસન તમારી વ્યક્તિગત સ્થિતિ મુજબ ડૉક્ટરની મંજૂરીથી જ કરવું જોઈએ."
           ]
         }
       },
       {
         "heading": {
-          "en": "Stress, Cortisol and Blood Sugar: The Garbh Sanskar Calming Protocol",
-          "hi": "तनाव, कोर्टिसोल और रक्त शर्करा: गर्भ संस्कार शांति प्रोटोकॉल",
-          "gu": "તણાવ, કોર્ટીસોલ અને બ્લડ સુગર: ગર્ભ સંસ્કાર શાંત પ્રોટોકોલ"
+          "en": "Managing Maternal Stress & Cultivating Calmness: The Garbh Sanskar Approach",
+          "hi": "तनाव प्रबंधन एवं मानसिक शांति: गर्भ संस्कार दृष्टिकोण",
+          "gu": "તણાવ વ્યવસ્થાપન અને માનસિક શાંતિ: ગર્ભ સંસ્કાર અભિગમ"
         },
         "paragraphs": {
           "en": [
-            "Chronic anxiety, fear about delivery, and elevated emotional stress trigger the adrenal glands to secrete cortisol and epinephrine, both of which raise blood sugar levels even when diet is strictly controlled. Practicing 15 minutes of daily Bhramari Pranayama (humming bee breath) and listening to soothing classical ragas activates the parasympathetic nervous system, promoting relaxation and helping manage maternal stress as a supportive lifestyle aid."
+            "Managing maternal emotional stress and pregnancy worries is an important aspect of holistic prenatal wellbeing. Practicing 15 minutes of daily gentle Bhramari Pranayama (humming breath) and listening to soothing classical ragas promotes relaxation, emotional calmness, and maternal stress reduction as a complementary lifestyle practice alongside clinical care and prescribed dietary plans."
           ],
           "hi": [
-            "पुरानी चिंता, प्रसव के बारे में डर और बढ़ा हुआ भावनात्मक तनाव अधिवृक्क ग्रंथियों को कोर्टिसोल और एपिनेफ्रिन स्रावित करने के लिए प्रेरित करता है, ये दोनों रक्त शर्करा के स्तर को बढ़ाते हैं, भले ही आहार को सख्ती से नियंत्रित किया गया हो। प्रतिदिन 15 मिनट भ्रामरी प्राणायाम और सुखदायक शास्त्रीय संगीत सुनने से पैरासिम्पेथेटिक तंत्रिका तंत्र सक्रिय होता है, जिससे मानसिक शांति मिलती है और तनाव प्रबंधन में सहायता होती है।"
+            "मातृ तनाव और चिंता का प्रबंधन प्रसव पूर्व समग्र स्वास्थ्य का एक महत्वपूर्ण पहलू है। प्रतिदिन 15 मिनट सौम्य भ्रामरी प्राणायाम और सुखदायक शास्त्रीय संगीत का श्रवण मानसिक शांति, विश्राम और तनाव प्रबंधन में एक सहायक जीवनशैली अभ्यास के रूप में मदद करता है।"
           ],
           "gu": [
-            "દીર્ઘકાલીન ચિંતા, ડિલિવરી અંગેનો ડર અને વધેલા ભાવનાત્મક તાણ એડ્રેનલ ગ્રંથીઓને કોર્ટિસોલ અને એપિનેફ્રાઇન સ્ત્રાવ કરવા માટે ટ્રિગર કરે છે, જે બંને ખોરાકને સખત રીતે નિયંત્રિત કરવામાં આવે ત્યારે પણ લોહીમાં શર્કરાનું સ્તર વધારે છે. દરરોજ 15 મિનિટ ભ્રમરી પ્રાણાયામ અને શાંત શાસ્ત્રીય સંગીત સાંભળવાથી પેરાસિમ્પેથેટિક નર્વસ સિસ્ટમ સક્રિય થાય છે, માનસિક શાંતિ મળે છે અને તણાવ ઘટે છે."
+            "માતૃ તણાવ અને ચિંતાનું વ્યવસ્થાપન પ્રિનેટલ સુખાકારીનો મહત્વપૂર્ણ ભાગ છે. દરરોજ 15 મિનિટ હળવા ભ્રમરી પ્રાણાયામ અને શાંત શાસ્ત્રીય સંગીત સાંભળવાથી માનસિક શાંતિ મળે છે અને તણાવ વ્યવસ્થાપનમાં સહાયક લાઈફસ્ટાઈલ તરીકે ઉપયોગી બને છે."
           ]
         }
       }
@@ -3220,60 +3220,57 @@ export const blogPosts = [
       {
         "heading": {
           "en": "Color Therapy & Mandala Drawing for Emotional Grounding",
-          "hi": "भावनात्मक ग्राउंडिंग के लिए कलर थेरेपी और मंडला ड्राइंग",
-          "gu": "ભાવનાત્મક ગ્રાઉન્ડિંગ માટે કલર થેરાપી અને મંડલા ડ્રોઇંગ"
+          "hi": "भावनात्मक संतुलन के लिए रंग चिकित्सा और मंडला चित्रकला",
+          "gu": "ભાવનાત્મક સંતુલન માટે કલર થેરાપી અને મંડલા ચિત્રકળા"
         },
         "paragraphs": {
           "en": [
-            "Engaging in color therapy—such as drawing circular sacred Mandalas, watercolor painting, or gentle embroidery—induces an alpha brainwave state (8 to 12 Hz) in the mother. Alpha waves signify deep, relaxed alertness, lowering maternal blood pressure and providing a serene biochemical environment for the developing fetus.",
-            "Spend 20 minutes each afternoon coloring or sketching harmonious natural designs with soothing colors (warm saffron, gentle greens, soft blues, and golden yellows)."
+            "Engaging in color therapy—such as drawing circular sacred Mandalas, watercolor painting, or gentle embroidery—helps quiet mental distractions and fosters a state of relaxed mindfulness. Spending quiet time each afternoon coloring or sketching harmonious natural designs with soothing colors (warm saffron, gentle greens, soft blues, and golden yellows) provides a serene, restful routine for the expectant mother."
           ],
           "hi": [
-            "रंग चिकित्सा में संलग्न होना - जैसे गोलाकार पवित्र मंडल बनाना, जलरंग पेंटिंग, या कोमल कढ़ाई - माँ में अल्फा ब्रेनवेव अवस्था (8 से 12 हर्ट्ज) उत्पन्न करता है। अल्फा तरंगें गहरी, आरामदायक सतर्कता, मातृ रक्तचाप को कम करने और विकासशील भ्रूण के लिए एक शांत जैव रासायनिक वातावरण प्रदान करने का संकेत देती हैं।",
-            "प्रत्येक दोपहर सुखदायक रंगों (गर्म केसरिया, हल्का हरा, नरम नीला और सुनहरा पीला) के साथ सामंजस्यपूर्ण प्राकृतिक डिजाइनों को रंगने या स्केच करने में 20 मिनट बिताएं।"
+            "रंग चिकित्सा में संलग्न होना - जैसे गोलाकार पवित्र मंडला बनाना, जलरंग पेंटिंग, या कोमल कढ़ाई - मानसिक चंचलता को शांत करने और मन को स्थिर रखने में मदद करता है। प्रत्येक दोपहर सुखदायक रंगों (केसरिया, हल्का हरा, नरम नीला और सुनहरा पीला) के साथ सामंजस्यपूर्ण डिजाइनों को रंगने से माँ को आंतरिक शांति का अनुभव होता है।"
           ],
           "gu": [
-            "કલર થેરાપીમાં સામેલ થવું-જેમ કે ગોળાકાર પવિત્ર મંડળો દોરવા, વોટરકલર પેઇન્ટિંગ અથવા હળવા ભરતકામ-માતામાં આલ્ફા બ્રેઇનવેવ સ્ટેટ (8 થી 12 હર્ટ્ઝ) પ્રેરે છે. આલ્ફા તરંગો ઊંડા, હળવાશથી સતર્કતા દર્શાવે છે, માતાનું બ્લડ પ્રેશર ઘટાડે છે અને વિકાસશીલ ગર્ભ માટે શાંત બાયોકેમિકલ વાતાવરણ પૂરું પાડે છે.",
-            "દરેક બપોરે 20 મિનિટ વિતાવો કે સુખદ રંગો (ગરમ કેસર, હળવા ગ્રીન્સ, સોફ્ટ બ્લૂઝ અને સોનેરી પીળો) સાથે સુમેળભર્યા કુદરતી ડિઝાઇનને રંગવામાં અથવા સ્કેચ કરો."
+            "કલર થેરાપીમાં જોડાવું - જેમ કે મંડલા ચિત્રકામ, વોટરકલર પેઇન્ટિંગ અથવા ભરતકામ - માનસિક વિક્ષેપોને શાંત કરી માતૃત્વને હળવાશ આપે છે. બપોરના સમયે શાંતિપૂર્ણ કુદરતી ડિઝાઇનમાં મનપસંદ રંગો પૂરવાથી સગર્ભા માતાને ગહન માનસિક વિશ્રામ મળે છે."
           ]
         }
       },
       {
         "heading": {
-          "en": "The Science of Vedic Chanting: Gayatri Mantra & Sound Frequencies",
-          "hi": "वैदिक जप का विज्ञान: गायत्री मंत्र और ध्वनि आवृत्तियाँ",
-          "gu": "વૈદિક જાપનું વિજ્ઞાન: ગાયત્રી મંત્ર અને ધ્વનિ આવર્તન"
+          "en": "The Tradition of Vedic Chanting: Gayatri Mantra & Sound Vibrations",
+          "hi": "वैदिक मंत्रोच्चार की परंपरा: गायत्री मंत्र एवं ध्वनि तरंगे",
+          "gu": "વૈદિક મંત્રોચ્ચારની પરંપરા: ગાયત્રી મંત્ર અને ધ્વનિ સ્પંદનો"
         },
         "paragraphs": {
           "en": [
-            "Sanskrit is a phonetic language built on precise vibrational resonances (Nada Yoga). Chanting sacred mantras such as the Gayatri Mantra, Mahamrityunjaya Mantra, or the Vishnu Sahasranama produces rhythmic sound vibrations that travel effortlessly through amniotic fluid.",
-            "Amniotic fluid acts as an exceptional acoustic conductor. Regular rhythmic chanting stimulates the fetal auditory cortex and limbic system, fostering innate calmness and enhanced language recognition after birth."
+            "Sanskrit recitation is built on rhythmic intonation and calming acoustic patterns (Nada Yoga). Chanting sacred shlokas such as the Gayatri Mantra, Mahamrityunjaya Mantra, or soothing stotrams creates a peaceful atmosphere in the home.",
+            "The acoustic environment of pregnancy allows the baby to perceive the soothing tempo and cadence of the mother's voice, fostering an early emotional bond and calming familiarity."
           ],
           "hi": [
-            "संस्कृत एक ध्वन्यात्मक भाषा है जो सटीक कंपन अनुनादों (नाद योग) पर बनी है। गायत्री मंत्र, महामृत्युंजय मंत्र, या विष्णु सहस्रनाम जैसे पवित्र मंत्रों का जाप लयबद्ध ध्वनि कंपन उत्पन्न करता है जो एमनियोटिक द्रव के माध्यम से सहजता से फैलता है।",
-            "एम्नियोटिक द्रव एक असाधारण ध्वनिक कंडक्टर के रूप में कार्य करता है। नियमित लयबद्ध जप भ्रूण के श्रवण प्रांतस्था और लिम्बिक प्रणाली को उत्तेजित करता है, जन्मजात शांति को बढ़ावा देता है और जन्म के बाद भाषा की पहचान को बढ़ाता है।"
+            "संस्कृत श्लोकों का उच्चारण लयबद्ध स्वर और शांत ध्वनिक पैटर्न (नाद योग) पर आधारित है। गायत्री मंत्र, महामृत्युंजय मंत्र या सुखदायक स्तोत्रों का जाप घर में एक अत्यंत पवित्र और शांत वातावरण बनाता है।",
+            "गर्भावस्था के दौरान माँ की आवाज़ की मधुर लय और अपनापन गर्भस्थ शिशु के साथ भावनात्मक जुड़ाव को गहरा करता है और जन्म के बाद भी एक सुखद पहचान प्रदान करता है।"
           ],
           "gu": [
-            "સંસ્કૃત એ ધ્વન્યાત્મક ભાષા છે જે ચોક્કસ કંપનશીલ પ્રતિધ્વનિ (નાદ યોગ) પર બનેલી છે. ગાયત્રી મંત્ર, મહામૃત્યુંજય મંત્ર અથવા વિષ્ણુ સહસ્રનામ જેવા પવિત્ર મંત્રોનો જાપ કરવાથી લયબદ્ધ ધ્વનિ સ્પંદનો ઉત્પન્ન થાય છે જે એમ્નિઅટિક પ્રવાહી દ્વારા વિના પ્રયાસે મુસાફરી કરે છે.",
-            "એમ્નિઅટિક પ્રવાહી અસાધારણ એકોસ્ટિક વાહક તરીકે કામ કરે છે. નિયમિત લયબદ્ધ જાપ ગર્ભના શ્રાવ્ય આચ્છાદન અને લિમ્બિક સિસ્ટમને ઉત્તેજિત કરે છે, જન્મજાત શાંતિ અને ઉન્નત ભાષાની ઓળખને પ્રોત્સાહન આપે છે."
+            "સંસ્કૃત શ્લોકોનું પઠન લયબદ્ધ ઉચ્ચારણ અને શાંત ધ્વનિ પર આધારિત છે. ગાયત્રી મંત્ર, મહામૃત્યુંજય મંત્ર અથવા સ્તોત્રોનો જાપ ઘરમાં પવિત્ર અને શાંત વાતાવરણ બનાવે છે.",
+            "ગર્ભાવસ્થા દરમિયાન માતાના અવાજની મધુર લય ગર્ભસ્થ શિશુ સાથેનો ભાવનાત્મક સંબંધ વધુ ગાઢ બનાવે છે."
           ]
         }
       },
       {
         "heading": {
-          "en": "Mathematical & Logic Stimulation: Storytelling and Memory Games",
-          "hi": "गणितीय और तर्क उत्तेजना: कहानी कहने और स्मृति खेल",
-          "gu": "મેથેમેટિકલ અને લોજિક સ્ટીમ્યુલેશન: સ્ટોરીટેલિંગ અને મેમરી ગેમ્સ"
+          "en": "Intellectual Engagement & Mindful Reflection: Inspiring Stories and Thoughtful Reading",
+          "hi": "बौद्धिक सक्रियता एवं सकारात्मक चिंतन: प्रेरक कथाएं एवं स्वाध्याय",
+          "gu": "બૌદ્ધિક સક્રિયતા અને હકારાત્મક ચિંતન: પ્રેરક વાર્તાઓ અને સ્વાધ્યાય"
         },
         "paragraphs": {
           "en": [
-            "Mothers who enjoy solving gentle logic puzzles, Sudoku, chess, or reading high-vibrational philosophical literature during pregnancy cultivate focused intellectual discipline. Reading inspirational stories from the Mahabharata, Ramayana, or biographies of great scientists and leaders imparts sub-conscious impressions (Samskaras) into the womb."
+            "Mothers who enjoy solving gentle logic puzzles, engaging in creative reading, or studying uplifting philosophical literature cultivate a calm, focused mindset. Reading inspirational stories from our cultural heritage or noble biographies imparts noble thoughts, positivity, and peace during pregnancy."
           ],
           "hi": [
-            "जिन माताओं को गर्भावस्था के दौरान कोमल तर्क पहेलियाँ, सुडोकू, शतरंज, या उच्च-स्पंदन दार्शनिक साहित्य पढ़ने में आनंद आता है, वे केंद्रित बौद्धिक अनुशासन विकसित करती हैं। महाभारत, रामायण, या महान वैज्ञानिकों और नेताओं की जीवनियों से प्रेरणादायक कहानियाँ पढ़ने से गर्भ में अवचेतन संस्कार (संस्कार) आते हैं।"
+            "गर्भावस्था के दौरान प्रेरक साहित्य, पहेलियां, या दार्शनिक पुस्तकें पढ़ने से मन एकाग्र और सकारात्मक रहता है। सांस्कृतिक परंपराओं और महापुरुषों की जीवनियों का स्वाध्याय माँ के विचारों में उच्च आदर्श और संस्कार स्थापित करता है।"
           ],
           "gu": [
-            "જે માતાઓ સગર્ભાવસ્થા દરમિયાન હળવા તર્કશાસ્ત્રના કોયડાઓ, સુડોકુ, ચેસ અથવા ઉચ્ચ કંપનયુક્ત દાર્શનિક સાહિત્ય વાંચવામાં આનંદ લે છે તેઓ ધ્યાન કેન્દ્રિત બૌદ્ધિક શિસ્ત કેળવે છે. મહાભારત, રામાયણ, અથવા મહાન વૈજ્ઞાનિકો અને નેતાઓના જીવનચરિત્રમાંથી પ્રેરણાદાયી વાર્તાઓ વાંચવાથી ગર્ભમાં સબ-ચેતન છાપ (સંસ્કાર) આવે છે."
+            "ગર્ભાવસ્થા દરમિયાન પ્રેરક સાહિત્ય, કોયડાઓ કે જીવનચરિત્રોનું વાચન મનને એકાગ્ર અને હકારાત્મક રાખે છે. સદ્ગ્રંથોનું વાચન માતાના વિચારોમાં ઉચ્ચ સંસ્કારોનું સિંચન કરે છે."
           ]
         }
       }

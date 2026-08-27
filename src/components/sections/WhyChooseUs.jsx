@@ -56,11 +56,11 @@ const WhyChooseUs = () => {
     },
     {
       icon: <Globe className="w-7 h-7 text-vermillion" />,
-      title: { hi: "विश्वव्यापी पहुँच", en: "Available Worldwide", gu: "વિશ્વવ્યાપી પહોંચ" },
+      title: { hi: "वैश्विक डिजिटल पहुँच", en: "Global Online Access", gu: "વૈશ્વિક ડિજિટલ પહોંચ" },
       desc: {
-        hi: "भारत, यूएसए, यूके और दुनिया के अन्य हिस्सों से हजारों गर्भवती माताएं हमारी कक्षाओं का लाभ ले रही हैं।",
-        en: "Expectant parents from over 15+ countries rely on our certified digital prenatal coaching.",
-        gu: "ભારત, યુએસએ, યુકે અને વિશ્વના અન્ય ભાગોમાંથી હજારો ગર્ભવતી માતાઓ અમારા વર્ગોનો લાભ લઈ રહી છે."
+        hi: "भारत और प्रवासी भारतीय परिवारों सहित हजारों गर्भवती माताएं हमारे ऑनलाइन प्रसवपूर्व मार्गदर्शन से जुड़ी हैं।",
+        en: "Expectant parents across India and global diaspora communities join our online prenatal workshops and consultations.",
+        gu: "ભારત અને વિદેશમાં વસતા પરિવારો અમારા ઓનલાઇન પ્રિનેટલ વર્કશોપ અને માર્ગદર્શન સાથે જોડાયેલા છે."
       }
     }
   ];

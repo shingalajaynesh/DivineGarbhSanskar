@@ -136,16 +136,16 @@ const About = () => {
             />
             <div className="flex-1 text-center md:text-left space-y-3">
               <span className="inline-block px-3 py-1 bg-divineGold/20 text-sacredMaroon rounded-full text-xs font-bold uppercase tracking-wider">
-                {t({ hi: "संस्थापक एवं मुख्य मार्गदर्शक", en: "Founder & Lead Counselor", gu: "સ્થાપક અને મુખ્ય સલાહકાર" })}
+                {t({ hi: "एन.डी. • संस्थापक एवं मुख्य मार्गदर्शक", en: "N.D. • Founder & Lead Counselor", gu: "એન.ડી. • સ્થાપક અને મુખ્ય સલાહકાર" })}
               </span>
               <h3 className="text-2xl font-serif text-sacredMaroon font-bold">
                 Dr. Taruna Jiyani
               </h3>
               <p className="text-sm font-sans text-templeBrown/85 leading-relaxed">
                 {t({
-                  hi: "डॉ. तरुणा जियानी के मार्गदर्शन में 10,000+ से अधिक परिवारों ने वैदिक गर्भ संस्कार के माध्यम से सचेत मातृत्व का अनुभव किया है। हमारा मार्गदर्शन केंद्र सूरत, गुजरात में स्थित है।",
-                  en: "Under Dr. Taruna Jiyani's leadership, over 10,000+ families have embraced conscious parenting through Vedic Garbh Sanskar. Our physical guidance center is located in Surat, Gujarat.",
-                  gu: "ડૉ. તરુણા જીયાણીના માર્ગદર્શન હેઠળ ૧૦,૦૦૦+ થી વધુ પરિવારોએ વૈદિક ગર્ભ સંસ્કાર દ્વારા સભાન માતૃત્વનો અનુભવ કર્યો છે. અમારું માર્ગદર્શન કેન્દ્ર સુરત, ગુજરાતમાં આવેલું છે."
+                  hi: "डॉ. तरुणा जियाणी (N.D., वैकल्पिक चिकित्सा) सूरत, गुजरात स्थित प्रमाणित वैदिक गर्भ संस्कार विशेषज्ञ हैं। उन्होंने 8+ वर्षों के परामर्श अनुभव के साथ 10,000+ से अधिक परिवारों को सचेत मातृत्व का मार्गदर्शन प्रदान किया है।",
+                  en: "Dr. Taruna Jiyani (N.D., Alternative Wellness) is a certified Vedic Garbh Sanskar educator based in Surat, Gujarat. With over 8+ years of counseling experience, she has guided more than 10,000+ families through holistic prenatal education.",
+                  gu: "ડૉ. તરુણા જીયાણી (N.D., વૈકલ્પિક સુખાકારી) સુરત, ગુજરાત સ્થિત પ્રમાણિત વૈદિક ગર્ભ સંસ્કાર સલાહકાર છે. તેમણે ૮+ વર્ષના અનુભવ સાથે ૧૦,૦૦૦+ થી વધુ પરિવારોને સભાન માતૃત્વનું માર્ગદર્શન આપ્યું છે."
                 })}
               </p>
               <div className="pt-2 flex flex-wrap gap-4 justify-center md:justify-start text-xs font-semibold">

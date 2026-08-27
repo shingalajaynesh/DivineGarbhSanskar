@@ -152,9 +152,9 @@ const Faculty = () => {
                 </h3>
                 <p className="font-sans text-sm sm:text-base text-templeBrown/85 font-medium mt-1">
                   {t({
-                    hi: "वैदिक गर्भ संस्कार परामर्शदाता एवं मातृत्व स्वास्थ्य विशेषज्ञ",
-                    en: "Vedic Garbh Sanskar Counselor & Maternal Wellbeing Educator",
-                    gu: "વૈદિક ગર્ભ સંસ્કાર સલાહકાર અને માતૃત્વ સ્વાસ્થ્ય નિષ્ણાત"
+                    hi: "एन.डी. (नेचरोपैथी एवं वैकल्पिक स्वास्थ्य) • प्रमाणित वैदिक गर्भ संस्कार परामर्शदाता",
+                    en: "N.D. (Alternative Wellness / Naturopathy) • Certified Vedic Garbh Sanskar Educator",
+                    gu: "એન.ડી. (નેચરોપેથી અને વૈકલ્પિક સુખાકારી) • પ્રમાણિત વૈદિક ગર્ભ સંસ્કાર સલાહકાર"
                   })}
                 </p>
               </div>

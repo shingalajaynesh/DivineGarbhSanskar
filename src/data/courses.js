@@ -66,21 +66,21 @@ export const courses = [
         "९ महीने की दैनिक गतिविधियाँ (Daily Activities)",
         "राग संगीत चिकित्सा (Raag Music Therapy)",
         "विशेषज्ञों के साथ साप्ताहिक लाइव सत्र",
-        "मासिक गाइनक एवं योग विशेषज्ञ सत्र",
+        "मासिक प्रसवपूर्व योग एवं जीवनशैली परामर्श सत्र",
         "व्यक्तिगत गर्भ आहार एवं व्यायाम योजना"
       ],
       en: [
         "9 months of guided daily activities",
         "Raag Music therapy and soundscapes",
         "Weekly live sessions with counselors",
-        "Monthly gynecologist and yoga expert calls",
+        "Monthly prenatal yoga & lifestyle counselor Q&A sessions",
         "Personalized diet and prenatal yoga plans"
       ],
       gu: [
         "૯ મહિનાની માર્ગદર્શિત દૈનિક પ્રવૃત્તિઓ",
         "રાગ સંગીત ચિકિત્સા (Raag Music Therapy)",
         "નિષ્ણાતો સાથે સાપ્તાહિક લાઈવ પ્રશ્નોત્તરી",
-        "માસિક ગાયનેક અને યોગ નિષ્ણાત સત્રો",
+        "માસિક પ્રિનેટલ યોગ અને જીવનશૈલી પરામર્શ સત્રો",
         "વ્યક્તિગત ગર્ભ આહાર અને વ્યાયામ યોજના"
       ]
     },

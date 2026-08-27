@@ -56,22 +56,23 @@ const EditorialPolicy = () => {
             <section>
               <h2 className="text-2xl font-bold text-sacredMaroon mb-4">2. Authorship & Editorial Leadership</h2>
               <p>
-                - <strong>Lead Counselor & Chief Editor:</strong> Content is authored and overseen by <strong>Dr. Taruna Jiyani</strong> (Founder), a certified Vedic Garbh Sanskar educator and maternal lifestyle counselor with over 8+ years of field experience in Surat, Gujarat.
+                - <strong>Lead Counselor & Chief Editor:</strong> Content is authored and overseen by <strong>Dr. Taruna Jiyani</strong> (Founder), holding qualifications in Naturopathy & Alternative Wellness (N.D.) and certified as a Vedic Garbh Sanskar educator and maternal lifestyle counselor with over 8+ years of field experience in Surat, Gujarat.
               </p>
               <p className="mt-3">
-                - <strong>Non-Allopathic Educational Scope:</strong> Divine Garbh Sanskar provides holistic lifestyle, emotional bonding, and cultural education. We do not provide allopathic medical diagnoses, clinical prescriptions, or surgical advice. Every article explicitly reminds expectant mothers to maintain active supervision with their registered obstetrician/gynecologist.
+                - <strong>Non-Allopathic Educational Scope:</strong> Divine Garbh Sanskar provides holistic lifestyle, emotional bonding, and cultural education. Dr. Taruna Jiyani practices as a naturopathy and prenatal lifestyle counselor; she is not an allopathic physician/obstetric surgeon. We do not provide clinical prescriptions, allopathic diagnoses, or surgical advice. Every article explicitly reminds expectant mothers to maintain active medical supervision with their registered obstetrician/gynecologist.
               </p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-sacredMaroon mb-4">3. Evidence-Based & Classical Citation Framework</h2>
+              <h2 className="text-2xl font-bold text-sacredMaroon mb-4">3. 4-Pillar Evidence & Fact-Checking Framework</h2>
               <p>
-                To maintain high factual integrity and safety, our educational material synthesizes traditional Ayurvedic wisdom with established public health and clinical benchmarks:
+                To maintain the highest factual integrity, safety, and cultural authenticity, our educational material synthesizes traditional Ayurvedic wisdom with established public health and clinical benchmarks across 4 core review pillars:
               </p>
               <ul className="list-disc pl-6 mt-3 space-y-2">
-                <li><strong>Public Health Guidelines:</strong> World Health Organization (WHO) Antenatal Care Standards and ICMR-NIN Dietary Guidelines for Indian Women.</li>
-                <li><strong>Traditional Classical Texts:</strong> Charaka Samhita, Sushruta Samhita, and Kashyapa Samhita (Garbhini Paricharya protocols).</li>
-                <li><strong>Obstetric Safety Standards:</strong> Adherence to safety advisories from the Federation of Obstetric and Gynaecological Societies of India (FOGSI).</li>
+                <li><strong>1. Ayurvedic Prenatal Science:</strong> Charaka Samhita, Sushruta Samhita, and Kashyapa Samhita (Garbhini Paricharya protocols) and Ministry of AYUSH prenatal guidelines.</li>
+                <li><strong>2. Movement & Anatomy Safety:</strong> FOGSI safety advisories, trimester-appropriate pelvic movement, and contraindication verifications.</li>
+                <li><strong>3. Classical Nada Yoga & Soundscapes:</strong> Soothing acoustic ragas for mental tranquility and maternal stress relief.</li>
+                <li><strong>4. Maternal Wellbeing & Evidence Standards:</strong> World Health Organization (WHO) Antenatal Care Standards, ICMR-NIN Dietary Guidelines, and supportive family counseling.</li>
               </ul>
             </section>
 

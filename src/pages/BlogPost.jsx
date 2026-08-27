@@ -266,14 +266,14 @@ const BlogPost = () => {
                     Dr. Taruna Jiyani
                   </h3>
                   <span className="px-2.5 py-0.5 bg-divineGold/20 text-sacredMaroon text-[10px] font-bold rounded-full uppercase">
-                    {t({ hi: "संस्थापक एवं मुख्य मार्गदर्शक", en: "Founder & Lead Counselor", gu: "સ્થાપક અને મુખ્ય સલાહકાર" })}
+                    {t({ hi: "एन.डी. • वैदिक गर्भ संस्कार परामर्शदाता", en: "N.D. • Certified Garbh Sanskar Counselor", gu: "એન.ડી. • પ્રમાણિત ગર્ભ સંસ્કાર સલાહકાર" })}
                   </span>
                 </div>
                 <p className="text-xs text-templeBrown/80 leading-relaxed font-sans">
                   {t({
-                    hi: "डॉ. तरुणा जियाणी सूरत, गुजरात स्थित वैदिक गर्भ संस्कार विशेषज्ञ और मातृत्व परामर्शदाता हैं। उन्होंने 10,000+ से अधिक माताओं को जागरूक मातृत्व की दिशा में मार्गदर्शन प्रदान किया है।",
-                    en: "Dr. Taruna Jiyani is a seasoned Garbh Sanskar educator and maternal wellness counselor based in Surat, Gujarat. She has guided over 10,000+ expectant mothers in integrating authentic Vedic prenatal wisdom with evidence-based pregnancy care.",
-                    gu: "ડૉ. તરુણા જીયાણી સુરત, ગુજરાત સ્થિત વૈદિક ગર્ભ સંસ્કાર સલાહકાર છે. તેમણે ૧૦,૦૦૦+ થી વધુ માતાઓને સભાન માતૃત્વનું માર્ગદર્શન આપ્યું છે."
+                    hi: "डॉ. तरुणा जियाणी (N.D., वैकल्पिक स्वास्थ्य एवं नेचरोपैथी) सूरत, गुजरात स्थित प्रमाणित वैदिक गर्भ संस्कार विशेषज्ञ और मातृत्व परामर्शदाता हैं। वे गैर-चिकित्सीय एवं पूरक जीवनशैली मार्गदर्शन प्रदान करती हैं।",
+                    en: "Dr. Taruna Jiyani (N.D., Alternative Wellness & Naturopathy) is a certified Vedic Garbh Sanskar educator and maternal wellness counselor based in Surat, Gujarat. She provides complementary lifestyle, nutrition, and mindfulness guidance.",
+                    gu: "ડૉ. તરુણા જીયાણી (N.D., વૈકલ્પિક સુખાકારી) સુરત, ગુજરાત સ્થિત પ્રમાણિત વૈદિક ગર્ભ સંસ્કાર સલાહકાર છે. તેઓ પૂરક જીવનશૈલી અને માનસિક શાંતિનું માર્ગદર્શન આપે છે."
                   })}
                 </p>
                 <div className="pt-1 flex flex-wrap items-center justify-center sm:justify-start gap-4 text-xs font-semibold text-sacredMaroon">

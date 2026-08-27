@@ -112,9 +112,9 @@ const routes = [
   },
   {
     path: '/authors',
-    title: 'Authors, Clinical Reviewers & Editorial Board | Divine Garbh Sanskar',
-    description: 'Meet Dr. Taruna Jiyani (Founder & Lead Counselor) and the editorial advisory board behind Divine Garbh Sanskar. Verified qualifications, 8+ years experience, and transparent scope of practice.',
-    keywords: 'Dr Taruna Jiyani, Garbh Sanskar author, prenatal counselor Surat, editorial team, medical review board',
+    title: 'Authors, Editorial Leadership & 4-Pillar Review Framework | Divine Garbh Sanskar',
+    description: 'Meet Dr. Taruna Jiyani (N.D., Alternative Wellness, Certified Vedic Garbh Sanskar Educator) and our 4-pillar evidence review framework. Verified qualifications, 8+ years experience, and transparent scope of practice.',
+    keywords: 'Dr Taruna Jiyani, Garbh Sanskar author, prenatal counselor Surat, editorial team, evidence review framework',
     canonical: 'https://www.thedivinegarbhsanskar.com/authors',
     structuredData: [
       {
@@ -123,13 +123,14 @@ const routes = [
         "mainEntity": {
           "@type": "Person",
           "name": "Dr. Taruna Jiyani",
-          "jobTitle": "Founder, Lead Vedic Prenatal Counselor & Chief Editor",
+          "honorificPrefix": "Dr.",
+          "jobTitle": "Founder, Lead Vedic Prenatal Counselor & Holistic Wellness Educator (N.D.)",
           "worksFor": {
             "@type": "Organization",
             "name": "Divine Garbh Sanskar",
             "url": "https://www.thedivinegarbhsanskar.com"
           },
-          "description": "Vedic Garbh Sanskar specialist, maternal wellness counselor, and holistic prenatal educator based in Surat, Gujarat with over 8+ years of experience and 10,000+ expectant mothers guided.",
+          "description": "N.D. (Alternative Wellness / Naturopathy), Certified Vedic Garbh Sanskar Educator and Maternal Lifestyle Counselor based in Surat, Gujarat with over 8+ years of experience guiding expectant families.",
           "image": "https://www.thedivinegarbhsanskar.com/taruna.jpg",
           "address": {
             "@type": "PostalAddress",
@@ -146,33 +147,34 @@ const routes = [
     ],
     htmlContent: `
       <header style="border-bottom: 2px solid #D4AF37; padding-bottom: 1.5rem; margin-bottom: 2rem;">
-        <h1 style="color: #5D1A00; font-size: 2.2rem; margin: 0 0 0.5rem 0;">Authors, Clinical Reviewers & Editorial Board</h1>
-        <p style="font-size: 1.2rem; color: #8B2500; margin: 0;">Editorial Leadership, Verified Credentials & Quality Standards</p>
+        <h1 style="color: #5D1A00; font-size: 2.2rem; margin: 0 0 0.5rem 0;">Authors, Editorial Leadership & Review Framework</h1>
+        <p style="font-size: 1.2rem; color: #8B2500; margin: 0;">Editorial Leadership, Verified Credentials & 4-Pillar Quality Standards</p>
       </header>
       <section style="margin-bottom: 2rem; line-height: 1.8;">
         <h2 style="color: #5D1A00; font-size: 1.5rem;">Founder & Lead Author: Dr. Taruna Jiyani</h2>
         <p><strong>Professional Role:</strong> Founder, Lead Vedic Prenatal Counselor & Chief Editor at Divine Garbh Sanskar (Surat, Gujarat, India).</p>
-        <p><strong>Experience:</strong> 8+ years of dedicated practice in Vedic prenatal science, Garbhini Paricharya, and maternal psychology; over 10,000+ expectant mothers personally counseled across Gujarat and internationally.</p>
-        <p><strong>Specialization:</strong> Vedic Garbh Samvad, trimester-specific Satvik nutrition, Nada Yoga raga music therapy, cortisol reduction breathwork, and postpartum Sutika Paricharya.</p>
+        <p><strong>Exact Credentials:</strong> N.D. (Doctor of Naturopathy & Alternative Wellness), Certified Vedic Garbh Sanskar Educator & Maternal Lifestyle Counselor.</p>
+        <p><strong>Experience:</strong> 8+ years of dedicated counseling in Vedic prenatal science, Garbhini Paricharya, and maternal lifestyle; over 10,000+ expectant families guided through structured workshops.</p>
+        <p><strong>Specialization:</strong> Vedic Garbh Samvad, trimester-specific Satvik nutrition, Nada Yoga raga music relaxation, mindful breathwork, and postpartum Sutika Paricharya.</p>
         <div style="background-color: #FFF8E7; border-left: 4px solid #D4AF37; padding: 1rem; margin: 1.5rem 0;">
-          <strong>Scope of Practice & Clinical Synergy Notice:</strong> Dr. Taruna Jiyani specializes in Vedic prenatal education, maternal lifestyle wellness, and prenatal psychology. Divine Garbh Sanskar provides educational and holistic wellness support designed to complement—never replace—the medical diagnostics, treatments, and prescriptions of your treating obstetrician.
+          <strong>Scope of Practice & Clinical Synergy Notice:</strong> Dr. Taruna Jiyani practices as a holistic prenatal wellness educator and Garbh Sanskar counselor. She is not an allopathic medical doctor or obstetric surgeon. Divine Garbh Sanskar provides educational and holistic lifestyle guidance designed to complement—never replace—the medical diagnostics, treatments, and prescriptions of your treating obstetrician.
         </div>
       </section>
       <section style="margin-bottom: 2rem; line-height: 1.8;">
-        <h2 style="color: #5D1A00; font-size: 1.5rem;">Our 4 Multidisciplinary Advisory Panels</h2>
+        <h2 style="color: #5D1A00; font-size: 1.5rem;">Our 4 Core Editorial Review Pillars</h2>
         <ul>
-          <li><strong>Ayurvedic Prenatal Science Panel:</strong> Verifies alignment with classical Ayurvedic texts (Charaka, Sushruta & Kashyapa Samhitas) and herbal safety guidelines.</li>
-          <li><strong>Prenatal Yoga & Pelvic Anatomy Board:</strong> Evaluates trimester-safe asana modifications, pelvic floor mobility, and breathing contraindications.</li>
-          <li><strong>Classical Sound Therapy Researchers:</strong> Curates therapeutic Indian classical ragas (Yaman, Bhupali, Bilawal) for acoustic harmony during pregnancy.</li>
-          <li><strong>Maternal Mental Health & Counseling Panel:</strong> Advises on stress reduction, guided Yoga Nidra, birth confidence, and father partnership.</li>
+          <li><strong>1. Ayurvedic Prenatal Reference Framework:</strong> Synthesizing classical scriptural guidance (Charaka, Sushruta & Kashyapa Samhitas), trimester satvik diets, and herbal safety boundaries.</li>
+          <li><strong>2. Prenatal Movement & Anatomy Safety Standards:</strong> Evaluating movement safety, trimester-specific asana modifications, contraindications, and gentle pelvic floor preparation under obstetric guidelines.</li>
+          <li><strong>3. Classical Nada Yoga & Acoustic Guidelines:</strong> Curating soothing classical Indian ragas and mindful audio environments for maternal relaxation and gentle womb bonding.</li>
+          <li><strong>4. Maternal Mental Wellbeing & Counseling Framework:</strong> Providing structured guidance on maternal stress reduction, guided Yoga Nidra, birth confidence, and father emotional partnership.</li>
         </ul>
       </section>
       <section style="margin-bottom: 2rem; line-height: 1.8;">
         <h2 style="color: #5D1A00; font-size: 1.5rem;">5-Stage Publishing & Fact-Checking Workflow</h2>
         <ol>
           <li><strong>Topic Research & Need Assessment:</strong> Addressing real physiological and emotional queries from expectant mothers.</li>
-          <li><strong>Vedic & Modern Clinical Synthesis:</strong> Cross-referencing Sanskrit treatises with peer-reviewed medical guidance (WHO, ICMR, ACOG, FOGSI).</li>
-          <li><strong>Expert Fact-Checking & Safety Review:</strong> Rigorous review by senior prenatal educators and verification of medical disclaimers.</li>
+          <li><strong>Vedic & Modern Clinical Synthesis:</strong> Cross-referencing Sanskrit treatises with peer-reviewed medical guidance (WHO, ICMR, FOGSI).</li>
+          <li><strong>Expert Fact-Checking & Safety Review:</strong> Rigorous review by certified prenatal educators and verification of medical disclaimers.</li>
           <li><strong>Trilingual Quality Review:</strong> Ensuring authentic, complete rendering across English, Hindi, and Gujarati.</li>
           <li><strong>Continuous Review & Updates:</strong> Periodically refreshing content based on evolving dietary guidelines and reader feedback.</li>
         </ol>
