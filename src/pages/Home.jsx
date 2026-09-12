@@ -91,7 +91,7 @@ const Home = () => {
         {/* Parent video gallery reviews */}
         <VideoGallery />
 
-        {/* Expert doctors grid */}
+        {/* Founder & Lead Specialist Spotlight */}
         <Faculty />
 
         {/* External write-up tiles */}

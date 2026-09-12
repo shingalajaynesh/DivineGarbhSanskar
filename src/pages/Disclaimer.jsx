@@ -6,6 +6,7 @@ import MandalaBg from '../components/ui/MandalaBg';
 import SectionLabel from '../components/ui/SectionLabel';
 import { getBreadcrumbSchema } from '../seo/structuredData';
 import MedicalDisclaimerBanner from '../components/ui/MedicalDisclaimerBanner';
+import { disclaimerData } from '../data/disclaimerData';
 
 const Disclaimer = () => {
   const { t, language } = useLanguage();
@@ -45,47 +46,24 @@ const Disclaimer = () => {
 
           <div className="mt-8 bg-white border border-divineGold/25 rounded-divine-md p-8 md:p-12 shadow-sm space-y-8 font-sans text-templeBrown/85 text-base leading-relaxed">
             <p className="text-xs text-templeBrown/60 uppercase font-semibold tracking-wider">
-              Last Updated: July 2026 • Mandatory Health Review
+              Last Updated: {disclaimerData.lastUpdated} • Effective Date: {disclaimerData.effectiveDate}
             </p>
 
-            <section>
-              <h2 className="text-2xl font-bold text-sacredMaroon mb-4">1. Educational Purpose Only</h2>
-              <p>
-                All materials, articles, videos, audio practices (ragas, mantras), dietary suggestions, yoga guidance, and consultation discussions on Divine Garbh Sanskar (https://www.thedivinegarbhsanskar.com) are provided for <strong>general educational, cultural, traditional, and maternal wellness purposes only</strong>.
-              </p>
-              <p className="mt-3">
-                No content on this website is intended to serve as medical advice, clinical diagnosis, or a prescription for any pregnancy, maternal, or fetal condition.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-bold text-sacredMaroon mb-4">2. Mandatory Doctor Consultation</h2>
-              <p>
-                Every expecting mother must maintain regular visits with her qualified obstetrician, gynecologist, or healthcare practitioner.
-              </p>
-              <ul className="list-disc pl-6 mt-3 space-y-2">
-                <li>Never disregard or delay seeking professional medical advice because of something you have read or listened to on this website.</li>
-                <li>Never discontinue prescribed medications, prenatal vitamins, iron/calcium supplements, or medical procedures without your doctor's explicit consent.</li>
-                <li>Before starting any prenatal yoga, breathing exercises (pranayama), or diet adjustments, clear them with your treating doctor.</li>
-              </ul>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-bold text-sacredMaroon mb-4">3. Traditional Beliefs vs Proven Medical Outcomes</h2>
-              <p>
-                Vedic Garbh Sanskar is an ancient Indian cultural tradition focused on positive mindset, satvik lifestyle, music, prayer, and emotional bonding during pregnancy.
-              </p>
-              <div className="mt-3 p-4 bg-amber-50 border-l-4 border-amber-500 text-amber-900 rounded-r-md text-sm">
-                <strong>Important Policy Statement:</strong> We do NOT promise, guarantee, or claim that Garbh Sanskar practices can directly control or guarantee baby intelligence, IQ level, gender selection, physical appearance, immunity, or specific birth delivery outcomes (e.g. guaranteeing normal delivery). Delivery decisions and fetal growth depend on complex medical and biological factors monitored by clinicians.
-              </div>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-bold text-sacredMaroon mb-4">4. Emergency Situations</h2>
-              <p>
-                If you experience severe abdominal pain, vaginal bleeding, fluid leakage, decreased fetal movement, dizziness, or any sudden symptoms, immediately contact your hospital or local emergency medical services.
-              </p>
-            </section>
+            {disclaimerData.sections.map((section) => (
+              <section key={section.id}>
+                <h2 className="text-2xl font-bold text-sacredMaroon mb-4">{section.title}</h2>
+                {section.paragraphs && section.paragraphs.map((p, idx) => (
+                  <p key={idx} className={idx > 0 ? "mt-3" : ""}>{p}</p>
+                ))}
+                {section.bullets && (
+                  <ul className="list-disc pl-6 mt-3 space-y-2">
+                    {section.bullets.map((b, idx) => (
+                      <li key={idx}>{b}</li>
+                    ))}
+                  </ul>
+                )}
+              </section>
+            ))}
           </div>
         </div>
       </div>

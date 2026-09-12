@@ -3,6 +3,17 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { blogPosts } from '../src/data/blogPosts.js';
 import { seoConfig } from '../src/seo/seoConfig.js';
+import { privacyPolicyData } from '../src/data/privacyPolicyData.js';
+import { cookiePolicyData } from '../src/data/cookiePolicyData.js';
+import { termsData } from '../src/data/termsData.js';
+import { refundPolicyData } from '../src/data/refundPolicyData.js';
+import { disclaimerData } from '../src/data/disclaimerData.js';
+import { editorialPolicyData } from '../src/data/editorialPolicyData.js';
+import { aboutData } from '../src/data/aboutData.js';
+import { simantonayanData } from '../src/data/simantonayanData.js';
+import { curriculum, courses } from '../src/data/coursesData.js';
+import { authorsData } from '../src/data/authorsData.js';
+import { testimonials } from '../src/data/testimonials.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -34,6 +45,437 @@ function getLangText(obj, lang = 'en') {
   return obj[lang] || obj.en || obj.hi || obj.gu || '';
 }
 
+// HTML Generators for Core Pages
+function generateHomeHtml() {
+  return `
+    <header style="border-bottom: 2px solid #D4AF37; padding-bottom: 1.5rem; margin-bottom: 2rem;">
+      <h1 style="color: #5D1A00; font-size: 2.2rem; margin: 0 0 0.5rem 0;">Divine Garbh Sanskar (दिव्य गर्भ संस्कार)</h1>
+      <p style="font-size: 1.2rem; color: #8B2500; margin: 0;">Vedic Prenatal Science, Maternal Wellbeing & Conscious Fetal Development</p>
+    </header>
+    <section style="margin-bottom: 2rem; line-height: 1.8;">
+      <h2 style="color: #5D1A00; font-size: 1.5rem;">Authentic Vedic Prenatal Guidance in Surat, Gujarat</h2>
+      <p>Founded by <strong>Dr. Taruna Jiyani</strong> (N.D., Alternative Wellness, Certified Vedic Garbh Sanskar Educator), Divine Garbh Sanskar is a dedicated educational and maternal wellness counseling platform. With over 8+ years of dedicated counseling experience, we have guided more than 10,000+ expectant mothers and families across Gujarat and worldwide.</p>
+      <p>We harmonize authentic Vedic traditions—Aahar (Satvik Diet), Vihar (Mindful Lifestyle), Vichar (Positive Thoughts), and Bhavana (Spiritual Connection)—with modern prenatal psychology and obstetric wellness principles.</p>
+    </section>
+    <section style="margin-bottom: 2rem; line-height: 1.8;">
+      <h2 style="color: #5D1A00; font-size: 1.5rem;">Core Prenatal Programs & Guided Modules</h2>
+      <ul>
+        <li><strong>Garbh Samvad:</strong> Conscious maternal communication techniques fostering deep emotional connection in the womb.</li>
+        <li><strong>Trimester Satvik Nutrition:</strong> Month-by-month Ayurvedic nutrition and balanced meal planning tailored for pregnancy.</li>
+        <li><strong>Nada Yoga & Raga Therapy:</strong> Harmonizing maternal nervous system and fetal auditory stimulation with Indian classical ragas.</li>
+        <li><strong>Safe Prenatal Yoga & Pranayama:</strong> Gentle pelvic mobility and Bhramari breathing for maternal calm and labor preparation.</li>
+        <li><strong>Simantonayan Sanskar:</strong> Traditional Vedic rituals and joyous family celebration during the 7th/8th month of pregnancy.</li>
+      </ul>
+    </section>
+    <section style="margin-bottom: 2rem; line-height: 1.8; background: #FFF8E7; border: 1px solid #D4AF37; border-radius: 8px; padding: 1.5rem;">
+      <h2 style="color: #5D1A00; font-size: 1.5rem; margin-top: 0;">Founder & Lead Counselor: Dr. Taruna Jiyani</h2>
+      <p>Dr. Taruna Jiyani holds qualifications in Naturopathy & Alternative Wellness (N.D.) alongside specialized certification in Vedic Garbh Sanskar. Her guidance is educational, holistic, and non-invasive, designed to complement—never replace—the medical diagnostics, treatments, and prescriptions of your treating obstetrician.</p>
+      <p><strong>Guidance Center:</strong> 164, near ABC School, behind Royal Arcade, Marutidham Society, Sarthana Jakat Naka, Nana Varachha, Surat, Gujarat - 395013.</p>
+    </section>
+    <section style="margin-bottom: 2rem; line-height: 1.8;">
+      <h2 style="color: #5D1A00; font-size: 1.5rem;">Verified Participant Experiences</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; margin-top: 1rem;">
+        ${testimonials.map(t => `
+          <div style="background: #FFFDF9; border: 1px solid #D4AF37; border-radius: 8px; padding: 1rem;">
+            <div style="font-weight: bold; color: #8B2500; margin-bottom: 0.25rem;">${escapeHtml(t.name)} (${escapeHtml(t.initials)}) — ${escapeHtml(getLangText(t.city, 'en'))}</div>
+            <p style="font-style: italic; font-size: 0.95rem; margin: 0 0 0.5rem 0;">${escapeHtml(getLangText(t.quote, 'en'))}</p>
+            <div style="font-size: 0.8rem; color: #777;">Baby Born: ${escapeHtml(getLangText(t.babyBorn, 'en'))} • Rating: 5/5 ★</div>
+          </div>
+        `).join('\n')}
+      </div>
+    </section>
+    <section style="margin-bottom: 2rem; line-height: 1.8;">
+      <h2 style="color: #5D1A00; font-size: 1.5rem;">Frequently Asked Questions</h2>
+      <div style="margin-top: 1rem;">
+        <h3 style="color: #8B2500; font-size: 1.15rem; margin-bottom: 0.25rem;">When should an expectant mother begin Garbh Sanskar?</h3>
+        <p>Garbh Sanskar can begin from the planning stage or as soon as pregnancy is confirmed. Trimester-wise guidance adapts to every stage of fetal development.</p>
+        <h3 style="color: #8B2500; font-size: 1.15rem; margin-bottom: 0.25rem;">Does Garbh Sanskar replace routine medical checkups?</h3>
+        <p>No. Garbh Sanskar is an educational, lifestyle, and emotional wellness tradition. It strictly complements routine checkups, scans, and treatments prescribed by your treating obstetrician.</p>
+      </div>
+    </section>
+  `;
+}
+
+function generateAboutHtml() {
+  return `
+    <header style="border-bottom: 2px solid #D4AF37; padding-bottom: 1.5rem; margin-bottom: 2rem;">
+      <h1 style="color: #5D1A00; font-size: 2.2rem; margin: 0 0 0.5rem 0;">About Divine Garbh Sanskar</h1>
+      <p style="font-size: 1.2rem; color: #8B2500; margin: 0;">Our Heritage, Educational Mission & Guiding Philosophy</p>
+    </header>
+    <section style="margin-bottom: 2rem; line-height: 1.8;">
+      <h2 style="color: #5D1A00; font-size: 1.5rem;">Our Vision & Purpose</h2>
+      <blockquote style="border-left: 4px solid #D4AF37; margin: 1rem 0; padding: 0.75rem 1rem; background: #FFF8E7; font-size: 1.1rem; color: #5D1A00; font-style: italic;">
+        ${escapeHtml(aboutData.vision.quote)}
+      </blockquote>
+      <p>${escapeHtml(aboutData.vision.description)}</p>
+      <p>Under the visionary leadership of <strong>Dr. Taruna Jiyani</strong>, Divine Garbh Sanskar has guided over 10,000+ families through structured workshops, interactive webinars, and personalized lifestyle counseling.</p>
+    </section>
+    <section style="margin-bottom: 2rem; line-height: 1.8;">
+      <h2 style="color: #5D1A00; font-size: 1.5rem;">The Harmony of Ancient Wisdom & Modern Prenatal Psychology</h2>
+      ${aboutData.foundations.map(f => `
+        <div style="margin-bottom: 1rem;">
+          <h3 style="color: #8B2500; font-size: 1.2rem; margin-bottom: 0.25rem;">${escapeHtml(f.title)}</h3>
+          <p>${escapeHtml(f.description)}</p>
+        </div>
+      `).join('\n')}
+    </section>
+    <section style="margin-bottom: 2rem; line-height: 1.8;">
+      <h2 style="color: #5D1A00; font-size: 1.5rem;">Three Core Pillars of Our Program</h2>
+      <ul>
+        ${aboutData.pillars.map(p => `
+          <li style="margin-bottom: 0.75rem;">
+            <strong>${escapeHtml(p.name)}:</strong> ${escapeHtml(p.description)}
+          </li>
+        `).join('\n')}
+      </ul>
+    </section>
+    <section style="margin-bottom: 2rem; line-height: 1.8; background: #FFF8E7; border: 1px solid #D4AF37; border-radius: 8px; padding: 1.5rem;">
+      <h2 style="color: #5D1A00; font-size: 1.5rem; margin-top: 0;">Founder & Guidance Center Spotlight</h2>
+      <p><strong>Name:</strong> ${escapeHtml(aboutData.founder.name)}</p>
+      <p><strong>Qualifications:</strong> ${escapeHtml(aboutData.founder.qualification)}</p>
+      <p><strong>Experience:</strong> ${escapeHtml(aboutData.founder.experience)}</p>
+      <p><strong>Guidance Center:</strong> ${escapeHtml(aboutData.founder.center)}</p>
+      <p><strong>Scope of Practice:</strong> ${escapeHtml(aboutData.founder.scope)}</p>
+      <p style="margin-top: 1rem;">
+        <a href="/authors" style="color: #8B2500; font-weight: bold; text-decoration: underline;">View Authors & Editorial Team Profile →</a> • 
+        <a href="/editorial-policy" style="color: #8B2500; font-weight: bold; text-decoration: underline;">Read Full Editorial Policy →</a>
+      </p>
+    </section>
+  `;
+}
+
+function generateAuthorsHtml() {
+  return `
+    <header style="border-bottom: 2px solid #D4AF37; padding-bottom: 1.5rem; margin-bottom: 2rem;">
+      <h1 style="color: #5D1A00; font-size: 2.2rem; margin: 0 0 0.5rem 0;">Authors, Editorial Leadership & Review Framework</h1>
+      <p style="font-size: 1.2rem; color: #8B2500; margin: 0;">Editorial Leadership, Verified Credentials & 4-Pillar Quality Standards</p>
+    </header>
+    <section style="margin-bottom: 2rem; line-height: 1.8;">
+      <h2 style="color: #5D1A00; font-size: 1.5rem;">Founder & Lead Author: ${escapeHtml(authorsData.founder.name)}</h2>
+      <p><strong>Professional Role:</strong> ${escapeHtml(authorsData.founder.role)}</p>
+      <p><strong>Exact Credentials:</strong> ${escapeHtml(authorsData.founder.credentials)}</p>
+      <p><strong>Experience:</strong> ${escapeHtml(authorsData.founder.experience)}</p>
+      <p><strong>Guidance Center:</strong> ${escapeHtml(authorsData.founder.center)}</p>
+      <p>${escapeHtml(authorsData.founder.biography)}</p>
+      <div style="background-color: #FFF8E7; border-left: 4px solid #D4AF37; padding: 1rem; margin: 1.5rem 0;">
+        <strong>Scope of Practice & Clinical Synergy Notice:</strong> ${escapeHtml(authorsData.founder.scopeOfPractice)}
+      </div>
+    </section>
+    <section style="margin-bottom: 2rem; line-height: 1.8;">
+      <h2 style="color: #5D1A00; font-size: 1.5rem;">Core Areas of Expertise & Research</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; margin-top: 1rem;">
+        ${authorsData.specializations.map((spec, i) => `
+          <div style="background: #FFFDF9; border: 1px solid #D4AF37; border-radius: 6px; padding: 1rem;">
+            <div style="font-weight: bold; color: #8B2500; margin-bottom: 0.25rem;">0${i + 1}. ${escapeHtml(spec.title)}</div>
+            <p style="margin: 0; font-size: 0.95rem;">${escapeHtml(spec.desc)}</p>
+          </div>
+        `).join('\n')}
+      </div>
+    </section>
+    <section style="margin-bottom: 2rem; line-height: 1.8;">
+      <h2 style="color: #5D1A00; font-size: 1.5rem;">Our 4 Core Editorial Review Pillars</h2>
+      <p>To ensure cultural authenticity, factual rigor, and safety boundaries, our educational content is reviewed across 4 multidisciplinary editorial subject pillars:</p>
+      <ul>
+        ${authorsData.editorialPillars.map(pillar => `
+          <li style="margin-bottom: 0.75rem;">
+            <strong>${escapeHtml(pillar.title)}:</strong> ${escapeHtml(pillar.desc)}
+          </li>
+        `).join('\n')}
+      </ul>
+    </section>
+    <section style="margin-bottom: 2rem; line-height: 1.8;">
+      <h2 style="color: #5D1A00; font-size: 1.5rem;">5-Stage Publishing & Fact-Checking Workflow</h2>
+      <ol>
+        ${authorsData.publishingWorkflow.map(w => `
+          <li style="margin-bottom: 0.75rem;">
+            <strong>${escapeHtml(w.title)}:</strong> ${escapeHtml(w.desc)}
+          </li>
+        `).join('\n')}
+      </ol>
+    </section>
+    <section style="margin-bottom: 2rem; line-height: 1.8; background: #FFF8E7; border: 1px solid #D4AF37; border-radius: 8px; padding: 1.5rem;">
+      <h2 style="color: #5D1A00; font-size: 1.5rem; margin-top: 0;">Editorial Independence & Reader Corrections Protocol</h2>
+      <p>We do not accept pharmaceutical sponsorships or third-party endorsements that compromise editorial integrity. All guidance prioritizes maternal and fetal safety above all else.</p>
+      <p>If you identify an outdated reference or factual correction in any published article, please email our editorial desk at <a href="mailto:divinegarbhsanskar0312@gmail.com" style="color: #8B2500; font-weight: bold;">divinegarbhsanskar0312@gmail.com</a>. Inquiries are reviewed within 48 hours.</p>
+    </section>
+  `;
+}
+
+function generateEditorialPolicyHtml() {
+  const sections = editorialPolicyData.sections.map(sec => {
+    let content = `<h2 style="color: #5D1A00; font-size: 1.5rem; margin-top: 1.5rem; margin-bottom: 0.75rem;">${escapeHtml(sec.title)}</h2>`;
+    if (sec.paragraphs) {
+      content += sec.paragraphs.map(p => `<p style="line-height: 1.8; margin-bottom: 0.75rem;">${escapeHtml(p)}</p>`).join('\n');
+    }
+    if (sec.pillars) {
+      content += `<ul style="line-height: 1.8; padding-left: 1.5rem; margin-bottom: 1rem;">`;
+      content += sec.pillars.map(p => `<li style="margin-bottom: 0.5rem;"><strong>${escapeHtml(p.name)}:</strong> ${escapeHtml(p.description)}</li>`).join('\n');
+      content += `</ul>`;
+    }
+    return `<section style="margin-bottom: 1.5rem;">${content}</section>`;
+  }).join('\n');
+
+  return `
+    <header style="border-bottom: 2px solid #D4AF37; padding-bottom: 1.5rem; margin-bottom: 2rem;">
+      <h1 style="color: #5D1A00; font-size: 2.2rem; margin: 0 0 0.5rem 0;">Editorial & Quality Policy</h1>
+      <p style="font-size: 1.1rem; color: #8B2500; margin: 0 0 0.5rem 0;">Content Integrity, Fact-Checking, Human Authorship & Review Standards</p>
+      <p style="font-size: 0.85rem; color: #777; margin: 0;">Last Updated: ${editorialPolicyData.lastUpdated} • ${editorialPolicyData.evidenceStandard}</p>
+    </header>
+    ${sections}
+  `;
+}
+
+function generateDisclaimerHtml() {
+  const sections = disclaimerData.sections.map(sec => {
+    let content = `<h2 style="color: #5D1A00; font-size: 1.5rem; margin-top: 1.5rem; margin-bottom: 0.75rem;">${escapeHtml(sec.title)}</h2>`;
+    if (sec.paragraphs) {
+      content += sec.paragraphs.map(p => `<p style="line-height: 1.8; margin-bottom: 0.75rem;">${escapeHtml(p)}</p>`).join('\n');
+    }
+    if (sec.bullets) {
+      content += `<ul style="line-height: 1.8; padding-left: 1.5rem; margin-bottom: 1rem;">`;
+      content += sec.bullets.map(b => `<li style="margin-bottom: 0.5rem;">${escapeHtml(b)}</li>`).join('\n');
+      content += `</ul>`;
+    }
+    return `<section style="margin-bottom: 1.5rem;">${content}</section>`;
+  }).join('\n');
+
+  return `
+    <header style="border-bottom: 2px solid #D4AF37; padding-bottom: 1.5rem; margin-bottom: 2rem;">
+      <h1 style="color: #5D1A00; font-size: 2.2rem; margin: 0 0 0.5rem 0;">Medical & Health Disclaimer</h1>
+      <p style="font-size: 1.1rem; color: #8B2500; margin: 0 0 0.5rem 0;">Important Health Safety & Clinical Boundaries Notice</p>
+      <p style="font-size: 0.85rem; color: #777; margin: 0;">Last Updated: ${disclaimerData.lastUpdated} • Effective Date: ${disclaimerData.effectiveDate}</p>
+    </header>
+    <div style="background-color: #FFF3CD; border-left: 4px solid #FFA000; padding: 1.25rem; margin-bottom: 2rem; font-size: 0.95rem; color: #664D03; line-height: 1.6;">
+      <strong>Mandatory Medical Notice:</strong> All content published on Divine Garbh Sanskar is for educational, cultural, and maternal wellness purposes only. It is NOT medical advice, diagnosis, or treatment and does not replace regular consultations with your qualified obstetrician or gynecologist.
+    </div>
+    ${sections}
+  `;
+}
+
+function generateCoursesHtml() {
+  return `
+    <header style="border-bottom: 2px solid #D4AF37; padding-bottom: 1.5rem; margin-bottom: 2rem;">
+      <h1 style="color: #5D1A00; font-size: 2.2rem; margin: 0 0 0.5rem 0;">Garbh Sanskar Programs & Courses</h1>
+      <p style="font-size: 1.2rem; color: #8B2500; margin: 0;">Structured Trimester-by-Trimester Guided Prenatal Education</p>
+    </header>
+    <section style="margin-bottom: 2rem; line-height: 1.8;">
+      <h2 style="color: #5D1A00; font-size: 1.5rem;">Transformative Pregnancy Journey</h2>
+      <p>Our courses offer day-by-day practical guidance designed to reduce maternal anxiety, foster deep emotional connection with your baby, and promote physical wellbeing through gentle movement, Satvik nutrition, and classical raga soundscapes.</p>
+    </section>
+    <section style="margin-bottom: 2rem; line-height: 1.8;">
+      <h2 style="color: #5D1A00; font-size: 1.5rem;">Month-by-Month Curriculum Map</h2>
+      ${curriculum.map(c => `
+        <div style="background: #FFF8E7; border: 1px solid #D4AF37; border-radius: 8px; padding: 1.25rem; margin-bottom: 1.25rem;">
+          <h3 style="color: #8B2500; font-size: 1.25rem; margin-top: 0; margin-bottom: 0.5rem;">${escapeHtml(c.month)}</h3>
+          <p style="font-weight: bold; margin-bottom: 0.5rem; color: #5D1A00;">Key Daily Focus Areas:</p>
+          <ul style="padding-left: 1.5rem; margin: 0;">
+            ${c.topics.map(t => `<li style="margin-bottom: 0.35rem;">${escapeHtml(t)}</li>`).join('\n')}
+          </ul>
+        </div>
+      `).join('\n')}
+    </section>
+    <section style="margin-bottom: 2rem; line-height: 1.8;">
+      <h2 style="color: #5D1A00; font-size: 1.5rem;">Our Structured Program Options</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; margin-top: 1rem;">
+        ${courses.map(course => `
+          <div style="border: 2px solid ${course.popular ? '#D4AF37' : '#E5DCC5'}; background: #FFFDF9; border-radius: 8px; padding: 1.5rem;">
+            ${course.popular ? '<div style="background: #8B2500; color: #FFF; font-size: 0.75rem; font-weight: bold; padding: 0.25rem 0.5rem; border-radius: 4px; display: inline-block; margin-bottom: 0.5rem; text-transform: uppercase;">Most Popular</div>' : ''}
+            <h3 style="color: #5D1A00; font-size: 1.3rem; margin: 0 0 0.5rem 0;">${escapeHtml(getLangText(course.title, 'en'))}</h3>
+            <p style="color: #8B2500; font-weight: bold; margin: 0 0 0.5rem 0;">${escapeHtml(getLangText(course.duration, 'en'))} • ${escapeHtml(getLangText(course.price, 'en'))}</p>
+            <ul style="padding-left: 1.25rem; margin-bottom: 1rem; font-size: 0.95rem;">
+              ${course.features.en.map(f => `<li style="margin-bottom: 0.35rem;">${escapeHtml(f)}</li>`).join('\n')}
+            </ul>
+            <a href="/contact" style="display: inline-block; background: #8B2500; color: #FFF; padding: 0.5rem 1rem; border-radius: 4px; text-decoration: none; font-weight: bold; font-size: 0.9rem;">${escapeHtml(getLangText(course.cta, 'en'))} →</a>
+          </div>
+        `).join('\n')}
+      </div>
+    </section>
+    <section style="background: #FFF3CD; border-left: 4px solid #FFA000; padding: 1rem; margin-top: 2rem; font-size: 0.95rem; color: #664D03;">
+      <strong>Educational Notice:</strong> All course routines, diets, and asanas are lifestyle recommendations designed to complement your clinical prenatal checkups. Consult your gynecologist before beginning physical exercises.
+    </section>
+  `;
+}
+
+function generateSimantonayanHtml() {
+  return `
+    <header style="border-bottom: 2px solid #D4AF37; padding-bottom: 1.5rem; margin-bottom: 2rem;">
+      <p style="color: #8B2500; font-size: 0.85rem; font-weight: bold; text-transform: uppercase; letter-spacing: 0.1em; margin: 0 0 0.5rem 0;">${escapeHtml(simantonayanData.hero.badge)}</p>
+      <h1 style="color: #5D1A00; font-size: 2.2rem; margin: 0 0 0.5rem 0;">${escapeHtml(simantonayanData.hero.title)}</h1>
+      <p style="font-size: 1.2rem; color: #8B2500; margin: 0;">${escapeHtml(simantonayanData.hero.subtitle)}</p>
+    </header>
+    <section style="margin-bottom: 2rem; line-height: 1.8;">
+      <h2 style="color: #5D1A00; font-size: 1.5rem;">Significance of the 3rd Trimester Ritual</h2>
+      <p>${escapeHtml(simantonayanData.hero.intro)}</p>
+    </section>
+    <section style="margin-bottom: 2rem; line-height: 1.8;">
+      <h2 style="color: #5D1A00; font-size: 1.5rem;">Three Core Maternal Benefits</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin-top: 1rem;">
+        ${simantonayanData.benefits.map(b => `
+          <div style="background: #FFF8E7; border: 1px solid #D4AF37; border-radius: 8px; padding: 1.25rem;">
+            <h3 style="color: #8B2500; font-size: 1.15rem; margin-top: 0; margin-bottom: 0.5rem;">${escapeHtml(b.title)}</h3>
+            <p style="margin: 0; font-size: 0.95rem;">${escapeHtml(b.desc)}</p>
+          </div>
+        `).join('\n')}
+      </div>
+    </section>
+    <section style="margin-bottom: 2rem; line-height: 1.8;">
+      <h2 style="color: #5D1A00; font-size: 1.5rem;">Four Sacred Vedic Ritual Steps</h2>
+      <div style="display: flex; flex-direction: column; gap: 1rem; margin-top: 1rem;">
+        ${simantonayanData.ritualSteps.map(s => `
+          <div style="border-left: 4px solid #8B2500; background: #FFFDF9; padding: 1rem 1.25rem; border-radius: 0 8px 8px 0; border-top: 1px solid #E5DCC5; border-right: 1px solid #E5DCC5; border-bottom: 1px solid #E5DCC5;">
+            <h3 style="color: #5D1A00; font-size: 1.15rem; margin: 0 0 0.35rem 0;">${escapeHtml(s.step)}. ${escapeHtml(s.title)}</h3>
+            <p style="margin: 0; font-size: 0.95rem;">${escapeHtml(s.desc)}</p>
+          </div>
+        `).join('\n')}
+      </div>
+    </section>
+    <section style="margin-bottom: 2rem; line-height: 1.8; background: #FFF8E7; border: 1px solid #D4AF37; border-radius: 8px; padding: 1.5rem;">
+      <h2 style="color: #5D1A00; font-size: 1.5rem; margin-top: 0;">Family Celebration Guidelines</h2>
+      <ul style="padding-left: 1.5rem; margin: 0;">
+        ${simantonayanData.familyGuidelines.map(g => `<li style="margin-bottom: 0.5rem;">${escapeHtml(g)}</li>`).join('\n')}
+      </ul>
+    </section>
+  `;
+}
+
+function generatePrivacyPolicyHtml() {
+  const sections = privacyPolicyData.sections.map(sec => {
+    let content = `<h2 style="color: #5D1A00; font-size: 1.5rem; margin-top: 1.5rem; margin-bottom: 0.75rem;">${escapeHtml(sec.title)}</h2>`;
+    if (sec.paragraphs) {
+      content += sec.paragraphs.map(p => `<p style="line-height: 1.8; margin-bottom: 0.75rem;">${escapeHtml(p)}</p>`).join('\n');
+    }
+    if (sec.listItems) {
+      content += `<ul style="line-height: 1.8; padding-left: 1.5rem; margin-bottom: 1rem;">`;
+      content += sec.listItems.map(item => {
+        let text = escapeHtml(item.text);
+        text = text.replace(/(https?:\/\/[^\s\)]+)/g, '<a href="$1" target="_blank" rel="noopener noreferrer" style="color: #8B2500; font-weight: bold; text-decoration: underline;">$1</a>');
+        return `<li style="margin-bottom: 0.5rem;"><strong>${escapeHtml(item.label)}:</strong> ${text}</li>`;
+      }).join('\n');
+      content += `</ul>`;
+    }
+    if (sec.bullets) {
+      content += `<ul style="line-height: 1.8; padding-left: 1.5rem; margin-bottom: 1rem;">`;
+      content += sec.bullets.map(b => `<li style="margin-bottom: 0.5rem;">${escapeHtml(b)}</li>`).join('\n');
+      content += `</ul>`;
+    }
+    if (sec.contactDetails) {
+      content += `
+        <div style="background-color: #FFF8E7; border: 1px solid #D4AF37; border-radius: 6px; padding: 1rem; margin-top: 0.75rem;">
+          <p style="margin: 0 0 0.25rem 0;"><strong>${escapeHtml(sec.contactDetails.organization)}</strong></p>
+          <p style="margin: 0 0 0.25rem 0;">Address: ${escapeHtml(sec.contactDetails.address)}</p>
+          <p style="margin: 0 0 0.25rem 0;">Email: <a href="mailto:${escapeHtml(sec.contactDetails.email)}" style="color: #8B2500;">${escapeHtml(sec.contactDetails.email)}</a></p>
+          <p style="margin: 0;">Phone: <a href="tel:${escapeHtml(sec.contactDetails.phone.replace(/[\s-]/g, ''))}" style="color: #8B2500;">${escapeHtml(sec.contactDetails.phone)}</a></p>
+        </div>
+      `;
+    }
+    return `<section style="margin-bottom: 1.5rem;">${content}</section>`;
+  }).join('\n');
+
+  return `
+    <header style="border-bottom: 2px solid #D4AF37; padding-bottom: 1.5rem; margin-bottom: 2rem;">
+      <h1 style="color: #5D1A00; font-size: 2.2rem; margin: 0 0 0.5rem 0;">Privacy Policy</h1>
+      <p style="font-size: 1.1rem; color: #8B2500; margin: 0 0 0.5rem 0;">Transparency in Data Protection, User Privacy Rights & Google AdSense Compliance</p>
+      <p style="font-size: 0.85rem; color: #777; margin: 0;">Last Updated: ${privacyPolicyData.lastUpdated} • Effective Date: ${privacyPolicyData.effectiveDate}</p>
+    </header>
+    ${sections}
+  `;
+}
+
+function generateTermsHtml() {
+  const sections = termsData.sections.map(sec => {
+    let content = `<h2 style="color: #5D1A00; font-size: 1.5rem; margin-top: 1.5rem; margin-bottom: 0.75rem;">${escapeHtml(sec.title)}</h2>`;
+    if (sec.paragraphs) {
+      content += sec.paragraphs.map(p => `<p style="line-height: 1.8; margin-bottom: 0.75rem;">${escapeHtml(p)}</p>`).join('\n');
+    }
+    if (sec.bullets) {
+      content += `<ul style="line-height: 1.8; padding-left: 1.5rem; margin-bottom: 1rem;">`;
+      content += sec.bullets.map(b => `<li style="margin-bottom: 0.5rem;">${escapeHtml(b)}</li>`).join('\n');
+      content += `</ul>`;
+    }
+    return `<section style="margin-bottom: 1.5rem;">${content}</section>`;
+  }).join('\n');
+
+  return `
+    <header style="border-bottom: 2px solid #D4AF37; padding-bottom: 1.5rem; margin-bottom: 2rem;">
+      <h1 style="color: #5D1A00; font-size: 2.2rem; margin: 0 0 0.5rem 0;">Terms of Service</h1>
+      <p style="font-size: 1.1rem; color: #8B2500; margin: 0 0 0.5rem 0;">User Agreement & Educational Scope</p>
+      <p style="font-size: 0.85rem; color: #777; margin: 0;">Last Updated: ${termsData.lastUpdated} • Effective Date: ${termsData.effectiveDate}</p>
+    </header>
+    ${sections}
+  `;
+}
+
+function generateRefundPolicyHtml() {
+  const sections = refundPolicyData.sections.map(sec => {
+    let content = `<h2 style="color: #5D1A00; font-size: 1.5rem; margin-top: 1.5rem; margin-bottom: 0.75rem;">${escapeHtml(sec.title)}</h2>`;
+    if (sec.paragraphs) {
+      content += sec.paragraphs.map(p => `<p style="line-height: 1.8; margin-bottom: 0.75rem;">${escapeHtml(p)}</p>`).join('\n');
+    }
+    if (sec.listItems) {
+      content += `<ul style="line-height: 1.8; padding-left: 1.5rem; margin-bottom: 1rem;">`;
+      content += sec.listItems.map(item => `<li style="margin-bottom: 0.5rem;"><strong>${escapeHtml(item.label)}:</strong> ${escapeHtml(item.text)}</li>`).join('\n');
+      content += `</ul>`;
+    }
+    return `<section style="margin-bottom: 1.5rem;">${content}</section>`;
+  }).join('\n');
+
+  return `
+    <header style="border-bottom: 2px solid #D4AF37; padding-bottom: 1.5rem; margin-bottom: 2rem;">
+      <h1 style="color: #5D1A00; font-size: 2.2rem; margin: 0 0 0.5rem 0;">Refund & Cancellation Policy</h1>
+      <p style="font-size: 1.1rem; color: #8B2500; margin: 0 0 0.5rem 0;">Fair & Transparent Enrollment Guidelines</p>
+      <p style="font-size: 0.85rem; color: #777; margin: 0;">Last Updated: ${refundPolicyData.lastUpdated} • Effective Date: ${refundPolicyData.effectiveDate}</p>
+    </header>
+    ${sections}
+  `;
+}
+
+function generateCookiePolicyHtml() {
+  const sections = cookiePolicyData.sections.map(sec => {
+    let content = `<h2 style="color: #5D1A00; font-size: 1.5rem; margin-top: 1.5rem; margin-bottom: 0.75rem;">${escapeHtml(sec.title)}</h2>`;
+    if (sec.paragraphs) {
+      content += sec.paragraphs.map(p => `<p style="line-height: 1.8; margin-bottom: 0.75rem;">${escapeHtml(p)}</p>`).join('\n');
+    }
+    if (sec.categories) {
+      content += `<div style="display: flex; flex-direction: column; gap: 0.75rem; margin-top: 0.75rem; margin-bottom: 1rem;">`;
+      content += sec.categories.map(c => `
+        <div style="background: #FFF8E7; border: 1px solid #D4AF37; border-radius: 6px; padding: 1rem;">
+          <h3 style="color: #8B2500; font-size: 1.1rem; margin: 0 0 0.25rem 0;">${escapeHtml(c.name)}</h3>
+          <p style="margin: 0; font-size: 0.95rem;">${escapeHtml(c.description)}</p>
+        </div>
+      `).join('\n');
+      content += `</div>`;
+    }
+    return `<section style="margin-bottom: 1.5rem;">${content}</section>`;
+  }).join('\n');
+
+  return `
+    <header style="border-bottom: 2px solid #D4AF37; padding-bottom: 1.5rem; margin-bottom: 2rem;">
+      <h1 style="color: #5D1A00; font-size: 2.2rem; margin: 0 0 0.5rem 0;">Cookie Policy</h1>
+      <p style="font-size: 1.1rem; color: #8B2500; margin: 0 0 0.5rem 0;">Cookie Usage, Analytics & Advertising Preferences</p>
+      <p style="font-size: 0.85rem; color: #777; margin: 0;">Last Updated: ${cookiePolicyData.lastUpdated} • Effective Date: ${cookiePolicyData.effectiveDate}</p>
+    </header>
+    ${sections}
+  `;
+}
+
+function generateCardHtml() {
+  return `
+    <header style="border-bottom: 2px solid #D4AF37; padding-bottom: 1.5rem; margin-bottom: 2rem; text-align: center;">
+      <h1 style="color: #5D1A00; font-size: 2rem; margin: 0 0 0.5rem 0;">Dr. Taruna Jiyani</h1>
+      <p style="font-size: 1.1rem; color: #8B2500; margin: 0 0 0.5rem 0;">Founder & Lead Vedic Prenatal Counselor • Divine Garbh Sanskar</p>
+      <p style="font-size: 0.9rem; color: #777; margin: 0;">Digital Contact Card & Center Information</p>
+    </header>
+    <section style="max-width: 500px; margin: 0 auto; background: #FFF8E7; border: 1px solid #D4AF37; border-radius: 8px; padding: 1.5rem; line-height: 1.8;">
+      <p><strong>Professional Scope:</strong> N.D. (Alternative Wellness / Naturopathy), Certified Vedic Garbh Sanskar Educator</p>
+      <p><strong>Counseling Experience:</strong> 8+ years of dedicated guidance for expectant families</p>
+      <p><strong>Guidance Center:</strong> 164, near ABC School, behind Royal Arcade, Marutidham Society, Sarthana Jakat Naka, Nana Varachha, Surat, Gujarat - 395013</p>
+      <p><strong>Phone:</strong> <a href="tel:+919638484545" style="color: #8B2500; font-weight: bold;">+91 96384 84545</a></p>
+      <p><strong>Email:</strong> <a href="mailto:divinegarbhsanskar0312@gmail.com" style="color: #8B2500; font-weight: bold;">divinegarbhsanskar0312@gmail.com</a></p>
+      <p><strong>Official Website:</strong> <a href="https://www.thedivinegarbhsanskar.com" style="color: #8B2500; font-weight: bold;">https://www.thedivinegarbhsanskar.com</a></p>
+    </section>
+  `;
+}
+
 // Route definitions for static generation
 const routes = [
   {
@@ -58,27 +500,7 @@ const routes = [
         }
       }
     ],
-    htmlContent: `
-      <header style="border-bottom: 2px solid #D4AF37; padding-bottom: 1.5rem; margin-bottom: 2rem;">
-        <h1 style="color: #5D1A00; font-size: 2.2rem; margin: 0 0 0.5rem 0;">Divine Garbh Sanskar (दिव्य गर्भ संस्कार)</h1>
-        <p style="font-size: 1.2rem; color: #8B2500; margin: 0;">Vedic Prenatal Science, Maternal Wellbeing & Conscious Fetal Development</p>
-      </header>
-      <section style="margin-bottom: 2rem; line-height: 1.8;">
-        <h2 style="color: #5D1A00; font-size: 1.5rem;">Authentic Vedic Prenatal Guidance in Surat, Gujarat</h2>
-        <p>Founded by <strong>Dr. Taruna Jiyani</strong>, Divine Garbh Sanskar is a dedicated educational and maternal wellness counseling platform. We harmonize authentic Vedic traditions—Aahar (Satvik Diet), Vihar (Mindful Lifestyle), Vichar (Positive Thoughts), and Bhavana (Spiritual Connection)—with modern prenatal psychology and obstetric wellness principles.</p>
-        <p>Over 10,000+ expectant mothers have participated in our structured prenatal workshops, learning safe prenatal yoga, classical raga sound therapy, and maternal stress reduction.</p>
-      </section>
-      <section style="margin-bottom: 2rem;">
-        <h2 style="color: #5D1A00; font-size: 1.5rem;">Core Prenatal Programs & Guided Modules</h2>
-        <ul>
-          <li><strong>Garbh Samvad:</strong> Conscious maternal communication techniques fostering deep emotional connection in the womb.</li>
-          <li><strong>Trimester Satvik Nutrition:</strong> Month-by-month Ayurvedic nutrition and balanced meal planning.</li>
-          <li><strong>Nada Yoga & Raga Therapy:</strong> Harmonizing maternal nervous system and fetal auditory stimulation with Indian classical ragas.</li>
-          <li><strong>Safe Prenatal Yoga & Pranayama:</strong> Gentle pelvic mobility and Bhramari breathing for maternal calm and labor preparation.</li>
-          <li><strong>Simantonayan Sanskar:</strong> Traditional Vedic rituals and joyous family celebration during the 7th/8th month of pregnancy.</li>
-        </ul>
-      </section>
-    `
+    htmlContent: generateHomeHtml()
   },
   {
     path: '/about',
@@ -94,21 +516,7 @@ const routes = [
         "url": "https://www.thedivinegarbhsanskar.com/about"
       }
     ],
-    htmlContent: `
-      <header style="border-bottom: 2px solid #D4AF37; padding-bottom: 1.5rem; margin-bottom: 2rem;">
-        <h1 style="color: #5D1A00; font-size: 2.2rem; margin: 0 0 0.5rem 0;">About Divine Garbh Sanskar</h1>
-        <p style="font-size: 1.2rem; color: #8B2500; margin: 0;">Our Heritage, Educational Mission & Guiding Philosophy</p>
-      </header>
-      <section style="margin-bottom: 2rem; line-height: 1.8;">
-        <h2 style="color: #5D1A00; font-size: 1.5rem;">Our Vision & Purpose</h2>
-        <p>Our mission is to empower expectant parents with authentic, practical, and culturally rooted prenatal knowledge. We believe pregnancy is not merely a biological state, but a sacred window of opportunity to nurture a calm, healthy, and conscious generation.</p>
-        <p>Under the visionary leadership of <strong>Dr. Taruna Jiyani</strong>, Divine Garbh Sanskar has guided over 10,000+ families through structured workshops, interactive webinars, and personalized lifestyle counseling.</p>
-      </section>
-      <section style="margin-bottom: 2rem; line-height: 1.8;">
-        <h2 style="color: #5D1A00; font-size: 1.5rem;">The Harmony of Ancient Wisdom & Prenatal Psychology</h2>
-        <p>We draw upon ancient Ayurvedic treatises including the Charaka Samhita, Sushruta Samhita, and Kashyapa Samhita while embracing modern peer-reviewed findings in maternal stress management, embryology, and fetal auditory cognition.</p>
-      </section>
-    `
+    htmlContent: generateAboutHtml()
   },
   {
     path: '/authors',
@@ -145,41 +553,7 @@ const routes = [
         }
       }
     ],
-    htmlContent: `
-      <header style="border-bottom: 2px solid #D4AF37; padding-bottom: 1.5rem; margin-bottom: 2rem;">
-        <h1 style="color: #5D1A00; font-size: 2.2rem; margin: 0 0 0.5rem 0;">Authors, Editorial Leadership & Review Framework</h1>
-        <p style="font-size: 1.2rem; color: #8B2500; margin: 0;">Editorial Leadership, Verified Credentials & 4-Pillar Quality Standards</p>
-      </header>
-      <section style="margin-bottom: 2rem; line-height: 1.8;">
-        <h2 style="color: #5D1A00; font-size: 1.5rem;">Founder & Lead Author: Dr. Taruna Jiyani</h2>
-        <p><strong>Professional Role:</strong> Founder, Lead Vedic Prenatal Counselor & Chief Editor at Divine Garbh Sanskar (Surat, Gujarat, India).</p>
-        <p><strong>Exact Credentials:</strong> N.D. (Doctor of Naturopathy & Alternative Wellness), Certified Vedic Garbh Sanskar Educator & Maternal Lifestyle Counselor.</p>
-        <p><strong>Experience:</strong> 8+ years of dedicated counseling in Vedic prenatal science, Garbhini Paricharya, and maternal lifestyle; over 10,000+ expectant families guided through structured workshops.</p>
-        <p><strong>Specialization:</strong> Vedic Garbh Samvad, trimester-specific Satvik nutrition, Nada Yoga raga music relaxation, mindful breathwork, and postpartum Sutika Paricharya.</p>
-        <div style="background-color: #FFF8E7; border-left: 4px solid #D4AF37; padding: 1rem; margin: 1.5rem 0;">
-          <strong>Scope of Practice & Clinical Synergy Notice:</strong> Dr. Taruna Jiyani practices as a holistic prenatal wellness educator and Garbh Sanskar counselor. She is not an allopathic medical doctor or obstetric surgeon. Divine Garbh Sanskar provides educational and holistic lifestyle guidance designed to complement—never replace—the medical diagnostics, treatments, and prescriptions of your treating obstetrician.
-        </div>
-      </section>
-      <section style="margin-bottom: 2rem; line-height: 1.8;">
-        <h2 style="color: #5D1A00; font-size: 1.5rem;">Our 4 Core Editorial Review Pillars</h2>
-        <ul>
-          <li><strong>1. Ayurvedic Prenatal Reference Framework:</strong> Synthesizing classical scriptural guidance (Charaka, Sushruta & Kashyapa Samhitas), trimester satvik diets, and herbal safety boundaries.</li>
-          <li><strong>2. Prenatal Movement & Anatomy Safety Standards:</strong> Evaluating movement safety, trimester-specific asana modifications, contraindications, and gentle pelvic floor preparation under obstetric guidelines.</li>
-          <li><strong>3. Classical Nada Yoga & Acoustic Guidelines:</strong> Curating soothing classical Indian ragas and mindful audio environments for maternal relaxation and gentle womb bonding.</li>
-          <li><strong>4. Maternal Mental Wellbeing & Counseling Framework:</strong> Providing structured guidance on maternal stress reduction, guided Yoga Nidra, birth confidence, and father emotional partnership.</li>
-        </ul>
-      </section>
-      <section style="margin-bottom: 2rem; line-height: 1.8;">
-        <h2 style="color: #5D1A00; font-size: 1.5rem;">5-Stage Publishing & Fact-Checking Workflow</h2>
-        <ol>
-          <li><strong>Topic Research & Need Assessment:</strong> Addressing real physiological and emotional queries from expectant mothers.</li>
-          <li><strong>Vedic & Modern Clinical Synthesis:</strong> Cross-referencing Sanskrit treatises with peer-reviewed medical guidance (WHO, ICMR, FOGSI).</li>
-          <li><strong>Expert Fact-Checking & Safety Review:</strong> Rigorous review by certified prenatal educators and verification of medical disclaimers.</li>
-          <li><strong>Trilingual Quality Review:</strong> Ensuring authentic, complete rendering across English, Hindi, and Gujarati.</li>
-          <li><strong>Continuous Review & Updates:</strong> Periodically refreshing content based on evolving dietary guidelines and reader feedback.</li>
-        </ol>
-      </section>
-    `
+    htmlContent: generateAuthorsHtml()
   },
   {
     path: '/editorial-policy',
@@ -195,24 +569,7 @@ const routes = [
         "url": "https://www.thedivinegarbhsanskar.com/editorial-policy"
       }
     ],
-    htmlContent: `
-      <header style="border-bottom: 2px solid #D4AF37; padding-bottom: 1.5rem; margin-bottom: 2rem;">
-        <h1 style="color: #5D1A00; font-size: 2.2rem; margin: 0 0 0.5rem 0;">Editorial & Quality Policy</h1>
-        <p style="font-size: 1.2rem; color: #8B2500; margin: 0;">Content Integrity, Fact-Checking & Human Authorship Standards</p>
-      </header>
-      <section style="margin-bottom: 2rem; line-height: 1.8;">
-        <h2 style="color: #5D1A00; font-size: 1.5rem;">1. Editorial Mission</h2>
-        <p>Divine Garbh Sanskar is committed to publishing original, factually verified, culturally authentic, and practical prenatal educational content for expectant mothers and planning couples.</p>
-        <h2 style="color: #5D1A00; font-size: 1.5rem;">2. Human Authorship & Expert Review</h2>
-        <p>All articles, guides, and nutrition plans are researched, authored, and reviewed by identified prenatal educators led by Dr. Taruna Jiyani. We strictly adhere to Google's People-First Content Guidelines and do not publish mass-produced, automated, or unverified generic material.</p>
-        <h2 style="color: #5D1A00; font-size: 1.5rem;">3. Medical & Evidence Demarcation</h2>
-        <p>Every article discussing nutrition, herbs, gestational diabetes, or exercise clearly demarcates traditional wellness practices from clinical medical advice, providing mandatory notices to consult a qualified obstetrician.</p>
-        <h2 style="color: #5D1A00; font-size: 1.5rem;">4. Sources & Citations</h2>
-        <p>All physiological and nutritional claims are referenced against recognized national/international health authorities (ICMR, WHO, ACOG, Ministry of AYUSH) and classical treatises (Charaka Samhita).</p>
-        <h2 style="color: #5D1A00; font-size: 1.5rem;">5. Corrections Policy</h2>
-        <p>Readers and clinicians may report factual updates or corrections to <a href="mailto:divinegarbhsanskar0312@gmail.com">divinegarbhsanskar0312@gmail.com</a>. Corrections are reviewed and resolved within 48 hours.</p>
-      </section>
-    `
+    htmlContent: generateEditorialPolicyHtml()
   },
   {
     path: '/disclaimer',
@@ -228,29 +585,12 @@ const routes = [
         "url": "https://www.thedivinegarbhsanskar.com/disclaimer"
       }
     ],
-    htmlContent: `
-      <header style="border-bottom: 2px solid #D4AF37; padding-bottom: 1.5rem; margin-bottom: 2rem;">
-        <h1 style="color: #5D1A00; font-size: 2.2rem; margin: 0 0 0.5rem 0;">Medical & Health Disclaimer</h1>
-        <p style="font-size: 1.2rem; color: #8B2500; margin: 0;">Important Health Safety & Clinical Boundaries Notice</p>
-      </header>
-      <section style="margin-bottom: 2rem; line-height: 1.8;">
-        <div style="background-color: #FFF8E7; border-left: 4px solid #D4AF37; padding: 1.25rem; margin-bottom: 2rem;">
-          <h3 style="margin-top: 0; color: #5D1A00;">Educational & Cultural Purpose Only</h3>
-          <p style="margin-bottom: 0;">All content on Divine Garbh Sanskar (articles, audio ragas, dietary charts, and yoga guidance) is provided strictly for educational, traditional cultural, and maternal lifestyle wellness purposes. It is NOT clinical medical advice, diagnosis, or treatment.</p>
-        </div>
-        <h2 style="color: #5D1A00; font-size: 1.5rem;">1. Mandatory Doctor Consultation</h2>
-        <p>Every expecting mother must maintain regular checkups with her qualified obstetrician or gynecologist. Never discontinue prescribed prenatal vitamins, medications, or clinical tests based on information on this website.</p>
-        <h2 style="color: #5D1A00; font-size: 1.5rem;">2. Traditional Beliefs vs Proven Clinical Outcomes</h2>
-        <p>Vedic Garbh Sanskar focuses on positive mindset, satvik lifestyle, classical music, and emotional bonding. We do NOT guarantee medical outcomes, specific birth modes (such as guaranteeing normal delivery), or specific baby traits. Delivery and fetal health depend on biological and clinical factors monitored by doctors.</p>
-        <h2 style="color: #5D1A00; font-size: 1.5rem;">3. Medical Emergencies</h2>
-        <p>In case of severe abdominal pain, vaginal bleeding, fluid leakage, decreased fetal movement, or acute discomfort, seek immediate emergency medical care at a hospital.</p>
-      </section>
-    `
+    htmlContent: generateDisclaimerHtml()
   },
   {
     path: '/courses',
     title: 'Our Programs & Courses | Divine Garbh Sanskar',
-    description: 'Explore our guided Garbh Sanskar prenatal programs: Starter, Complete, and Divine Plus. Trimester-wise daily activities, counseling sessions, and materials.',
+    description: 'Explore our guided Garbh Sanskar prenatal programs: Foundation, Complete, and Divine Plus. Trimester-wise daily activities, counseling sessions, and materials.',
     keywords: 'Garbh Sanskar courses, online pregnancy classes, prenatal modules Surat, Dr Taruna Jiyani',
     canonical: 'https://www.thedivinegarbhsanskar.com/courses',
     structuredData: [
@@ -266,16 +606,7 @@ const routes = [
         }
       }
     ],
-    htmlContent: `
-      <header style="border-bottom: 2px solid #D4AF37; padding-bottom: 1.5rem; margin-bottom: 2rem;">
-        <h1 style="color: #5D1A00; font-size: 2.2rem; margin: 0 0 0.5rem 0;">Garbh Sanskar Programs & Courses</h1>
-        <p style="font-size: 1.2rem; color: #8B2500; margin: 0;">Structured Trimester-by-Trimester Guided Prenatal Education</p>
-      </header>
-      <section style="margin-bottom: 2rem; line-height: 1.8;">
-        <h2 style="color: #5D1A00; font-size: 1.5rem;">Transformative Pregnancy Journey</h2>
-        <p>Our courses offer day-by-day practical guidance designed to reduce maternal anxiety, foster deep emotional connection with your baby, and promote physical wellbeing through gentle movement and Satvik nutrition.</p>
-      </section>
-    `
+    htmlContent: generateCoursesHtml()
   },
   {
     path: '/simantonayan',
@@ -291,16 +622,7 @@ const routes = [
         "url": "https://www.thedivinegarbhsanskar.com/simantonayan"
       }
     ],
-    htmlContent: `
-      <header style="border-bottom: 2px solid #D4AF37; padding-bottom: 1.5rem; margin-bottom: 2rem;">
-        <h1 style="color: #5D1A00; font-size: 2.2rem; margin: 0 0 0.5rem 0;">Simantonayan (Godh Bharai) Sanskar Guidance</h1>
-        <p style="font-size: 1.2rem; color: #8B2500; margin: 0;">Sacred Vedic Prenatal Ritual for Maternal Wellbeing & Joyful Blessings</p>
-      </header>
-      <section style="margin-bottom: 2rem; line-height: 1.8;">
-        <h2 style="color: #5D1A00; font-size: 1.5rem;">Significance of the 3rd Trimester Ritual</h2>
-        <p>Simantonayan is one of the 16 sacred Vedic Samskaras performed during the 7th or 8th month of pregnancy. Its primary Vedic purpose is to uplift the mother's mental state, protect her nervous system, and surround the developing fetus with auspicious vibrations.</p>
-      </section>
-    `
+    htmlContent: generateSimantonayanHtml()
   },
   {
     path: '/blog',
@@ -323,7 +645,7 @@ const routes = [
       </header>
       <section style="margin-bottom: 2rem;">
         <h2 style="color: #5D1A00; font-size: 1.5rem;">All Published Prenatal Guides (${blogPosts.length} Guides)</h2>
-        <ul>
+        <ul style="line-height: 1.8;">
           ${blogPosts.map(p => `<li><a href="/blog/${p.slug}" style="color: #8B2500; font-weight: bold;">${escapeHtml(getLangText(p.title, 'en'))}</a> - <em>${escapeHtml(getLangText(p.category, 'en'))}</em></li>`).join('\n')}
         </ul>
       </section>
@@ -351,17 +673,18 @@ const routes = [
       <section style="margin-bottom: 2rem; line-height: 1.8;">
         <h2 style="color: #5D1A00; font-size: 1.5rem;">Guidance Center & Consultation Inquiries</h2>
         <p><strong>Address:</strong> 164, near ABC School, behind Royal Arcade, Marutidham Society, Sarthana Jakat Naka, Nana Varachha, Surat, Gujarat 395013, India</p>
-        <p><strong>Phone / WhatsApp:</strong> <a href="tel:+919638484545">+91 96384 84545</a></p>
-        <p><strong>Email:</strong> <a href="mailto:divinegarbhsanskar0312@gmail.com">divinegarbhsanskar0312@gmail.com</a></p>
+        <p><strong>Phone / WhatsApp:</strong> <a href="tel:+919638484545" style="color: #8B2500; font-weight: bold;">+91 96384 84545</a></p>
+        <p><strong>Email:</strong> <a href="mailto:divinegarbhsanskar0312@gmail.com" style="color: #8B2500; font-weight: bold;">divinegarbhsanskar0312@gmail.com</a></p>
         <p><strong>Working Hours:</strong> Monday – Saturday: 09:00 AM – 06:00 PM IST</p>
+        <p><strong>Scope of Services:</strong> In-person counseling, 1:1 online consultations, prenatal workshops, and guided trimester programs.</p>
       </section>
     `
   },
   {
     path: '/privacy-policy',
     title: 'Privacy Policy | Divine Garbh Sanskar',
-    description: 'Learn how Divine Garbh Sanskar collects, protects, and handles user data in compliance with GDPR, Indian data laws, and Google AdSense privacy policies.',
-    keywords: 'privacy policy, user data, Divine Garbh Sanskar',
+    description: 'Learn how Divine Garbh Sanskar collects, protects, and handles user data in compliance with Google AdSense privacy policies and Indian IT laws.',
+    keywords: 'privacy policy, user data, Google AdSense cookies, Divine Garbh Sanskar',
     canonical: 'https://www.thedivinegarbhsanskar.com/privacy-policy',
     structuredData: [
       {
@@ -371,15 +694,7 @@ const routes = [
         "url": "https://www.thedivinegarbhsanskar.com/privacy-policy"
       }
     ],
-    htmlContent: `
-      <header style="border-bottom: 2px solid #D4AF37; padding-bottom: 1.5rem; margin-bottom: 2rem;">
-        <h1 style="color: #5D1A00; font-size: 2.2rem; margin: 0 0 0.5rem 0;">Privacy Policy</h1>
-        <p style="font-size: 1.2rem; color: #8B2500; margin: 0;">Transparency in Data Protection & Privacy Rights</p>
-      </header>
-      <section style="margin-bottom: 2rem; line-height: 1.8;">
-        <p>Divine Garbh Sanskar respects your privacy and is committed to protecting your personal information. We outline our data collection, cookie usage, analytics, and third-party ad network policies in full transparency.</p>
-      </section>
-    `
+    htmlContent: generatePrivacyPolicyHtml()
   },
   {
     path: '/terms-of-service',
@@ -395,15 +710,7 @@ const routes = [
         "url": "https://www.thedivinegarbhsanskar.com/terms-of-service"
       }
     ],
-    htmlContent: `
-      <header style="border-bottom: 2px solid #D4AF37; padding-bottom: 1.5rem; margin-bottom: 2rem;">
-        <h1 style="color: #5D1A00; font-size: 2.2rem; margin: 0 0 0.5rem 0;">Terms of Service</h1>
-        <p style="font-size: 1.2rem; color: #8B2500; margin: 0;">User Agreement & Educational Scope</p>
-      </header>
-      <section style="margin-bottom: 2rem; line-height: 1.8;">
-        <p>By accessing Divine Garbh Sanskar, you agree to these Terms of Service. All course materials, audio recordings, and publications are protected educational assets under Indian copyright laws.</p>
-      </section>
-    `
+    htmlContent: generateTermsHtml()
   },
   {
     path: '/refund-policy',
@@ -419,21 +726,13 @@ const routes = [
         "url": "https://www.thedivinegarbhsanskar.com/refund-policy"
       }
     ],
-    htmlContent: `
-      <header style="border-bottom: 2px solid #D4AF37; padding-bottom: 1.5rem; margin-bottom: 2rem;">
-        <h1 style="color: #5D1A00; font-size: 2.2rem; margin: 0 0 0.5rem 0;">Refund & Cancellation Policy</h1>
-        <p style="font-size: 1.2rem; color: #8B2500; margin: 0;">Fair & Transparent Enrollment Guidelines</p>
-      </header>
-      <section style="margin-bottom: 2rem; line-height: 1.8;">
-        <p>We want every mother to feel completely comfortable with our guidance. We offer a 7-day money-back guarantee for course enrollments if you feel the program does not meet your expectations, with special medical emergency accommodation.</p>
-      </section>
-    `
+    htmlContent: generateRefundPolicyHtml()
   },
   {
     path: '/cookie-policy',
     title: 'Cookie Policy | Divine Garbh Sanskar',
     description: 'Information regarding the use of cookies, analytics tags, and preference storage on Divine Garbh Sanskar.',
-    keywords: 'cookie policy, consent preferences, Divine Garbh Sanskar',
+    keywords: 'cookie policy, consent preferences, Google AdSense cookies, Divine Garbh Sanskar',
     canonical: 'https://www.thedivinegarbhsanskar.com/cookie-policy',
     structuredData: [
       {
@@ -443,14 +742,45 @@ const routes = [
         "url": "https://www.thedivinegarbhsanskar.com/cookie-policy"
       }
     ],
+    htmlContent: generateCookiePolicyHtml()
+  },
+  {
+    path: '/card',
+    title: 'Dr. Taruna Jiyani - Divine Garbh Sanskar | Digital Card',
+    description: 'Connect with Dr. Taruna Jiyani, Founder & Lead Vedic Prenatal Counselor at Divine Garbh Sanskar in Surat, Gujarat.',
+    keywords: 'Dr Taruna Jiyani vcard, Garbh Sanskar contact card Surat',
+    canonical: 'https://www.thedivinegarbhsanskar.com/card',
+    robots: 'noindex, nofollow',
+    structuredData: [
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.thedivinegarbhsanskar.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Digital Card", "item": "https://www.thedivinegarbhsanskar.com/card" }
+        ]
+      }
+    ],
+    htmlContent: generateCardHtml()
+  },
+  {
+    path: '/404',
+    title: '404 - Page Not Found | Divine Garbh Sanskar',
+    description: 'The page you are looking for does not exist or has been moved.',
+    canonical: 'https://www.thedivinegarbhsanskar.com/404',
+    robots: 'noindex, nofollow',
+    structuredData: [],
     htmlContent: `
-      <header style="border-bottom: 2px solid #D4AF37; padding-bottom: 1.5rem; margin-bottom: 2rem;">
-        <h1 style="color: #5D1A00; font-size: 2.2rem; margin: 0 0 0.5rem 0;">Cookie Policy</h1>
-        <p style="font-size: 1.2rem; color: #8B2500; margin: 0;">Cookie Usage & Consent Management</p>
+      <header style="text-align: center; margin-bottom: 2rem;">
+        <h1 style="color: #8B2500; font-size: 3rem; margin: 0 0 0.5rem 0;">404</h1>
+        <h2 style="color: #5D1A00; font-size: 1.8rem; margin: 0 0 1rem 0;">Page Not Found (पृष्ठ प्राप्त नहीं हुआ)</h2>
+        <p style="font-size: 1.1rem; color: #555; max-width: 600px; margin: 0 auto 1.5rem auto; line-height: 1.6;">
+          The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.
+        </p>
+        <p>
+          <a href="/" style="display: inline-block; background: #8B2500; color: #FFF; padding: 0.75rem 1.5rem; border-radius: 6px; text-decoration: none; font-weight: bold;">Return to Homepage (मुख्य पृष्ठ पर वापस जाएं) →</a>
+        </p>
       </header>
-      <section style="margin-bottom: 2rem; line-height: 1.8;">
-        <p>This Cookie Policy explains how Divine Garbh Sanskar uses essential cookies for site functionality and optional cookies for analytics and advertising preferences.</p>
-      </section>
     `
   }
 ];
@@ -607,7 +937,7 @@ blogPosts.forEach(post => {
   });
 });
 
-console.log(`Prerendering ${routes.length} static routes for Googlebot & crawler visibility...`);
+console.log(`Prerendering ${routes.length} static routes with full meaningful content for Googlebot & crawler visibility...`);
 
 let generatedCount = 0;
 
@@ -624,10 +954,14 @@ routes.forEach(route => {
     html = html.replace(/<meta\s+name=["']keywords["'][^>]*>/i, `<meta name="keywords" content="${escapeHtml(route.keywords)}" />`);
   }
 
-  // 3. Replace Canonical
+  // 3. Robots Meta Tag (handling noindex routes such as /card)
+  const robotsContent = route.robots || 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1';
+  html = html.replace(/<meta\s+name=["']robots["'][^>]*>/i, `<meta name="robots" content="${escapeHtml(robotsContent)}" />`);
+
+  // 4. Replace Canonical
   html = html.replace(/<link\s+rel=["']canonical["'][^>]*>/i, `<link rel="canonical" href="${escapeHtml(route.canonical)}" />`);
 
-  // 4. Replace Open Graph Tags
+  // 5. Replace Open Graph Tags
   html = html.replace(/<meta\s+property=["']og:title["'][^>]*>/i, `<meta property="og:title" content="${escapeHtml(route.title)}" />`);
   html = html.replace(/<meta\s+property=["']og:description["'][^>]*>/i, `<meta property="og:description" content="${escapeHtml(route.description)}" />`);
   html = html.replace(/<meta\s+property=["']og:url["'][^>]*>/i, `<meta property="og:url" content="${escapeHtml(route.canonical)}" />`);
@@ -635,20 +969,20 @@ routes.forEach(route => {
     html = html.replace(/<meta\s+property=["']og:image["'][^>]*>/i, `<meta property="og:image" content="${escapeHtml(route.image)}" />`);
   }
 
-  // 5. Replace Twitter Tags
+  // 6. Replace Twitter Tags
   html = html.replace(/<meta\s+name=["']twitter:title["'][^>]*>/i, `<meta name="twitter:title" content="${escapeHtml(route.title)}" />`);
   html = html.replace(/<meta\s+name=["']twitter:description["'][^>]*>/i, `<meta name="twitter:description" content="${escapeHtml(route.description)}" />`);
   if (route.image) {
     html = html.replace(/<meta\s+name=["']twitter:image["'][^>]*>/i, `<meta name="twitter:image" content="${escapeHtml(route.image)}" />`);
   }
 
-  // 6. Inject Structured Data Scripts into <head>
+  // 7. Inject Structured Data Scripts into <head>
   if (route.structuredData && route.structuredData.length > 0) {
     const jsonLdScripts = route.structuredData.map(sd => `\n    <script type="application/ld+json">\n${JSON.stringify(sd, null, 2)}\n    </script>`).join('');
     html = html.replace('</head>', `${jsonLdScripts}\n  </head>`);
   }
 
-  // 7. Inject Semantic Static Content into <div id="root"> and <noscript>
+  // 8. Inject Semantic Static Content into <div id="root"> and <noscript>
   const staticBody = `
     <div style="padding: 2rem; max-width: 900px; margin: 0 auto; font-family: sans-serif; line-height: 1.6; color: #3B0F00; background-color: #FFFDF9;">
       ${route.htmlContent}
@@ -663,7 +997,11 @@ routes.forEach(route => {
           <a href="/courses" style="color: #8B2500;">Courses</a> • 
           <a href="/simantonayan" style="color: #8B2500;">Simantonayan</a> • 
           <a href="/blog" style="color: #8B2500;">Blog</a> • 
-          <a href="/contact" style="color: #8B2500;">Contact</a>
+          <a href="/contact" style="color: #8B2500;">Contact</a> • 
+          <a href="/privacy-policy" style="color: #8B2500;">Privacy Policy</a> • 
+          <a href="/terms-of-service" style="color: #8B2500;">Terms</a> • 
+          <a href="/refund-policy" style="color: #8B2500;">Refunds</a> • 
+          <a href="/cookie-policy" style="color: #8B2500;">Cookies</a>
         </p>
       </footer>
     </div>

@@ -22,9 +22,9 @@ const HowItWorks = () => {
       titleHi: "विशेषज्ञ परामर्श सत्र",
       titleEn: "Free Consultation",
       titleGu: "નિષ્ણાત પરામર્શ સત્ર",
-      descHi: "हमारे डॉक्टर और काउंसलर आपकी गर्भावस्था के अनुसार सर्वोत्तम सलाह देंगे।",
-      descEn: "Speak with our prenatal expert to map your customized activities.",
-      descGu: "અમારા ડોકટરો અને પરામર્શદાતાઓ તમારી ગર્ભાવસ્થા અનુસાર શ્રેષ્ઠ સલાહ આપશે."
+      descHi: "हमारे प्रमाणित गर्भ संस्कार परामर्शदाता एवं वेलनेस विशेषज्ञ आपकी गर्भावस्था के अनुसार सर्वोत्तम सलाह देंगे।",
+      descEn: "Speak with our certified Garbh Sanskar counselors and prenatal wellness specialists to map your customized activities.",
+      descGu: "અમારા પ્રમાણિત ગર્ભ સંસ્કાર સલાહકાર અને વેલનેસ નિષ્ણાત તમારી ગર્ભાવસ્થા અનુસાર શ્રેષ્ઠ સલાહ આપશે."
     },
     {
       step: "STEP 3",

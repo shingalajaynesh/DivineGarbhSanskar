@@ -5,6 +5,7 @@ import { seoConfig } from '../seo/seoConfig';
 import MandalaBg from '../components/ui/MandalaBg';
 import SectionLabel from '../components/ui/SectionLabel';
 import { getBreadcrumbSchema } from '../seo/structuredData';
+import { cookiePolicyData } from '../data/cookiePolicyData';
 
 const CookiePolicy = () => {
   const { t, language } = useLanguage();
@@ -40,62 +41,27 @@ const CookiePolicy = () => {
 
           <div className="mt-8 bg-white border border-divineGold/25 rounded-divine-md p-8 md:p-12 shadow-sm space-y-8 font-sans text-templeBrown/85 text-base leading-relaxed">
             <p className="text-xs text-templeBrown/60 uppercase font-semibold tracking-wider">
-              Last Updated: July 2026 • Effective Date: January 1, 2024
+              Last Updated: {cookiePolicyData.lastUpdated} • Effective Date: {cookiePolicyData.effectiveDate}
             </p>
 
-            <section>
-              <h2 className="text-2xl font-bold text-sacredMaroon mb-4">1. What Are Cookies?</h2>
-              <p>
-                Cookies are small text files stored on your computer or mobile device when you visit websites. They help websites remember your device, preferences (such as language), and improve user experience during subsequent visits.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-bold text-sacredMaroon mb-4">2. Categories of Cookies We Use</h2>
-
-              <div className="space-y-4 mt-3">
-                <div className="p-4 bg-softCream/30 border border-divineGold/20 rounded-divine-sm">
-                  <h3 className="font-bold text-sacredMaroon">A. Essential Cookies (Strictly Necessary)</h3>
-                  <p className="text-sm mt-1">
-                    These cookies are required for the basic operation of our website, enabling core features such as page navigation, language retention (Hindi / English / Gujarati), and secure access.
-                  </p>
-                </div>
-
-                <div className="p-4 bg-softCream/30 border border-divineGold/20 rounded-divine-sm">
-                  <h3 className="font-bold text-sacredMaroon">B. Analytical / Performance Cookies</h3>
-                  <p className="text-sm mt-1">
-                    We use web analytics tools to collect aggregated, anonymous information about how visitors navigate the site, popular pages, and error frequency to continuously improve speed and content quality.
-                  </p>
-                </div>
-
-                <div className="p-4 bg-softCream/30 border border-divineGold/20 rounded-divine-sm">
-                  <h3 className="font-bold text-sacredMaroon">C. Google AdSense Advertising Cookies</h3>
-                  <p className="text-sm mt-1">
-                    Google AdSense uses cookies to serve relevant ads based on prior browsing activity. Third-party vendors may place or read cookies on your browser to measure ad performance and prevent ad fraud.
-                  </p>
-                </div>
-              </div>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-bold text-sacredMaroon mb-4">3. Consent Management (EEA & UK Users)</h2>
-              <p>
-                For users located in the European Economic Area (EEA), United Kingdom, and Switzerland, non-essential advertising cookies are only placed after your explicit consent via our Cookie Banner. You can modify or revoke your consent at any time using your browser settings or our site consent preferences.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-bold text-sacredMaroon mb-4">4. How to Disable Cookies</h2>
-              <p>
-                You can block or remove cookies through your internet browser settings (Chrome, Safari, Firefox, Edge). Please note that disabling essential cookies may affect site performance or language persistence.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-bold text-sacredMaroon mb-4">5. Contact Us</h2>
-              <p>If you have questions regarding our cookie practices, please contact us at:</p>
-              <p className="mt-2 font-semibold">Email: divinegarbhsanskar0312@gmail.com</p>
-            </section>
+            {cookiePolicyData.sections.map((section) => (
+              <section key={section.id}>
+                <h2 className="text-2xl font-bold text-sacredMaroon mb-4">{section.title}</h2>
+                {section.paragraphs && section.paragraphs.map((p, idx) => (
+                  <p key={idx} className={idx > 0 ? "mt-3" : ""}>{p}</p>
+                ))}
+                {section.categories && (
+                  <div className="space-y-4 mt-3">
+                    {section.categories.map((c, idx) => (
+                      <div key={idx} className="p-4 bg-softCream/30 border border-divineGold/20 rounded-divine-sm">
+                        <h3 className="font-bold text-sacredMaroon">{c.name}</h3>
+                        <p className="text-sm mt-1">{c.description}</p>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </section>
+            ))}
           </div>
         </div>
       </div>

@@ -95,6 +95,7 @@ END:VCARD`;
         <meta name="description" content={t(meta.description)} />
         <meta name="keywords" content={meta.keywords} />
         <link rel="canonical" href="https://www.thedivinegarbhsanskar.com/card" />
+        <meta name="robots" content="noindex, nofollow" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         <html lang={language} />
         <script type="application/ld+json">

@@ -118,11 +118,6 @@ export const getArticleSchema = (post) => ({
     "jobTitle": "Founder, Vedic Prenatal Counselor & Holistic Wellness Educator (N.D.)",
     "url": "https://www.thedivinegarbhsanskar.com/authors"
   },
-  "reviewedBy": {
-    "@type": "Organization",
-    "name": "Divine Garbh Sanskar 4-Pillar Editorial Framework",
-    "url": "https://www.thedivinegarbhsanskar.com/editorial-policy"
-  },
   "publisher": {
     "@type": "Organization",
     "name": "Divine Garbh Sanskar",

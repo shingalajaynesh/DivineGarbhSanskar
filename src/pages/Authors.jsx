@@ -102,37 +102,37 @@ const Authors = () => {
   const editorialPillars = [
     {
       icon: <BookOpen className="w-6 h-6 text-sacredMaroon shrink-0" />,
-      title: { hi: "आयुर्वेदिक गर्भिणी परिचर्या संदर्भ ढांचा", en: "Ayurvedic Prenatal Reference Framework", gu: "આયુર્વેદિક ગર્ભિણી પરિચર્યા સંદર્ભ માળખું" },
+      title: { hi: "पारंपरिक गर्भ संस्कार एवं आयुर्वेदिक साहित्य", en: "Traditional Garbh Sanskar & Ayurvedic Literature", gu: "પરંપરાગત ગર્ભ સંસ્કાર અને આયુર્વેદિક સાહિત્ય" },
       desc: {
         hi: "चरक संहिता, सुश्रुत संहिता और काश्यप संहिता के शास्त्रीय सिद्धांतों के अनुसार आहार, जड़ी-बूटियों की सुरक्षा और मासिक परिवर्तनों की प्रामाणिकता की समीक्षा।",
-        en: "Synthesizing classical scriptural guidance (Charaka, Sushruta & Kashyapa Samhitas), trimester-wise satvik diets, and herbal safety boundaries.",
+        en: "Synthesizing classical scriptural guidance (Charaka, Sushruta & Kashyapa Samhitas), trimester-wise satvik diets, and herbal safety boundaries established by the Ministry of AYUSH.",
         gu: "શાસ્ત્રીય ગ્રંથો અનુસાર આહાર, ઔષધિઓની સુરક્ષા અને માસિક ફેરફારોની ચકાસણી."
       }
     },
     {
       icon: <Activity className="w-6 h-6 text-vermillion shrink-0" />,
-      title: { hi: "प्रसव पूर्व योग एवं शारीरिक सुरक्षा मानक", en: "Prenatal Movement & Anatomy Safety Standards", gu: "પ્રીનેટલ મુવમેન્ટ અને શારીરિક સુરક્ષા ધોરણો" },
+      title: { hi: "प्रसव पूर्व योगाभ्यास एवं मातृत्व कल्याण", en: "Prenatal Movement & Maternal Wellness", gu: "પ્રીનેટલ મુવમેન્ટ અને માતૃત્વ સુખાકારી" },
       desc: {
         hi: "गर्भावस्था के दौरान आसन संशोधनों, शारीरिक सीमाओं, रक्तचाप नियंत्रण और प्रसव पीड़ा प्रबंधन तकनीकों की सुरक्षा जांच।",
-        en: "Evaluating movement safety, trimester-specific asana modifications, contraindications, and gentle pelvic floor preparation under obstetric guidelines.",
+        en: "Evaluating movement safety, trimester-specific asana modifications, contraindications, and gentle pelvic floor preparation aligned with obstetric safety advisories.",
         gu: "ગર્ભાવસ્થા દરમિયાન યોગાસનોની સુરક્ષા, પેલ્વિક લચીલાપણું અને શ્વાસ નિયંત્રણની સમીક્ષા."
       }
     },
     {
       icon: <Music className="w-6 h-6 text-sacredMaroon shrink-0" />,
-      title: { hi: "शास्त्रीय नाद योग एवं संगीत दिशानिर्देश", en: "Classical Nada Yoga & Acoustic Guidelines", gu: "શાસ્ત્રીય નાદ યોગ અને સંગીત માર્ગદર્શિકા" },
+      title: { hi: "राग संगीत, माइंडफुलनेस एवं मानसिक शांति", en: "Music, Mindfulness & Emotional Wellbeing", gu: "રાગ સંગીત, માઇન્ડફુલનેસ અને માનસિક શાંતિ" },
       desc: {
         hi: "भारतीय शास्त्रीय रागों की सुखदायक धुनों, शांत वातावरण निर्माण और वैदिक मंत्रोच्चार के सांस्कृतिक महत्व का समन्वय।",
-        en: "Curating soothing classical Indian ragas and mindful audio environments for maternal relaxation and gentle womb bonding.",
+        en: "Curating soothing classical Indian ragas, guided relaxation, and mindful audio environments for maternal peace and gentle womb bonding.",
         gu: "શાસ્ત્રીય રાગો અને શાંત વાતાવરણ નિર્માણ દ્વારા માતાની માનસિક શાંતિ."
       }
     },
     {
       icon: <Heart className="w-6 h-6 text-vermillion shrink-0" />,
-      title: { hi: "मातृ मानसिक स्वास्थ्य एवं भावनात्मक परामर्श", en: "Maternal Mental Wellbeing & Counseling Framework", gu: "માતૃ માનસિક સ્વાસ્થ્ય અને પારિવારિક પરામર્શ" },
+      title: { hi: "मातृत्व शिक्षा एवं पारिवारिक सहयोग", en: "Maternal Education & Family Support", gu: "માતૃત્વ શિક્ષણ અને પારિવારિક સહયોગ" },
       desc: {
         hi: "तनाव मुक्ति, प्रसव भय निवारण, योग निद्रा और पिता की सक्रिय भावनात्मक सहभागिता का मार्गदर्शन।",
-        en: "Providing structured guidance on maternal stress reduction, guided Yoga Nidra, birth confidence, and father's active emotional partnership.",
+        en: "Providing structured guidance on maternal stress reduction, guided Yoga Nidra, birth confidence, father emotional partnership, and referencing WHO and ICMR guidelines.",
         gu: "તણાવ મુક્તિ, યોગ નિદ્રા અને પિતાની સક્રિય ભાગીદારી અંગે માર્ગદર્શન."
       }
     }

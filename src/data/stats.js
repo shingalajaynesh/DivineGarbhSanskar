@@ -31,12 +31,12 @@ export const stats = [
   },
   {
     id: 4,
-    value: 10,
+    value: 8,
     suffix: "+",
     label: {
-      hi: "वर्षों का शोध कार्य",
-      en: "Years of Research",
-      gu: "વર્ષોનું સંશોધન કાર્ય"
+      hi: "वर्षों का अनुभव",
+      en: "Years of Experience",
+      gu: "વર્ષોનો અનુભવ"
     }
   }
 ];
