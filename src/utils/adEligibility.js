@@ -1,6 +1,16 @@
 /**
- * AdSense Route Eligibility System for Divine Garbh Sanskar
- * Single source of truth for publisher monetization eligibility.
+ * AdSense Route Eligibility Policy Configuration for Divine Garbh Sanskar
+ * 
+ * ROLE OF THIS MODULE:
+ * 1. Serves as code-side architectural policy documentation for monetization boundaries.
+ * 2. Acts as eligibility gatekeeper for any future manual ad units or custom ad widgets.
+ * 
+ * NOTE ON AUTO ADS:
+ * The site maintains a single global AdSense loader in index.html as recommended by Google.
+ * Client-side route eligibility functions do NOT dynamically intercept or strip Auto Ads scripts.
+ * Google's official, supported method for suppressing Auto Ads on non-content, transactional, 
+ * legal, or form pages is via:
+ * AdSense Console -> Ads -> By Site (Edit site) -> Page Exclusions.
  * 
  * In alignment with Google Publisher Policies (2026):
  * - Content must remain the primary purpose of every monetized page.

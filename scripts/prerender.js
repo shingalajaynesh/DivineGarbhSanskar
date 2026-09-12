@@ -25,7 +25,13 @@ if (!fs.existsSync(distDir)) {
 }
 
 const templatePath = path.join(distDir, 'index.html');
-const baseTemplate = fs.readFileSync(templatePath, 'utf8');
+const rawTemplate = fs.readFileSync(templatePath, 'utf8');
+
+// Ensure baseTemplate has a clean empty <div id="root"></div> and empty <noscript></noscript>
+// regardless of whether index.html was already prerendered in a previous build step.
+const baseTemplate = rawTemplate
+  .replace(/<div id="root">[\s\S]*?<\/div>/, '<div id="root"></div>')
+  .replace(/<noscript>[\s\S]*?<\/noscript>/i, '<noscript></noscript>');
 
 // Helper to escape HTML characters
 function escapeHtml(text) {
@@ -901,8 +907,15 @@ blogPosts.forEach(post => {
 
   const postHtmlContent = `
     <article style="line-height: 1.8; color: #3B0F00;">
-      <nav style="margin-bottom: 1.5rem;">
-        <a href="/blog" style="color: #8B2500; font-weight: bold; text-decoration: none;">← Back to All Articles</a>
+      <nav aria-label="Breadcrumb" style="margin-bottom: 1.5rem; font-size: 0.9rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem;">
+        <div>
+          <a href="/" style="color: #8B2500; text-decoration: none; font-weight: 500;">Home</a> / 
+          <a href="/blog" style="color: #8B2500; text-decoration: none; font-weight: 500;">Blog</a> / 
+          <span style="color: #B22222; font-weight: bold;">${escapeHtml(catText)}</span>
+        </div>
+        <div>
+          <a href="/blog" style="color: #8B2500; font-weight: bold; text-decoration: none;">← Back to All Articles</a>
+        </div>
       </nav>
       <header style="border-bottom: 2px solid #D4AF37; padding-bottom: 1.5rem; margin-bottom: 2rem;">
         <p style="color: #B22222; font-size: 0.85rem; font-weight: bold; text-transform: uppercase; letter-spacing: 0.1em; margin: 0 0 0.5rem 0;">${escapeHtml(catText)} • ${escapeHtml(post.readTime)}</p>
@@ -1008,7 +1021,7 @@ routes.forEach(route => {
   `;
 
   // Inject directly inside #root for immediate first-paint / headless crawler DOM visibility
-  html = html.replace('<div id="root"></div>', `<div id="root">${staticBody}</div>`);
+  html = html.replace(/<div id="root">[\s\S]*?<\/div>/, `<div id="root">${staticBody}</div>`);
 
   // Also replace noscript
   const noscriptBlock = `

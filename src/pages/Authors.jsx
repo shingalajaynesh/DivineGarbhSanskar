@@ -147,7 +147,7 @@ const Authors = () => {
     {
       step: "02",
       title: { hi: "वैदिक एवं आधुनिक शोध समन्वय", en: "Vedic & Modern Clinical Synthesis", gu: "વૈદિક અને આધુનિક સંશોધન સમન્વય" },
-      desc: { hi: "प्राचीन आयुर्वेदिक संहिताओं और आधुनिक सहकर्मी-समीक्षित शोधपत्रों (PubMed, WHO, ICMR) का तुलनात्मक अध्ययन।", en: "Cross-referencing classical Sanskrit medical texts with modern peer-reviewed obstetrics literature.", gu: "શાસ્ત્રીય ગ્રંથો અને આધુનિક તબીબી સંશોધનોનો તુલનાત્મક અભ્યાસ." }
+      desc: { hi: "प्राचीन आयुर्वेदिक संहिताओं और आधुनिक प्रकाशित शोधपत्रों (PubMed, WHO, ICMR) का तुलनात्मक अध्ययन।", en: "Cross-referencing classical Sanskrit medical texts with modern published obstetrics literature.", gu: "શાસ્ત્રીય ગ્રંથો અને આધુનિક તબીબી સંશોધનોનો તુલનાત્મક અભ્યાસ." }
     },
     {
       step: "03",

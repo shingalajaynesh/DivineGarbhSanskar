@@ -224,9 +224,9 @@ export const blogPosts = [
       "gu": "વૈદિક વિજ્ઞાન અને રાગ સંગીત"
     },
     "title": {
-      "en": "Music Therapy & Classical Indian Ragas During Pregnancy: Sound Science for Womb Wellness",
-      "hi": "गर्भावस्था में संगीत चिकित्सा एवं शास्त्रीय भारतीय राग: गर्भस्थ शिशु के लिए नाद योग",
-      "gu": "ગર્ભાવસ્થામાં સંગીત ચિકિત્સા અને શાસ્ત્રીય ભારતીય રાગો: ગર્ભસ્થ શિશુ માટે નાદ યોગ"
+      "en": "Music & Classical Indian Ragas During Pregnancy: Relaxation and Traditional Garbh Sanskar",
+      "hi": "गर्भावस्था में संगीत एवं शास्त्रीय भारतीय राग: मानसिक शांति एवं पारंपरिक गर्भ संस्कार",
+      "gu": "ગર્ભાવસ્થામાં સંગીત અને શાસ્ત્રીય ભારતીય રાગો: માનસિક શાંતિ અને પરંપરાગત ગર્ભ સંસ્કાર"
     },
     "description": {
       "en": "Discover how auditory stimulation, Vedic mantras, and specific Indian classical ragas support maternal relaxation, peace of mind, and prenatal emotional bonding.",
@@ -433,7 +433,7 @@ export const blogPosts = [
       "hi": "सौम्य गर्भ योग, पेल्विक फ्लोर मजबूती, सुरक्षित प्राणायाम और शारीरिक संतुलन के लिए चरणबद्ध गाइड, जो गर्भावस्था को सुखद और प्रसव को सुगम बनाने में सहायक है।",
       "gu": "સૌમ્ય ગર્ભ યોગ, પેલ્વિક ફ્લોર મજબૂતી અને સુરક્ષિત પ્રાણાયામ માટે વિગતવાર ગાઈડ."
     },
-    "keywords": "prenatal yoga, yoga for normal delivery, safe pregnancy exercise, garbh sanskar yoga, pelvic floor exercises pregnancy, butterfly pose pregnancy, pregnancy stretching",
+    "keywords": "prenatal yoga, prenatal yoga for pelvic health, safe pregnancy exercise, garbh sanskar yoga, pelvic floor exercises pregnancy, butterfly pose pregnancy, pregnancy stretching",
     "sections": [
       {
         "heading": {
@@ -1106,9 +1106,9 @@ export const blogPosts = [
       "gu": "યોગ અને ધ્યાન"
     },
     "title": {
-      "en": "Meditation and Mantra Chanting During Pregnancy: Scientific Benefits for Fetal Mind",
-      "hi": "गर्भावस्था में ध्यान एवं मंत्र जप: गर्भस्थ शिशु के मानसिक विकास के वैज्ञानिक लाभ",
-      "gu": "ગર્ભાવસ્થામાં ધ્યાન અને મંત્ર જાપ: ગર્ભસ્થ બાળકના માનસિક વિકાસ માટે વૈજ્ઞાનિક ફાયદા"
+      "en": "Meditation & Mantra Chanting During Pregnancy: Calm, Focus & Traditional Garbh Sanskar",
+      "hi": "गर्भावस्था में ध्यान एवं मंत्र जप: मानसिक शांति, एकाग्रता एवं वैदिक परंपरा",
+      "gu": "ગર્ભાવસ્થામાં ધ્યાન અને મંત્ર જાપ: માનસિક શાંતિ, એકાગ્રતા અને વૈદિક પરંપરા"
     },
     "description": {
       "en": "Learn how daily pregnancy meditation, breath awareness, and sound mantras calm the maternal mind, ease pregnancy worries, and nurture emotional bonding.",
@@ -1588,12 +1588,12 @@ export const blogPosts = [
       "gu": "યોગ અને ધ્યાન"
     },
     "title": {
-      "en": "Gentle Pregnancy Yoga Breathing (Pranayama) for Labor Calm & Oxygenation",
-      "hi": "गर्भावस्था में सुरक्षित प्राणायाम: प्रसव शांति, ऑक्सीजन और तनाव मुक्ति के लिए श्वास अभ्यास",
-      "gu": "ગર્ભાવસ્થામાં સુરક્ષિત પ્રાણાયામ: માનસિક શાંતિ, ઓક્સિજન અને શ્વાસની કસરતો"
+      "en": "Gentle Pregnancy Breathing (Pranayama): Relaxation, Comfort & Safe Practice",
+      "hi": "गर्भावस्था में सुरक्षित प्राणायाम: मानसिक शांति, आरामदायक श्वास और सुरक्षित अभ्यास",
+      "gu": "ગર્ભાવસ્થામાં સુરક્ષિત પ્રાણાયામ: માનસિક શાંતિ, આરામદાયક શ્વાસ અને સુરક્ષિત અભ્યાસ"
     },
     "description": {
-      "en": "Master safe, pregnancy-appropriate pranayama techniques that optimize maternal oxygenation, soothe gestational tension, and build rhythmic breathing endurance without breath retention.",
+      "en": "Master safe, pregnancy-appropriate pranayama techniques that support calm breathing, soothe gestational tension, and build rhythmic breathing endurance without breath retention.",
       "hi": "गर्भावस्था के लिए सुरक्षित प्राणायाम: अनुलोम-विलोम, भ्रामरी और शीतली प्राणायाम की सही विधि और श्वास रोकने (कुंभक) से बचने की सख्त चेतावनी।",
       "gu": "ગર્ભાવસ્થા માટે સલામત પ્રાણાયામ: અનુલોમ-વિલોમ, ભ્રમરી અને શીતળીની સાચી રીત અને શ્વાસ રોકવા સામે સાવચેતી."
     },
@@ -1923,7 +1923,7 @@ export const blogPosts = [
       "hi": "गर्भावस्था के अंतिम तीन महीनों में सात्विक आहार, पेल्विक लचीलापन, प्रसव के लिए श्वास तकनीक और सकारात्मक मानसिक तैयारी।",
       "gu": "ગર્ભાવસ્થાના છેલ્લા ત્રણ મહિનામાં સાત્વિક આહાર, પેલ્વિક રિલેક્સેશન અને પ્રસૂતિ માટેની સંપૂર્ણ તૈયારી."
     },
-    "keywords": "third trimester garbh sanskar, labor preparation yoga, normal delivery preparation, pregnancy 7th 8th 9th month guide, gentle birth mindset, late pregnancy diet",
+    "keywords": "third trimester garbh sanskar, labor preparation yoga, labor readiness yoga, pregnancy 7th 8th 9th month guide, gentle birth mindset, late pregnancy diet",
     "sections": [
       {
         "heading": {
@@ -2054,12 +2054,12 @@ export const blogPosts = [
       "gu": "માતૃ સ્વાસ્થ્ય અને જીવનશૈલી"
     },
     "title": {
-      "en": "Garbhini Paricharya: Classical Month-by-Month Ayurvedic Regimen for Expectant Mothers",
-      "hi": "गर्भिणी परिचर्या: आयुर्वेद अनुसार माहवार गर्भावस्था देखभाल एवं स्वास्थ्य नियम",
-      "gu": "ગર્ભિણી પરિચર્યા: આયુર્વેદ મુજબ મહિને-મહિને ગર્ભાવસ્થા કાળજી અને આહાર"
+      "en": "Garbhini Paricharya: Traditional Month-by-Month Ayurvedic Pregnancy Guidance",
+      "hi": "गर्भिणी परिचर्या: पारंपरिक माहवार आयुर्वेदिक गर्भावस्था मार्गदर्शन",
+      "gu": "ગર્ભિણી પરિચર્યા: પરંપરાગત મહિને-મહિને આયુર્વેદિક ગર્ભાવસ્થા માર્ગદર્શન"
     },
     "description": {
-      "en": "An in-depth exploration of the classical Ayurvedic antenatal protocol (Garbhini Paricharya) from the 1st to 9th month as codified by Maharishi Charaka, Sushruta, and Vagbhata.",
+      "en": "A classical and educational exploration of the traditional Ayurvedic antenatal principles (Garbhini Paricharya) from the 1st to 9th month as codified in classical Ayurvedic texts.",
       "hi": "महर्षि चरक और सुश्रुत द्वारा प्रतिपादित प्रथम से नवम मास तक की प्रामाणिक आयुर्वेदिक गर्भिणी परिचर्या और आहार-विहार।",
       "gu": "મહર્ષિ ચરક અને સુશ્રુત અનુસાર ૧ થી ૯ મહિનાની પ્રામાણિક આયુર્વેદિક ગર્ભિણી પરિચર્યા."
     },
@@ -2188,9 +2188,9 @@ export const blogPosts = [
       "gu": "વૈદિક વિજ્ઞાન અને રાગ સંગીત"
     },
     "title": {
-      "en": "Garbh Samvad: The Art and Science of Conscious Communication with Your Unborn Baby",
-      "hi": "गर्भ संवाद: गर्भस्थ शिशु से बातचीत करने की कला और वैज्ञानिक रहस्य",
-      "gu": "ગર્ભ સંવાદ: ગર્ભસ્થ બાળક સાથે વાતચીત કરવાની કળા અને વૈજ્ઞાનિક રહસ્ય"
+      "en": "Garbh Samvad: Traditional Practice & Conscious Communication with Your Unborn Baby",
+      "hi": "गर्भ संवाद: गर्भस्थ शिशु के साथ आत्मीय एवं पारंपरिक संवाद साधना",
+      "gu": "ગર્ભ સંવાદ: ગર્ભસ્થ બાળક સાથે આત્મીય અને પરંપરાગત સંવાદ સાધના"
     },
     "description": {
       "en": "Learn the profound technique of Garbh Samvad (womb communication) through touch, auditory stimulation, positive affirmations, and intentional heart-to-heart dialogue.",
@@ -2315,7 +2315,7 @@ export const blogPosts = [
       "hi": "प्रसव के बाद ४० दिनों की सूतिका परिचर्या: गर्भाशय शुद्धि, स्तनपान वर्धक आहार, औषधीय अभ्यंग और मानसिक शांति।",
       "gu": "પ્રસુતિ પછી ૪૦ દિવસની સૂતિકા પરિચર્યા: શરીરનું પુનર્નિર્માણ અને સ્તનપાન સહાયક આહાર."
     },
-    "keywords": "sutika paricharya, postpartum recovery ayurveda, 40 days postpartum care, ayurvedic postpartum diet, lactation foods india, postpartum depression prevention, mother healing after delivery",
+    "keywords": "sutika paricharya, postpartum recovery ayurveda, 40 days postpartum care, ayurvedic postpartum diet, lactation foods india, postpartum emotional support, mother healing after delivery",
     "sections": [
       {
         "heading": {
@@ -3103,16 +3103,16 @@ export const blogPosts = [
       "gu": "ત્રિમાસિક અને પ્રસૂતિ"
     },
     "title": {
-      "en": "Preparing for Normal Delivery: Pelvic Floor Exercises, Perineal Massage & Natural Labor Tips",
-      "hi": "सामान्य प्रसव (Normal Delivery) की तैयारी: पेल्विक फ्लोर व्यायाम, पेरिनियल मसाज और आहार",
-      "gu": "સામાન્ય પ્રસૂતિ (Normal Delivery) ની તૈયારી: પેલ્વિક કસરતો, પેરીનિયલ મસાજ અને આહાર"
+      "en": "Preparing for Labor: Pelvic Floor Exercises, Perineal Massage & Comfort Measures",
+      "hi": "प्रसव की तैयारी: पेल्विक फ्लोर व्यायाम, पेरिनियल मसाज और आरामदायक उपाय",
+      "gu": "પ્રસૂતિની તૈયારી: પેલ્વિક કસરતો, પેરીનિયલ મસાજ અને આરામદાયક પદ્ધતિઓ"
     },
     "description": {
-      "en": "A complete step-by-step preparation guide for labor readiness: essential pelvic mobility stretches (Malasana, Butterfly pose), perineal massage techniques from week 34, labor breathing, and third-trimester nourishment.",
-      "hi": "प्राकृतिक एवं सामान्य प्रसव की तैयारी के वैज्ञानिक व वैदिक उपाय: तितली आसन, मलासन, 34वें सप्ताह से पेरिनियल मसाज, खजूर का सेवन और लेबर ब्रीदिंग तकनीक।",
-      "gu": "સામાન્ય પ્રસૂતિ માટે સંપૂર્ણ તૈયારી: બટરફ્લાય આસન, માલાસન, ૩૪મા અઠવાડિયાથી પેરીનિયલ મસાજ અને શ્વાસ લેવાની સાચી પદ્ધતિ."
+      "en": "A thoughtful preparation guide for labor comfort: gentle pelvic mobility stretches (Malasana, Butterfly pose), perineal massage techniques from week 34, labor breathing awareness, and third-trimester nourishment.",
+      "hi": "प्रसव की सहज तैयारी के लिए संतुलित उपाय: तितली आसन, मलासन, 34वें सप्ताह से पेरिनियल मसाज, सात्विक पोषण और आरामदायक श्वास तकनीक।",
+      "gu": "પ્રસૂતિની સહજ તૈયારી માટે સંતુલિત ઉપાયો: બટરફ્લાય આસન, માલાસન, ૩૪મા અઠવાડિયાથી પેરીનિયલ મસાજ અને આરામદાયક શ્વાસ પદ્ધતિ."
     },
-    "keywords": "normal delivery preparation tips, perineal massage pregnancy, pelvic floor exercises pregnancy, malasana for labor, third trimester nourishment, garbh sanskar normal delivery, natural childbirth tips",
+    "keywords": "labor preparation tips, perineal massage pregnancy, pelvic floor exercises pregnancy, malasana for labor, third trimester nourishment, garbh sanskar labor comfort, childbirth preparation tips",
     "sections": [
       {
         "heading": {
@@ -3653,7 +3653,7 @@ export const blogPosts = [
       "hi": "जुड़वां बच्चों की गर्भावस्था में विशेष आहार, आराम, समय से पूर्व प्रसव की रोकथाम और दोनों शिशुओं के साथ आध्यात्मिक गर्भ संवाद की विधियां।",
       "gu": "જોડિયા બાળકોની ગર્ભાવસ્થા દરમિયાન ખાસ આહાર, પૂરતો આરામ અને બંને બાળકો સાથે સભાન ગર્ભ સંવાદ."
     },
-    "keywords": "twin pregnancy care tips, carrying twins diet chart, twin garbh sanskar, multiples pregnancy guide india, preterm labor prevention twins, twin baby kicks bonding",
+    "keywords": "twin pregnancy care tips, carrying twins diet chart, twin garbh sanskar, multiples pregnancy guide india, preterm labor awareness twins, twin baby kicks bonding",
     "sections": [
       {
         "heading": {

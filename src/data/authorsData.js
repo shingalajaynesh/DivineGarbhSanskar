@@ -63,7 +63,7 @@ export const authorsData = {
     {
       step: "02",
       title: "Vedic & Modern Clinical Synthesis",
-      desc: "Cross-referencing classical Sanskrit medical texts with modern peer-reviewed obstetrics literature (WHO, ICMR, PubMed)."
+      desc: "Cross-referencing classical Sanskrit medical texts with modern published obstetrics literature (WHO, ICMR, PubMed)."
     },
     {
       step: "03",

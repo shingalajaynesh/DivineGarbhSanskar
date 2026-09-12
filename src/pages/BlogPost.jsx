@@ -280,9 +280,9 @@ const BlogPost = () => {
               </div>
               <p className="text-xs text-templeBrown/70 mb-4 leading-relaxed font-sans">
                 {t({
-                  hi: "हमारी संपादकीय टीम सभी पोषण, योग और गर्भ संस्कार दावों की पुष्टि सहकर्मी-समीक्षित शोध पत्रिकाओं, राष्ट्रीय आहार दिशानिर्देशों और शास्त्रीय आयुर्वेदिक ग्रंथों से करती है।",
-                  en: "Our editorial team verifies all prenatal and nutritional guidance against peer-reviewed clinical journals, national health guidelines, and classical Ayurvedic medical treatises.",
-                  gu: "અમારી સંપાદકીય ટીમ તમામ આહાર, યોગ અને ગર્ભ સંસ્કાર દાવાઓની ચકાસણી શાસ્ત્રીય ગ્રંથો અને તબીબી સંશોધનથી કરે છે."
+                  hi: "हमारी संपादकीय टीम सभी पोषण, योग और गर्भ संस्कार संदर्भों की पुष्टि स्थापित शोध पत्रिकाओं, राष्ट्रीय आहार दिशानिर्देशों और शास्त्रीय आयुर्वेदिक ग्रंथों से करती है।",
+                  en: "Our editorial team verifies all prenatal and nutritional guidance against published clinical literature, national health guidelines, and classical Ayurvedic medical treatises.",
+                  gu: "અમારી સંપાદકીય ટીમ તમામ આહાર, યોગ અને ગર્ભ સંસ્કાર સંદર્ભોની ચકાસણી માન્ય સંશોધન પત્રિકાઓ અને શાસ્ત્રીય ગ્રંથોથી કરે છે."
                 })}
               </p>
               <ul className="space-y-2 text-xs md:text-sm text-templeBrown/85">
