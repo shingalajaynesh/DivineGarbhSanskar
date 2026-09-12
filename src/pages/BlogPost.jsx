@@ -68,6 +68,34 @@ const BlogPost = () => {
     return [];
   };
 
+  // Dynamic read-time calculation based on 200 words per minute
+  const calculateReadTime = () => {
+    let wordCount = 0;
+    const desc = getLocalizedText(post.description);
+    if (desc) wordCount += desc.trim().split(/\s+/).length;
+    
+    (post.sections || []).forEach((sec) => {
+      const h = getLocalizedText(sec.heading);
+      if (h) wordCount += h.trim().split(/\s+/).length;
+      const paras = getLocalizedParagraphs(sec);
+      paras.forEach((p) => {
+        if (p) wordCount += String(p).trim().split(/\s+/).length;
+      });
+    });
+
+    (post.faqs || []).forEach((f) => {
+      const q = getLocalizedText(f.question);
+      const a = getLocalizedText(f.answer);
+      if (q) wordCount += q.trim().split(/\s+/).length;
+      if (a) wordCount += a.trim().split(/\s+/).length;
+    });
+
+    const mins = Math.max(1, Math.round(wordCount / 200));
+    return `${mins} min read`;
+  };
+
+  const dynamicReadTime = calculateReadTime();
+
   return (
     <>
       <Helmet>
@@ -117,7 +145,7 @@ const BlogPost = () => {
           {/* Article Header */}
           <header className="mt-8">
             <p className="text-xs uppercase tracking-[0.25em] text-vermillion font-bold">
-              {t(post.category)} • {post.readTime}
+              {t(post.category)} • {dynamicReadTime}
             </p>
             <h1 className="mt-3 text-3xl md:text-5xl font-serif text-sacredMaroon leading-tight">
               {t(post.title)}

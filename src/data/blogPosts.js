@@ -1,9 +1,12 @@
+// Blog posts database for Divine Garbh Sanskar
+// Trilingual support: English (en), Hindi (hi), Gujarati (gu)
+
 export const blogPosts = [
   {
     "id": 1,
     "slug": "first-trimester-diet-guide",
     "date": "2026-05-10",
-    "readTime": "11 min read",
+    "readTime": "5 min read",
     "image": "https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&q=80&w=1200",
     "category": {
       "en": "Nutrition & Diet",
@@ -66,7 +69,7 @@ export const blogPosts = [
             "1. નેચરલ ફોલેટ (વિટામિન B9): ન્યુરલ ટ્યુબની ખામીને રોકવા અને ઝડપી DNA પ્રતિકૃતિને ટેકો આપવા માટે આવશ્યક છે. કુદરતી સાત્વિક સ્ત્રોતોમાં બાફેલી પાલક, મેથીના પાન, પલાળેલી દાળ (મગની દાળ), એવોકાડો, નારંગી અને બીટરૂટનો સમાવેશ થાય છે.",
             "2. એલિમેન્ટલ આયર્ન અને વિટામીન સી: માતાના લોહીના જથ્થાને લગભગ 40-50% સુધી વિસ્તૃત કરવા અને પ્લેસેન્ટાને ઓક્સિજન આપવા માટે જરૂરી છે. જૈવ-શોષણ વધારવા માટે પલાળેલી કાળી કિસમિસ (મુનાક્કા), દાડમ, સૂકા અંજીર અને બીટરૂટના સૂપને તાજા લીંબુના સ્ક્વિઝ સાથે પીવો.",
             "3. જૈવઉપલબ્ધ કેલ્શિયમ અને વિટામિન ડી: હાડકાની કળીઓ અને ગર્ભના દાંતના ફોલિકલ્સનું નિર્માણ. A2 ગાયનું દૂધ (એક ચપટી એલચી સાથે બાફેલું), ઓર્ગેનિક તલ (8 અઠવાડિયા પછી મધ્યસ્થતામાં), તાજા ઘરે બનાવેલું પનીર અને સવારે સૂર્યપ્રકાશનો સમાવેશ કરો.",
-            "4. સ્વસ્થ ઓમેગા-3 ફેટી એસિડ્સ અને કોલિન: ગર્ભના મગજનો આચ્છાદન વિકાસ અને રેટિના મેપિંગ માટે નિર્ણાયક. 4-5 બદામ અને 1-2 અખરોટને આખી રાત પાણીમાં પલાળી રાખો, સવારે તેની છાલ ઉતારી લો અને નાસ્તો કરતા પહેલા તેને સારી રીતે ચાવી લો."
+            "૩. વધુ પડતું કેફીન: ચા-કોફીનું પ્રમાણ મર્યાદિત રાખો (૨૦૦ મિલિગ્રામથી ઓછું). સોડા કે એનર્જી ડ્રિંક્સ સખત રીતે ટાળો."
           ]
         }
       },
@@ -82,7 +85,7 @@ export const blogPosts = [
             "• Breakfast (8:30 AM – 9:00 AM): Wholesome, warm preparations such as vegetable daliya (broken wheat porridge), moong dal chilla with mint-coriander chutney, soft steamed idlis with coconut chutney, or vegetable poha garnished with roasted peanuts and fresh coriander.",
             "• Mid-Morning Tonic (11:00 AM): Fresh tender coconut water (Nariyal Pani) or a small bowl of seasonal sweet fruits like pomegranate pearls, sweet apples, or ripe sapota (chikoo).",
             "• Balanced Satvik Lunch (1:00 PM – 1:30 PM): 2 soft whole wheat phulkas smeared with half a teaspoon of pure desi A2 ghee, 1 bowl of freshly cooked yellow moong dal, 1 bowl of seasonal green vegetable (such as bottle gourd/lauki, ridge gourd/turai, or pumpkin), and a small serving of fresh cumin-tempered curd or buttermilk.",
-            "• Evening Nourishment (4:30 PM – 5:00 PM): 1 cup of roasted makhana (fox nuts) toasted in minimal ghee with a pinch of rock salt (Saindhava Lavana), paired with warm herbal decoction (Cumin-Coriander-Fennel tea).",
+            "• Evening Nourishment (4:30 PM – 5:00 PM): 1 cup of roasted makhana (fox nuts) toasted in minimal ghee with a pinch of rock salt (Saindhava Lavana), paired with warm infusion (Cumin-Coriander-Fennel water).",
             "• Light Dinner (7:30 PM – 8:00 PM): Easy-to-digest yellow moong dal khichdi, warm bottle gourd vegetable soup, or soft multigrain roti with steamed seasonal vegetable curry. Complete dinner at least 2 hours before retiring to bed."
           ],
           "hi": [
@@ -134,19 +137,19 @@ export const blogPosts = [
           "en": [
             "1. Raw or Semi-Ripe Papaya & Fresh Pineapple: Unripe papaya contains high concentrations of latex and papain, which can stimulate uterine contractions. Pineapple contains bromelain, which may soften cervical tissue in early stages.",
             "2. Excessively Pungent, Oily & Fermented Fast Foods: Deep-fried snacks, stale leftovers (Paryushita Ahara), excess green chillies, and street foods with doubtful hygiene exacerbate gastric burning and risk bacterial gastroenteritis.",
-            "3. High Caffeine & Carbonated Beverages: Limit tea and coffee to zero or maximum one light cup daily. Excess caffeine restricts placental blood flow and interferes with calcium absorption.",
+            "3. High Caffeine & Carbonated Beverages: Limit tea and coffee to zero or maximum one light cup daily. High caffeine intake can cross the placenta; clinical guidelines (such as ACOG) recommend moderating total caffeine to under 200 mg daily and avoiding commercial energy drinks.",
             "4. Unprescribed Ayurvedic Bhasmas or Heavy Herb Powders: Never self-medicate with strong herbal formulations or high-dose supplements without explicit prescription from your obstetrician and qualified Ayurvedic doctor."
           ],
           "hi": [
             "1. कच्चा या अर्ध-पका पपीता और ताजा अनानास: कच्चे पपीते में लेटेक्स और पपेन की उच्च सांद्रता होती है, जो गर्भाशय के संकुचन को उत्तेजित कर सकती है। अनानास में ब्रोमेलैन होता है, जो प्रारंभिक अवस्था में गर्भाशय ग्रीवा के ऊतकों को नरम कर सकता है।",
             "2. अत्यधिक तीखा, तैलीय और किण्वित फास्ट फूड: गहरे तले हुए स्नैक्स, बासी बचा हुआ भोजन (पर्युशिता आहार), अधिक हरी मिर्च, और संदिग्ध स्वच्छता वाले स्ट्रीट फूड गैस्ट्रिक जलन को बढ़ाते हैं और बैक्टीरियल गैस्ट्रोएंटेराइटिस का खतरा पैदा करते हैं।",
-            "3. उच्च कैफीन और कार्बोनेटेड पेय पदार्थ: चाय और कॉफी को प्रतिदिन शून्य या अधिकतम एक हल्के कप तक सीमित करें। अतिरिक्त कैफीन प्लेसेंटल रक्त प्रवाह को प्रतिबंधित करता है और कैल्शियम अवशोषण में हस्तक्षेप करता है।",
+            "3. अत्यधिक कैफीन और कार्बोनेटेड पेय: चाय और कॉफी को सीमित करें (200 मिलीग्राम से कम)। अत्यधिक कैफीन प्लेसेंटा को पार कर सकता है, इसलिए ऊर्जा पेय से पूरी तरह बचें।",
             "4. अनिर्धारित आयुर्वेदिक भस्म या भारी जड़ी-बूटी पाउडर: अपने प्रसूति विशेषज्ञ और योग्य आयुर्वेदिक डॉक्टर के स्पष्ट नुस्खे के बिना कभी भी मजबूत हर्बल फॉर्मूलेशन या उच्च खुराक की खुराक के साथ स्वयं औषधि न लें।"
           ],
           "gu": [
             "1. કાચું અથવા અર્ધ-પાકેલું પપૈયું અને તાજા પાઈનેપલ: ન પાકેલા પપૈયામાં લેટેક્સ અને પપેઈનની ઊંચી સાંદ્રતા હોય છે, જે ગર્ભાશયના સંકોચનને ઉત્તેજિત કરી શકે છે. અનાનસમાં બ્રોમેલેન હોય છે, જે પ્રારંભિક તબક્કામાં સર્વાઇકલ પેશીઓને નરમ કરી શકે છે.",
-            "2. અતિશય તીખું, તેલયુક્ત અને આથોવાળો ફાસ્ટ ફૂડ: ઠંડા તળેલા નાસ્તા, વાસી બચેલો (પર્યુષિતા આહરા), વધુ પડતાં લીલાં મરચાં અને શંકાસ્પદ સ્વચ્છતા સાથેનો શેરી ખોરાક ગેસ્ટ્રિક બર્નિંગ અને બેક્ટેરિયલ ગેસ્ટ્રોએન્ટેરિટિસનું જોખમ વધારે છે.",
-            "3. ઉચ્ચ કેફીન અને કાર્બોનેટેડ પીણાં: ચા અને કોફીને શૂન્ય અથવા મહત્તમ એક લાઇટ કપ સુધી મર્યાદિત કરો. વધુ પડતી કેફીન પ્લેસેન્ટલ રક્ત પ્રવાહને પ્રતિબંધિત કરે છે અને કેલ્શિયમના શોષણમાં દખલ કરે છે.",
+            "૩. વધુ પડતું કેફીન: ચા-કોફીનું પ્રમાણ મર્યાદિત રાખો (૨૦૦ મિલિગ્રામથી ઓછું). સોડા કે એનર્જી ડ્રિંક્સ સખત રીતે ટાળો.",
+            "૩. વધુ પડતું કેફીન: ચા-કોફીનું પ્રમાણ મર્યાદિત રાખો (૨૦૦ મિલિગ્રામથી ઓછું). સોડા કે એનર્જી ડ્રિંક્સ સખત રીતે ટાળો.",
             "4. અનિશ્ચિત આયુર્વેદિક ભસ્મ અથવા ભારે હર્બ પાવડર: તમારા પ્રસૂતિશાસ્ત્રી અને લાયક આયુર્વેદિક ડૉક્ટરની સ્પષ્ટ પ્રિસ્ક્રિપ્શન વિના મજબૂત હર્બલ ફોર્મ્યુલેશન અથવા ઉચ્ચ-ડોઝ સપ્લિમેન્ટ્સ સાથે ક્યારેય સ્વ-દવા ન કરો."
           ]
         }
@@ -213,7 +216,7 @@ export const blogPosts = [
     "id": 2,
     "slug": "music-and-ragas-during-pregnancy",
     "date": "2026-05-28",
-    "readTime": "10 min read",
+    "readTime": "3 min read",
     "image": "https://images.unsplash.com/photo-1511192336575-5a79af67a629?auto=format&fit=crop&q=80&w=1200",
     "category": {
       "en": "Vedic Science & Ragas",
@@ -226,7 +229,7 @@ export const blogPosts = [
       "gu": "ગર્ભાવસ્થામાં સંગીત ચિકિત્સા અને શાસ્ત્રીય ભારતીય રાગો: ગર્ભસ્થ શિશુ માટે નાદ યોગ"
     },
     "description": {
-      "en": "Discover how auditory stimulation, psycho-acoustics, Vedic mantras, and specific Indian classical ragas nurture fetal sensory development and lower maternal cortisol levels.",
+      "en": "Discover how auditory stimulation, Vedic mantras, and specific Indian classical ragas support maternal relaxation, peace of mind, and prenatal emotional bonding.",
       "hi": "जानिए कैसे भारतीय शास्त्रीय राग, वैदिक मंत्रोच्चार और ध्वनि तरंगें गर्भस्थ शिशु के संवेदी विकास को प्रोत्साहित करती हैं और माँ के तनाव को कम करती हैं।",
       "gu": "જાણો કેવી રીતે ભારતીય શાસ્ત્રીય રાગો, વૈદિક મંત્રોચ્ચાર અને ધ્વનિ તરંગો ગર્ભસ્થ બાળકના સંવેદી વિકાસને પ્રોત્સાહિત કરે છે."
     },
@@ -234,14 +237,14 @@ export const blogPosts = [
     "sections": [
       {
         "heading": {
-          "en": "The Calming Acoustic Connection Between Mother and Womb",
-          "hi": "माँ और गर्भ के बीच सुखद ध्वनिक संबंध",
-          "gu": "માતા અને ગર્ભ વચ્ચેનું શાંતિપૂર્ણ ધ્વનિ જોડાણ"
+          "en": "The Calming Connection of Voice and Music in the Womb",
+          "hi": "गर्भ में संगीत और स्वर का शांत जुड़ाव",
+          "gu": "ગર્ભમાં સંગીત અને અવાજનો શાંત સંબંધ"
         },
         "paragraphs": {
           "en": [
-            "By the middle of pregnancy (weeks 18 to 24), the developing auditory system begins registering sound vibrations. The unborn baby perceives the soothing cadence of the mother's voice and surrounding harmonic soundscapes carried through amniotic fluid, supporting early auditory familiarity.",
-            "Listening to peaceful, rhythmic music promotes relaxation in expectant mothers, supporting mental calmness and stress reduction. This relaxed maternal state fosters an emotionally serene and balanced intrauterine environment for healthy development."
+            "From around weeks 18 to 24 of pregnancy, the fetal auditory system begins to perceive sound waves transmitted through amniotic fluid. Maternal speech, gentle singing, and melodious music provide a soothing, consistent acoustic backdrop.",
+            "Cultivating a calm auditory routine during pregnancy supports maternal relaxation and introduces familiar melodic patterns that bring peace to both mother and baby."
           ],
           "hi": [
             "गर्भावस्था के मध्य (18 से 24 सप्ताह) तक भ्रूण का श्रवण तंत्र ध्वनि तरंगों को महसूस करने लगता है। अजन्मा शिशु एमनियोटिक द्रव के माध्यम से माँ की आवाज की सुखद लय और परिवेशीय ध्वनियों को ग्रहण करता है, जिससे प्रारंभिक श्रवण जुड़ाव बनता है।",
@@ -291,16 +294,16 @@ export const blogPosts = [
         },
         "paragraphs": {
           "en": [
-            "Beyond instrumental music, chanting sacred sounds such as the Gayatri Mantra, Omkar (Pranava Japa), and the Maha Mrityunjaya Mantra produces distinct acoustic resonance in the cranial cavity and thoracic diaphragm. When the mother chants aloud, the vibration travels through her skeletal spine and pelvic bone, giving the baby an intimate vibro-tactile massage.",
-            "A daily practice of 10-15 minutes of rhythmic chanting enhances maternal lung capacity, oxygen saturation (SpO2), and heart rate variability (HRV), creating an anchor of serenity amidst pregnancy transitions."
+            "Beyond instrumental music, chanting sacred sounds such as the Gayatri Mantra, Omkar (Pranava Japa), and Shanti Mantras produces a peaceful, centered mental state. When the mother chants aloud in an unhurried, gentle cadence, the melody creates an intimate, comforting vocal presence for the baby.",
+            "Vedic Nada Yoga emphasizes that sound practiced with reverent devotion calms maternal emotions and establishes a peaceful sanctuary in the home."
           ],
           "hi": [
-            "वाद्य संगीत से परे, गायत्री मंत्र, ओंकार (प्रणव जप), और महा मृत्युंजय मंत्र जैसी पवित्र ध्वनियों का जाप कपाल गुहा और वक्ष डायाफ्राम में विशिष्ट ध्वनिक प्रतिध्वनि पैदा करता है। जब मां जोर से जप करती है, तो कंपन उसकी रीढ़ की हड्डी और पेल्विक हड्डी से होकर गुजरती है, जिससे बच्चे को एक अंतरंग वाइब्रो-स्पर्शीय मालिश मिलती है।",
-            "10-15 मिनट के लयबद्ध जप का दैनिक अभ्यास मातृ फेफड़ों की क्षमता, ऑक्सीजन संतृप्ति (एसपीओ2), और हृदय गति परिवर्तनशीलता (एचआरवी) को बढ़ाता है, जिससे गर्भावस्था के बदलावों के बीच शांति का माहौल बनता है।"
+            "वाद्य संगीत के अलावा, गायत्री मंत्र, ओंकार और शांति मंत्रों का जप मन को गहरा विश्राम और शांति प्रदान करता है। जब माँ शांत भाव से गाती या जप करती है, तो उसकी आवाज़ शिशु के लिए एक सुखद और आत्मीय पहचान बन जाती है।",
+            "वैदिक नाद योग इस बात पर जोर देता है कि श्रद्धा से किया गया गायन माँ के मन को शांत रखता है और घर में पवित्र वातावरण बनाता है।"
           ],
           "gu": [
-            "વાદ્ય સંગીત ઉપરાંત, ગાયત્રી મંત્ર, ઓમકાર (પ્રણવ જપ) અને મહા મૃત્યુંજય મંત્ર જેવા પવિત્ર ધ્વનિનો જાપ કપાલની પોલાણ અને થોરાસિક ડાયાફ્રેમમાં વિશિષ્ટ એકોસ્ટિક રેઝોનન્સ ઉત્પન્ન કરે છે. જ્યારે માતા મોટેથી મંત્રોચ્ચાર કરે છે, ત્યારે સ્પંદન તેના હાડપિંજરના કરોડરજ્જુ અને પેલ્વિક હાડકામાંથી પસાર થાય છે, જે બાળકને ઘનિષ્ઠ વાઇબ્રો-ટેક્ટાઇલ મસાજ આપે છે.",
-            "10-15 મિનિટના લયબદ્ધ જાપની દૈનિક પ્રેક્ટિસ માતાના ફેફસાંની ક્ષમતા, ઓક્સિજન સંતૃપ્તિ (SpO2) અને હૃદયના ધબકારા પરિવર્તનક્ષમતા (HRV) ને વધારે છે, જે ગર્ભાવસ્થાના સંક્રમણો વચ્ચે શાંતિનો એન્કર બનાવે છે."
+            "ગાયત્રી મંત્ર અને ઓમકાર જેવા પવિત્ર મંત્રોચ્ચારથી મન શાંત બને છે. જ્યારે માતા શાંત ચિત્તે ગાય છે કે જાપ કરે છે, ત્યારે તેનો મધુર અવાજ બાળકના કાન સુધી એક પ્રેમાળ અનુભૂતિ લાવે છે.",
+            "વૈદિક નાદ યોગ દર્શાવે છે કે સદ્ભાવનાપૂર્વક કરેલું ગાન ઘરમાં સકારાત્મક શાંતિ ફેલાવે છે."
           ]
         }
       },
@@ -312,17 +315,17 @@ export const blogPosts = [
         },
         "paragraphs": {
           "en": [
-            "• Optimal Volume Control: Maintain acoustic volume between 50 to 60 decibels (similar to a gentle conversation). Never place high-volume headphones directly on the abdominal wall, as amniotic fluid amplifies pressure waves.",
+            "• Moderate Listening Volume: Keep music at a comfortable room listening volume (similar to a gentle conversation). Avoid placing headphones directly against the maternal abdomen, as sound travels efficiently through fluid.",
             "• Dedicated Sacred Time: Set aside 20 minutes in the morning and 20 minutes before sleeping. Sit in a comfortable supported posture (such as Sukhasana with cushions) or recline comfortably on your left side.",
             "• Combine with Mindful Breath Awareness: Close your eyes, place one gentle hand on your heart and the other on your lower belly, and inhale deeply as the melody flows. Visualize unconditional love and radiant energy enveloping your child."
           ],
           "hi": [
-            "• इष्टतम वॉल्यूम नियंत्रण: ध्वनिक वॉल्यूम 50 से 60 डेसिबल (सौम्य वार्तालाप के समान) के बीच बनाए रखें। कभी भी हाई-वॉल्यूम हेडफ़ोन को सीधे पेट की दीवार पर न रखें, क्योंकि एमनियोटिक द्रव दबाव तरंगों को बढ़ाता है।",
+            "• मध्यम आवाज़: संगीत को कमरे में सामान्य बातचीत के स्तर जितनी आरामदायक आवाज़ में सुनें। हेडफ़ोन को सीधे पेट पर रखने से बचें, क्योंकि ध्वनि तरल माध्यम में तेज़ी से फैलती है।",
             "• समर्पित पवित्र समय: सुबह 20 मिनट और सोने से पहले 20 मिनट अलग रखें। आरामदायक समर्थित मुद्रा में बैठें (जैसे कुशन के साथ सुखासन) या अपनी बाईं ओर आराम से झुकें।",
             "• माइंडफुल ब्रीथ अवेयरनेस के साथ जुड़ें: अपनी आंखें बंद करें, एक कोमल हाथ अपने दिल पर और दूसरा अपने पेट के निचले हिस्से पर रखें, और जैसे ही संगीत प्रवाहित हो, गहरी सांस लें। अपने बच्चे को घेरने वाले बिना शर्त प्यार और उज्ज्वल ऊर्जा की कल्पना करें।"
           ],
           "gu": [
-            "• શ્રેષ્ઠ વોલ્યુમ નિયંત્રણ: 50 થી 60 ડેસિબલ્સ વચ્ચે એકોસ્ટિક વોલ્યુમ જાળવો (સૌમ્ય વાતચીત જેવું જ). હાઈ-વોલ્યુમ હેડફોન સીધા પેટની દિવાલ પર ક્યારેય ન મૂકો, કારણ કે એમ્નિઅટિક પ્રવાહી દબાણના તરંગોને વધારે છે.",
+            "• મધ્યમ અવાજ: સંગીતને રૂમમાં સામાન્ય વાતચીત જેટલા આરામદાયક અવાજમાં સાંભળો. હેડફોનને સીધા પેટ પર રાખવાનું ટાળો, કારણ કે ધ્વનિ પ્રવાહીમાં સરળતાથી પ્રવાસ કરે છે.",
             "• સમર્પિત પવિત્ર સમય: સવારે 20 મિનિટ અને સૂતા પહેલા 20 મિનિટ અલગ રાખો. આરામદાયક આધારભૂત મુદ્રામાં બેસો (જેમ કે કુશન સાથે સુખાસન) અથવા તમારી ડાબી બાજુ આરામથી ઢોળાવો.",
             "• માઇન્ડફુલ બ્રેથ અવેરનેસ સાથે જોડો: તમારી આંખો બંધ કરો, એક હળવો હાથ તમારા હૃદય પર અને બીજો તમારા નીચલા પેટ પર રાખો, અને જેમ જેમ મેલોડી વહે છે તેમ ઊંડા શ્વાસ લો. બિનશરતી પ્રેમ અને તમારા બાળકને ઘેરી લેતી તેજસ્વી ઊર્જાની કલ્પના કરો."
           ]
@@ -336,13 +339,13 @@ export const blogPosts = [
         },
         "paragraphs": {
           "en": [
-            "Expectant mothers should avoid prolonged exposure to harsh, erratic, loud industrial noises, heavy metal music, or aggressive movie soundtracks exceeding 85 decibels. Intense acoustic shocks can trigger fetal startle reflexes, sudden spikes in fetal motor activity, and transient maternal tachycardia."
+            "Expectant mothers should avoid prolonged exposure to very loud environments or sudden loud noises (such as loud industrial settings or blaring speakers). A quiet, peaceful acoustic atmosphere helps the mother remain relaxed and comfortable."
           ],
           "hi": [
-            "गर्भवती माताओं को कठोर, अनियमित, तेज़ औद्योगिक शोर, भारी धातु संगीत, या 85 डेसिबल से अधिक के आक्रामक मूवी साउंडट्रैक के लंबे समय तक संपर्क से बचना चाहिए। तीव्र ध्वनिक झटके भ्रूण की चौंका देने वाली प्रतिक्रिया, भ्रूण की मोटर गतिविधि में अचानक वृद्धि और क्षणिक मातृ क्षिप्रहृदयता को ट्रिगर कर सकते हैं।"
+            "गर्भवती माताओं को अत्यधिक तेज़ शोर वाले वातावरण या अचानक तेज़ आवाज़ों (जैसे तेज़ औद्योगिक शोर या तेज़ आवाज़ वाले लाउडस्पीकर) के लंबे समय तक संपर्क से बचना चाहिए। एक शांत और सौम्य वातावरण माँ को तनावमुक्त और सहज रखने में मदद करता है।"
           ],
           "gu": [
-            "સગર્ભા માતાઓએ કઠોર, અનિયમિત, મોટા ઔદ્યોગિક ઘોંઘાટ, હેવી મેટલ મ્યુઝિક અથવા 85 ડેસિબલથી વધુના આક્રમક મૂવી સાઉન્ડટ્રેક્સના લાંબા સમય સુધી સંપર્કમાં રહેવાનું ટાળવું જોઈએ. તીવ્ર એકોસ્ટિક આંચકાથી ગર્ભમાં આશ્ચર્યજનક પ્રતિક્રિયાઓ, ગર્ભની મોટર પ્રવૃત્તિમાં અચાનક વધારો અને ક્ષણિક માતૃત્વ ટાકીકાર્ડિયા થઈ શકે છે."
+            "સગર્ભા માતાઓએ વધુ પડતા મોટા અવાજવાળા વાતાવરણ અથવા અચાનક મોટા અવાજો (જેમ કે મોટો ઔદ્યોગિક ઘોંઘાટ અથવા મોટા સ્પીકર્સ) ના લાંબા સંપર્કથી બચવું જોઈએ. શાંત અને સુખદ વાતાવરણ માતાને આરામદાયક અને ચિંતામુક્ત રાખવામાં મદદ કરે છે."
           ]
         }
       }
@@ -379,9 +382,9 @@ export const blogPosts = [
           "gu": "શાસ્ત્રીય ભારતીય સંગીત મને ન સમજાય તો?"
         },
         "answer": {
-          "en": "You do not need formal knowledge of musicology. The therapeutic benefit arises from the melodic frequencies, harmonic resonance, and the emotional calm it creates within your mind and nervous system.",
-          "hi": "आपको संगीतशास्त्र के औपचारिक ज्ञान की आवश्यकता नहीं है। चिकित्सीय लाभ मधुर आवृत्तियों, हार्मोनिक अनुनाद और आपके दिमाग और तंत्रिका तंत्र के भीतर पैदा होने वाली भावनात्मक शांति से उत्पन्न होता है।",
-          "gu": "તમારે સંગીતશાસ્ત્રના ઔપચારિક જ્ઞાનની જરૂર નથી. રોગનિવારક લાભ મધુર ફ્રીક્વન્સીઝ, હાર્મોનિક રેઝોનન્સ અને તે તમારા મન અને ચેતાતંત્રમાં બનાવેલી ભાવનાત્મક શાંતિથી થાય છે."
+          "en": "You do not need formal knowledge of musicology. The primary benefit comes from the calming melody and the soothing emotional relaxation it provides to the mother.",
+          "hi": "आपको संगीत शास्त्र के औपचारिक ज्ञान की आवश्यकता नहीं है। इसका मुख्य लाभ इसके शांत संगीत और उससे मिलने वाले भावनात्मक सुकून से प्राप्त होता है।",
+          "gu": "તમારે સંગીત શાસ્ત્રના ઔપચારિક જ્ઞાનની જરૂર નથી. તેનો મુખ્ય ફાયદો તેના શાંત સંગીત અને તેનાથી મળતા ભાવનાત્મક આરામમાંથી મળે છે."
         }
       },
       {
@@ -391,9 +394,9 @@ export const blogPosts = [
           "gu": "શું પિતાને ગર્ભમાં ગાવું કે વાત કરવી ફાયદાકારક છે?"
         },
         "answer": {
-          "en": "Yes! Lower frequency male voices penetrate amniotic fluid with great clarity. When the father speaks, sings, or recites mantras close to the mother's abdomen, the baby recognizes his vocal signature, creating early paternal bonding.",
-          "hi": "हाँ! कम आवृत्ति वाली पुरुष आवाजें बड़ी स्पष्टता के साथ एमनियोटिक द्रव में प्रवेश करती हैं। जब पिता मां के पेट के करीब बोलता है, गाता है या मंत्र पढ़ता है, तो बच्चा उसके मुखर हस्ताक्षर को पहचानता है, जिससे प्रारंभिक पितृ संबंध बनता है।",
-          "gu": "હા! નિમ્ન આવર્તન પુરૂષ અવાજો એમ્નિઅટિક પ્રવાહીમાં ખૂબ સ્પષ્ટતા સાથે પ્રવેશ કરે છે. જ્યારે પિતા બોલે છે, ગાય છે અથવા માતાના ઉદરની નજીક મંત્રો પાઠ કરે છે, ત્યારે બાળક તેના અવાજની સહી ઓળખે છે, પ્રારંભિક પિતૃત્વ બંધન બનાવે છે."
+          "en": "Yes! Partners can speak, read, or sing near the mother's abdomen as part of emotional bonding and shared pregnancy routines. Hearing familiar voices helps foster early emotional closeness and family connection.",
+          "hi": "हाँ! माता-पिता दोनों की भागीदारी और भावनात्मक जुड़ाव के लिए साथी माँ के पास बैठकर बात कर सकते हैं, पढ़ सकते हैं या गा सकते हैं। परिचित आवाज़ें सुनना परिवार में स्नेह और अपनेपन को बढ़ावा देता है।",
+          "gu": "હા! ભાવનાત્મક જોડાણ અને સગર્ભાવસ્થાની સહિયારી દિનચર્યાના ભાગરૂપે જીવનસાથી માતાની નજીક બોલી, વાંચી અથવા ગાઈ શકે છે. પરિચિત અવાજો સાંભળવાથી પ્રારંભિક સ્નેહ અને પારિવારિક આત્મીયતા વધે છે."
         }
       }
     ],
@@ -401,14 +404,19 @@ export const blogPosts = [
       "Graven, S. N., & Browne, J. V. (2008). Auditory development in the fetus and infant. Newborn and Infant Nursing Reviews, 8(4), 187-193.",
       "Sanskrit Classical Treatise: Sangita Ratnakara by Sarangadeva (Sound and Nada Yoga principles).",
       "Chang, M. Y., et al. (2008). Effects of music therapy on psychological health in pregnant women. Journal of Clinical Nursing, 17(19), 2580-2587.",
-      "PubMed Central: Fetal response to maternal voice and music (PMID: 14667104)."
-    ]
+      "Kisilevsky, B. S., et al. (2003). Effects of experience on fetal voice recognition. Psychological Science, 14(3), 220-224."
+    ],
+    "summary": {
+      "en": "Discover how gentle music, soothing sounds, and classical Indian ragas nurture maternal relaxation and prenatal emotional bonding.",
+      "hi": "जानें कि कैसे सौम्य संगीत और शास्त्रीय भारतीय राग गर्भावस्था में मानसिक शांति और माँ-शिशु के आत्मीय जुड़ाव को बढ़ावा देते हैं।",
+      "gu": "જાણો કે કેવી રીતે સૌમ્ય સંગીત અને શાસ્ત્રીય ભારતીય રાગો ગર્ભાવસ્થામાં માનસિક શાંતિ અને માતા-બાળકના આત્મીય જોડાણને વધારે છે."
+    }
   },
   {
     "id": 3,
     "slug": "safe-prenatal-yoga-for-normal-delivery",
     "date": "2026-06-12",
-    "readTime": "12 min read",
+    "readTime": "4 min read",
     "image": "https://images.unsplash.com/photo-1575052814086-f385e2e2ad1b?auto=format&fit=crop&q=80&w=1200",
     "category": {
       "en": "Yoga & Meditation",
@@ -545,14 +553,14 @@ export const blogPosts = [
     "faqs": [
       {
         "question": {
-          "en": "Can yoga guarantee a normal vaginal delivery?",
-          "hi": "क्या योग सामान्य योनि प्रसव की गारंटी दे सकता है?",
-          "gu": "શું યોગ સામાન્ય યોનિમાર્ગ પ્રસૂતિની ખાતરી આપી શકે છે?"
+          "en": "Can prenatal yoga ensure a vaginal delivery?",
+          "hi": "क्या प्रसव पूर्व योग सामान्य योनि प्रसव सुनिश्चित कर सकता है?",
+          "gu": "શું પ્રિનેટલ યોગ સામાન્ય પ્રસૂતિ સુનિશ્ચિત કરી શકે છે?"
         },
         "answer": {
-          "en": "No exercise or yoga routine can guarantee a specific birth outcome. While prenatal yoga builds pelvic mobility, maternal stamina, and pain-coping resilience, final delivery decisions depend on critical medical factors (such as fetal positioning, pelvic cephalic proportion, and maternal-fetal vitals) assessed by your medical team.",
-          "hi": "कोई भी व्यायाम या योग दिनचर्या किसी विशिष्ट जन्म परिणाम की गारंटी नहीं दे सकता। जबकि प्रसवपूर्व योग पेल्विक गतिशीलता, मातृ सहनशक्ति और दर्द से निपटने की लचीलापन बनाता है, अंतिम प्रसव निर्णय आपकी मेडिकल टीम द्वारा मूल्यांकन किए गए महत्वपूर्ण चिकित्सा कारकों (जैसे भ्रूण की स्थिति, पेल्विक सेफेलिक अनुपात और मातृ-भ्रूण महत्वपूर्ण) पर निर्भर करते हैं।",
-          "gu": "કોઈ વ્યાયામ અથવા યોગ નિયમિત ચોક્કસ જન્મ પરિણામની ખાતરી આપી શકે નહીં. જ્યારે પ્રિનેટલ યોગ પેલ્વિક ગતિશીલતા, માતૃત્વની સહનશક્તિ અને પીડા-કંદોરો સ્થિતિસ્થાપકતા બનાવે છે, ત્યારે અંતિમ ડિલિવરી નિર્ણયો તમારી તબીબી ટીમ દ્વારા મૂલ્યાંકન કરાયેલ જટિલ તબીબી પરિબળો (જેમ કે ગર્ભની સ્થિતિ, પેલ્વિક સેફાલિક પ્રમાણ અને માતૃત્વ-ગર્ભના મહત્વપૂર્ણ) પર આધાર રાખે છે."
+          "en": "No exercise or movement routine can determine or ensure a specific birth mode. While prenatal yoga supports pelvic mobility, maternal stamina, and physical comfort, the ultimate mode of delivery depends on clinical factors (such as fetal presentation, placental location, and maternal-fetal vitals) evaluated by your obstetric team.",
+          "hi": "कोई भी व्यायाम या योग दिनचर्या किसी विशिष्ट प्रसव प्रकार को सुनिश्चित नहीं कर सकती। जबकि प्रसव पूर्व योग पेल्विक गतिशीलता, सहनशक्ति और शारीरिक आराम में मदद करता है, अंतिम प्रसव निर्णय आपकी मेडिकल टीम द्वारा मूल्यांकन किए गए चिकित्सीय कारकों पर निर्भर करता है।",
+          "gu": "કોઈપણ વ્યાયામ ચોક્કસ પ્રસૂતિ પ્રકારની ખાતરી આપી શકે નહીં. પ્રિનેટલ યોગ પેલ્વિક લવચીકતા અને શારીરિક આરામમાં મદદરૂપ છે, પરંતુ અંતિમ ડિલિવરી તબીબી પરિસ્થિતિઓ અને ડૉક્ટરના મૂલ્યાંકન પર આધારિત છે."
         }
       },
       {
@@ -581,7 +589,7 @@ export const blogPosts = [
       }
     ],
     "references": [
-      "ACOG Committee Opinion No. 804: Physical Activity and Exercise During Pregnancy and the Postpartum Period.",
+      "American College of Obstetricians and Gynecologists. (2020). Physical Activity and Exercise During Pregnancy and the Postpartum Period. Committee Opinion No. 804.",
       "Satyapriya, M., et al. (2009). Effect of integrated yoga on pregnancy outcome. International Journal of Gynecology & Obstetrics, 104(3), 218-222.",
       "Babbar, S., & Shyken, J. (2016). Yoga in pregnancy. Clinical Obstetrics and Gynecology, 59(3), 600-612.",
       "Iyengar, Geeta S. Yoga: A Gem for Women (Prenatal Asanas and Therapeutics)."
@@ -591,7 +599,7 @@ export const blogPosts = [
     "id": 4,
     "slug": "garbh-sanskar-benefits-for-mother-and-baby",
     "date": "2026-07-11",
-    "readTime": "11 min read",
+    "readTime": "3 min read",
     "image": "https://images.unsplash.com/photo-1516589091380-5d8e87df6999?auto=format&fit=crop&q=80&w=1200",
     "category": {
       "en": "Vedic Science & Ragas",
@@ -668,17 +676,17 @@ export const blogPosts = [
           "en": [
             "• Lower Risk of Prenatal & Postpartum Depression: Structured mindfulness, daily prayer, and family counseling mitigate mood swings and anxiety about labor.",
             "• Enhanced Maternal-Fetal Intuition: Daily Garbh Samvad (conscious dialogue) deepens maternal bonding, helping the mother understand her baby's subtle movement cues.",
-            "• Hormonal Harmony & Smooth Pregnancy Progression: Calming practices stimulate natural oxytocin and endorphin secretion, easing common physical discomforts."
+            "• Emotional Wellbeing & Physical Comfort: Gentle relaxation techniques help ease everyday stress, promoting maternal rest and emotional balance."
           ],
           "hi": [
             "• प्रसवपूर्व और प्रसवोत्तर अवसाद का कम जोखिम: संरचित सचेतनता, दैनिक प्रार्थना और पारिवारिक परामर्श प्रसव के बारे में मनोदशा में बदलाव और चिंता को कम करते हैं।",
             "• उन्नत मातृ-भ्रूण अंतर्ज्ञान: दैनिक गर्भ संवाद (जागरूक संवाद) मातृ संबंध को गहरा करता है, जिससे माँ को अपने बच्चे के सूक्ष्म आंदोलन संकेतों को समझने में मदद मिलती है।",
-            "• हार्मोनल सामंजस्य और सहज गर्भावस्था प्रगति: शांत करने वाली प्रथाएं प्राकृतिक ऑक्सीटोसिन और एंडोर्फिन स्राव को उत्तेजित करती हैं, जिससे सामान्य शारीरिक असुविधाएं कम हो जाती हैं।"
+            "• भावनात्मक कल्याण और शारीरिक आराम: सौम्य विश्राम तकनीकें दैनिक तनाव को कम करने, विश्राम और भावनात्मक संतुलन को बढ़ावा देने में मदद करती हैं।"
           ],
           "gu": [
             "• પ્રિનેટલ અને પોસ્ટપાર્ટમ ડિપ્રેશનનું ઓછું જોખમ: સંરચિત માઇન્ડફુલનેસ, દૈનિક પ્રાર્થના અને કૌટુંબિક કાઉન્સેલિંગ મૂડ સ્વિંગ અને શ્રમ વિશેની ચિંતાને ઘટાડે છે.",
             "• ઉન્નત માતૃ-ગર્ભ અંતઃપ્રેરણા: દૈનિક ગર્ભ સંવાદ (સભાન સંવાદ) માતૃત્વના બંધનને વધુ ગાઢ બનાવે છે, માતાને તેના બાળકના સૂક્ષ્મ હલનચલન સંકેતોને સમજવામાં મદદ કરે છે.",
-            "• આંતરસ્ત્રાવીય સંવાદિતા અને સગર્ભાવસ્થાની સરળ પ્રગતિ: શાંત કરવાની પદ્ધતિઓ કુદરતી ઓક્સીટોસિન અને એન્ડોર્ફિન સ્ત્રાવને ઉત્તેજિત કરે છે, સામાન્ય શારીરિક અગવડતાઓને સરળ બનાવે છે."
+            "• ભાવનાત્મક સુખાકારી અને શારીરિક આરામ: સૌમ્ય આરામ તકનીકો રોજિંદા તણાવને હળવો કરવામાં મદદ કરે છે, જે માતાને આરામ અને ભાવનાત્મક સંતુલન પ્રદાન કરે છે."
           ]
         }
       },
@@ -762,7 +770,7 @@ export const blogPosts = [
     "id": 5,
     "slug": "what-to-eat-during-pregnancy-indian-diet-chart",
     "date": "2026-07-11",
-    "readTime": "12 min read",
+    "readTime": "3 min read",
     "image": "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&q=80&w=1200",
     "category": {
       "en": "Nutrition & Diet",
@@ -935,7 +943,7 @@ export const blogPosts = [
     "id": 6,
     "slug": "simantonayan-ceremony-meaning-and-guidance",
     "date": "2026-07-11",
-    "readTime": "10 min read",
+    "readTime": "3 min read",
     "image": "https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&q=80&w=1200",
     "category": {
       "en": "Vedic Science & Ragas",
@@ -977,22 +985,22 @@ export const blogPosts = [
       },
       {
         "heading": {
-          "en": "The Neurological and Psychological Science Behind the Ritual",
-          "hi": "अनुष्ठान के पीछे तंत्रिका विज्ञान और मनोवैज्ञानिक विज्ञान",
-          "gu": "ધાર્મિક વિધિ પાછળ ન્યુરોલોજીકલ અને મનોવૈજ્ઞાનિક વિજ્ઞાન"
+          "en": "Psychological and Cultural Significance of the Ritual",
+          "hi": "अनुष्ठान का मनोवैज्ञानिक और सांस्कृतिक महत्व",
+          "gu": "ધાર્મિક વિધિનું મનોવૈજ્ઞાનિક અને સાંસ્કૃતિક મહત્વ"
         },
         "paragraphs": {
           "en": [
-            "By the seventh month of gestation, the fetal sensory system and brain cortex have developed advanced cognitive processing. Fetal memories, sensory reactions, and emotional attunement are at their highest prenatal peak. Ayurveda notes that during this period, the baby experiences 'Dauhrida' (the desires of two hearts—mother and child).",
-            "Surrounding the expectant mother with joyous family music, fragrant flowers, sweet satvik delicacies, divine chanting, and loving blessings floods her bloodstream with oxytocin and endorphins. This emotional shielding relieves the anxieties of late-stage pregnancy and instills deep psychological confidence for impending labor."
+            "By the third trimester, emotional and psychological support becomes vital for the expectant mother. Classical Ayurvedic literature, such as the Kashyapa Samhita, describes this stage as 'Dauhrida' (the period honoring the emotional state and wishes of the expectant mother).",
+            "Surrounding the mother with supportive family, uplifting traditional music, fragrant flowers, nourishing food, and caring blessings helps relieve late-pregnancy anxieties and fosters emotional calm and reassurance as she approaches childbirth."
           ],
           "hi": [
-            "गर्भधारण के सातवें महीने तक, भ्रूण की संवेदी प्रणाली और मस्तिष्क कॉर्टेक्स ने उन्नत संज्ञानात्मक प्रसंस्करण विकसित कर लिया है। भ्रूण की यादें, संवेदी प्रतिक्रियाएं और भावनात्मक सामंजस्य जन्मपूर्व अपने उच्चतम शिखर पर होते हैं। आयुर्वेद बताता है कि इस अवधि के दौरान, शिशु को 'दौहृदा' (दो दिलों की इच्छाएँ - माँ और बच्चे) का अनुभव होता है।",
-            "भावी माँ को आनंदपूर्ण पारिवारिक संगीत, सुगंधित फूल, मीठे सात्विक व्यंजन, दिव्य मंत्रोच्चार और प्रेमपूर्ण आशीर्वाद से घेरने से उसके रक्तप्रवाह में ऑक्सीटोसिन और एंडोर्फिन की बाढ़ आ जाती है। यह भावनात्मक सुरक्षा देर से गर्भावस्था की चिंताओं से राहत देती है और आसन्न प्रसव के लिए गहरा मनोवैज्ञानिक आत्मविश्वास पैदा करती है।"
+            "तीसरी तिमाही तक, भावी माँ के लिए भावनात्मक और मनोवैज्ञानिक समर्थन महत्वपूर्ण हो जाता है। कश्यप संहिता जैसे शास्त्रीय आयुर्वेदिक साहित्य में इस अवस्था को 'दौहृद' (गर्भवती माँ की भावनात्मक स्थिति और इच्छाओं का सम्मान करने की अवधि) के रूप में वर्णित किया गया है।",
+            "माँ को सहायक परिवार, उत्थानकारी पारंपरिक संगीत, सुगंधित फूलों, पौष्टिक भोजन और स्नेहपूर्ण आशीर्वाद से घेरने से गर्भावस्था के अंतिम चरण की चिंताओं को कम करने में मदद मिलती है और प्रसव के निकट आने पर भावनात्मक शांति व संबल मिलता है।"
           ],
           "gu": [
-            "સગર્ભાવસ્થાના સાતમા મહિના સુધીમાં, ગર્ભ સંવેદનાત્મક પ્રણાલી અને મગજ કોર્ટેક્સે અદ્યતન જ્ઞાનાત્મક પ્રક્રિયા વિકસાવી છે. ગર્ભની સ્મૃતિઓ, સંવેદનાત્મક પ્રતિક્રિયાઓ અને ભાવનાત્મક સંવર્ધન તેમના સર્વોચ્ચ પ્રિનેટલ શિખર પર છે. આયુર્વેદ નોંધે છે કે આ સમયગાળા દરમિયાન, બાળક 'દૌહરિદા' (બે હૃદયની ઈચ્છાઓ-માતા અને બાળક) અનુભવે છે.",
-            "આનંદી કૌટુંબિક સંગીત, સુગંધિત ફૂલો, મધુર સાત્વિક વાનગીઓ, દૈવી મંત્રોચ્ચાર અને પ્રેમાળ આશીર્વાદો સાથે ગર્ભવતી માતાને ઘેરીને તેના લોહીના પ્રવાહમાં ઓક્સીટોસિન અને એન્ડોર્ફિન્સ ભરાય છે. આ ભાવનાત્મક કવચ ગર્ભાવસ્થાના અંતના તબક્કાની ચિંતાઓથી રાહત આપે છે અને તોળાઈ રહેલા શ્રમ માટે ઊંડો મનોવૈજ્ઞાનિક આત્મવિશ્વાસ સ્થાપિત કરે છે."
+            "ત્રીજા ત્રિમાસિક સુધીમાં, સગર્ભા માતા માટે ભાવનાત્મક અને મનોવૈજ્ઞાનિક સમર્થન અત્યંત મહત્વપૂર્ણ બની જાય છે. કાશ્યપ સંહિતા જેવા શાસ્ત્રીય આયુર્વેદિક સાહિત્યમાં આ તબક્કાને 'દૌહૃદ' (સગર્ભા માતાની ભાવનાત્મક સ્થિતિ અને ઇચ્છાઓનું સન્માન કરવાનો સમય) તરીકે વર્ણવવામાં આવ્યો છે.",
+            "માતાને પ્રેમાળ પરિવાર, ઉત્સાહપૂર્ણ પરંપરાગત સંગીત, સુગંધિત ફૂલો, પૌષ્ટિક આહાર અને કાળજીપૂર્વકના આશીર્વાદથી ઘેરી લેવાથી ગર્ભાવસ્થાના અંતિમ તબક્કાની ચિંતાઓ હળવી થાય છે અને સુવાવડ તરફ આગળ વધતાં ભાવનાત્મક શાંતિ અને આત્મવિશ્વાસ મળે છે."
           ]
         }
       },
@@ -1090,7 +1098,7 @@ export const blogPosts = [
     "id": 7,
     "slug": "pregnancy-meditation-and-mantra-benefits",
     "date": "2026-07-11",
-    "readTime": "10 min read",
+    "readTime": "2 min read",
     "image": "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&q=80&w=1200",
     "category": {
       "en": "Yoga & Meditation",
@@ -1156,19 +1164,22 @@ export const blogPosts = [
       },
       {
         "heading": {
-          "en": "The Resonance of Sacred Mantras: Gayatri & Mahamrityunjaya",
-          "hi": "पवित्र मंत्रों की गूंज: गायत्री और महामृत्युंजय",
-          "gu": "પવિત્ર મંત્રોનો પડઘો: ગાયત્રી અને મહામૃત્યુંજય"
+          "en": "Mantra Chanting: Traditional Contemplation & Mental Focus",
+          "hi": "मंत्र जप: पारंपरिक चिंतन एवं मानसिक एकाग्रता",
+          "gu": "મંત્ર જાપ: પરંપરાગત ચિંતન અને માનસિક એકાગ્રતા"
         },
         "paragraphs": {
           "en": [
-            "The rhythmic repetition (Japa) of classical Sanskrit syllables produces coherent sound vibrations that resonate through the cerebrospinal fluid. The Gayatri Mantra stimulates intellectual clarity (Dhee Shakti), while the Mahamrityunjaya Mantra imparts deep feelings of cellular protection and vitality. Even 11 repetitions done with heartfelt devotion creates a peaceful mental atmosphere for the entire home."
+            "In traditional Vedic philosophy, the rhythmic recitation of classical mantras (Japa), such as the Gayatri Mantra or Shanti Mantras, is practiced as a spiritual contemplation technique. Mantras provide a focal point for the mind, helping anchor wandering thoughts and cultivating an inner sense of tranquility.",
+            "From a cultural perspective, reciting sacred verses with mindful intention fosters feelings of gratitude, peace, and emotional grounding during pregnancy."
           ],
           "hi": [
-            "शास्त्रीय संस्कृत अक्षरों की लयबद्ध पुनरावृत्ति (जप) सुसंगत ध्वनि कंपन पैदा करती है जो मस्तिष्कमेरु द्रव के माध्यम से गूंजती है। गायत्री मंत्र बौद्धिक स्पष्टता (धी शक्ति) को उत्तेजित करता है, जबकि महामृत्युंजय मंत्र सेलुलर सुरक्षा और जीवन शक्ति की गहरी भावना प्रदान करता है। हार्दिक श्रद्धा से की गई 11 पुनरावृत्तियाँ भी पूरे घर में एक शांतिपूर्ण मानसिक वातावरण बनाती हैं।"
+            "पारंपरिक वैदिक दर्शन में, गायत्री मंत्र या शांति मंत्रों जैसे शास्त्रीय मंत्रों का लयबद्ध पाठ (जप) एक आध्यात्मिक चिंतन तकनीक के रूप में किया जाता है। मंत्र मन को केंद्रित करने, भटके हुए विचारों को शांत करने और आंतरिक शांति की भावना विकसित करने में मदद करते हैं।",
+            "सांस्कृतिक दृष्टिकोण से, एकाग्र मन से पवित्र छंदों का पाठ गर्भावस्था के दौरान कृतज्ञता, शांति और सकारात्मकता की भावना को बढ़ावा देता है।"
           ],
           "gu": [
-            "શાસ્ત્રીય સંસ્કૃત સિલેબલનું લયબદ્ધ પુનરાવર્તન (જાપા) સુસંગત ધ્વનિ સ્પંદનો ઉત્પન્ન કરે છે જે મગજના પ્રવાહી દ્વારા પડઘો પાડે છે. ગાયત્રી મંત્ર બૌદ્ધિક સ્પષ્ટતા (ધી શક્તિ) ને ઉત્તેજિત કરે છે, જ્યારે મહામૃત્યુંજય મંત્ર સેલ્યુલર સંરક્ષણ અને જીવનશક્તિની ઊંડી લાગણીઓ પ્રદાન કરે છે. હૃદયપૂર્વકની ભક્તિ સાથે કરવામાં આવેલ 11 પુનરાવર્તનો પણ સમગ્ર ઘર માટે શાંતિપૂર્ણ માનસિક વાતાવરણ બનાવે છે."
+            "પરંપરાગત વૈદિક ફિલસૂફીમાં, ગાયત્રી મંત્ર અથવા શાંતિ મંત્રો જેવા શાસ્ત્રીય મંત્રોનો લયબદ્ધ જાપ આધ્યાત્મિક ચિંતનની રીત તરીકે થાય છે. મંત્રો મનને એકાગ્ર કરવામાં અને આંતરિક શાંતિ કેળવવામાં મદદ કરે છે.",
+            "સાંસ્કૃતિક દ્રષ્ટિએ, ભક્તિભાવપૂર્વક પવિત્ર શ્લોકોનું પઠન ગર્ભાવસ્થા દરમિયાન કૃતજ્ઞતા અને હકારાત્મકતા વધારે છે."
           ]
         }
       },
@@ -1206,27 +1217,27 @@ export const blogPosts = [
       },
       {
         "question": {
-          "en": "How does my meditation directly affect my unborn baby?",
-          "hi": "मेरे ध्यान का मेरे अजन्मे बच्चे पर सीधा प्रभाव कैसे पड़ता है?",
-          "gu": "મારું ધ્યાન મારા અજાત બાળકને કેવી રીતે સીધી અસર કરે છે?"
+          "en": "How does meditation support prenatal well-being?",
+          "hi": "ध्यान प्रसवपूर्व स्वास्थ्य में कैसे मदद करता है?",
+          "gu": "ધ્યાન ગર્ભાવસ્થા દરમિયાન સુખાકારીમાં કેવી રીતે મદદ કરે છે?"
         },
         "answer": {
-          "en": "Meditation significantly lowers circulating stress chemicals (cortisol and adrenaline) in your bloodstream. Consequently, your baby receives higher levels of nourishing blood flow and calming hormones like endorphins and oxytocin.",
-          "hi": "ध्यान आपके रक्तप्रवाह में तनाव रसायनों (कोर्टिसोल और एड्रेनालाईन) को प्रसारित करने को काफी कम कर देता है। नतीजतन, आपके बच्चे को उच्च स्तर का पौष्टिक रक्त प्रवाह और एंडोर्फिन और ऑक्सीटोसिन जैसे शांत हार्मोन प्राप्त होते हैं।",
-          "gu": "ધ્યાન તમારા લોહીના પ્રવાહમાં ફરતા તણાવ રસાયણો (કોર્ટિસોલ અને એડ્રેનાલિન) ને નોંધપાત્ર રીતે ઘટાડે છે. પરિણામે, તમારા બાળકને પૌષ્ટિક રક્ત પ્રવાહ અને એન્ડોર્ફિન્સ અને ઓક્સીટોસિન જેવા શાંત હોર્મોન્સનું ઉચ્ચ સ્તર પ્રાપ્ત થાય છે."
+          "en": "Mindfulness and meditation help you manage daily stress, promote emotional calm, and support restorative rest, creating a peaceful daily home atmosphere as you prepare for motherhood.",
+          "hi": "माइंडफुलनेस और ध्यान आपको दैनिक तनाव को प्रबंधित करने, भावनात्मक शांति को बढ़ावा देने और आरामदायक नींद में मदद करते हैं। एक शांत और स्थिर मन मातृत्व की तैयारी के दौरान एक सुखद वातावरण बनाता है।",
+          "gu": "માઇન્ડફુલનેસ અને ધ્યાન તમને દૈનિક તણાવનું સંચાલન કરવામાં, ભાવનાત્મક શાંતિ વધારવામાં અને આરામદાયક ઊંઘ મેળવવામાં મદદ કરે છે. શાંત મન માતૃત્વની તૈયારી દરમિયાન ઘરનું વાતાવરણ શાંતિપૂર્ણ બનાવે છે."
         }
       }
     ],
     "references": [
       "Vieten, C., & Astin, J. (2008). Effects of a mindfulness-based intervention during pregnancy on prenatal stress and mood: results of a pilot study. Archives of Women's Mental Health, 11(1), 67-74.",
-      "Lazar, S. W., et al. (2005). Meditation experience is associated with increased cortical thickness. Neuroreport, 16(17), 1893."
+      "Dhillon, A., et al. (2017). Mindfulness-Based Interventions During Pregnancy: a Systematic Review and Meta-analysis. Mindfulness, 8(6), 1421-1437."
     ]
   },
   {
     "id": 8,
     "slug": "pregnancy-stress-management-tips",
     "date": "2026-07-11",
-    "readTime": "11 min read",
+    "readTime": "2 min read",
     "image": "https://images.unsplash.com/photo-1493836512294-502baa1986e2?auto=format&fit=crop&q=80&w=1200",
     "category": {
       "en": "Maternal Wellbeing",
@@ -1243,7 +1254,7 @@ export const blogPosts = [
       "hi": "गर्भावस्था के दौरान तनाव, घबराहट और अनिद्रा को दूर करने के प्रामाणिक एवं व्यावहारिक उपाय।",
       "gu": "ગર્ભાવસ્થા દરમિયાન તણાવ, ચિંતા અને અનિદ્રા દૂર કરવા માટેના વ્યવહારુ ઉપાયો."
     },
-    "keywords": "pregnancy stress management, stress during pregnancy, calm pregnancy tips, mental wellness in pregnancy, cortisol pregnancy baby, pregnancy anxiety remedies",
+    "keywords": "pregnancy stress management, stress during pregnancy, calm pregnancy tips, mental wellness in pregnancy, stress relief pregnancy tips, pregnancy anxiety remedies",
     "sections": [
       {
         "heading": {
@@ -1253,16 +1264,16 @@ export const blogPosts = [
         },
         "paragraphs": {
           "en": [
-            "Occasional brief stress is a normal part of human life. However, chronic unmanaged prenatal distress causes continuous elevation of maternal cortisol. The enzyme 11-beta-HSD2 in the placenta normally converts active cortisol into inactive cortisone to protect the fetus; however, excessive prolonged maternal stress can overwhelm this placental barrier, exposing the developing baby to elevated glucocorticoids.",
-            "Clinical research links prolonged high maternal stress with higher risks of low birth weight, preterm contractions, postpartum mood disorders, and heightened infantile reactivity. Garbh Sanskar provides a time-tested holistic sanctuary to shield mother and baby from these pressures."
+            "Occasional brief stress is a normal part of life. However, chronic unmanaged prenatal distress can make pregnancy feel physically and emotionally exhausting. Clinical research indicates that ongoing high maternal stress is associated with higher perceived anxiety and sleep difficulties.",
+            "Garbh Sanskar practices provide gentle, time-tested mindfulness routines to help expectant mothers cultivate emotional stability, self-compassion, and peaceful daily surroundings."
           ],
           "hi": [
-            "कभी-कभार होने वाला संक्षिप्त तनाव मानव जीवन का एक सामान्य हिस्सा है। हालाँकि, पुरानी अप्रबंधित प्रसवपूर्व परेशानी मातृ कोर्टिसोल में निरंतर वृद्धि का कारण बनती है। प्लेसेंटा में एंजाइम 11-बीटा-एचएसडी2 आमतौर पर भ्रूण की सुरक्षा के लिए सक्रिय कोर्टिसोल को निष्क्रिय कोर्टिसोन में परिवर्तित करता है; हालाँकि, अत्यधिक लंबे समय तक मातृ तनाव इस प्लेसेंटल बाधा को खत्म कर सकता है, जिससे विकासशील बच्चे को बढ़े हुए ग्लुकोकोर्टिकोइड्स का सामना करना पड़ सकता है।",
-            "नैदानिक ​​​​शोध लंबे समय तक उच्च मातृ तनाव को जन्म के समय कम वजन, समय से पहले संकुचन, प्रसवोत्तर मूड विकारों और बढ़ी हुई शिशु प्रतिक्रियाशीलता के उच्च जोखिम से जोड़ता है। गर्भ संस्कार माँ और बच्चे को इन दबावों से बचाने के लिए एक समय-परीक्षणित समग्र अभयारण्य प्रदान करता है।"
+            "कभी-कभार थोड़ा तनाव होना सामान्य है। हालाँकि, अनियंत्रित और लगातार तनाव गर्भावस्था को शारीरिक और भावनात्मक रूप से थका देने वाला बना सकता है। शोध से पता चलता है कि अधिक तनाव से चिंता और नींद में परेशानी हो सकती है।",
+            "गर्भ संस्कार अभ्यास गर्भवती माताओं को भावनात्मक स्थिरता, सकारात्मकता और शांत वातावरण बनाए रखने में मदद करते हैं।"
           ],
           "gu": [
-            "પ્રસંગોપાત સંક્ષિપ્ત તણાવ માનવ જીવનનો એક સામાન્ય ભાગ છે. જો કે, દીર્ઘકાલીન અનિયંત્રિત પ્રિનેટલ તકલીફ માતૃત્વ કોર્ટિસોલના સતત ઉન્નતિનું કારણ બને છે. પ્લેસેન્ટામાં એન્ઝાઇમ 11-બીટા-એચએસડી2 સામાન્ય રીતે ગર્ભના રક્ષણ માટે સક્રિય કોર્ટિસોલને નિષ્ક્રિય કોર્ટિસોનમાં રૂપાંતરિત કરે છે; જો કે, માતૃત્વનો અતિશય લાંબો સમય તણાવ આ પ્લેસેન્ટલ અવરોધને વટાવી શકે છે, વિકાસશીલ બાળકને એલિવેટેડ ગ્લુકોકોર્ટિકોઇડ્સનો સંપર્ક કરે છે.",
-            "ક્લિનિકલ સંશોધન લાંબા સમય સુધી માતૃત્વના તણાવને નીચા જન્મના વજન, અકાળે સંકોચન, પોસ્ટપાર્ટમ મૂડ ડિસઓર્ડર અને ઉચ્ચ શિશુ પ્રતિક્રિયાશીલતાના ઊંચા જોખમો સાથે જોડે છે. ગર્ભ સંસ્કાર માતા અને બાળકને આ દબાણોથી બચાવવા માટે સમય-પરીક્ષણ સર્વગ્રાહી અભયારણ્ય પૂરું પાડે છે."
+            "ક્યારેક હળવો તણાવ થવો એ સામાન્ય બાબત છે. જો કે, સતત ચિંતા અને તણાવ ગર્ભાવસ્થા દરમિયાન થાક અને અનિદ્રાનું કારણ બની શકે છે.",
+            "ગર્ભ સંસ્કાર પદ્ધતિઓ માતાને ભાવનાત્મક સ્થિરતા અને શાંત દૈનિક વાતાવરણ જાળવવામાં મદદ કરે છે."
           ]
         }
       },
@@ -1275,19 +1286,19 @@ export const blogPosts = [
         "paragraphs": {
           "en": [
             "1. Digital Detox & Media Hygiene: Avoid watching violent news, sensational crime dramas, or argumentative social media feeds that trigger anxiety spikes. Replace them with uplifting nature documentaries, inspirational biographies, and devotional music.",
-            "2. The 4-7-8 Relaxing Breath Technique: Inhale silently through the nose for 4 counts, hold gently for 2 counts (if comfortable, without straining), and exhale smoothly through the mouth for 7-8 counts. This stimulates the vagus nerve and lowers resting heart rate.",
+            "2. Relaxing Breath Technique: Inhale gently through the nose for 4 counts, pause briefly if comfortable without straining, and exhale slowly through the mouth for 6-8 counts. Slow, prolonged exhalation helps ease muscular tension and quiet an agitated mind.",
             "3. Daily Warm Abhyanga (Gentle Oil Application): Massaging the feet (Pada Abhyanga) and head with warm sesame or coconut oil before bedtime pacifies Vata dosha and induces deep restful sleep.",
             "4. Gratitude Journaling (Kritajnata): Spend 5 minutes every night jotting down 3 things you are grateful for about your body, your baby, and your journey."
           ],
           "hi": [
             "1. डिजिटल डिटॉक्स और मीडिया स्वच्छता: हिंसक समाचार, सनसनीखेज अपराध नाटक, या तर्कपूर्ण सोशल मीडिया फ़ीड देखने से बचें जो चिंता को बढ़ाते हैं। उन्हें उत्थानशील प्रकृति वृत्तचित्रों, प्रेरणादायक जीवनियों और भक्ति संगीत से बदलें।",
-            "2. 4-7-8 आरामदायक सांस लेने की तकनीक: 4 गिनती तक नाक से चुपचाप सांस लें, 2 गिनती तक धीरे से रोकें (यदि आरामदायक हो, तो बिना तनाव के), और मुंह से 7-8 गिनती तक आसानी से सांस छोड़ें। यह वेगस तंत्रिका को उत्तेजित करता है और हृदय गति को कम करता है।",
+            "2. आरामदायक सांस लेने की तकनीक: 4 गिनती तक नाक से धीरे-धीरे सांस लें, बिना किसी तनाव के संक्षेप में रुकें, और मुंह से 6-8 गिनती तक धीरे-धीरे सांस छोड़ें। धीमी सांस छोड़ने से मन शांत होता है और शारीरिक तनाव कम होता है।",
             "3. दैनिक गर्म अभ्यंग (हल्का तेल लगाना): सोने से पहले पैरों (पादा अभ्यंग) और सिर पर गर्म तिल या नारियल के तेल से मालिश करने से वात दोष शांत होता है और गहरी आरामदायक नींद आती है।",
             "4. कृतज्ञता जर्नलिंग (कृतज्ञता): हर रात 5 मिनट अपने शरीर, अपने बच्चे और अपनी यात्रा के बारे में 3 चीजों को लिखने में बिताएं जिनके लिए आप आभारी हैं।"
           ],
           "gu": [
             "1. ડિજિટલ ડિટોક્સ અને મીડિયા સ્વચ્છતા: હિંસક સમાચાર, સનસનાટીભર્યા અપરાધના નાટકો અથવા દલીલયુક્ત સોશિયલ મીડિયા ફીડ્સ જોવાનું ટાળો જે ચિંતામાં વધારો કરે છે. તેમને ઉત્કૃષ્ટ પ્રકૃતિ દસ્તાવેજી, પ્રેરણાત્મક જીવનચરિત્રો અને ભક્તિ સંગીત સાથે બદલો.",
-            "2. 4-7-8 રિલેક્સિંગ બ્રેથ ટેકનીક: 4 ગણતરીઓ માટે નાક દ્વારા શાંતિથી શ્વાસ લો, 2 ગણતરીઓ (જો આરામદાયક હોય તો, તાણ વિના) હળવેથી પકડી રાખો અને 7-8 ગણતરીઓ માટે મોં દ્વારા સરળતાથી શ્વાસ બહાર કાઢો. આ યોનિમાર્ગને ઉત્તેજિત કરે છે અને આરામ કરતા હૃદયના ધબકારા ઘટાડે છે.",
+            "૨. રિલેક્સિંગ શ્વાસ પદ્ધતિ: ૪ ગણતરી સુધી નાક દ્વારા ધીમેથી શ્વાસ લો, કોઈપણ તાણ વગર ક્ષણિક રોકો, અને ૬-૮ ગણતરી સુધી મોં દ્વારા ધીમેથી શ્વાસ બહાર કાઢો. ધીમા શ્વાસોચ્છવાસથી મન શાંત થાય છે અને શારીરિક તણાવ દૂર થાય છે.",
             "3. દૈનિક ગરમ અભ્યંગ (સૌમ્ય તેલનો ઉપયોગ): સૂવાનો સમય પહેલાં ગરમ ​​તલ અથવા નાળિયેર તેલથી પગ અને માથાની માલિશ કરવાથી વાત દોષ શાંત થાય છે અને ઊંડી શાંત ઊંઘ આવે છે.",
             "4. કૃતજ્ઞતા જર્નલિંગ (કૃતજ્ઞાતા): તમારા શરીર, તમારા બાળક અને તમારી મુસાફરી વિશે તમે કૃતજ્ઞ છો તે 3 વસ્તુઓને લખીને દરરોજ રાત્રે 5 મિનિટ પસાર કરો."
           ]
@@ -1332,9 +1343,9 @@ export const blogPosts = [
           "gu": "શું પ્રકૃતિમાં હલકું ચાલવું ગર્ભાવસ્થાના તણાવને ઘટાડવામાં મદદ કરે છે?"
         },
         "answer": {
-          "en": "Yes! A 20-30 minute gentle morning walk in a green garden or park lowers blood cortisol, promotes endorphin release, and improves evening sleep quality.",
-          "hi": "हाँ! हरे बगीचे या पार्क में 20-30 मिनट की हल्की सुबह की सैर रक्त कोर्टिसोल को कम करती है, एंडोर्फिन रिलीज को बढ़ावा देती है, और शाम की नींद की गुणवत्ता में सुधार करती है।",
-          "gu": "હા! ગ્રીન ગાર્ડન અથવા પાર્કમાં 20-30 મિનિટની હળવી મોર્નિંગ વોક બ્લડ કોર્ટિસોલને ઘટાડે છે, એન્ડોર્ફિન મુક્તિને પ્રોત્સાહન આપે છે અને સાંજની ઊંઘની ગુણવત્તામાં સુધારો કરે છે."
+          "en": "Yes! A 20-30 minute gentle morning walk in a green garden or park supports physical stamina, emotional relaxation, and evening sleep quality.",
+          "hi": "हाँ! हरे बगीचे या पार्क में 20-30 मिनट की हल्की सुबह की सैर शारीरिक सहनशक्ति, भावनात्मक विश्राम और शाम की नींद की गुणवत्ता का समर्थन करती है।",
+          "gu": "હા! બગીચામાં ૨૦-૩૦ મિનિટની હળવી સવારની ચાલ શારીરિક શક્તિ, માનસિક શાંતિ અને રાત્રિની ઊંઘમાં સુધારો કરે છે."
         }
       }
     ],
@@ -1347,7 +1358,7 @@ export const blogPosts = [
     "id": 9,
     "slug": "best-books-and-stories-to-read-during-pregnancy",
     "date": "2026-07-11",
-    "readTime": "9 min read",
+    "readTime": "2 min read",
     "image": "https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&q=80&w=1200",
     "category": {
       "en": "Vedic Science & Ragas",
@@ -1360,9 +1371,9 @@ export const blogPosts = [
       "gu": "ગર્ભાવસ્થા દરમિયાન કયા પુસ્તકો અને પ્રેરક વાર્તાઓ વાંચવી: હકારાત્મક સ્વાધ્યાય"
     },
     "description": {
-      "en": "A curated guide on positive reading, inspiring biographies, spiritual scriptures, and children's fables that cultivate virtues, courage, and intelligence in your baby.",
-      "hi": "सकारात्मक विचार, प्रेरणादायक जीवनियाँ और आध्यात्मिक साहित्य जो गर्भस्थ शिशु में संस्कार और बुद्धिमत्ता का संचार करते हैं।",
-      "gu": "સકારાત્મક વિચારો અને આધ્યાત્મિક સાહિત્ય જે ગર્ભસ્થ બાળકમાં સંસ્કાર અને બુદ્ધિમત્તાનું સિંચન કરે છે."
+      "en": "A curated guide on uplifting reading, inspiring biographies, cultural literature, and gentle bedtime stories that promote maternal peace and enjoyable family reading routines.",
+      "hi": "सकारात्मक पठन, प्रेरक जीवनियाँ और सांस्कृतिक साहित्य जो माँ को मानसिक शांति और परिवार को आनंददायक पठन दिनचर्या प्रदान करते हैं।",
+      "gu": "પ્રેરણાદાયી જીવનચરિત્રો, સાંસ્કૃતિક સાહિત્ય અને વાર્તાઓ જે માતાને માનસિક શાંતિ અને પરિવારે વાંચનની સુંદર આદત આપે છે."
     },
     "keywords": "books to read during pregnancy, garbh sanskar books, positive stories in pregnancy, pregnancy reading habits, swadhyay in pregnancy, reading aloud to unborn baby",
     "sections": [
@@ -1374,16 +1385,16 @@ export const blogPosts = [
         },
         "paragraphs": {
           "en": [
-            "In Vedic philosophy, what enters through the eyes and mind of the mother directly programs the emotional temperament of the unborn child. Reading uplifting, courageous, and noble literature is termed 'Swadhyay'. When an expecting mother reads inspiring stories, her brain releases dopamine and serotonin, creating positive neural impressions (Sanskars) in the fetal mind.",
-            "Classic historical narratives—such as Queen Madalasa singing philosophical lullabies to her children or Queen Jijabai reading heroic epics to mold Chhatrapati Shivaji Maharaj—illustrate the immense power of intentional maternal literature."
+            "In Indian cultural tradition, engaging with uplifting, wise, and peaceful literature during pregnancy is an essential aspect of 'Swadhyay' (reflective study). Enjoying noble narratives helps create a calm, inspired, and optimistic mental outlook for the mother.",
+            "Cultural figures like Queen Madalasa or Queen Jijabai symbolize the timeless tradition of cultivating positive moral ideals and peaceful contemplation throughout pregnancy."
           ],
           "hi": [
-            "वैदिक दर्शन में, जो माँ की आँखों और दिमाग से प्रवेश करता है वह सीधे अजन्मे बच्चे के भावनात्मक स्वभाव को निर्धारित करता है। उन्नतिदायक, साहसपूर्ण तथा श्रेष्ठ साहित्य पढ़ना 'स्वाध्याय' कहलाता है। जब एक गर्भवती माँ प्रेरक कहानियाँ पढ़ती है, तो उसका मस्तिष्क डोपामाइन और सेरोटोनिन छोड़ता है, जिससे भ्रूण के मन में सकारात्मक तंत्रिका प्रभाव (संस्कार) बनते हैं।",
-            "क्लासिक ऐतिहासिक आख्यान - जैसे कि रानी मदालसा अपने बच्चों के लिए दार्शनिक लोरी गाती हैं या रानी जीजाबाई छत्रपति शिवाजी महाराज को ढालने के लिए वीर महाकाव्य पढ़ती हैं - जानबूझकर मातृ साहित्य की विशाल शक्ति को दर्शाती हैं।"
+            "भारतीय सांस्कृतिक परंपरा में, गर्भावस्था के दौरान प्रेरक, ज्ञानवर्धक और शांत साहित्य पढ़ना 'स्वाध्याय' (चिंतनशील अध्ययन) का एक अनिवार्य पहलू है। श्रेष्ठ आख्यानों का आनंद लेने से माँ के लिए एक शांत, प्रेरित और आशावादी मानसिक दृष्टिकोण बनता है।",
+            "रानी मदालसा या रानी जीजाबाई जैसी सांस्कृतिक हस्तियां गर्भावस्था के दौरान सकारात्मक नैतिक आदर्शों और शांतिपूर्ण चिंतन को विकसित करने की कालातीत परंपरा का प्रतीक हैं।"
           ],
           "gu": [
-            "વૈદિક ફિલસૂફીમાં, માતાની આંખો અને મન દ્વારા જે પ્રવેશ કરે છે તે અજાત બાળકના ભાવનાત્મક સ્વભાવને સીધો પ્રોગ્રામ કરે છે. ઉત્કર્ષક, સાહસિક અને ઉમદા સાહિત્યના વાંચનને 'સ્વાધ્યાય' કહેવામાં આવે છે. જ્યારે સગર્ભા માતા પ્રેરણાદાયી વાર્તાઓ વાંચે છે, ત્યારે તેનું મગજ ડોપામાઇન અને સેરોટોનિન છોડે છે, જે ગર્ભના મગજમાં હકારાત્મક ન્યુરલ ઇમ્પ્રેશન (સંસ્કાર) બનાવે છે.",
-            "ઉત્તમ ઐતિહાસિક કથાઓ-જેમ કે રાણી મદાલસા તેના બાળકોને ફિલોસોફિકલ લોરીઓ ગાતી હતી અથવા રાણી જીજાબાઈ છત્રપતિ શિવાજી મહારાજને ઢાળવા માટે પરાક્રમી મહાકાવ્યો વાંચતી હોય છે-જેમ કે ઈરાદાપૂર્વક માતૃ સાહિત્યની અપાર શક્તિ દર્શાવે છે."
+            "ભારતીય સાંસ્કૃતિક પરંપરામાં, ગર્ભાવસ્થા દરમિયાન પ્રેરણાદાયી, જ્ઞાનવર્ધક અને શાંત સાહિત્યનું વાંચન 'સ્વાધ્યાય' (ચિંતનાત્મક અભ્યાસ) નો એક મહત્વપૂર્ણ ભાગ છે. સદ્સાહિત્ય માતા માટે શાંત અને આશાવાદી માનસિક વલણ બનાવે છે.",
+            "રાણી મદાલસા અથવા રાણી જીજાબાઈ જેવી ઐતિહાસિક માતાઓ ગર્ભાવસ્થા દરમિયાન ઉચ્ચ સંસ્કારોના સિંચનનું પ્રેરણાદાયી પ્રતીક છે."
           ]
         }
       },
@@ -1461,14 +1472,14 @@ export const blogPosts = [
     ],
     "references": [
       "DeCasper, A. J., & Spence, M. J. (1986). Prenatal maternal speech influences newborns' perception of speech sounds. Infant Behavior and Development, 9(2), 133-150.",
-      "Yashpal, S. (2018). Impact of Prenatal Auditory Stimulation on Infant Language Acquisition."
+      "Moon, C., Lagercrantz, H., & Kuhl, P. K. (2013). Language experienced in utero affects vowel perception after birth: a two-country study. Acta Paediatrica, 102(2), 156-160."
     ]
   },
   {
     "id": 10,
     "slug": "morning-routine-for-pregnant-women",
     "date": "2026-07-11",
-    "readTime": "10 min read",
+    "readTime": "2 min read",
     "image": "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&q=80&w=1200",
     "category": {
       "en": "Maternal Wellbeing",
@@ -1476,68 +1487,71 @@ export const blogPosts = [
       "gu": "માતૃ સ્વાસ્થ્ય અને જીવનશૈલી"
     },
     "title": {
-      "en": "Healthy Morning Routine (Dinacharya) for Pregnant Women: Setting a Calm Tone",
-      "hi": "गर्भवती महिलाओं के लिए आदर्श सुबह की दिनचर्या: स्वस्थ और शांत दिन की शुरुआत",
-      "gu": "ગર્ભવતી મહિલાઓ માટે આદર્શ સવારની દિનચર્યા: સ્વસ્થ અને શાંત દિવસની શરૂઆત"
+      "en": "Ayurvedic Morning Routine (Dinacharya) for Pregnancy: Setting a Peaceful Daily Tone",
+      "hi": "गर्भवती महिलाओं के लिए आयुर्वेदिक दिनचर्या: शांत एवं ऊर्जावान सुबह की शुरुआत",
+      "gu": "સગર્ભા સ્ત્રીઓ માટે આયુર્વેદિક દિનચર્યા: શાંત અને ઉર્જાવાન સવારની શરૂઆત"
     },
     "description": {
-      "en": "A structured, peaceful Vedic morning routine covering gentle awakening, hydration, prayer, breathwork, sunlight exposure, and nourishing breakfast timing.",
-      "hi": "गर्भावस्था में दिन की सही शुरुआत: उषापान, ध्यान, योग, सूर्य दर्शन और संतुलित नाश्ता।",
-      "gu": "ગર્ભાવસ્થામાં દિવસની સાચી શરૂઆત: ઉષાપાન, ધ્યાન, યોગ અને સંતુલિત નાસ્તો."
+      "en": "A calming, trimester-friendly Ayurvedic morning regimen covering gentle waking, warm hydration, subtle joint mobility, mindful breathwork, and wholesome Satvik breakfast.",
+      "hi": "गर्भावस्था में एक शांत और ऊर्जावान दिनचर्या: सुबह जागने के नियम, गुनगुना जल, कोमल योग और पौष्टिक सात्विक नाश्ते की संपूर्ण मार्गदर्शिका।",
+      "gu": "ગર્ભાવસ્થામાં શાંત અને સંતુલિત સવાર માટે આયુર્વેદિક દિનચર્યા: હળવું જાગરણ, હૂંફાળું પાણી, સરળ કસરતો અને પૌષ્ટિક સાત્વિક નાસ્તો."
     },
-    "keywords": "morning routine for pregnant women, pregnancy daily routine, healthy pregnancy habits, garbh sanskar dinacharya, ayurvedic morning routine pregnancy",
+    "keywords": "morning routine pregnancy ayurveda, dinacharya pregnancy garbh sanskar, pregnancy morning habits india, satvik breakfast pregnancy, safe morning stretches pregnancy",
     "sections": [
       {
         "heading": {
-          "en": "The Power of an Ayurvedic Dinacharya in Pregnancy",
-          "hi": "गर्भावस्था में आयुर्वेदिक दिनचर्या की शक्ति",
-          "gu": "ગર્ભાવસ્થામાં આયુર્વેદિક દિનાચાર્યની શક્તિ"
+          "en": "Awakening & Mental Centering: The Sacred Morning Start",
+          "hi": "जागरण एवं मानसिक शांति: पवित्र प्रभात की शुरुआत",
+          "gu": "જાગરણ અને માનસિક શાંતિ: પવિત્ર પ્રભાતની શરૂઆત"
         },
         "paragraphs": {
           "en": [
-            "In Ayurveda, aligning daily habits with natural circadian rhythms (Dinacharya) balances the three doshas (Vata, Pitta, Kapha) and promotes steady hormonal health. The morning hours between 6:00 AM and 8:00 AM are dominated by Sattva Guna—pure, clear, peaceful energy.",
-            "A rushed or chaotic morning elevates adrenaline and sets a stressful tone for the whole day. A mindful, predictable morning routine stabilizes maternal blood sugar, clears morning nausea, and fosters a serene prenatal bond."
+            "In Ayurvedic Dinacharya, morning sets the biological rhythm for the day. Expectant mothers are encouraged to wake unhurriedly after adequate rest. Taking 2 minutes to sit calmly on the bed, practicing deep belly breathing, and visualizing warmth creates immediate emotional calm.",
+            "Avoid checking smartphones or reading stressful news immediately upon waking; taking a few quiet moments for yourself supports a peaceful, centered morning."
           ],
           "hi": [
-            "आयुर्वेद में, दैनिक आदतों को प्राकृतिक सर्कैडियन लय (दिनचर्या) के साथ संरेखित करना तीन दोषों (वात, पित्त, कफ) को संतुलित करता है और स्थिर हार्मोनल स्वास्थ्य को बढ़ावा देता है। सुबह 6:00 बजे से 8:00 बजे के बीच सत्त्वगुण - शुद्ध, स्पष्ट, शांतिपूर्ण ऊर्जा का प्रभुत्व होता है।",
-            "एक भागदौड़ भरी या अस्त-व्यस्त सुबह एड्रेनालाईन बढ़ाती है और पूरे दिन के लिए तनावपूर्ण माहौल तैयार करती है। एक सचेत, पूर्वानुमेय सुबह की दिनचर्या मातृ रक्त शर्करा को स्थिर करती है, सुबह की मतली को दूर करती है, और एक शांत प्रसवपूर्व बंधन को बढ़ावा देती है।"
+            "आयुर्वेदिक दिनचर्या के अनुसार सुबह का समय पूरे दिन की ऊर्जा निर्धारित करता है। बिस्तर पर 2 मिनट शांत बैठकर गहरी सांस लें और सकारात्मक विचारों के साथ दिन की शुरुआत करें।",
+            "सुबह उठते ही मोबाइल फोन देखने या तनावपूर्ण समाचार पढ़ने से बचें सुबह के कुछ शांत पल दिनभर के लिए आंतरिक शांति प्रदान करते हैं।"
           ],
           "gu": [
-            "આયુર્વેદમાં, કુદરતી સર્કેડિયન લય (દિનાચાર્ય) સાથે દૈનિક ટેવોને સંરેખિત કરવાથી ત્રણ દોષો (વાત, પિત્ત, કફ) સંતુલિત થાય છે અને સ્થિર હોર્મોનલ સ્વાસ્થ્યને પ્રોત્સાહન મળે છે. સવારના 6:00 AM અને 8:00 AM વચ્ચેના કલાકોમાં સત્વ ગુણનું પ્રભુત્વ હોય છે - શુદ્ધ, સ્પષ્ટ, શાંતિપૂર્ણ ઊર્જા.",
-            "દોડતી અથવા અસ્તવ્યસ્ત સવાર એડ્રેનાલિનને વધારે છે અને આખા દિવસ માટે તણાવપૂર્ણ સ્વર સેટ કરે છે. એક સચેત, અનુમાનિત સવારની દિનચર્યા માતાની રક્ત ખાંડને સ્થિર કરે છે, સવારની ઉબકા દૂર કરે છે અને પ્રસૂતિ પૂર્વેના શાંત બંધનને પ્રોત્સાહન આપે છે."
+            "આયુર્વેદ અનુસાર સવારનો સમય આખા દિવસનું માનસિક સંતુલન નક્કી કરે છે. પથારીમાં બે મિનિટ શાંત બેસી ઊંડા શ્વાસ લો.",
+            "સવારે ઉઠતાની સાથે જ સ્માર્ટફોન જોવાનું ટાળો સવારના થોડા શાંત ક્ષણો દિવસભર માટે માનસિક શાંતિ આપે છે."
           ]
         }
       },
       {
         "heading": {
-          "en": "The 6-Step Vedic Morning Flow",
-          "hi": "6-चरणीय वैदिक प्रभात प्रवाह",
-          "gu": "6-પગલાંનો વૈદિક સવારનો પ્રવાહ"
+          "en": "Gentle Oral Hygiene & Warm Hydration",
+          "hi": "सौम्य मुख स्वच्छता एवं गुनगुना जल सेवन",
+          "gu": "સૌમ્ય મુખ સ્વચ્છતા અને હૂંફાળું પાણી"
         },
         "paragraphs": {
           "en": [
-            "1. Gentle Awakening (Brahma / Surya Muhurta): Wake without loud alarm shocks. Before stepping out of bed, take three slow deep breaths, rub your palms together, gently place them over your eyes (Karadarshanam), and mentally express gratitude for a new day.",
-            "2. Ushapan (Hydration): Sip 1 glass of warm or room-temperature water with soaked raisins or lemon to stimulate peristalsis and ease morning elimination.",
-            "3. Gentle Oral & Body Hygiene: Brush teeth, scrape the tongue with a copper tongue cleaner to remove toxins (Ama), and wash face with cool water.",
-            "4. Morning Sun Salutation & Fresh Air (Pratahkala Vihar): Spend 15-20 minutes in early morning sunlight to activate natural Vitamin D synthesis and synchronize circadian melatonin rhythms.",
-            "5. Breathwork & Mantra Meditation: 10 minutes of Anulom Vilom and Gayatri Mantra recitation.",
-            "6. Warm Satvik Breakfast: Enjoy a nutritious breakfast (such as moong chilla, vegetable daliya, or idlis) within 1.5 to 2 hours of waking to maintain stable blood sugar."
+            "Rinse the mouth with lukewarm water and gently scrape the tongue to remove overnight ama (digestive residue). Drink a glass of warm water, optionally infused with soaked black raisins (Munakka) water or a slice of fresh lemon, to stimulate natural peristalsis and ease morning sluggishness without irritating a sensitive stomach."
           ],
           "hi": [
-            "1. सौम्य जागृति (ब्रह्मा/सूर्य मुहूर्त): तेज अलार्म झटके के बिना जागें। बिस्तर से बाहर निकलने से पहले, तीन धीमी गहरी साँसें लें, अपनी हथेलियों को आपस में रगड़ें, धीरे से उन्हें अपनी आँखों पर रखें (करदर्शनम), और मानसिक रूप से एक नए दिन के लिए आभार व्यक्त करें।",
-            "2. उषापान (हाइड्रेशन): क्रमाकुंचन को उत्तेजित करने और सुबह उन्मूलन को आसान बनाने के लिए 1 गिलास गर्म या कमरे के तापमान के पानी में भीगी हुई किशमिश या नींबू मिलाएं।",
-            "3. कोमल मौखिक और शारीरिक स्वच्छता: दांतों को ब्रश करें, विषाक्त पदार्थों (अमा) को हटाने के लिए तांबे के टंग क्लीनर से जीभ को खुरचें और चेहरे को ठंडे पानी से धोएं।",
-            "4. सुबह का सूर्य नमस्कार और ताजी हवा (प्रात:काल विहार): प्राकृतिक विटामिन डी संश्लेषण को सक्रिय करने और सर्कैडियन मेलाटोनिन लय को सिंक्रनाइज़ करने के लिए सुबह की धूप में 15-20 मिनट बिताएं।",
-            "5. श्वास क्रिया और मंत्र ध्यान: 10 मिनट अनुलोम-विलोम और गायत्री मंत्र का पाठ।",
-            "6. गर्म सात्विक नाश्ता: रक्त शर्करा को स्थिर बनाए रखने के लिए जागने के 1.5 से 2 घंटे के भीतर पौष्टिक नाश्ते (जैसे मूंग चीला, सब्जी दलिया, या इडली) का आनंद लें।"
+            "गुनगुने पानी से कुल्ला करें और जीभ की हल्की सफाई करें। एक गिलास गुनगुना पानी या रातभर भीगे मुनक्के का पानी पीने से पाचन तंत्र सक्रिय होता है और कब्ज से राहत मिलती है।"
           ],
           "gu": [
-            "1. સૌમ્ય જાગૃતિ (બ્રહ્મ / સૂર્ય મુહૂર્ત): જોરથી એલાર્મ આંચકા વિના જાગો. પથારીમાંથી બહાર નીકળતા પહેલા, ત્રણ ધીમા ઊંડા શ્વાસ લો, તમારી હથેળીઓ એકસાથે ઘસો, હળવેથી તમારી આંખો પર મૂકો (કારદર્શનમ્), અને નવા દિવસ માટે માનસિક રીતે કૃતજ્ઞતા વ્યક્ત કરો.",
-            "2. ઉષાપન (હાઈડ્રેશન): પેરીસ્ટાલિસિસને ઉત્તેજીત કરવા અને સવારના નાબૂદીને સરળ બનાવવા માટે 1 ગ્લાસ ગરમ અથવા ઓરડાના તાપમાને પાણીમાં પલાળેલી કિસમિસ અથવા લીંબુ સાથે પીવો.",
-            "3. નમ્ર મૌખિક અને શારીરિક સ્વચ્છતા: દાંત સાફ કરો, ઝેર (અમા) દૂર કરવા માટે કોપર ટંગ ક્લીનરથી જીભને ઉઝરડો અને ઠંડા પાણીથી ચહેરો ધોઈ લો.",
-            "4. સવારના સૂર્ય નમસ્કાર અને તાજી હવા (પ્રાથકલા વિહાર): પ્રાકૃતિક વિટામિન ડી સંશ્લેષણને સક્રિય કરવા અને સર્કેડિયન મેલાટોનિન લયને સુમેળ કરવા માટે વહેલી સવારના સૂર્યપ્રકાશમાં 15-20 મિનિટ વિતાવો.",
-            "5. શ્વાસ અને મંત્ર ધ્યાન: 10 મિનિટ અનુલોમ વિલોમ અને ગાયત્રી મંત્રનો પાઠ.",
-            "6. ગરમ સાત્વિક નાસ્તો: સ્થિર રક્ત ખાંડ જાળવવા માટે જાગ્યાના 1.5 થી 2 કલાકની અંદર પૌષ્ટિક નાસ્તો (જેમ કે મૂંગના ચિલ્લા, શાકભાજીની દાળિયા અથવા ઈડલી)નો આનંદ લો."
+            "હૂંફાળા પાણીથી કોગળા કરો. એક ગ્લાસ નવશેકું પાણી અથવા પલાળેલા મુનાક્કાનું પાણી પીવાથી પાચન સારું રહે છે અને કબજિયાત અટકે છે."
+          ]
+        }
+      },
+      {
+        "heading": {
+          "en": "Subtle Joint Mobility & Wholesome Satvik Breakfast",
+          "hi": "सूक्ष्म व्यायाम एवं पौष्टिक सात्विक नाश्ता",
+          "gu": "સૂક્ષ્મ વ્યાયામ અને પૌષ્ટિક સાત્વિક નાસ્તો"
+        },
+        "paragraphs": {
+          "en": [
+            "Engage in 10 minutes of gentle ankle rotations, shoulder shrugs, and seated cat-cow movements to relieve morning stiffness. Follow with a nourishing, freshly prepared Satvik breakfast: warm oatmeal with soaked almonds, vegetable poha, ragi porridge, or yellow moong dal chilla paired with cardamom cow's milk."
+          ],
+          "hi": [
+            "सुबह 10 मिनट हल्के टखने और कंधे के व्यायाम करें। इसके बाद ताजा और पौष्टिक नाश्ता लें: जैसे दलिया, सब्जियों वाला पोहा, रागी का शीरा या मूंग दाल का चीला और साथ में इलायची वाला दूध।"
+          ],
+          "gu": [
+            "સવારે ૧૦ મિનિટ હાથ-પગના સાંધાની હળવી કસરતો કરો. ત્યારબાદ પૌષ્ટિક નાસ્તો લો: ઓટ્સ, પૌંઆ, રાગીનો રાબ અથવા મગની દાળનો પૂડલો અને એલચીવાળું દૂધ."
           ]
         }
       }
@@ -1558,14 +1572,15 @@ export const blogPosts = [
     ],
     "references": [
       "Charaka Samhita, Sutra Sthana, Chapter 5 (Matrashitiya Adhyaya - Daily Regimen).",
-      "Harvard Medical School: The Importance of Circadian Rhythms during Maternal Gestation."
+      "Reutrakul, S., et al. (2018). Circadian rhythms, sleep and metabolism in pregnancy. Reviews in Endocrine and Metabolic Disorders, 19(1), 67-79.",
+      "Mindell, J. A., et al. (2015). Sleep patterns and sleep disturbances across pregnancy. Sleep Medicine, 16(4), 483-488."
     ]
   },
   {
     "id": 11,
     "slug": "pregnancy-yoga-breathing-exercises",
     "date": "2026-07-11",
-    "readTime": "9 min read",
+    "readTime": "2 min read",
     "image": "https://images.unsplash.com/photo-1545389336-cf090694435e?auto=format&fit=crop&q=80&w=1200",
     "category": {
       "en": "Yoga & Meditation",
@@ -1573,62 +1588,80 @@ export const blogPosts = [
       "gu": "યોગ અને ધ્યાન"
     },
     "title": {
-      "en": "Gentle Pregnancy Yoga Breathing Exercises (Pranayama) for Labor Calm and Oxygenation",
-      "hi": "गर्भावस्था में सुरक्षित प्राणायाम और श्वास क्रियाएं: प्रसव की तैयारी और मानसिक शांति",
-      "gu": "ગર્ભાવસ્થામાં સુરક્ષિત પ્રાણાયામ અને શ્વાસ ક્રિયાઓ: પ્રસૂતિની તૈયારી અને માનસિક શાંતિ"
+      "en": "Gentle Pregnancy Yoga Breathing (Pranayama) for Labor Calm & Oxygenation",
+      "hi": "गर्भावस्था में सुरक्षित प्राणायाम: प्रसव शांति, ऑक्सीजन और तनाव मुक्ति के लिए श्वास अभ्यास",
+      "gu": "ગર્ભાવસ્થામાં સુરક્ષિત પ્રાણાયામ: માનસિક શાંતિ, ઓક્સિજન અને શ્વાસની કસરતો"
     },
     "description": {
-      "en": "Master gentle, pregnancy-safe pranayama techniques that optimize maternal oxygenation, soothe gestational tension, and build rhythmic breathing endurance for labor.",
-      "hi": "गर्भावस्था में श्वास नियंत्रण के सुरक्षित अभ्यास जो ऑक्सीजन का स्तर बढ़ाते हैं और प्रसव के दौरान सहायता करते हैं।",
-      "gu": "ગર્ભાવસ્થામાં શ્વાસ નિયંત્રણના સુરક્ષિત અભ્યાસ જે ઓક્સિજન વધારે છે અને પ્રસૂતિમાં મદદ કરે છે."
+      "en": "Master safe, pregnancy-appropriate pranayama techniques that optimize maternal oxygenation, soothe gestational tension, and build rhythmic breathing endurance without breath retention.",
+      "hi": "गर्भावस्था के लिए सुरक्षित प्राणायाम: अनुलोम-विलोम, भ्रामरी और शीतली प्राणायाम की सही विधि और श्वास रोकने (कुंभक) से बचने की सख्त चेतावनी।",
+      "gu": "ગર્ભાવસ્થા માટે સલામત પ્રાણાયામ: અનુલોમ-વિલોમ, ભ્રમરી અને શીતળીની સાચી રીત અને શ્વાસ રોકવા સામે સાવચેતી."
     },
-    "keywords": "breathing exercises during pregnancy, pregnancy pranayama, prenatal breathing, yoga breathing in pregnancy, anulom vilom pregnancy, bhramari pregnancy",
+    "keywords": "pregnancy pranayama safe, anulom vilom pregnancy, bhramari pranayama pregnancy benefits, sheetali breathing pregnancy heartburn, pranayama contraindications pregnancy kumbhaka",
     "sections": [
       {
         "heading": {
-          "en": "The Vital Role of Prana (Breath) in Maternal Health",
-          "hi": "मातृ स्वास्थ्य में प्राण (सांस) की महत्वपूर्ण भूमिका",
-          "gu": "માતાના સ્વાસ્થ્યમાં પ્રાણ (શ્વાસ) ની મહત્વપૂર્ણ ભૂમિકા"
+          "en": "The Practice of Prenatal Breathwork: Gentle Oxygenation & Mindful Calm",
+          "hi": "प्रसव पूर्व श्वास अभ्यास: सौम्य ऑक्सीजन प्रवाह एवं मानसिक शांति",
+          "gu": "પ્રિનેટલ શ્વાસ અભ્યાસ: સૌમ્ય ઓક્સિજન પ્રવાહ અને માનસિક શાંતિ"
         },
         "paragraphs": {
           "en": [
-            "As pregnancy progresses into the second and third trimesters, the growing uterus pushes upward against the maternal diaphragm, reducing total lung expansion volume by nearly 4 centimeters. Expectant mothers often experience shortness of breath with mild exertion.",
-            "Gentle prenatal Pranayama teaches intercostal and diaphragmatic breathing, maximizing blood oxygenation (SpO2) without putting pressure on the abdominal cavity. Furthermore, practicing slow, sustained exhalations equips mothers with the primary physiological coping tool needed during active labor contractions."
+            "As maternal progesterone increases and the growing baby elevates the diaphragm in the second and third trimesters, expectant mothers naturally breathe faster and may experience mild shortness of breath. Conscious, gentle diaphragmatic breathing deepens oxygen exchange, helps release muscular tension, and fosters mental calm.",
+            "Practicing unhurried, rhythmic breathing without strain builds inner calm and resilience as you prepare for labor."
           ],
           "hi": [
-            "जैसे-जैसे गर्भावस्था दूसरी और तीसरी तिमाही में आगे बढ़ती है, बढ़ता गर्भाशय मातृ डायाफ्राम के खिलाफ ऊपर की ओर बढ़ता है, जिससे फेफड़ों के कुल विस्तार की मात्रा लगभग 4 सेंटीमीटर कम हो जाती है। गर्भवती माताओं को अक्सर हल्के परिश्रम से सांस लेने में तकलीफ का अनुभव होता है।",
-            "कोमल प्रसवपूर्व प्राणायाम पेट की गुहा पर दबाव डाले बिना रक्त ऑक्सीजनेशन (SpO2) को अधिकतम करते हुए, इंटरकोस्टल और डायाफ्रामिक सांस लेना सिखाता है। इसके अलावा, धीमी, निरंतर साँस छोड़ने का अभ्यास माताओं को सक्रिय श्रम संकुचन के दौरान आवश्यक प्राथमिक शारीरिक मुकाबला उपकरण से लैस करता है।"
+            "दूसरी और तीसरी तिमाही में जैसे-जैसे गर्भ बढ़ता है, फेफड़ों की जगह सीमित होने से सांस तेज हो सकती है। सचेत और धीमी गहरी सांस लेने से शरीर में ऑक्सीजन का प्रवाह बेहतर होता है और मांसपेशियों का तनाव कम होता है।",
+            "बिना तनाव के किया गया श्वास अभ्यास प्रसव के समय मन को स्थिर और शांत रखने में अत्यंत सहायक सिद्ध होता है।"
           ],
           "gu": [
-            "જેમ જેમ સગર્ભાવસ્થા બીજા અને ત્રીજા ત્રિમાસિકમાં આગળ વધે છે તેમ, વધતું ગર્ભાશય માતાના પડદાની સામે ઉપર તરફ ધકેલે છે, જે ફેફસાના કુલ વિસ્તરણની માત્રામાં લગભગ 4 સેન્ટિમીટર જેટલો ઘટાડો કરે છે. સગર્ભા માતાઓ ઘણીવાર હળવા શ્રમ સાથે શ્વાસની તકલીફ અનુભવે છે.",
-            "સૌમ્ય પ્રિનેટલ પ્રાણાયામ આંતરકોસ્ટલ અને ડાયાફ્રેમેટિક શ્વાસ શીખવે છે, પેટની પોલાણ પર દબાણ લાવ્યા વિના રક્ત ઓક્સિજન (SpO2) ને મહત્તમ કરે છે. તદુપરાંત, ધીમી, સતત શ્વાસ બહાર કાઢવાની પ્રેક્ટિસ કરવાથી માતાઓને સક્રિય શ્રમ સંકોચન દરમિયાન જરૂરી પ્રાથમિક શારીરિક સામનો સાધન સાથે સજ્જ કરે છે."
+            "ગર્ભાવસ્થા દરમિયાન ધીમા અને ઊંડા શ્વાસ લેવાથી ઓક્સિજનનું પ્રમાણ વધે છે અને શારીરિક આરામ મળે છે.",
+            "આ શ્વાસનો અભ્યાસ પ્રસૂતિ સમયે શરીરને શાંત અને કેન્દ્રિત રાખવામાં મદદ કરે છે."
           ]
         }
       },
       {
         "heading": {
-          "en": "Safe and Effective Prenatal Breathing Techniques",
-          "hi": "सुरक्षित और प्रभावी प्रसवपूर्व साँस लेने की तकनीकें",
-          "gu": "સલામત અને અસરકારક પ્રિનેટલ શ્વસન તકનીકો"
+          "en": "Three Safe and Recommended Prenatal Pranayamas",
+          "hi": "गर्भावस्था में अनुशंसित तीन सुरक्षित प्राणायाम",
+          "gu": "ગર્ભાવસ્થામાં ઉપયોગી ત્રણ સલામત પ્રાણાયામ"
         },
         "paragraphs": {
           "en": [
-            "1. Nadi Shodhana (Anulom Vilom without Kumbhaka): Alternate nostril breathing performed gently without holding the breath. This balances sympathetic and parasympathetic tones.",
-            "2. Bhramari Pranayama (Humming Sound): Closing the ears softly and producing a low-pitch humming bee vibration on exhalation. Produces a soothing inner sound that quiets an overactive mind and induces deep maternal tranquility.",
-            "3. Sheetali & Sheetkari Pranayama (Cooling Breaths): Inhaling through a curled tongue or closed teeth and exhaling through the nose. Highly effective for cooling hot flashes, hyperacidity, and summer fatigue.",
-            "4. Golden Thread Breath: Inhaling deeply through the nose and exhaling slowly through softly parted lips as if sending a golden thread across the room. Ideal for labor relaxation."
+            "1. Anulom Vilom (Alternate Nostril Breathing without Retention): Close right nostril gently with right thumb, inhale smoothly through left for 4 counts. Close left with ring finger, exhale smoothly through right for 4 counts. Repeat without holding breath (no Kumbhaka). Practice 5 to 7 minutes.",
+            "2. Bhramari Pranayama (Humming Bee Breath): Inhale comfortably through the nose. Gently close ears with index fingers and produce a soft, low humming sound on exhalation. The gentle acoustic resonance relieves maternal anxiety and promotes emotional tranquility.",
+            "3. Sheetali / Sheetkari (Cooling Breaths): Inhale gently through curled tongue or lightly closed teeth, exhale through the nose. Relieves gestational acidity and body heat in summer months."
           ],
           "hi": [
-            "1. नाड़ी शोधन (कुंभक के बिना अनुलोम-विलोम): सांस को रोके बिना धीरे-धीरे नाक से बारी-बारी से सांस लेना। यह सहानुभूतिपूर्ण और परानुकंपी स्वरों को संतुलित करता है।",
-            "2. भ्रामरी प्राणायाम (गुंजन ध्वनि): कानों को धीरे से बंद करना और साँस छोड़ते समय धीमी गति से गुंजन ध्वनि उत्पन्न करना, जो मन को शांत कर गहरी आंतरिक शांति प्रदान करता है।",
-            "3. शीतली और शीतकारी प्राणायाम (ठंडी सांसें): मुड़ी हुई जीभ या बंद दांतों से सांस लेना और नाक से सांस छोड़ना। गर्म चमक, हाइपरएसिडिटी और गर्मी की थकान को शांत करने के लिए अत्यधिक प्रभावी।",
-            "4. सुनहरे धागे वाली सांस: नाक के माध्यम से गहरी सांस लेना और धीरे-धीरे खुले होठों के माध्यम से सांस छोड़ना जैसे कि पूरे कमरे में एक सुनहरा धागा भेज रहा हो। श्रम विश्राम के लिए आदर्श."
+            "1. अनुलोम-विलोम (बिना सांस रोके): दाहिने अंगूठे से दाहिना नथुना बंद करें, बाईं ओर से 4 सेकंड में सांस लें, फिर दाईं ओर से 4 सेकंड में छोड़ें। कभी भी सांस न रोकें। 5-7 मिनट अभ्यास करें।",
+            "2. भ्रामरी प्राणायाम: नाक से गहरी सांस लें और कानों को अंगुलियों से हल्के से छूते हुए भंवरे की तरह सौम्य गुंजन करते हुए सांस छोड़ें। यह तनाव दूर करता है।",
+            "3. शीतली प्राणायाम: जीभ को गोल करके ठंडी हवा अंदर लें और नाक से बाहर छोड़ें। यह एसिडिटी और शरीर की गर्मी को शांत करता है।"
           ],
           "gu": [
-            "1. નાડી શોધ (કુંભકા વિના અનુલોમ વિલોમ): વૈકલ્પિક નસકોરામાં શ્વાસ રોક્યા વગર હળવેથી કરવામાં આવે છે. આ સહાનુભૂતિ અને પેરાસિમ્પેથેટિક ટોનને સંતુલિત કરે છે.",
-            "2. ભ્રમરી પ્રાણાયામ (હમિંગ સાઉન્ડ): કાનને હળવેથી બંધ કરીને શ્વાસ બહાર કાઢતી વખતે ધીમો ગુંજારવ કરવો, જે મનને શાંત કરી ઊંડી આંતરિક શાંતિ પ્રદાન કરે છે.",
-            "3. શીતલી અને શીતકારી પ્રાણાયામ (ઠંડક શ્વાસ): વાંકડિયા જીભ અથવા બંધ દાંત દ્વારા શ્વાસ લેવો અને નાક દ્વારા શ્વાસ બહાર કાઢવો. ગરમ સામાચારો, અતિશય એસિડિટી અને ઉનાળાના થાકને ઠંડુ કરવા માટે અત્યંત અસરકારક.",
-            "4. ગોલ્ડન થ્રેડ બ્રેથ: નાકમાંથી ઊંડો શ્વાસ લેવો અને ધીમે ધીમે વિભાજિત હોઠ દ્વારા શ્વાસ બહાર કાઢવો જાણે કે આખા ઓરડામાં સોનેરી દોરો મોકલતો હોય. શ્રમ છૂટછાટ માટે આદર્શ."
+            "૧. અનુલોમ-વિલોમ (શ્વાસ રોક્યા વગર): ધીમેથી એક નસકોરાથી શ્વાસ લો અને બીજાથી બહાર કાઢો. શ્વાસ રોકવો નહીં. ૫-૭ મિનિટ કરો.",
+            "૨. ભ્રમરી પ્રાણાયામ: ભમરા જેવો હળવો ગુંજારવ કરતાં શ્વાસ બહાર કાઢો; આ માનસિક ચિંતા દૂર કરે છે.",
+            "૩. શીતળી પ્રાણાયામ: ઠંડો શ્વાસ અંદર લઈ નાક વાટે બહાર કાઢો; આ એસિડિટી શાંત કરે છે."
+          ]
+        }
+      },
+      {
+        "heading": {
+          "en": "Strict Safety Rules: Absolute Prohibition of Kumbhaka & Forceful Breaths",
+          "hi": "सख्त सुरक्षा नियम: कुंभक और तीव्र श्वास अभ्यासों का पूर्ण निषेध",
+          "gu": "કડક સુરક્ષા નિયમો: કુંભક અને તીવ્ર શ્વાસનો સખત નિષેધ"
+        },
+        "paragraphs": {
+          "en": [
+            "Strict Contraindications: Never practice Kumbhaka (holding the breath inside or outside). Holding your breath cuts off maternal venous return and compromises continuous oxygen delivery to the fetus. Strictly avoid rapid, forceful practices like Kapalabhati or Bhastrika, which contract abdominal muscles vigorously and cause hyperventilation.",
+            "If at any moment you feel dizzy, lightheaded, or short of breath, immediately cease the practice and resume your natural, effortless breathing."
+          ],
+          "hi": [
+            "सख्त निषेध: सांस को अंदर या बाहर कभी न रोकें (कुंभक पूरी तरह वर्जित है)। सांस रोकने से गर्भस्थ शिशु तक ऑक्सीजन का प्रवाह बाधित हो सकता है। कपालभाति या भस्त्रिका जैसे तीव्र व्यायाम न करें।",
+            "यदि चक्कर या सांस लेने में परेशानी महसूस हो, तो तुरंत प्राणायाम रोककर सामान्य सांस लें।"
+          ],
+          "gu": [
+            "સખત મનાઈ: શ્વાસ ક્યારેય રોકવો નહીં (કુંભક સખત મનાઈ છે), કારણ કે તેનાથી બાળક સુધી ઓક્સિજન ઘટી શકે છે. કપાલભાતિ કે ભસ્ત્રિકા કરવા નહીં.",
+            "ચક્કર આવે તો તરત જ સામાન્ય શ્વાસ પર પાછા ફરો."
           ]
         }
       }
@@ -1648,15 +1681,16 @@ export const blogPosts = [
       }
     ],
     "references": [
-      "Sivananda Yoga Vedanta Manual on Prenatal Breathing Therapeutics.",
-      "ACOG Guidelines on Maternal Oxygenation and Labor Breathing Techniques."
+      "American College of Obstetricians and Gynecologists. (2020). Physical Activity and Exercise During Pregnancy and the Postpartum Period. Committee Opinion No. 804.",
+      "Smith, C. A., et al. (2018). Relaxation techniques for pain management in labour. Cochrane Database of Systematic Reviews, (3), CD009514.",
+      "Sivananda Yoga Vedanta Manual on Prenatal Breathing Therapeutics."
     ]
   },
   {
     "id": 12,
     "slug": "foods-to-avoid-during-pregnancy-india",
     "date": "2026-07-11",
-    "readTime": "10 min read",
+    "readTime": "2 min read",
     "image": "https://images.unsplash.com/photo-1482049016688-2d3e1b311543?auto=format&fit=crop&q=80&w=1200",
     "category": {
       "en": "Nutrition & Diet",
@@ -1664,86 +1698,83 @@ export const blogPosts = [
       "gu": "પોષણ અને આહાર"
     },
     "title": {
-      "en": "Foods to Avoid During Pregnancy in India: Scientific Truths vs Common Myths",
-      "hi": "गर्भावस्था में क्या न खाएं: भारतीय आहार में वैज्ञानिक तथ्य बनाम भ्रांतियां",
-      "gu": "ગર્ભાવસ્થામાં શું ન ખાવું: ભારતીય આહારમાં વૈજ્ઞાનિક તથ્યો વિરુદ્ધ માન્યતાઓ"
+      "en": "Foods to Avoid During Pregnancy in India: Scientific Truths vs Common Kitchen Myths",
+      "hi": "गर्भावस्था में क्या न खाएं: वैज्ञानिक तथ्य बनाम भारतीय रसोई के सामान्य भ्रम",
+      "gu": "ગર્ભાવસ્થામાં કયો ખોરાક ટાળવો: વૈજ્ઞાનિક સત્યો વિરુદ્ધ રસોડાની ગેરમાન્યતાઓ"
     },
     "description": {
-      "en": "A clear, evidence-based guide dissecting common Indian food restrictions, unsafe ingredients, food hygiene rules, and debunking traditional pregnancy food myths.",
-      "hi": "गर्भावस्था के दौरान किन खाद्य पदार्थों से बचें: पपीता, अनानास, कैफीन, स्ट्रीट फूड और आहार संबंधी भ्रांतियों का सच।",
-      "gu": "ગર્ભાવસ્થા દરમિયાન કયા ખોરાકથી દૂર રહેવું: પપૈયું, અનાનસ, કેફીન અને અન્ય ભોજનના વૈજ્ઞાનિક તથ્યો."
+      "en": "An evidence-based guide clarifying Indian pregnancy dietary safety: separating genuine risks (raw papaya, unpasteurized dairy, raw sprouts) from harmless myths (saffron pigmentation, pineapple in moderation).",
+      "hi": "गर्भावस्था में खानपान की सुरक्षा: कच्चा पपीता, कच्चे अंकुरित अनाज और अधपके भोजन के वास्तविक वैज्ञानिक खतरे बनाम आम भ्रांतियां।",
+      "gu": "ગર્ભાવસ્થામાં આહારની સલામતી: કાચું પપૈયું, કાચા ફણગાવેલા કઠોળના વાસ્તવિક જોખમો વિરુદ્ધ સામાન્ય ખોટી માન્યતાઓ."
     },
-    "keywords": "foods to avoid during pregnancy, pregnancy food restrictions india, what not to eat in pregnancy, papaya in pregnancy truth, pineapple pregnancy, food safety pregnant women india",
+    "keywords": "foods to avoid pregnancy india, raw papaya pregnancy risks, pineapple pregnancy myth fact, listeria pregnancy foods, fssai pregnancy food safety",
     "sections": [
       {
         "heading": {
-          "en": "Navigating Dietary Advice: Separating Evidence from Fear",
-          "hi": "आहार संबंधी सलाह: साक्ष्य को भय से अलग करना",
-          "gu": "નેવિગેટિંગ ડાયેટરી એડવાઈસ: ડરથી પુરાવા અલગ પાડવું"
+          "en": "Genuine Biological Hazards: Raw Papaya, Pathogens & Food Poisoning",
+          "hi": "वास्तविक जैविक खतरे: कच्चा पपीता, बैक्टीरिया और खाद्य संक्रमण",
+          "gu": "વાસ્તવિક જોખમો: કાચું પપૈયું, બેક્ટેરિયા અને ફૂડ ઇન્ફેક્શન"
         },
         "paragraphs": {
           "en": [
-            "Every pregnant woman in India receives a flood of well-meaning but conflicting advice regarding what she must avoid. While some precautions are biologically essential, excessive unscientific dietary restrictions can leave the mother undernourished, stressed, and deficient in essential calories.",
-            "Our goal is to provide crystal-clear guidance based on both modern food microbiology and authentic Ayurvedic principles."
+            "1. Unripe or Semi-Ripe Green Papaya: Contains concentrated white latex and high levels of the proteolytic enzyme papain, which can trigger uterine contractions and prostaglandin release. Ripe papaya with golden-yellow skin in small culinary portions is safe, but raw green papaya must be strictly avoided.",
+            "2. Raw or Lightly Cooked Sprouts: While sprouted moong and chana are nutritious, raw sprouts in warm humid Indian climates harbor Salmonella and E. coli. Always steam, boil, or pressure-cook sprouts thoroughly before eating.",
+            "3. Unpasteurized Dairy & Soft Raw Cheeses: Milk must always be boiled thoroughly to eliminate Listeria monocytogenes, a bacterium that crosses the placental barrier.",
+            "4. Raw or Undercooked Eggs & Meats: Carries severe risks of Toxoplasmosis and Salmonella."
           ],
           "hi": [
-            "भारत में हर गर्भवती महिला को नेक इरादे वाली लेकिन परस्पर विरोधी सलाह मिलती रहती है कि उसे क्या नहीं करना चाहिए। हालाँकि कुछ सावधानियाँ जैविक रूप से आवश्यक हैं, अत्यधिक अवैज्ञानिक आहार प्रतिबंध माँ को अल्पपोषित, तनावग्रस्त और आवश्यक कैलोरी की कमी का कारण बना सकते हैं।",
-            "हमारा लक्ष्य आधुनिक खाद्य सूक्ष्म जीव विज्ञान और प्रामाणिक आयुर्वेदिक सिद्धांतों दोनों के आधार पर बिल्कुल स्पष्ट मार्गदर्शन प्रदान करना है।"
+            "1. कच्चा हरा पपीता: इसमें सफेद लेटेक्स और पपेन एंजाइम होता है जो गर्भाशय संकुचन को उत्तेजित कर सकता है। हालांकि, पूरी तरह पका हुआ पीला पपीता कम मात्रा में सुरक्षित है।",
+            "2. कच्चे अंकुरित अनाज: अंकुरित दालों में नमी के कारण साल्मोनेला बैक्टीरिया पनप सकता है। इन्हें हमेशा उबालकर या भाप में पकाकर ही खाएं।",
+            "3. कच्चा दूध: दूध को हमेशा अच्छी तरह उबालकर ही पिएं ताकि लिस्टीरिया बैक्टीरिया समाप्त हो सके।",
+            "4. अधपके अंडे या मांसाहार से पूरी तरह बचें।"
           ],
           "gu": [
-            "ભારતની દરેક સગર્ભા સ્ત્રીને તેણીએ શું ટાળવું જોઈએ તે અંગે સારી અર્થપૂર્ણ પરંતુ વિરોધાભાસી સલાહનો પૂર મેળવે છે. જ્યારે કેટલીક સાવચેતીઓ જૈવિક રીતે આવશ્યક છે, ત્યારે અતિશય અવૈજ્ઞાનિક આહાર નિયંત્રણો માતાને કુપોષિત, તણાવગ્રસ્ત અને આવશ્યક કેલરીની ઉણપ છોડી શકે છે.",
-            "અમારો ધ્યેય આધુનિક ફૂડ માઇક્રોબાયોલોજી અને અધિકૃત આયુર્વેદિક સિદ્ધાંતો બંનેના આધારે સ્ફટિક-સ્પષ્ટ માર્ગદર્શન આપવાનો છે."
+            "૧. કાચું લીલું પપૈયું: તેમાં રહેલું લેટેક્સ ગર્ભાશય માટે હાનિકારક છે. પાકેલું પીળું પપૈયું થોડી માત્રામાં લઈ શકાય, પરંતુ કાચું પપૈયું સખત રીતે ટાળો.",
+            "૨. કાચા ફણગાવેલા કઠોળ: કઠોળને હંમેશા બાફીને કે રાંધીને જ ખાઓ જેથી બેક્ટેરિયાનો નાશ થાય.",
+            "૩. કાચું દૂધ: દૂધ હંમેશા ઉકાળીને જ પીવું.",
+            "૪. અડધું રાંધેલું ભોજન ટાળો."
           ]
         }
       },
       {
         "heading": {
-          "en": "Scientifically Verified Foods to Strictly Avoid",
-          "hi": "वैज्ञानिक रूप से सत्यापित खाद्य पदार्थों से सख्ती से बचना चाहिए",
-          "gu": "સખત રીતે ટાળવા માટે વૈજ્ઞાનિક રીતે ચકાસાયેલ ખોરાક"
+          "en": "Demystifying Common Indian Kitchen Myths",
+          "hi": "भारतीय रसोई के आम मिथक और उनका वैज्ञानिक सच",
+          "gu": "ભારતીય રસોડાની ગેરમાન્યતાઓ અને વૈજ્ઞાનિક સત્ય"
         },
         "paragraphs": {
           "en": [
-            "1. Raw / Unripe Papaya: Contains latex and high papain concentrations that can trigger uterine contractions.",
-            "2. Unpasteurized Milk & Raw Soft Cheeses: Risk of Listeria monocytogenes infection, which can cross the placenta.",
-            "3. Raw / Undercooked Sprouts & Street Food: Commercial sprouts grown in humid conditions can harbor Salmonella and E. coli. Always steam or cook sprouts thoroughly before eating.",
-            "4. Excess Caffeine & Energy Drinks: High caffeine intake is linked to restricted fetal growth and poor iron absorption.",
-            "5. Stale Leftover Foods (Paryushita Ahara): Foods stored for over 24 hours develop bacterial endotoxins and aggravate digestive Ama."
+            "• The Pineapple Myth: While unripe pineapple stems contain concentrated bromelain, eating a couple of fresh ripe pineapple slices in your second or third trimester does not induce labor or cause miscarriage. However, avoid excessive quantities.",
+            "• The Saffron (Kesar) Complexion Myth: Saffron is an aromatic antioxidant spice; it has zero biological power to lighten fetal melanin or skin tone.",
+            "• Street Food Precautions: Avoid roadside pani-puri, unboiled chutneys, and pre-cut roadside fruits due to hepatitis and waterborne contamination risks."
           ],
           "hi": [
-            "1. कच्चा/कच्चा पपीता: इसमें लेटेक्स और उच्च पपेन सांद्रता होती है जो गर्भाशय के संकुचन को ट्रिगर कर सकती है।",
-            "2. बिना पाश्चुरीकृत दूध और कच्ची मुलायम चीज: लिस्टेरिया मोनोसाइटोजेन्स संक्रमण का खतरा, जो प्लेसेंटा को पार कर सकता है।",
-            "3. कच्चे/अधपके स्प्राउट्स और स्ट्रीट फूड: आर्द्र परिस्थितियों में उगाए गए वाणिज्यिक स्प्राउट्स में साल्मोनेला और ई. कोली हो सकते हैं। खाने से पहले हमेशा स्प्राउट्स को अच्छी तरह से भाप में पका लें या पका लें।",
-            "4. अत्यधिक कैफीन और ऊर्जा पेय: उच्च कैफीन का सेवन प्रतिबंधित भ्रूण विकास और खराब आयरन अवशोषण से जुड़ा हुआ है।",
-            "5. बासी बचे हुए खाद्य पदार्थ (पर्युशिता आहार): 24 घंटे से अधिक समय तक संग्रहीत खाद्य पदार्थ बैक्टीरियल एंडोटॉक्सिन विकसित करते हैं और पाचन अमा को बढ़ाते हैं।"
+            "• अनानास का भ्रम: पके अनानास की एक-दो स्लाइस खाने से कोई नुकसान नहीं होता, हालांकि बहुत अधिक मात्रा से बचना चाहिए।",
+            "• केसर और गोरा रंग: केसर केवल सुगंध और स्वाद के लिए है; यह बच्चे की त्वचा के रंग को नहीं बदलता।",
+            "• स्ट्रीट फूड: सड़क किनारे की पानी-पूरी, कटी हुई खुली सलाद और दूषित पानी से बचें।"
           ],
           "gu": [
-            "1. કાચું/પાકેલું પપૈયું: તેમાં લેટેક્ષ અને ઉચ્ચ પેપેઈન સાંદ્રતા હોય છે જે ગર્ભાશયના સંકોચનને ઉત્તેજિત કરી શકે છે.",
-            "2. અનપેસ્ટ્યુરાઇઝ્ડ દૂધ અને કાચી સોફ્ટ ચીઝ: લિસ્ટેરિયા મોનોસાઇટોજેન્સ ચેપનું જોખમ, જે પ્લેસેન્ટાને પાર કરી શકે છે.",
-            "3. કાચા/અંકુકેલા સ્પ્રાઉટ્સ અને સ્ટ્રીટ ફૂડ: ભેજવાળી સ્થિતિમાં ઉગાડવામાં આવતા વાણિજ્યિક સ્પ્રાઉટ્સ સાલ્મોનેલા અને ઇ. કોલીને આશ્રય આપી શકે છે. હંમેશા વરાળ કરો અથવા જમતા પહેલા સ્પ્રાઉટ્સને સારી રીતે રાંધો.",
-            "4. વધુ પડતી કેફીન અને એનર્જી ડ્રિંક્સ: કેફીનનું વધુ સેવન ગર્ભની વૃદ્ધિ અને આયર્નના નબળા શોષણ સાથે સંકળાયેલું છે.",
-            "5. વાસી બચેલો ખોરાક (પર્યુષિતા આહરા): 24 કલાકથી વધુ સમય માટે સંગ્રહિત ખોરાક બેક્ટેરિયલ એન્ડોટોક્સિન વિકસાવે છે અને પાચન અમાને વધારે છે."
+            "• અનાનસનો ભ્રમ: પાકેલા અનાનસના એક-બે ટુકડા સામાન્ય છે, વધુ પડતું ખાવું નહીં.",
+            "• કેસર અને રંગ: કેસરથી બાળક ગોરું થતું નથી; રંગ માત્ર જિનેટિક્સ પર આધારિત છે.",
+            "• બહારનું ખાવાનું: લારી પર મળતી પાણીપૂરી અને ખુલ્લા કાપેલા ફળોથી દૂર રહો."
           ]
         }
       },
       {
         "heading": {
-          "en": "Debunking Common Indian Food Myths",
-          "hi": "आम भारतीय खाद्य मिथकों का खंडन",
-          "gu": "સામાન્ય ભારતીય ફૂડ મિથ્સ ડિબંકિંગ"
+          "en": "Caffeine Limits & Food Safety Protocols",
+          "hi": "कैफीन की सीमा एवं घरेलू भोजन स्वच्छता नियम",
+          "gu": "કેફીનની મર્યાદા અને રસોઈની સ્વચ્છતા"
         },
         "paragraphs": {
           "en": [
-            "• Myth: 'Eating curd or coconut water during winter causes baby to catch a cold in the womb.' -> Fact: The fetus is maintained at a steady body temperature by maternal circulation; curd and coconut water provide vital probiotics and electrolytes.",
-            "• Myth: 'Eating white foods (milk, coconut) makes the baby's skin fair.' -> Fact: Fetal skin complexion is determined entirely by parental genetics (melanin synthesis), not the color of food."
+            "Limit total caffeine intake to under 200 mg daily (equivalent to one small cup of home-brewed chai). Always wash leafy greens thoroughly under running water to remove pesticide residue, and consume freshly cooked home meals within two hours of preparation."
           ],
           "hi": [
-            "• मिथक: 'सर्दियों के दौरान दही या नारियल पानी खाने से गर्भ में बच्चे को सर्दी लग जाती है।' -> तथ्य: मातृ परिसंचरण द्वारा भ्रूण को स्थिर शरीर के तापमान पर बनाए रखा जाता है; दही और नारियल पानी महत्वपूर्ण प्रोबायोटिक्स और इलेक्ट्रोलाइट्स प्रदान करते हैं।",
-            "• मिथक: 'सफेद खाद्य पदार्थ (दूध, नारियल) खाने से बच्चे की त्वचा गोरी हो जाती है।' -> तथ्य: भ्रूण की त्वचा का रंग पूरी तरह से माता-पिता के आनुवंशिकी (मेलेनिन संश्लेषण) से निर्धारित होता है, भोजन के रंग से नहीं।"
+            "दिन में एक कप से अधिक चाय या कॉफी न पिएं (कैफीन 200 mg से कम रखें)। हरी पत्तेदार सब्जियों को अच्छी तरह धोएं और ताजा बना हुआ भोजन ही खाएं।"
           ],
           "gu": [
-            "• માન્યતા: 'શિયાળામાં દહીં અથવા નાળિયેર પાણી ખાવાથી બાળકને ગર્ભાશયમાં શરદી થાય છે.' -> હકીકત: માતાના પરિભ્રમણ દ્વારા ગર્ભ સ્થિર શરીરના તાપમાને જાળવવામાં આવે છે; દહીં અને નાળિયેરનું પાણી મહત્વપૂર્ણ પ્રોબાયોટિક્સ અને ઇલેક્ટ્રોલાઇટ્સ પ્રદાન કરે છે.",
-            "• માન્યતા: 'સફેદ ખોરાક (દૂધ, નારિયેળ) ખાવાથી બાળકની ત્વચા ગોરી બને છે.' -> હકીકત: ગર્ભની ત્વચાનો રંગ સંપૂર્ણપણે પેરેંટલ જીનેટિક્સ (મેલેનિન સિન્થેસિસ) દ્વારા નક્કી કરવામાં આવે છે, ખોરાકના રંગથી નહીં."
+            "દિવસમાં એક કપથી વધુ ચા-કોફી ન લો. શાકભાજી બરાબર ધોઈને જ વાપરો અને તાજું રાંધેલું ભોજન જ ખાઓ."
           ]
         }
       }
@@ -1763,6 +1794,7 @@ export const blogPosts = [
       }
     ],
     "references": [
+      "American College of Obstetricians and Gynecologists. (2010). Moderate Caffeine Consumption During Pregnancy. Committee Opinion No. 462 (Reaffirmed 2020).",
       "FSSAI (Food Safety and Standards Authority of India) - Guidance on Safe Food for Pregnant and Lactating Mothers.",
       "CDC (Centers for Disease Control and Prevention) - Listeria and Pregnancy Guidelines."
     ]
@@ -1771,7 +1803,7 @@ export const blogPosts = [
     "id": 13,
     "slug": "how-to-create-a-positive-pregnancy-environment-at-home",
     "date": "2026-07-11",
-    "readTime": "10 min read",
+    "readTime": "3 min read",
     "image": "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&q=80&w=1200",
     "category": {
       "en": "Maternal Wellbeing",
@@ -1780,64 +1812,73 @@ export const blogPosts = [
     },
     "title": {
       "en": "Creating a Positive Pregnancy Sanctuary at Home: A Family Guide to Garbh Sanskar",
-      "hi": "घर पर सकारात्मक गर्भावस्था वातावरण कैसे बनाएं: परिवार के लिए गर्भ संस्कार मार्गदर्शिका",
-      "gu": "ઘરમાં હકારાત્મક ગર્ભાવસ્થા વાતાવરણ કેવી રીતે બનાવવું: પરિવાર માટે ગર્ભ સંસ્કાર ગાઈડ"
+      "hi": "घर में सकारात्मक गर्भावस्था परिवेश (Sanctuary) का निर्माण: परिवार के लिए गर्भ संस्कार गाइड",
+      "gu": "ઘરમાં હકારાત્મક ગર્ભાવસ્થા વાતાવરણનું નિર્માણ: પરિવાર માટે ગર્ભ સંસ્કાર માર્ગદર્શિકા"
     },
     "description": {
-      "en": "A practical guide for families and spouses on transforming the domestic environment into a peaceful, supportive, and joyful sanctuary for the expectant mother and unborn child.",
-      "hi": "परिवार और जीवनसाथी के लिए व्यावहारिक सलाह: घर में शांति, सहयोग और सकारात्मक ऊर्जा का संचार कैसे करें।",
-      "gu": "પરિવાર અને જીવનસાથી માટે વ્યવહારુ માર્ગદર્શન: ઘરમાં શાંતિ અને હકારાત્મક ઉર્જા કેવી રીતે લાવવી."
+      "en": "A practical household guide to crafting a peaceful domestic sanctuary during pregnancy: sensory room design, managing family communication, setting quiet boundaries, and partner teamwork.",
+      "hi": "गर्भावस्था में घर को एक शांत और सकारात्मक अभयारण्य बनाएं: प्रकाश और ध्वनि का संतुलन, पारिवारिक संवाद, शांत वातावरण और तनाव मुक्ति के व्यावहारिक उपाय।",
+      "gu": "ગર્ભાવસ્થામાં ઘરને શાંત અને પવિત્ર આશ્રયસ્થાન બનાવો: યોગ્ય પ્રકાશ, શાંત વાતાવરણ, પારિવારિક સંવાદ અને તણાવમુક્ત દિનચર્યા."
     },
-    "keywords": "positive pregnancy environment, peaceful home during pregnancy, garbh sanskar at home, family support in pregnancy, partner role pregnancy",
+    "keywords": "positive pregnancy home environment, garbh sanskar sanctuary at home, pregnancy room design india, family stress pregnancy boundaries, joint family pregnancy tips",
     "sections": [
       {
         "heading": {
-          "en": "The Home as the Fetus's Primary Extended Womb",
-          "hi": "भ्रूण के प्राथमिक विस्तारित गर्भ के रूप में घर",
-          "gu": "ગર્ભના પ્રાથમિક વિસ્તૃત ગર્ભ તરીકે ઘર"
+          "en": "The Domestic Sensory Environment: Light, Acoustics & Air",
+          "hi": "घर का संवेदी परिवेश: प्रकाश, ध्वनि एवं शुद्ध वायु",
+          "gu": "ઘરનું સંવેદી વાતાવરણ: પ્રકાશ, અવાજ અને શુદ્ધ હવા"
         },
         "paragraphs": {
           "en": [
-            "In Vedic psychology, the physical womb is the baby's first home, but the emotional energy of the household is its extended sanctuary. What the mother sees, hears, feels, and experiences within her domestic surroundings directly shapes her emotional tone.",
-            "Creating a peaceful home environment is not an expensive luxury; it is built upon gentle speech, respectful relationships, reduction of avoidable domestic conflict, and shared joyful rituals."
+            "In Vedic Garbh Sanskar, the mother's immediate living space is viewed as an extension of the womb itself. Environmental stressors—such as constant blaring television news, high-decibel arguments, and harsh fluorescent lighting—trigger sympathetic nervous arousal.",
+            "Design a serene sensory space: Prioritize soft, warm indirect lighting, ensure daily cross-ventilation, introduce air-purifying indoor plants (such as Tulsi or Areca palm), and replace loud television background noise with gentle classical Indian instrumental ragas or natural silence."
           ],
           "hi": [
-            "वैदिक मनोविज्ञान में, भौतिक गर्भ बच्चे का पहला घर है, लेकिन घर की भावनात्मक ऊर्जा उसका विस्तारित अभयारण्य है। माँ अपने घरेलू परिवेश में जो देखती है, सुनती है, महसूस करती है और अनुभव करती है वह सीधे उसके भावनात्मक स्वर को आकार देती है।",
-            "शांतिपूर्ण घरेलू वातावरण बनाना कोई महंगी विलासिता नहीं है; यह सौम्य वाणी, सम्मानजनक रिश्तों, टाले जा सकने वाले घरेलू झगड़ों में कमी और साझा आनंदमय अनुष्ठानों पर आधारित है।"
+            "गर्भ संस्कार में घर के वातावरण को गर्भ का ही एक विस्तार माना गया है। घर में तेज टीवी की आवाजें, तीखी लाइटें और पारिवारिक तनाव माँ के रक्तचाप और मानसिक शांति को प्रभावित करते हैं।",
+            "घर में सौम्य पीली लाइट, ताजी हवा, तुलसी का पौधा और शांत शास्त्रीय संगीत का वातावरण बनाएं जो माँ को गहन विश्राम दे सके।"
           ],
           "gu": [
-            "વૈદિક મનોવિજ્ઞાનમાં, ભૌતિક ગર્ભ એ બાળકનું પ્રથમ ઘર છે, પરંતુ ઘરની ભાવનાત્મક ઊર્જા તેનું વિસ્તૃત અભયારણ્ય છે. માતા તેના ઘરેલું વાતાવરણમાં જે જુએ છે, સાંભળે છે, અનુભવે છે અને અનુભવે છે તે તેના ભાવનાત્મક સ્વરને સીધો આકાર આપે છે.",
-            "શાંતિપૂર્ણ ઘરનું વાતાવરણ બનાવવું એ ખર્ચાળ લક્ઝરી નથી; તે સૌમ્ય વાણી, આદરપૂર્ણ સંબંધો, ટાળી શકાય તેવા ઘરેલું સંઘર્ષમાં ઘટાડો અને વહેંચાયેલ આનંદકારક ધાર્મિક વિધિઓ પર બનેલ છે."
+            "ગર્ભ સંસ્કારમાં ઘરના વાતાવરણને ખૂબ મહત્વ આપવામાં આવ્યું છે. ઘરમાં સતત ટીવીનો ઘોંઘાટ અને તણાવ માતાના સ્વાસ્થ્ય પર અસર કરે છે.",
+            "ઘરમાં કુદરતી હવા-ઉજાસ, તુલસીનો છોડ અને શાંત વાતાવરણ રાખો જે માતાને આંતરિક શાંતિ આપે."
           ]
         }
       },
       {
         "heading": {
-          "en": "Five Actionable Steps for a Harmonious Home",
-          "hi": "एक सामंजस्यपूर्ण घर के लिए पाँच कदम",
-          "gu": "સુમેળભર્યા ઘર માટે પાંચ કાર્યક્ષમ પગલાં"
+          "en": "Designing a Daily Quiet Zone & Sacred Corner",
+          "hi": "दैनिक शांत कोने (Quiet Zone) का निर्माण",
+          "gu": "દૈનિક શાંત ખૂણા (Quiet Zone) નું નિર્માણ"
         },
         "paragraphs": {
           "en": [
-            "1. Establish a Peaceful Soundscape: Soft devotional ragas, natural ambient sounds, or soothing acoustic music playing gently in the living area instead of loud television noise.",
-            "2. Dedicated Sacred Meditation & Rest Corner: A clean, well-ventilated corner with comfortable seating, green plants, and uplifting sacred imagery.",
-            "3. Equal Division of Domestic Responsibilities: Spouses and family members actively sharing daily household chores so the mother gets adequate rest.",
-            "4. Conscious Communication: Refraining from heated arguments or discussing distressing financial/social worries in front of the mother.",
-            "5. Daily Family Prayer & Evening Satsang: Spending 15 minutes together as a family in prayer or reading uplifting stories."
+            "Establish a dedicated, clean corner in your bedroom or living area reserved exclusively for calm contemplation. Furnish this space with a comfortable firm floor cushion, breathable cotton cushions, a modest ghee diya or gentle aromatic diffuser, and uplifting spiritual or cultural books. Spending 20 minutes here twice daily creates a dependable haven for prayer and breathwork."
           ],
           "hi": [
-            "1. एक शांतिपूर्ण ध्वनि परिदृश्य स्थापित करें: टेलीविजन के तेज़ शोर के बजाय नरम भक्ति राग, प्राकृतिक परिवेश ध्वनियाँ, या रहने वाले क्षेत्र में धीरे-धीरे बजने वाला सुखदायक ध्वनिक संगीत।",
-            "2. समर्पित पवित्र ध्यान और विश्राम कोना: आरामदायक बैठने की जगह, हरे पौधे और उत्थानशील पवित्र कल्पना के साथ एक साफ, हवादार कोना।",
-            "3. घरेलू जिम्मेदारियों का समान विभाजन: पति-पत्नी और परिवार के सदस्य सक्रिय रूप से दैनिक घरेलू काम साझा करते हैं ताकि मां को पर्याप्त आराम मिल सके।",
-            "4. सचेत संचार: माँ के सामने तीखी बहस करने या परेशान करने वाली वित्तीय/सामाजिक चिंताओं पर चर्चा करने से बचना।",
-            "5. दैनिक पारिवारिक प्रार्थना और शाम का सत्संग: एक परिवार के रूप में प्रार्थना में या उत्थानकारी कहानियाँ पढ़ने में 15 मिनट एक साथ बिताना।"
+            "घर में एक स्वच्छ और शांत कोना तय करें जहाँ आरामदायक गद्दे, तकिए, एक घी का दीपक और अच्छी पुस्तकें रखी हों। यहाँ प्रतिदिन 20 मिनट बैठकर स्वाध्याय या ध्यान करने से मन को शांति मिलती है।"
           ],
           "gu": [
-            "1. શાંતિપૂર્ણ સાઉન્ડસ્કેપ સ્થાપિત કરો: ટેલિવિઝનના મોટા અવાજને બદલે હળવા ભક્તિ રાગ, કુદરતી આસપાસના અવાજો અથવા શાંત એકોસ્ટિક સંગીત લિવિંગ એરિયામાં હળવેથી વગાડવું.",
-            "2. સમર્પિત પવિત્ર ધ્યાન અને આરામ કોર્નર: આરામદાયક બેઠક, લીલા છોડ અને ઉત્થાન કરતી પવિત્ર છબી સાથે સ્વચ્છ, સારી રીતે હવાની અવરજવર ધરાવતો ખૂણો.",
-            "3. ઘરેલું જવાબદારીઓનું સમાન વિભાજન: જીવનસાથી અને પરિવારના સભ્યો સક્રિયપણે રોજિંદા ઘરનાં કામો વહેંચે છે જેથી માતાને પૂરતો આરામ મળે.",
-            "4. સભાન સંદેશાવ્યવહાર: ઉગ્ર દલીલોથી દૂર રહેવું અથવા માતાની સામે કષ્ટદાયક નાણાકીય/સામાજિક ચિંતાઓની ચર્ચા કરવી.",
-            "5. દૈનિક કૌટુંબિક પ્રાર્થના અને સાંજનો સત્સંગ: પ્રાર્થનામાં અથવા ઉત્થાનકારી વાર્તાઓ વાંચવામાં કુટુંબ તરીકે 15 મિનિટ એકસાથે વિતાવવી."
+            "ઘરમાં એક શાંત ખૂણો નક્કી કરો જ્યાં આરામદાયક બેઠક, ઘીનો દીવો અને પ્રેરણાદાયી પુસ્તકો હોય. અહીં રોજ ૨૦ મિનિટ ધ્યાન કે વાંચન કરો."
+          ]
+        }
+      },
+      {
+        "heading": {
+          "en": "Harmonious Family Communication & Protecting Boundaries",
+          "hi": "मधुर पारिवारिक संवाद एवं तनाव से सुरक्षा",
+          "gu": "મધુર પારિવારિક સંવાદ અને તણાવથી રક્ષણ"
+        },
+        "paragraphs": {
+          "en": [
+            "In traditional Indian joint and nuclear households, expectant mothers often face overwhelming unsolicited advice. Family members should consciously agree on a 'peace covenant': avoid discussing complicated pregnancy horror stories, financial anxieties, or interpersonal family disputes in front of the mother.",
+            "Partners should act as supportive gatekeepers, gently filtering unnecessary phone calls or unhelpful visitors, ensuring the mother enjoys uninterrupted afternoon rest."
+          ],
+          "hi": [
+            "परिवार के सभी सदस्यों को मिलकर यह तय करना चाहिए कि माँ के सामने कोई डरावनी कहानियां, आर्थिक तनाव या पारिवारिक विवाद की बातें न हों।",
+            "पति को एक सुरक्षा कवच की तरह कार्य करना चाहिए, जो अनावश्यक फोन कॉल और मेहमानों को संभालकर पत्नी के विश्राम को प्राथमिकता दे।"
+          ],
+          "gu": [
+            "પરિવારના સભ્યોએ સગર્ભા માતા સમક્ષ નકારાત્મક ચર્ચાઓ કે વિવાદો કરવા નહીં.",
+            "જીવનસાથીએ માતાના આરામનું પૂરતું ધ્યાન રાખવું અને બિનજરૂરી તણાવથી તેને દૂર રાખવી."
           ]
         }
       }
@@ -1858,14 +1899,14 @@ export const blogPosts = [
     ],
     "references": [
       "Kashyapa Samhita, Sharira Sthana (Household care for expectant mothers).",
-      "Journal of Family Psychology: Marital Harmony and Fetal Emotional Regulation."
+      "Staneva, A. A., et al. (2015). The effects of maternal depression, anxiety, and perceived stress during pregnancy on preterm birth: A systematic review. Women and Birth, 28(3), 179-193."
     ]
   },
   {
     "id": 14,
     "slug": "third-trimester-garbh-sanskar-preparation",
     "date": "2026-07-25",
-    "readTime": "12 min read",
+    "readTime": "3 min read",
     "image": "https://images.unsplash.com/photo-1516585427167-9f4af9627e6c?auto=format&fit=crop&q=80&w=1200",
     "category": {
       "en": "Trimesters & Delivery",
@@ -1972,14 +2013,14 @@ export const blogPosts = [
     "faqs": [
       {
         "question": {
-          "en": "Does drinking ghee in milk in the 9th month guarantee normal delivery?",
-          "hi": "क्या 9वें महीने में दूध में घी मिलाकर पीने से नॉर्मल डिलीवरी हो जाती है?",
-          "gu": "શું 9મા મહિનામાં દૂધમાં ઘી પીવાથી નોર્મલ ડિલિવરીની ખાતરી મળે છે?"
+          "en": "Does drinking ghee in milk during the 9th month ensure or ease a vaginal birth?",
+          "hi": "क्या 9वें महीने में दूध में घी मिलाकर पीने से सामान्य प्रसव आसान हो जाता है?",
+          "gu": "શું 9મા મહિનામાં દૂધમાં ઘી પીવાથી સામાન્ય પ્રસૂતિ સરળ બને છે?"
         },
         "answer": {
-          "en": "Traditional Ayurvedic guidance recommends warm milk with a small amount of ghee in the final weeks to soothe Apana Vata and prevent constipation. However, it does not mechanically 'grease' the birth canal or guarantee normal delivery. Medical factors like fetal size, maternal pelvic shape, and heart rate vitals determine delivery.",
-          "hi": "पारंपरिक आयुर्वेदिक मार्गदर्शन अपान वात को शांत करने और कब्ज को रोकने के लिए अंतिम हफ्तों में गर्म दूध में थोड़ी मात्रा में घी मिलाने की सलाह देता है। हालाँकि, यह यांत्रिक रूप से जन्म नहर को 'ग्रीस' नहीं करता है या सामान्य प्रसव की गारंटी नहीं देता है। भ्रूण का आकार, मातृ पेल्विक आकार और हृदय गति संबंधी महत्वपूर्ण कारक जैसे चिकित्सीय कारक प्रसव का निर्धारण करते हैं।",
-          "gu": "પરંપરાગત આયુર્વેદિક માર્ગદર્શન અપના વાતને શાંત કરવા અને કબજિયાતને રોકવા માટે છેલ્લા અઠવાડિયામાં થોડી માત્રામાં ઘી સાથે ગરમ દૂધની ભલામણ કરે છે. જો કે, તે જન્મ નહેરને યાંત્રિક રીતે 'ગ્રીસ' કરતું નથી અથવા સામાન્ય ડિલિવરીની ખાતરી આપતું નથી. ગર્ભનું કદ, માતાના પેલ્વિક આકાર અને હૃદયના ધબકારા જેવા તબીબી પરિબળો ડિલિવરી નક્કી કરે છે."
+          "en": "Traditional Ayurvedic guidance recommends warm milk with a small amount of ghee in the final weeks to soothe Apana Vata and prevent constipation. However, it does not mechanically lubricate the birth canal or determine birth mode. Obstetric factors like fetal presentation, maternal pelvic dimensions, and clinical vitals determine delivery. Always discuss dietary adjustments with your obstetrician.",
+          "hi": "पारंपरिक आयुर्वेदिक मार्गदर्शन अपान वात को शांत करने और कब्ज को रोकने के लिए अंतिम हफ्तों में गर्म दूध में थोड़ी मात्रा में घी मिलाने की सलाह देता है। हालाँकि, यह जन्म मार्ग को चिकना नहीं करता या सामान्य प्रसव सुनिश्चित नहीं करता। भ्रूण की स्थिति, मातृ पेल्विक संरचना और स्वास्थ्य संकेत प्रसव का निर्धारण करते हैं।",
+          "gu": "પરંપરાગત આયુર્વેદિક માર્ગદર્શન અપાન વાતને શાંત કરવા અને કબજિયાતને રોકવા માટે છેલ્લા અઠવાડિયામાં થોડી માત્રામાં ઘી સાથે ગરમ દૂધની ભલામણ કરે છે. જો કે, તે જન્મ નહેરને ચીકણી કરતું નથી અથવા સામાન્ય પ્રસૂતિ સુનિશ્ચિત કરતું નથી. ગર્ભની સ્થિતિ, પેલ્વિક માળખું અને તબીબી પરિબળો ડિલિવરી નક્કી કરે છે."
         }
       },
       {
@@ -1996,16 +2037,16 @@ export const blogPosts = [
       }
     ],
     "references": [
+      "American College of Obstetricians and Gynecologists. (2019). Approaches to Limit Intervention During Labor and Birth. Committee Opinion No. 766.",
       "Charaka Samhita, Sharira Sthana, Chapter 8 (Ninth Month Regimen - Navama Masa Paricharya).",
-      "Simkin, P., & Ancheta, R. (2011). The Labor Progress Handbook: Early Interventions to Prevent and Treat Dystocia.",
-      "ACOG Practice Bulletin No. 209: Obstetric Analgesia and Labor Coping Methods."
+      "Simkin, P., & Ancheta, R. (2011). The Labor Progress Handbook: Early Interventions to Prevent and Treat Dystocia."
     ]
   },
   {
     "id": 15,
     "slug": "ayurvedic-pregnancy-care-garbhini-paricharya",
     "date": "2026-07-28",
-    "readTime": "13 min read",
+    "readTime": "2 min read",
     "image": "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&q=80&w=1200",
     "category": {
       "en": "Maternal Wellbeing",
@@ -2047,64 +2088,70 @@ export const blogPosts = [
       },
       {
         "heading": {
-          "en": "Classical Month-by-Month Dietary & Lifestyle Blueprint",
-          "hi": "शास्त्रीय माह-दर-माह आहार एवं जीवन शैली खाका",
-          "gu": "ક્લાસિકલ મહિના દર મહિને આહાર અને જીવનશૈલી બ્લુપ્રિન્ટ"
+          "en": "Classical Month-by-Month Regimen (Charaka Samhita Historical Perspective)",
+          "hi": "शास्त्रीय मासिक परिचर्या (चरक संहिता पारंपरिक दृष्टिकोण)",
+          "gu": "શાસ્ત્રીય માસિક પરિચાર્યા (ચરક સંહિતા પરંપરાગત સંદર્ભ)"
         },
         "paragraphs": {
           "en": [
+            "Note: The following month-by-month dietary descriptions reflect historical Ayurvedic literature (Charaka Samhita, Sharira Sthana 8) and are documented here for cultural and educational appreciation. Modern pregnant mothers should follow current nutritional standards and consult their obstetrician regarding all dietary practices.",
             "• Month 1: Sweet, cooling (Sheetala), liquid diet. Non-medicated warm A2 cow's milk consumed in small sips to stabilize implantation.",
-            "• Month 2: Milk medicated with sweet herbs (Madhura Gana herbs like Shatavari or Vidari, under Ayurvedic supervision).",
+            "• Month 2: Classical texts historically describe warm milk prepared with sweet herbs (Madhura Varga, recorded here for traditional reference; modern mothers should consult their obstetrician before taking any herbal preparation).",
             "• Month 3: Milk sweetened with natural organic honey and pure cow ghee.",
             "• Month 4: Milk with fresh unsalted butter (Navaneeta). Fetal heart and limbs begin active growth; emphasize iron and protein.",
             "• Month 5: Fresh cow ghee prepared with herbs. Fetal mind (Manas) awakens; focus on music and calming literature.",
             "• Month 6: Ghee medicated with sweet herbs or rice gruel with ghee. Focus on muscle development and hydration.",
             "• Month 7: Fetal sensory refinement. Light satvik meals, avoiding excess salt to prevent late-stage water retention (edema).",
             "• Month 8: Milk gruel (Ksheera Yavagu) with ghee. Fetal Ojas (vital life essence) stabilizes.",
-            "• Month 9: Unctuous, easily digestible satvik meals, warm oil pelvic application (Abhyanga), preparing birth canal for smooth labor."
+            "• Month 9: Easily digestible nourishing meals and gentle physical rest to support maternal comfort and labor readiness."
           ],
           "hi": [
+            "सूचना: निम्नलिखित माह-दर-माह आहार का विवरण शास्त्रीय आयुर्वेदिक साहित्य (चरक संहिता, शारीर स्थान 8) पर आधारित है और इसे सांस्कृतिक एवं ऐतिहासिक जानकारी के रूप में प्रस्तुत किया गया है। गर्भवती महिलाओं को अपने डॉक्टर के पोषण संबंधी परामर्श का ही पालन करना चाहिए।",
             "• महीना 1: मीठा, ठंडा (शीतला), तरल आहार। इम्प्लांटेशन को स्थिर करने के लिए गैर-औषधीय गर्म ए2 गाय के दूध का सेवन छोटे घूंट में किया जाता है।",
-            "• महीना 2: मीठी जड़ी-बूटियों से युक्त दूध (आयुर्वेदिक देखरेख में शतावरी या विदारी जैसी मधुर गण जड़ी-बूटियाँ)।",
+            "• महीना 2: शास्त्रीय ग्रंथों में ऐतिहासिक रूप से मधुर गण की जड़ी-बूटियों के साथ दूध का उल्लेख मिलता है (यह केवल पारंपरिक जानकारी है; आधुनिक माताओं को किसी भी जड़ी-बूटी के सेवन से पहले अपने डॉक्टर से सलाह लेनी चाहिए)।",
             "• महीना 3: प्राकृतिक जैविक शहद और शुद्ध गाय के घी से मीठा किया हुआ दूध।",
             "• महीना 4: ताजा अनसाल्टेड मक्खन (नवनीता) के साथ दूध। भ्रूण के हृदय और अंग सक्रिय रूप से बढ़ने लगते हैं; आयरन और प्रोटीन पर जोर दें।",
             "• महीना 5: जड़ी-बूटियों से तैयार ताजा गाय का घी। भ्रूण का मन (मानस) जागृत होता है; संगीत और शांतिदायक साहित्य पर ध्यान दें।",
             "• महीना 6: मीठी जड़ी-बूटियों से बना घी या घी के साथ चावल का दलिया। मांसपेशियों के विकास और जलयोजन पर ध्यान दें।",
             "• महीना 7: भ्रूण संवेदी परिशोधन। देर से होने वाले जल प्रतिधारण (एडिमा) को रोकने के लिए हल्का सात्विक भोजन, अतिरिक्त नमक से परहेज करें।",
             "• महीना 8: घी के साथ दूध का दलिया (क्षीरा यवागु)। भ्रूण ओजस (महत्वपूर्ण जीवन सार) स्थिर हो जाता है।",
-            "• महीना 9: सादा, आसानी से पचने वाला सात्विक भोजन, पेल्विक में गर्म तेल लगाना (अभ्यंग), सुचारू प्रसव के लिए जन्म नहर तैयार करना।"
+            "• महीना 9: आसानी से पचने वाला पौष्टिक सात्विक भोजन और शारीरिक आराम, जो माँ के स्वास्थ्य और प्रसव की तैयारी में सहायक हो।"
           ],
           "gu": [
+            "સૂચના: નીચે મુજબની માસિક પરિચાર્યા પ્રાચીન આયુર્વેદિક ગ્રંથો (ચરક સંહિતા) પર આધારિત છે અને સાંસ્કૃતિક માહિતી માટે રજૂ કરાઈ છે. આધુનિક ગર્ભાવસ્થામાં હંમેશા તમારા ગાયનેકોલોજિસ્ટની સલાહ મુજબ જ આહારનું પાલન કરો.",
             "• મહિનો 1: મીઠો, ઠંડક (શીતલા), પ્રવાહી આહાર. ઇમ્પ્લાન્ટેશનને સ્થિર કરવા માટે બિન-દવાહીન ગરમ A2 ગાયનું દૂધ નાના ચુસ્કીઓમાં લેવામાં આવે છે.",
-            "• મહિનો 2: મીઠી જડીબુટ્ટીઓ (મધુરા ગણ ઔષધિઓ જેમ કે શતાવરી અથવા વિદરી, આયુર્વેદિક દેખરેખ હેઠળ) સાથેનું દૂધ.",
+            "• મહિનો 2: શાસ્ત્રીય ગ્રંથોમાં ઐતિહાસિક રીતે મધુર ગણની ઔષધિઓ સાથે દૂધનું વર્ણન છે (આ માત્ર પરંપરાગત સંદર્ભ છે; સગર્ભા માતાઓએ કોઈપણ ઔષધિ લેતા પહેલા પોતાના ડૉક્ટરની સલાહ લેવી જોઈએ).",
             "• મહિનો 3: કુદરતી ઓર્ગેનિક મધ અને શુદ્ધ ગાયના ઘીથી મધુર દૂધ.",
             "• ચોથો મહિનો: મીઠા વગરના તાજા માખણ સાથેનું દૂધ (નવનીતા). ગર્ભના હૃદય અને અંગો સક્રિય વૃદ્ધિ શરૂ કરે છે; આયર્ન અને પ્રોટીન પર ભાર મૂકે છે.",
             "• 5 મહિનો: જડીબુટ્ટીઓ સાથે તૈયાર ગાયનું તાજું ઘી. ગર્ભનું મન (માનસ) જાગૃત થાય છે; સંગીત અને શાંત સાહિત્ય પર ધ્યાન કેન્દ્રિત કરો.",
             "• મહિનો 6: મીઠી ઔષધિઓ સાથે ઘી અથવા ઘી સાથે ચોખાની દાળ. સ્નાયુ વિકાસ અને હાઇડ્રેશન પર ધ્યાન કેન્દ્રિત કરો.",
             "• મહિનો 7: ગર્ભની સંવેદનાત્મક સંસ્કારિતા. હલકો સાત્વિક ભોજન, લેટ સ્ટેજ વોટર રીટેન્શન (એડીમા) અટકાવવા માટે વધારે મીઠું ટાળવું.",
             "• મહિનો 8: ઘી સાથે દૂધની કણક (ક્ષીરા યાવાગુ). ગર્ભનું ઓજસ (મહત્વપૂર્ણ જીવન સાર) સ્થિર થાય છે.",
-            "• 9 મહિનો: અસ્પષ્ટ, સરળતાથી સુપાચ્ય સાત્વિક ભોજન, ગરમ તેલ પેલ્વિક એપ્લીકેશન (અભ્યંગ), સરળ પ્રસૂતિ માટે જન્મ નહેર તૈયાર કરવી."
+            "• મહિનો 9: સરળતાથી પચતો પૌષ્ટિક સાત્વિક આહાર અને પૂરતો શારીરિક આરામ, જે માતાની સુખાકારી અને પ્રસૂતિની તૈયારીમાં મદદરૂપ બને."
           ]
         }
       },
       {
         "heading": {
-          "en": "Important Ayurvedic Herbs: What Is Safe and What Is Forbidden",
-          "hi": "महत्वपूर्ण आयुर्वेदिक जड़ी-बूटियाँ: क्या सुरक्षित है और क्या निषिद्ध है",
-          "gu": "મહત્વપૂર્ણ આયુર્વેદિક જડીબુટ્ટીઓ: શું સલામત છે અને શું પ્રતિબંધિત છે"
+          "en": "Herbal Safety Principles: Culinary Spices vs. Medicinal Extracts",
+          "hi": "हर्बल सुरक्षा सिद्धांत: रसोई के मसाले बनाम औषधीय अर्क",
+          "gu": "હર્બલ સુરક્ષા સિદ્ધાંતો: રસોડાના મસાલા વિરુદ્ધ ઔષધીય અર્ક"
         },
         "paragraphs": {
           "en": [
-            "• Safe & Recommended Under Expert Guidance: Shatavari (maternal vitality and uterine nourishment), Yashtimadhu (in tiny doses for acid reflux), Ashwagandha (in low doses for fatigue), and Amla (natural vitamin C and antioxidant).",
-            "• Strictly Forbidden Herbs (Garbhapata/Uterine Stimulants): Hing (asafoetida in large medicinal amounts), Chitrak, Guggulu, Aloe Vera (Kumari pulp), Papaya seed extracts, and strong purgatives."
+            "• Everyday Culinary Use: Microscopic culinary pinches of common kitchen seasonings (turmeric, fresh ginger, cumin, green cardamom) cooked into balanced meals are traditional in Indian cooking.",
+            "• Caution on Concentrated Extracts: Concentrated herbal supplements, powders, or decoctions—including Ashwagandha, Shatavari, and Yashtimadhu (Licorice)—must NOT be consumed without the explicit evaluation and clearance of your obstetrician.",
+            "• Strictly Contraindicated Herbs: Classical Ayurvedic texts explicitly forbid herbs that stimulate uterine contractions or act as strong purgatives (Garbhopaghatakara Dravyas): such as Chitrak, Guggulu, Aloe vera pulp (Kumari), raw papaya seed extracts, and medicinal high-dose asafoetida (Hing)."
           ],
           "hi": [
-            "• विशेषज्ञ के मार्गदर्शन में सुरक्षित और अनुशंसित: शतावरी (मातृ जीवन शक्ति और गर्भाशय पोषण), यष्टिमधु (एसिड रिफ्लक्स के लिए छोटी खुराक में), अश्वगंधा (थकान के लिए कम खुराक में), और आंवला (प्राकृतिक विटामिन सी और एंटीऑक्सीडेंट)।",
-            "• सख्त वर्जित जड़ी-बूटियाँ (गर्भपात/गर्भाशय उत्तेजक): हींग (बड़ी औषधीय मात्रा में हींग), चित्रक, गुग्गुलु, एलोवेरा (कुमारी गूदा), पपीता बीज अर्क, और मजबूत विरेचक।"
+            "• दैनिक रसोई का उपयोग: संतुलित भोजन में पकाए गए आम रसोई के मसालों (हल्दी, ताजा अदरक, जीरा, छोटी इलायची) की सूक्ष्म पाक चुटकी भारतीय भोजन में पारंपरिक है।",
+            "• सांद्रित अर्क पर सावधानी: अश्वगंधा, शतावरी और यष्टिमधु (मुलेठी) सहित सांद्रित हर्बल सप्लीमेंट्स या काढ़े का सेवन अपने प्रसूति विशेषज्ञ की स्पष्ट अनुमति के बिना बिल्कुल न करें।",
+            "• सख्त वर्जित जड़ी-बूटियाँ: शास्त्रीय ग्रंथ उन जड़ी-बूटियों को स्पष्ट रूप से मना करते हैं जो गर्भाशय संकुचन को उत्तेजित करती हैं (गर्भोपघातकर द्रव्य): जैसे चित्रक, गुग्गुलु, एलोवेरा गूदा, पपीते के बीज का अर्क और औषधीय रूप से अधिक हींग।"
           ],
           "gu": [
-            "• નિષ્ણાત માર્ગદર્શન હેઠળ સલામત અને ભલામણ કરેલ: શતાવરી (માતૃત્વ જીવનશક્તિ અને ગર્ભાશયનું પોષણ), યષ્ટિમધુ (એસિડ રિફ્લક્સ માટે નાના ડોઝમાં), અશ્વગંધા (થાક માટે ઓછી માત્રામાં), અને આમળા (કુદરતી વિટામિન સી અને એન્ટીઑકિસડન્ટ).",
-            "• સખત પ્રતિબંધિત જડીબુટ્ટીઓ (ગર્ભપાતા/ગર્ભાશય ઉત્તેજક): હિંગ (મોટી ઔષધીય માત્રામાં હિંગ), ચિત્રક, ગુગ્ગુલુ, એલોવેરા (કુમારીનો પલ્પ), પપૈયાના બીજનો અર્ક અને મજબૂત શુદ્ધિકરણ."
+            "• રોજિંદો રસોઈ ઉપયોગ: રસોઈમાં વપરાતા સામાન્ય મસાલા (હળદર, તાજું આદુ, જીરું, એલચી) ની સામાન્ય ચપટી પરંપરાગત ભારતીય ભોજનમાં સુરક્ષિત છે.",
+            "• સાંદ્ર હર્બલ અર્ક પર સાવચેતી: અશ્વગંધા, શતાવરી અથવા જેઠીમધ સહિતના કોઈપણ હર્બલ પાઉડર કે ઉકાળા ગાયનેકોલોજિસ્ટની સ્પષ્ટ મંજૂરી વગર લેવા નહીં.",
+            "• સખત પ્રતિબંધિત ઔષધિઓ: ગર્ભાશયના સંકોચનને ઉત્તેજિત કરતી ઔષધિઓ જેમ કે ચિત્રક, ગુગ્ગુલુ, કુંવારપાઠું (એલોવેરા), પપૈયાના બીજ અને વધુ પડતી હિંગ સખત વર્જિત છે."
           ]
         }
       }
@@ -2133,7 +2180,7 @@ export const blogPosts = [
     "id": 16,
     "slug": "garbh-samvad-communicating-with-unborn-baby",
     "date": "2026-07-28",
-    "readTime": "11 min read",
+    "readTime": "2 min read",
     "image": "https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&q=80&w=1200",
     "category": {
       "en": "Vedic Science & Ragas",
@@ -2236,22 +2283,22 @@ export const blogPosts = [
           "gu": "શું બાળક ખરેખર ગર્ભ સંવાદ દરમિયાન બોલાયેલા શબ્દોને સમજે છે?"
         },
         "answer": {
-          "en": "While the baby does not understand intellectual vocabulary, they deeply comprehend the vocal cadence, rhythmic pitch, frequency vibrations, and the emotional neurochemicals (oxytocin and serotonin) released in maternal blood during loving speech.",
-          "hi": "जबकि शिशु बौद्धिक शब्दावली को नहीं समझते हैं, वे प्रेमपूर्ण भाषण के दौरान स्वर ताल, लयबद्ध पिच, आवृत्ति कंपन और मातृ रक्त में जारी भावनात्मक न्यूरोकेमिकल्स (ऑक्सीटोसिन और सेरोटोनिन) को गहराई से समझते हैं।",
-          "gu": "જ્યારે બાળક બૌદ્ધિક શબ્દભંડોળને સમજી શકતું નથી, ત્યારે તેઓ પ્રેમાળ ભાષણ દરમિયાન માતાના લોહીમાં મુક્ત થતા અવાજની લય, લયબદ્ધ પિચ, આવર્તન સ્પંદનો અને ભાવનાત્મક ન્યુરોકેમિકલ્સ (ઓક્સીટોસિન અને સેરોટોનિન)ને ઊંડાણપૂર્વક સમજે છે."
+          "en": "While the baby does not understand intellectual vocabulary, they perceive the soothing vocal cadence and rhythm of maternal speech, while the mother's calm presence fosters feelings of security and warmth.",
+          "hi": "यद्यपि गर्भस्थ शिशु भाषा के जटिल शब्दों को नहीं समझता, लेकिन वह माँ की आवाज़ की मधुर लय और प्रेमपूर्ण उपस्थिति को महसूस करता है, जिससे माँ और शिशु के बीच एक गहरा आत्मीय संबंध बनता है।",
+          "gu": "જોકે બાળક જટિલ શબ્દોને સમજી શકતું નથી, તે માતાના અવાજની શાંત લય અને પ્રેમાળ હાજરીને અનુભવે છે, જે માતા અને બાળક વચ્ચે એક ગાઢ ભાવનાત્મક સંબંધ બાંધે છે."
         }
       }
     ],
     "references": [
-      "Verny, T., & Kelly, J. (1981). The Secret Life of the Unborn Child. Dell Publishing.",
-      "Chamberlain, D. B. (1998). The Mind of Your Newborn Baby. North Atlantic Books."
+      "Condon, J. T. (1993). The assessment of maternal-foetal attachment: development of a self-report questionnaire. British Journal of Medical Psychology, 66(2), 167-183.",
+      "Verny, T., & Kelly, J. (1981). The Secret Life of the Unborn Child. Dell Publishing."
     ]
   },
   {
     "id": 17,
     "slug": "postpartum-recovery-sutika-paricharya-guide",
     "date": "2026-07-28",
-    "readTime": "12 min read",
+    "readTime": "2 min read",
     "image": "https://images.unsplash.com/photo-1555252333-9f8e92e65df9?auto=format&fit=crop&q=80&w=1200",
     "category": {
       "en": "Maternal Wellbeing",
@@ -2361,7 +2408,7 @@ export const blogPosts = [
     "id": 18,
     "slug": "father-role-in-garbh-sanskar-prenatal-support",
     "date": "2026-07-28",
-    "readTime": "11 min read",
+    "readTime": "2 min read",
     "image": "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&q=80&w=1200",
     "category": {
       "en": "Maternal Wellbeing",
@@ -2369,65 +2416,80 @@ export const blogPosts = [
       "gu": "માતૃ સ્વાસ્થ્ય અને જીવનશૈલી"
     },
     "title": {
-      "en": "The Father's Essential Role in Garbh Sanskar: Conscious Paternity and Prenatal Support",
-      "hi": "गर्भ संस्कार में पिता की महत्वपूर्ण भूमिका: जागरूक पितृत्व और भावनात्मक सहयोग",
-      "gu": "ગર્ભ સંસ્કારમાં પિતાની મહત્વપૂર્ણ ભૂમિકા: જાગૃત પિતૃત્વ અને સહયોગ"
+      "en": "The Father's Essential Role in Garbh Sanskar: Conscious Paternity & Prenatal Support",
+      "hi": "गर्भ संस्कार में पिता की महत्वपूर्ण भूमिका: सचेत पितृत्व और गर्भावस्था में जीवनसाथी का सहयोग",
+      "gu": "ગર્ભ સંસ્કારમાં પિતાની મહત્વપૂર્ણ ભૂમિકા: સભાન પિતૃત્વ અને જીવનસાથીનો સહયોગ"
     },
     "description": {
-      "en": "A dedicated guide for expectant fathers on creating emotional security for the mother, building early fetal bonding, participating in prenatal rituals, and conscious fatherhood.",
-      "hi": "होने वाले पिताओं के लिए मार्गदर्शिका: पत्नी को भावनात्मक संबल देना, गर्भस्थ शिशु से संवाद और मातृत्व यात्रा में सक्रिय सहभागिता।",
-      "gu": "થનારા પિતા માટે ગાઈડ: પત્નીને માનસિક સાથ આપવો અને ગર્ભસ્થ બાળક સાથે ગાઢ સંબંધ બનાવવો."
+      "en": "A practical guide for expectant fathers: providing emotional grounding, attending medical scans, bedtime belly bonding (Pater Garbh Samvad), and reducing maternal stress.",
+      "hi": "भावी पिताओं के लिए व्यावहारिक गाइड: गर्भावस्था में पत्नी को भावनात्मक संबल, डॉक्टर के पास साथ जाना, गर्भ संवाद और घरेलू जिम्मेदारियां साझा करना।",
+      "gu": "ભાવી પિતા માટે માર્ગદર્શિકા: ગર્ભાવસ્થામાં પત્નીને ભાવનાત્મક ટેકો, ડૉક્ટર પાસે સાથે જવું અને બાળકના વિકાસમાં સક્રિય ભાગીદારી."
     },
-    "keywords": "father role garbh sanskar, expectant father pregnancy guide, partner support during pregnancy, husband role in pregnancy india, conscious fatherhood, paternal fetal attachment",
+    "keywords": "father role garbh sanskar, expectant dad pregnancy tips india, pater garbh samvad bonding, husband support pregnancy, partner birth preparation",
     "sections": [
       {
         "heading": {
-          "en": "Paternity Begins at Conception: Redefining the Father's Role",
-          "hi": "पितृत्व गर्भाधान से शुरू होता है: पिता की भूमिका को फिर से परिभाषित करना",
-          "gu": "પિતૃત્વ વિભાવના સમયે શરૂ થાય છે: પિતાની ભૂમિકાને ફરીથી વ્યાખ્યાયિત કરવી"
+          "en": "Paternity as an Active Prenatal Partnership",
+          "hi": "सक्रिय पितृत्व: गर्भावस्था में बराबर की सहभागिता",
+          "gu": "સક્રિય પિતૃત્વ: ગર્ભાવસ્થામાં બરાબરીની ભાગીદારી"
         },
         "paragraphs": {
           "en": [
-            "Historically, pregnancy has often been viewed as solely the mother's biological responsibility, with the father's role relegated to financial provision and hospital arrangements. In the Vedic framework of Garbh Sanskar, fatherhood (Pitrutva) begins the very instant a child is conceived.",
-            "The expectant father is the primary emotional anchor and energetic shield for the mother. A husband who actively participates in prenatal wellness creates an atmosphere of emotional safety, reducing maternal stress hormones and directly benefiting the baby's neurobiology."
+            "In Vedic wisdom, pregnancy is never an individual maternal journey; it is a shared family milestone. Studies in paternal perinatal psychology demonstrate that when a husband provides active emotional support, maternal anxiety scores drop significantly, leading to improved prenatal outcomes.",
+            "A husband's reassuring presence shields the mother from external household pressures, creating an emotional haven where the baby can thrive."
           ],
           "hi": [
-            "ऐतिहासिक रूप से, गर्भावस्था को अक्सर केवल माँ की जैविक ज़िम्मेदारी के रूप में देखा जाता है, जिसमें पिता की भूमिका वित्तीय प्रावधान और अस्पताल की व्यवस्था तक सीमित हो जाती है। गर्भ संस्कार के वैदिक ढांचे में, पितृत्व (पितृत्व) उसी क्षण शुरू होता है जब एक बच्चे का गर्भाधान होता है।",
-            "भावी पिता माँ के लिए प्राथमिक भावनात्मक सहारा और ऊर्जावान ढाल होता है। एक पति जो प्रसवपूर्व कल्याण में सक्रिय रूप से भाग लेता है, भावनात्मक सुरक्षा का माहौल बनाता है, मातृ तनाव हार्मोन को कम करता है और बच्चे के तंत्रिका जीव विज्ञान को सीधे लाभ पहुंचाता है।"
+            "गर्भ संस्कार में गर्भावस्था केवल माँ की नहीं, बल्कि पति-पत्नी की साझी यात्रा है। जब पति सक्रिय रूप से भावनात्मक सहयोग देता है, तो माँ का मानसिक तनाव बहुत कम हो जाता है।",
+            "पति का शांत और स्नेही व्यवहार घर में सकारात्मकता लाता है जिससे गर्भस्थ शिशु को अनुकूल वातावरण मिलता है।"
           ],
           "gu": [
-            "ઐતિહાસિક રીતે, સગર્ભાવસ્થાને ઘણી વખત માત્ર માતાની જૈવિક જવાબદારી તરીકે જોવામાં આવે છે, જેમાં પિતાની ભૂમિકા નાણાકીય જોગવાઈ અને હોસ્પિટલની વ્યવસ્થામાં સોંપવામાં આવે છે. ગર્ભ સંસ્કારના વૈદિક માળખામાં, પિતૃત્વ (પિતૃત્વ) બાળકની કલ્પના થતાં જ શરૂ થાય છે.",
-            "સગર્ભા પિતા એ માતા માટે પ્રાથમિક ભાવનાત્મક એન્કર અને ઊર્જાસભર કવચ છે. એક પતિ જે પ્રિનેટલ વેલનેસમાં સક્રિય રીતે ભાગ લે છે તે ભાવનાત્મક સલામતીનું વાતાવરણ બનાવે છે, માતાના તણાવના હોર્મોન્સ ઘટાડે છે અને બાળકના ન્યુરોબાયોલોજીને સીધો ફાયદો કરે છે."
+            "ગર્ભ સંસ્કારમાં ગર્ભાવસ્થા એ દંપતીની સંયુક્ત યાત્રા છે. પતિનો પ્રેમ અને સહયોગ માતાના તણાવને મોટા પ્રમાણમાં ઘટાડે છે.",
+            "પતિનો શાંત સ્વભાવ ઘરમાં હકારાત્મકતા લાવે છે."
           ]
         }
       },
       {
         "heading": {
-          "en": "Five Pillars of Conscious Fatherhood During Pregnancy",
-          "hi": "गर्भावस्था के दौरान सचेत पितृत्व के पाँच स्तंभ",
-          "gu": "ગર્ભાવસ્થા દરમિયાન સભાન પિતૃત્વના પાંચ સ્તંભો"
+          "en": "The Father's Weekly Action Checklist",
+          "hi": "भावी पिता की साप्ताहिक कार्यसूची",
+          "gu": "ભાવી પિતાની સાપ્તાહિક કાર્યસૂચિ"
         },
         "paragraphs": {
           "en": [
-            "1. Emotional Shielding and Empathetic Listening: Listening patiently to the mother's fears, validating hormonal mood fluctuations without frustration, and offering loving reassurance.",
-            "2. Active Participation in Daily Garbh Samvad: Speaking, reading, and singing to the baby every night. The deep frequency of the father's voice travels effortlessly through amniotic fluid, fostering immediate recognition at birth.",
-            "3. Promoting Physical Comfort and Nutrition: Ensuring the home is stocked with fresh satvik foods, preparing light snacks, encouraging proper hydration, and accompanying the mother on doctor visits.",
-            "4. Shared Spiritual & Meditation Rituals: Sitting together for 10 minutes of morning prayer, chanting, or evening walking in nature.",
-            "5. Being the Labor Support Champion (Birth Partner): Learning labor breathing techniques, birth massage strokes, and understanding hospital preferences to advocate calmly for his wife during delivery."
+            "1. Attend Ultrasound Scans & Consultations: Be present at doctor appointments to understand medical guidance and ask questions together.",
+            "2. Ensure Hydration & Nutritional Rhythm: Remind your partner gently about water intake, fresh fruits, and timely doctor-prescribed supplements.",
+            "3. Evening Walks Together: Spend 20 minutes strolling together at a comfortable pace, enjoying meaningful, stress-free conversations.",
+            "4. Evening Foot Massage: Massaging tired swollen feet with warm sesame or coconut oil relieves aches and strengthens spousal connection."
           ],
           "hi": [
-            "1. भावनात्मक ढाल और सहानुभूतिपूर्वक सुनना: माँ के डर को धैर्यपूर्वक सुनना, बिना किसी निराशा के हार्मोनल मूड के उतार-चढ़ाव को मान्य करना और प्यार भरा आश्वासन देना।",
-            "2. दैनिक गर्भ संवाद में सक्रिय भागीदारी: हर रात बच्चे से बात करना, पढ़ना और गाना। पिता की आवाज़ की गहरी आवृत्ति एमनियोटिक द्रव के माध्यम से सहजता से यात्रा करती है, जिससे जन्म के समय तत्काल पहचान हो जाती है।",
-            "3. शारीरिक आराम और पोषण को बढ़ावा देना: यह सुनिश्चित करना कि घर में ताजा सात्विक खाद्य पदार्थों का भंडार हो, हल्का नाश्ता तैयार करना, उचित जलयोजन को प्रोत्साहित करना और डॉक्टर के दौरे पर माँ के साथ जाना।",
-            "4. साझा आध्यात्मिक और ध्यान अनुष्ठान: सुबह की प्रार्थना, जप, या शाम को प्रकृति में टहलने के लिए 10 मिनट एक साथ बैठना।",
-            "5. लेबर सपोर्ट चैंपियन (जन्म साथी) बनना: प्रसव के दौरान सांस लेने की तकनीक, जन्म मालिश स्ट्रोक सीखना, और प्रसव के दौरान अपनी पत्नी की शांति से वकालत करने के लिए अस्पताल की प्राथमिकताओं को समझना।"
+            "1. डॉक्टर के पास साथ जाएं: सोनोग्राफी और जांच के समय पत्नी के साथ उपस्थित रहें।",
+            "2. पोषण और पानी का ध्यान रखें: समय पर भोजन, फल और दवाइयों के बारे में याद दिलाएं।",
+            "3. शाम को साथ टहलें: 20 मिनट साथ टहलने से बातचीत और भावनात्मक जुड़ाव बढ़ता है।",
+            "4. पैरों की हल्की मालिश: शाम को तिल के तेल से पैरों की हल्की मालिश थकान दूर करती है।"
           ],
           "gu": [
-            "1. ભાવનાત્મક રક્ષણ અને સહાનુભૂતિપૂર્વક સાંભળવું: માતાના ડરને ધીરજપૂર્વક સાંભળવું, હતાશા વિના હોર્મોનલ મૂડની વધઘટને માન્ય કરવી અને પ્રેમાળ આશ્વાસન આપવું.",
-            "2. દૈનિક ગર્ભ સંવાદમાં સક્રિય ભાગીદારી: દરરોજ રાત્રે બાળક સાથે બોલવું, વાંચવું અને ગાવું. પિતાના અવાજની ઊંડી આવર્તન એમ્નિઅટિક પ્રવાહી દ્વારા વિના પ્રયાસે મુસાફરી કરે છે, જન્મ સમયે તાત્કાલિક ઓળખને પ્રોત્સાહન આપે છે.",
-            "3. શારિરીક આરામ અને પોષણને પ્રોત્સાહન આપવું: ઘરમાં તાજા સાત્વિક ખોરાકનો ભરાવો થાય તેની ખાતરી કરવી, હળવો નાસ્તો તૈયાર કરવો, યોગ્ય હાઇડ્રેશનને પ્રોત્સાહિત કરવું અને ડૉક્ટરની મુલાકાત વખતે માતાની સાથે રહેવું.",
-            "4. વહેંચાયેલ આધ્યાત્મિક અને ધ્યાન ધાર્મિક વિધિઓ: સવારે 10 મિનિટની પ્રાર્થના, જપ અથવા સાંજે પ્રકૃતિમાં ચાલવા માટે સાથે બેસીને.",
-            "5. લેબર સપોર્ટ ચેમ્પિયન (બર્થ પાર્ટનર) બનવું: પ્રસૂતિ દરમિયાન તેની પત્નીની શાંતિથી હિમાયત કરવા માટે લેબર બ્રેથિંગ ટેક્નિક, બર્થ મસાજ સ્ટ્રોક અને હોસ્પિટલની પસંદગીઓને સમજવી."
+            "૧. ડૉક્ટર પાસે સાથે જવું: તમામ સોનોગ્રાફી અને તપાસમાં સાથે રહો.",
+            "૨. પોષણનું ધ્યાન: સમયસર પાણી અને આહાર માટે સાથ આપો.",
+            "૩. સાંજે સાથે ચાલવું: ૨૦ મિનિટ હળવું ચાલવું અને વાતો કરવી.",
+            "૪. પગની માલિશ: થાકેલા પગની હળવી માલિશ કરવાથી આરામ મળે છે."
+          ]
+        }
+      },
+      {
+        "heading": {
+          "en": "Partner Garbh Samvad: Meaningful Vocal Bonding and Shared Routines",
+          "hi": "पिता का गर्भ संवाद: आत्मीय स्वर और साझा जुड़ाव",
+          "gu": "પિતાનો ગર્ભ સંવાદ: ભાવનાત્મક સંવાદ અને જોડાણ"
+        },
+        "paragraphs": {
+          "en": [
+            "Partners can actively speak, read, or sing to the baby bump as part of everyday emotional bonding. Spending a few quiet minutes together each evening with hands gently resting on the abdomen helps normalize vocal presence. Cultivating this shared prenatal routine deepens the partner's emotional connection to the pregnancy and establishes comforting familiarity as a family before arrival."
+          ],
+          "hi": [
+            "भावी पिता रोजाना शाम को कुछ शांत मिनट पेट पर हाथ रखकर प्यार से बात कर सकते हैं, कहानी पढ़ सकते हैं या लोरी गा सकते हैं। यह साझा प्रसवपूर्व दिनचर्या गर्भावस्था के साथ पिता के भावनात्मक जुड़ाव को गहरा करती है और जन्म के बाद शिशु के लिए एक सुखद पहचान स्थापित करती है।"
+          ],
+          "gu": [
+            "પિતા દરરોજ સાંજે થોડી શાંત ક્ષણો પેટ પર હાથ મૂકીને પ્રેમથી વાતો કરી શકે છે કે પુસ્તક વાંચી શકે છે. આ નિયમિત દિનચર્યા ગર્ભાવસ્થા સાથે પિતાના ભાવનાત્મક જોડાણને ગાઢ બનાવે છે અને જન્મ પછી બાળક માટે પરિચિતતા લાવે છે."
           ]
         }
       }
@@ -2435,14 +2497,14 @@ export const blogPosts = [
     "faqs": [
       {
         "question": {
-          "en": "How does the father's voice affect the baby in the womb?",
-          "hi": "पिता की आवाज़ का गर्भ में पल रहे शिशु पर क्या प्रभाव पड़ता है?",
-          "gu": "પિતાનો અવાજ ગર્ભમાં રહેલા બાળક પર કેવી અસર કરે છે?"
+          "en": "How does a partner's voice support prenatal bonding?",
+          "hi": "पिता की आवाज़ प्रसवपूर्व जुड़ाव में कैसे मदद करती है?",
+          "gu": "પિતાનો અવાજ પ્રિનેટલ બોન્ડિંગમાં કેવી રીતે મદદ કરે છે?"
         },
         "answer": {
-          "en": "Studies on fetal auditory processing show that unborn babies exhibit heart rate deceleration (a sign of peaceful attention) when exposed to their father's familiar voice. Newborns recognize and are soothed by their father's voice within hours of birth.",
-          "hi": "भ्रूण श्रवण प्रसंस्करण पर अध्ययन से पता चलता है कि अजन्मे बच्चे अपने पिता की परिचित आवाज के संपर्क में आने पर हृदय गति में मंदी (शांतिपूर्ण ध्यान का संकेत) प्रदर्शित करते हैं। नवजात शिशु जन्म के कुछ घंटों के भीतर ही अपने पिता की आवाज़ को पहचान लेते हैं और उन्हें शांत कर देते हैं।",
-          "gu": "ગર્ભની શ્રાવ્ય પ્રક્રિયા પરના અભ્યાસો દર્શાવે છે કે અજાત બાળકો તેમના પિતાના પરિચિત અવાજના સંપર્કમાં આવે ત્યારે હૃદયના ધબકારા મંદી (શાંતિપૂર્ણ ધ્યાનની નિશાની) દર્શાવે છે. નવજાત શિશુ જન્મના કલાકોમાં તેમના પિતાના અવાજથી ઓળખે છે અને શાંત થાય છે."
+          "en": "Regularly speaking and reading to the unborn baby allows the partner to participate actively in pregnancy care. Newborns demonstrate familiarity with recurring voices heard during the third trimester, easing the transition into soothing newborn care.",
+          "hi": "नियमित रूप से बात करने और पढ़ने से भावी पिता गर्भावस्था की देखभाल में सक्रिय रूप से भाग ले पाते हैं। तीसरी तिमाही में सुनी जाने वाली आवाज़ों से नवजात शिशु जन्म के बाद भी परिचित महसूस करते हैं, जिससे शुरुआती देखभाल आसान हो जाती है।",
+          "gu": "નિયમિત રીતે વાતો કરવાથી અને વાંચવાથી પિતા ગર્ભાવસ્થાની સંભાળમાં સક્રિય ભાગ લઈ શકે છે. ત્રીજા ત્રિમાસિકમાં સાંભળેલી અવાજો સાથે નવજાત શિશુ જન્મ પછી પણ પરિચિતતા અનુભવે છે."
         }
       }
     ],
@@ -2455,7 +2517,7 @@ export const blogPosts = [
     "id": 19,
     "slug": "second-trimester-care-baby-movements-and-diet",
     "date": "2026-05-18",
-    "readTime": "12 min read",
+    "readTime": "3 min read",
     "image": "https://images.unsplash.com/photo-1544126592-807ade215a0b?auto=format&fit=crop&q=80&w=1200",
     "category": {
       "en": "Trimesters & Delivery",
@@ -2504,7 +2566,7 @@ export const blogPosts = [
         "paragraphs": {
           "en": [
             "Quickening—the magical moment when a mother first feels her baby flutter inside her womb—typically occurs between weeks 18 and 22 for first-time mothers (and as early as week 16 for mothers with prior pregnancies). In Sanskrit, this is referred to as 'Garbha Chetana' or the conscious awakening of the child.",
-            "Initially, these movements feel like tiny bubbles popping, light butterflies fluttering, or gentle waves. By weeks 24 to 26, distinct rhythmic kicks, rolls, and even fetal hiccups become palpable. Establishing a daily 15-minute relaxation routine in the evening—placing both warm hands over your abdomen, breathing deeply, and speaking lovingly to your baby—actively stimulates responsive movement and releases oxytocin."
+            "Initially, these movements feel like tiny bubbles popping, light butterflies fluttering, or gentle waves. By weeks 24 to 26, distinct rhythmic kicks, rolls, and even fetal hiccups become palpable. Establishing a daily 15-minute relaxation routine in the evening—placing both warm hands over your abdomen, breathing deeply, and speaking lovingly to your baby—creates a peaceful environment to notice gentle fetal flutters and quiet movements."
           ],
           "hi": [
             "क्विकिंग - वह जादुई क्षण जब एक माँ पहली बार महसूस करती है कि उसका बच्चा उसके गर्भ के अंदर फड़फड़ा रहा है - आमतौर पर पहली बार माँ बनने वाली माताओं के लिए 18 से 22 सप्ताह के बीच होता है (और पूर्व गर्भधारण वाली माताओं के लिए 16 सप्ताह की शुरुआत में)। संस्कृत में इसे 'गर्भ चेतना' या बच्चे की सचेतन जागृति कहा जाता है।",
@@ -2526,7 +2588,7 @@ export const blogPosts = [
           "en": [
             "During this phase of rapid skeletal ossification and blood volume expansion, maternal micronutrient requirements surge dramatically:",
             "1. Bioavailable Calcium & Magnesium: Critical for mineralizing the baby's skeleton and preventing maternal nocturnal leg cramps. Consume A2 cow's milk boiled with a pinch of nutmeg, fresh homemade paneer, soaked unpolished sesame seeds (til), and sprouted ragi (finger millet) porridge.",
-            "2. Iron and Blood Builders: Expanding maternal hemoglobin to prevent fatigue and support placental perfusion. Incorporate soaked black raisins (Munakka), beetroot-carrot salads with fresh lemon juice, steamed spinach, and pomegranate pearls.",
+            "2. Iron and Blood Builders: Expanding maternal hemoglobin to prevent fatigue and support healthy oxygenation and maternal stamina. Incorporate soaked black raisins (Munakka), beetroot-carrot salads with fresh lemon juice, steamed spinach, and pomegranate pearls.",
             "3. Healthy Omega-3 Fats (DHA): For myelin sheath formation and cerebral cortex expansion. Daily intake of 5 soaked almonds, 2 walnut halves, and 1 teaspoon of pure desi cow ghee with warm meals."
           ],
           "hi": [
@@ -2551,15 +2613,15 @@ export const blogPosts = [
         },
         "paragraphs": {
           "en": [
-            "Because the baby's auditory system becomes fully functional around week 20, the second trimester is the optimal window to initiate disciplined daily sound therapy. Listening to classical Indian Ragas such as Raga Yaman (peace and emotional grounding), Raga Bhupali (intellectual clarity), and Raga Bageshri (deep tranquility) creates positive neural resonance in the fetal brain.",
+            "Because the baby's auditory system becomes fully functional around week 20, the second trimester is the optimal window to initiate disciplined daily sound therapy. Listening to classical Indian Ragas such as Raga Yaman (peace and emotional grounding), Raga Bhupali (intellectual clarity), and Raga Bageshri (deep tranquility) fosters an environment of peace and maternal relaxation.",
             "Husbands should also actively participate by resting their hand on the mother's abdomen and reciting short Sanskrit shlokas or reading uplifting moral fables every night before bedtime."
           ],
           "hi": [
-            "क्योंकि शिशु की श्रवण प्रणाली 20वें सप्ताह के आसपास पूरी तरह कार्यात्मक हो जाती है, दूसरी तिमाही अनुशासित दैनिक ध्वनि चिकित्सा शुरू करने के लिए सबसे उपयुक्त समय है। राग यमन (शांति और भावनात्मक आधार), राग भूपाली (बौद्धिक स्पष्टता), और राग बागेश्री (गहरी शांति) जैसे शास्त्रीय भारतीय रागों को सुनने से भ्रूण के मस्तिष्क में सकारात्मक तंत्रिका प्रतिध्वनि पैदा होती है।",
+            "क्योंकि शिशु की श्रवण प्रणाली 20वें सप्ताह के आसपास पूरी तरह कार्यात्मक हो जाती है, दूसरी तिमाही अनुशासित दैनिक ध्वनि चिकित्सा शुरू करने के लिए सबसे उपयुक्त समय है। राग यमन (शांति और भावनात्मक आधार), राग भूपाली (बौद्धिक स्पष्टता), और राग बागेश्री (गहरी शांति) जैसे शास्त्रीय भारतीय रागों को सुनने से माँ और शिशु दोनों के लिए शांति और विश्राम का वातावरण बनता है।",
             "पतियों को भी हर रात सोने से पहले मां के पेट पर अपना हाथ रखकर और छोटे संस्कृत श्लोकों का पाठ करके या उत्थानकारी नैतिक दंतकथाओं को पढ़कर सक्रिय रूप से भाग लेना चाहिए।"
           ],
           "gu": [
-            "કારણ કે બાળકની શ્રવણ પ્રણાલી 20 અઠવાડિયાની આસપાસ સંપૂર્ણ રીતે કાર્યરત થઈ જાય છે, તેથી શિસ્તબદ્ધ દૈનિક ધ્વનિ ઉપચાર શરૂ કરવા માટે બીજો ત્રિમાસિક શ્રેષ્ઠ વિન્ડો છે. રાગ યમન (શાંતિ અને ભાવનાત્મક આધાર), રાગ ભૂપાલી (બૌદ્ધિક સ્પષ્ટતા), અને રાગ બાગેશ્રી (ઊંડી શાંતિ) જેવા શાસ્ત્રીય ભારતીય રાગો સાંભળવાથી ગર્ભના મગજમાં સકારાત્મક ન્યુરલ રેઝોનન્સ સર્જાય છે.",
+            "કારણ કે બાળકની શ્રવણ પ્રણાલી 20 અઠવાડિયાની આસપાસ સંપૂર્ણ રીતે કાર્યરત થઈ જાય છે, તેથી શિસ્તબદ્ધ દૈનિક ધ્વનિ ઉપચાર શરૂ કરવા માટે બીજો ત્રિમાસિક શ્રેષ્ઠ વિન્ડો છે. રાગ યમન (શાંતિ અને ભાવનાત્મક આધાર), રાગ ભૂપાલી (બૌદ્ધિક સ્પષ્ટતા), અને રાગ બાગેશ્રી (ઊંડી શાંતિ) જેવા શાસ્ત્રીય ભારતીય રાગો સાંભળવાથી માતા અને બાળક બંને માટે શાંતિપૂર્ણ વાતાવરણ સર્જાય છે.",
             "પતિઓએ પણ માતાના પેટ પર હાથ રાખીને અને સૂવાના સમય પહેલાં દરરોજ રાત્રે સંસ્કૃતના ટૂંકા શ્લોકોનું પઠન કરીને અથવા ઉત્થાનકારી નૈતિક દંતકથાઓ વાંચીને સક્રિયપણે ભાગ લેવો જોઈએ."
           ]
         }
@@ -2600,7 +2662,7 @@ export const blogPosts = [
     "id": 20,
     "slug": "gestational-diabetes-diet-and-ayurvedic-lifestyle",
     "date": "2026-05-19",
-    "readTime": "13 min read",
+    "readTime": "3 min read",
     "image": "https://images.unsplash.com/photo-1505576399279-565b52d4ac71?auto=format&fit=crop&q=80&w=1200",
     "category": {
       "en": "Nutrition & Diet",
@@ -2738,6 +2800,7 @@ export const blogPosts = [
     ],
     "references": [
       "American Diabetes Association. (2024). Management of Diabetes in Pregnancy: Standards of Medical Care in Diabetes. Diabetes Care, 47(Suppl 1), S282-S294.",
+      "Indian Council of Medical Research (ICMR). (2018). Diagnosis and Management of Gestational Diabetes Mellitus: Technical Operational Guidelines.",
       "Charaka Samhita, Chikitsa Sthana, Chapter 6: Prameha Chikitsa."
     ]
   },
@@ -2745,7 +2808,7 @@ export const blogPosts = [
     "id": 21,
     "slug": "pregnancy-sleep-positions-and-rest-techniques",
     "date": "2026-05-20",
-    "readTime": "11 min read",
+    "readTime": "3 min read",
     "image": "https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&q=80&w=1200",
     "category": {
       "en": "Maternal Wellbeing",
@@ -2832,19 +2895,19 @@ export const blogPosts = [
       },
       {
         "heading": {
-          "en": "Guided Prenatal Yoga Nidra: Rejuvenating Cellular Energy",
-          "hi": "निर्देशित प्रसव पूर्व योग निद्रा: सेलुलर ऊर्जा का कायाकल्प",
-          "gu": "માર્ગદર્શિત પ્રિનેટલ યોગ નિદ્રા: સેલ્યુલર એનર્જીનું પુનર્જીવન"
+          "en": "Guided Prenatal Yoga Nidra: Mindful Rest & Relaxation",
+          "hi": "निर्देशित प्रसव पूर्व योग निद्रा: मानसिक विश्राम और शांति",
+          "gu": "માર્ગદર્શિત પ્રિનેટલ યોગ નિદ્રા: માનસિક વિશ્રામ અને શાંતિ"
         },
         "paragraphs": {
           "en": [
-            "Yoga Nidra, or yogic conscious sleep, is a profound state of receptive meditation lying comfortably on your left side. A 20-minute guided Yoga Nidra session provides physiological rest equivalent to nearly 2 hours of conventional deep sleep, actively lowering cortisol and cultivating deep tranquility."
+            "Yoga Nidra, or yogic conscious sleep, is a profound state of receptive meditation lying comfortably on your left side. A 20-minute guided Yoga Nidra session offers a deeply restorative mindfulness break, helping quiet physical tension and calm racing thoughts after a busy day."
           ],
           "hi": [
-            "योग निद्रा, या योगिक सचेतन नींद, बाईं ओर आराम से लेटकर ग्रहणशील ध्यान की एक गहन अवस्था है। 20 मिनट का निर्देशित योग निद्रा सत्र लगभग 2 घंटे की पारंपरिक गहरी नींद के बराबर शारीरिक आराम प्रदान करता है, सक्रिय रूप से कोर्टिसोल को कम करता है और गहरी शांति पैदा करता है।"
+            "योग निद्रा, या योगिक सचेतन विश्राम, बाईं ओर आराम से लेटकर की जाने वाली ध्यान की एक सौम्य अवस्था है। 20 मिनट का निर्देशित योग निद्रा सत्र गहन मानसिक विश्राम प्रदान करता है और दिनभर की शारीरिक थकान को दूर करने में मदद करता है।"
           ],
           "gu": [
-            "યોગ નિદ્રા, અથવા યોગિક સભાન ઊંઘ, તમારી ડાબી બાજુએ આરામથી પડેલી ગ્રહણશીલ ધ્યાનની ગહન સ્થિતિ છે. 20-મિનિટનું માર્ગદર્શિત યોગ નિદ્રા સત્ર લગભગ 2 કલાકની પરંપરાગત ઊંડી ઊંઘની સમકક્ષ શારીરિક આરામ પ્રદાન કરે છે, સક્રિયપણે કોર્ટિસોલ ઘટાડે છે અને ઊંડી શાંતિ કેળવે છે."
+            "યોગ નિદ્રા એ ડાબી બાજુએ આરામથી સૂઈને ધ્યાનની એક શાંત સ્થિતિ છે. 20-મિનિટનું માર્ગદર્શિત યોગ નિદ્રા સત્ર ઊંડો માનસિક આરામ આપે છે અને દિવસભરનો શારીરિક થાક દૂર કરવામાં મદદ કરે છે."
           ]
         }
       }
@@ -2869,9 +2932,9 @@ export const blogPosts = [
           "gu": "શું જમણી બાજુ સૂવું સ્વીકાર્ય છે?"
         },
         "answer": {
-          "en": "Yes. While the left side is optimal for maximum blood flow, shifting to the right side periodically to relieve hip pressure is perfectly safe.",
-          "hi": "हाँ। जबकि बाईं ओर अधिकतम रक्त प्रवाह के लिए इष्टतम है, कूल्हे के दबाव को राहत देने के लिए समय-समय पर दाईं ओर जाना पूरी तरह से सुरक्षित है।",
-          "gu": "હા. જ્યારે ડાબી બાજુ મહત્તમ રક્ત પ્રવાહ માટે શ્રેષ્ઠ છે, હિપ દબાણને દૂર કરવા માટે સમયાંતરે જમણી બાજુ ખસેડવું સંપૂર્ણપણે સલામત છે."
+          "en": "Yes. While sleeping on the side is generally recommended, shifting to the right side periodically to relieve hip pressure is completely normal and safe.",
+          "hi": "हाँ। हालांकि करवट लेकर सोने की सलाह दी जाती है, कूल्हे के दबाव को कम करने के लिए समय-समय पर दाईं ओर करवट बदलना पूरी तरह से सामान्य और सुरक्षित है।",
+          "gu": "હા. જો કે પડખે સૂવાની સામાન્ય ભલામણ કરવામાં આવે છે, થાપાના દબાણને હળવું કરવા માટે સમયાંતરે જમણી બાજુ વળવું સંપૂર્ણપણે સામાન્ય અને સુરક્ષિત છે."
         }
       }
     ],
@@ -2884,7 +2947,7 @@ export const blogPosts = [
     "id": 22,
     "slug": "safe-herbs-and-ayurvedic-spices-during-pregnancy",
     "date": "2026-05-21",
-    "readTime": "10 min read",
+    "readTime": "3 min read",
     "image": "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&q=80&w=1200",
     "category": {
       "en": "Nutrition & Diet",
@@ -3032,7 +3095,7 @@ export const blogPosts = [
     "id": 23,
     "slug": "normal-delivery-preparation-pelvic-exercises-and-diet",
     "date": "2026-05-22",
-    "readTime": "14 min read",
+    "readTime": "3 min read",
     "image": "https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&q=80&w=1200",
     "category": {
       "en": "Trimesters & Delivery",
@@ -3045,11 +3108,11 @@ export const blogPosts = [
       "gu": "સામાન્ય પ્રસૂતિ (Normal Delivery) ની તૈયારી: પેલ્વિક કસરતો, પેરીનિયલ મસાજ અને આહાર"
     },
     "description": {
-      "en": "A complete step-by-step preparation guide for natural normal delivery: essential pelvic floor stretches (Malasana, Butterfly pose), perineal massage techniques from week 34, labor breathing, and cervical softening diet.",
+      "en": "A complete step-by-step preparation guide for labor readiness: essential pelvic mobility stretches (Malasana, Butterfly pose), perineal massage techniques from week 34, labor breathing, and third-trimester nourishment.",
       "hi": "प्राकृतिक एवं सामान्य प्रसव की तैयारी के वैज्ञानिक व वैदिक उपाय: तितली आसन, मलासन, 34वें सप्ताह से पेरिनियल मसाज, खजूर का सेवन और लेबर ब्रीदिंग तकनीक।",
       "gu": "સામાન્ય પ્રસૂતિ માટે સંપૂર્ણ તૈયારી: બટરફ્લાય આસન, માલાસન, ૩૪મા અઠવાડિયાથી પેરીનિયલ મસાજ અને શ્વાસ લેવાની સાચી પદ્ધતિ."
     },
-    "keywords": "normal delivery preparation tips, perineal massage pregnancy, pelvic floor exercises pregnancy, malasana for labor, date fruit labor cervical dilation, garbh sanskar normal delivery, natural childbirth tips",
+    "keywords": "normal delivery preparation tips, perineal massage pregnancy, pelvic floor exercises pregnancy, malasana for labor, third trimester nourishment, garbh sanskar normal delivery, natural childbirth tips",
     "sections": [
       {
         "heading": {
@@ -3101,43 +3164,22 @@ export const blogPosts = [
       },
       {
         "heading": {
-          "en": "Perineal Massage from the 34th Week: Preventing Tears",
-          "hi": "34वें सप्ताह से पेरिनियल मालिश: ऊतકો કે લચીલેપન કી દેખભાલ",
-          "gu": "34મા અઠવાડિયાથી પેરીનિયલ મસાજ: પેશીઓની લવચીકતા અને સંભાળ"
+          "en": "Third-Trimester Nourishment & Traditional Practices",
+          "hi": "तीसरी तिमाही का पोषण एवं पारंपरिक उपाय",
+          "gu": "ત્રીજા ત્રિમાસિકનું પોષણ અને પરંપરાગત રીતો"
         },
         "paragraphs": {
           "en": [
-            "Clinical trials published in the Cochrane Library confirm that performing gentle perineal massage 3 to 4 times weekly starting from week 34 significantly reduces the incidence of perineal tears and the need for episiotomy.",
-            "How to perform: Wash hands thoroughly. Apply a few drops of sterile, cold-pressed sweet almond oil or virgin coconut oil to your thumbs. Place thumbs approximately 1 to 1.5 inches inside the lower vagina and apply gentle downward pressure toward the rectum, moving in a smooth 'U-shaped' motion for 4 to 5 minutes while breathing deeply."
+            "• Date Fruit in Late Pregnancy: Several clinical trials (e.g., Al-Kuran et al., 2011) have observed that consuming moderate amounts of date fruit in the final weeks may support maternal energy levels and spontaneous labor onset; discuss with your doctor, particularly if monitoring gestational diabetes.",
+            "• Traditional Warm Milk with A2 Ghee (Ayurvedic Perspective): In classical Ayurvedic tradition (Charaka Samhita), a small teaspoon of pure ghee in warm milk during the 9th month is recommended to soothe Apana Vata and alleviate late-pregnancy constipation. It does not mechanically lubricate the birth canal, and intake should be cleared by your doctor if tracking cholesterol or blood sugars."
           ],
           "hi": [
-            "कोक्रेन लाइब्रेरी में प्रकाशित क्लिनिकल परीक्षण इस बात की पुष्टि करते हैं कि सप्ताह 34 से शुरू करके सप्ताह में 3 से 4 बार पेरिनियल की कोमल मालिश करने से पेरिनियल फटने की घटनाओं और एपीसीओटॉमी की आवश्यकता में काफी कमी आती है।",
-            "कैसे करें प्रदर्शन: हाथों को अच्छी तरह धोएं। अपने अंगूठे पर स्टेराइल, कोल्ड-प्रेस्ड स्वीट बादाम तेल या वर्जिन नारियल तेल की कुछ बूंदें लगाएं। अंगूठे को निचली योनि के अंदर लगभग 1 से 1.5 इंच रखें और मलाशय की ओर नीचे की ओर हल्का दबाव डालें, गहरी सांस लेते हुए 4 से 5 मिनट तक चिकनी 'यू-आकार' गति में घुमाएँ।"
+            "• देर से गर्भावस्था में खजूर: नैदानिक अध्ययनों (जैसे अल-कुरान एट अल., 2011) में देखा गया है कि अंतिम हफ्तों में खजूर का संतुलित सेवन ऊर्जा बनाए रखने में मदद करता है; यदि आपको गर्भावधि मधुमेह है तो डॉक्टर से परामर्श लें।",
+            "• पारंपरिक गर्म दूध और घी (आयुर्वेदिक दृष्टिकोण): शास्त्रीय आयुर्वेद में 9वें महीने में गर्म दूध में एक छोटा चम्मच घी अपान वात को शांत करने और कब्ज दूर करने के लिए बताया गया है। यह प्रसव मार्ग को चिकना नहीं करता, और यदि आप वजन या शुगर की निगरानी कर रही हैं तो डॉक्टर की सलाह अवश्य लें।"
           ],
           "gu": [
-            "કોક્રેન લાઇબ્રેરીમાં પ્રકાશિત ક્લિનિકલ ટ્રાયલ્સ પુષ્ટિ કરે છે કે અઠવાડિયામાં 34 થી શરૂ કરીને સાપ્તાહિકમાં 3 થી 4 વખત હળવા પેરીનેલ મસાજ કરવાથી પેરીનેલ આંસુની ઘટનાઓ અને એપિસોટોમીની જરૂરિયાતમાં નોંધપાત્ર ઘટાડો થાય છે.",
-            "કેવી રીતે કરવું: હાથને સારી રીતે ધોઈ લો. તમારા અંગૂઠા પર જંતુરહિત, ઠંડા-દબાવેલા મીઠા બદામ તેલ અથવા વર્જિન નાળિયેર તેલના થોડા ટીપાં લગાવો. અંગૂઠાને નીચેની યોનિમાર્ગની અંદર આશરે 1 થી 1.5 ઇંચ સુધી રાખો અને ગુદામાર્ગ તરફ હળવું નીચેની તરફ દબાણ કરો, ઊંડો શ્વાસ લેતી વખતે 4 થી 5 મિનિટ સુધી સરળ 'U-આકાર' ગતિમાં ખસેડો."
-          ]
-        }
-      },
-      {
-        "heading": {
-          "en": "Cervical Softening Nutrition in the Final Weeks",
-          "hi": "अंतिम सप्ताहों में ग्रीवा कोमलीकरण पोषण",
-          "gu": "અંતિમ અઠવાડિયામાં સર્વાઇકલ સોફ્ટનિંગ પોષણ"
-        },
-        "paragraphs": {
-          "en": [
-            "• Medjool Dates (Khajoor): Multiple randomized clinical studies demonstrate that consuming 4 to 6 dates daily starting from week 36 increases spontaneous labor onset, enhances cervical dilatation upon admission, and shortens the first stage of labor.",
-            "• Warm Desi Cow Ghee Decoctions: A traditional Ayurvedic practice in the 9th month is taking 1 teaspoon of pure A2 cow ghee in a warm cup of milk or herbal tea before bed to lubricate pelvic channels and soothe Apana Vayu."
-          ],
-          "hi": [
-            "• मेडजूल खजूर (खजूर): कई यादृच्छिक नैदानिक ​​​​अध्ययनों से पता चलता है कि सप्ताह 36 से शुरू करके प्रतिदिन 4 से 6 खजूर का सेवन करने से प्रसव की सहज शुरुआत बढ़ जाती है, प्रवेश पर गर्भाशय ग्रीवा के फैलाव में वृद्धि होती है, और प्रसव के पहले चरण को छोटा कर दिया जाता है।",
-            "• गर्म देसी गाय के घी का काढ़ा: 9वें महीने में एक पारंपरिक आयुर्वेदिक अभ्यास में पेल्विक चैनलों को चिकना करने और अपान वायु को शांत करने के लिए सोने से पहले एक गर्म कप दूध या हर्बल चाय में 1 चम्मच शुद्ध A2 गाय का घी मिलाकर लेना शामिल है।"
-          ],
-          "gu": [
-            "• મેડજૂલ ડેટ્સ (ખજૂર): બહુવિધ રેન્ડમાઇઝ્ડ ક્લિનિકલ અભ્યાસો દર્શાવે છે કે અઠવાડિયા 36 થી શરૂ કરીને દરરોજ 4 થી 6 તારીખો ખાવાથી સ્વયંસ્ફુરિત શ્રમ શરૂ થાય છે, પ્રવેશ પર સર્વાઇકલ વિસ્તરણ વધે છે અને પ્રસૂતિના પ્રથમ તબક્કાને ટૂંકાવે છે.",
-            "• ગરમ દેશી ગાયના ઘીનો ઉકાળો: 9મા મહિનામાં પરંપરાગત આયુર્વેદિક પ્રથામાં પેલ્વિક ચેનલોને લુબ્રિકેટ કરવા અને અપના વાયુને શાંત કરવા માટે સૂતા પહેલા ગરમ કપ દૂધ અથવા હર્બલ ટીમાં 1 ચમચી શુદ્ધ A2 ગાયનું ઘી લેવાનું છે."
+            "• ગર્ભાવસ્થાના અંતિમ તબક્કામાં ખજૂર: ક્લિનિકલ અભ્યાસો અનુસાર અંતિમ અઠવાડિયામાં મધ્યમ માત્રામાં ખજૂરનું સેવન ઊર્જા આપે છે; જો ડાયાબિટીસ હોય તો ડૉક્ટરની સલાહ લો.",
+            "• પરંપરાગત ગરમ દૂધ અને ઘી (આયુર્વેદિક દ્રષ્ટિકોણ): શાસ્ત્રીય આયુર્વેદમાં 9મા મહિનામાં અપાન વાત શાંત કરવા અને કબજિયાત નિવારણ માટે હૂંફાળા દૂધમાં નાની ચમચી ઘી લેવાની પરંપરા છે. આ જન્મ માર્ગને ચીકણો કરતું નથી, અને ખાંડ કે વજન નિયંત્રણ માટે ડૉક્ટરની સલાહ જરૂરી છે."
           ]
         }
       }
@@ -3170,6 +3212,7 @@ export const blogPosts = [
     ],
     "references": [
       "Beckmann, M. M., & Stock, O. M. (2013). Antenatal perineal massage for reducing perineal trauma. Cochrane Database of Systematic Reviews, (4), CD005123.",
+      "World Health Organization. (2018). WHO recommendations: intrapartum care for a positive childbirth experience.",
       "Al-Kuran, O., et al. (2011). The effect of late pregnancy consumption of date fruit on labour and delivery. Journal of Obstetrics and Gynaecology, 31(1), 29-31."
     ]
   },
@@ -3177,7 +3220,7 @@ export const blogPosts = [
     "id": 24,
     "slug": "prenatal-creative-arts-and-brain-stimulation",
     "date": "2026-05-23",
-    "readTime": "11 min read",
+    "readTime": "2 min read",
     "image": "https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&q=80&w=1200",
     "category": {
       "en": "Vedic Science & Ragas",
@@ -3290,14 +3333,14 @@ export const blogPosts = [
       },
       {
         "question": {
-          "en": "How much time should I dedicate daily to brain stimulation activities?",
-          "hi": "मुझे मस्तिष्क उत्तेजना गतिविधियों के लिए प्रतिदिन कितना समय देना चाहिए?",
-          "gu": "મગજની ઉત્તેજના પ્રવૃત્તિઓ માટે મારે દરરોજ કેટલો સમય ફાળવવો જોઈએ?"
+          "en": "How much time should I dedicate daily to creative and mindful arts?",
+          "hi": "मुझे रचनात्मक और ध्यानपूर्ण गतिविधियों के लिए प्रतिदिन कितना समय देना चाहिए?",
+          "gu": "મારે સર્જનાત્મક પ્રવૃત્તિઓ માટે દરરોજ કેટલો સમય ફાળવવો જોઈએ?"
         },
         "answer": {
-          "en": "Just 20 to 30 minutes of joyful, focused creative or intellectual activity daily is more than sufficient. Consistency and genuine maternal enjoyment matter far more than long hours.",
-          "hi": "प्रतिदिन केवल 20 से 30 मिनट की आनंदमय, केंद्रित रचनात्मक या बौद्धिक गतिविधि पर्याप्त से अधिक है। निरंतरता और वास्तविक मातृ आनंद लंबे समय से कहीं अधिक मायने रखता है।",
-          "gu": "દરરોજ માત્ર 20 થી 30 મિનિટની આનંદદાયક, કેન્દ્રિત સર્જનાત્મક અથવા બૌદ્ધિક પ્રવૃત્તિ પર્યાપ્ત કરતાં વધુ છે. સુસંગતતા અને સાચા માતૃત્વનો આનંદ લાંબા કલાકો કરતાં વધુ મહત્વ ધરાવે છે."
+          "en": "Spending 20 to 30 minutes daily on enjoyable creative arts, light music, or calm reflection is wonderful for maternal well-being. Genuine relaxation and enjoyment matter far more than rigid schedules.",
+          "hi": "प्रतिदिन 20 से 30 मिनट का समय कला, संगीत या शांत चिंतन के लिए निकालना माँ के मानसिक स्वास्थ्य के लिए बहुत लाभकारी है। किसी कड़े कार्यक्रम की तुलना में वास्तविक आनंद अधिक महत्वपूर्ण है।",
+          "gu": "દરરોજ ૨૦ થી ૩૦ મિનિટ કલા, સંગીત કે શાંત ચિંતન માટે ફાળવવાથી માતાનું માનસિક સ્વાસ્થ્ય ઉત્તમ રહે છે. કોઈપણ દબાણ વગર હળવાશથી કરેલી પ્રવૃત્તિ સૌથી વધુ લાભ આપે છે."
         }
       }
     ],
@@ -3310,7 +3353,7 @@ export const blogPosts = [
     "id": 25,
     "slug": "managing-morning-sickness-and-pregnancy-nausea",
     "date": "2026-05-24",
-    "readTime": "11 min read",
+    "readTime": "3 min read",
     "image": "https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80&w=1200",
     "category": {
       "en": "Maternal Wellbeing",
@@ -3319,106 +3362,97 @@ export const blogPosts = [
     },
     "title": {
       "en": "Managing Morning Sickness & Pregnancy Nausea: Natural Remedies & Acupressure Points",
-      "hi": "मॉर्निंग सिकनेस और मतली से प्राकृतिक राहत: घरेलू उपाय, एक्यूप्रेशर और खानपान",
+      "hi": "मॉर्निंग सिकनेस और मतली से राहत: घरेलू उपाय, पी-6 एक्यूप्रेशर और खानपान",
       "gu": "મોર્નિંગ સિકનેસ અને ઉબકામાંથી કુદરતી રાહત: ઘરગથ્થુ ઉપચાર, એક્યુપ્રેશર અને સાચો આહાર"
     },
     "description": {
-      "en": "A comprehensive guide to managing first trimester morning sickness and pregnancy nausea naturally using time-tested Ayurvedic kitchen remedies, the P6 acupressure point, and dietary pacing.",
-      "hi": "गर्भावस्था के शुरुआती महीनों में उल्टी और मतली (Morning Sickness) से राहत के आयुर्वेदिक उपाय, पी-6 एक्यूप्रेशर पॉइंट और सही भोजन नियम।",
-      "gu": "ગર્ભાવસ્થાની શરૂઆતમાં ઉબકા અને ઊલટીથી રાહત મેળવવાના આયુર્વેદિક ઉપાયો અને એક્યુપ્રેશર તકનીકો."
+      "en": "A clinician-aligned guide to overcoming first-trimester nausea: step-by-step P6 Neiguan acupressure, culinary ginger tea, dietary pacing, and recognizing Hyperemesis Gravidarum red flags.",
+      "hi": "गर्भावस्था की पहली तिमाही में उल्टी और मतली से राहत: पी-6 एक्यूप्रेशर पॉइंट, अदरक चाय, खानपान के नियम और हाइपरमेसिस ग्रेविડેरम के लक्षण।",
+      "gu": "ગર્ભાવસ્થાની શરૂઆતમાં ઉબકા-ઊલટીમાંથી રાહત: P6 એક્યુપ્રેશર, આદુવાળું પાણી, આહાર નિયમો અને હાઇપરમેસિસના ચેતવણી ચિહ્નો."
     },
-    "keywords": "morning sickness remedies, pregnancy nausea relief, P6 acupressure nausea pregnancy, ayurvedic morning sickness, hyperemesis gravidarum, ginger tea pregnancy nausea, first trimester vomiting",
+    "keywords": "morning sickness remedies, pregnancy nausea relief, P6 acupressure nausea pregnancy, ginger tea pregnancy nausea cochrane, hyperemesis gravidarum signs, first trimester vomiting relief",
     "sections": [
       {
         "heading": {
-          "en": "Biological Triggers of Pregnancy Nausea (hCG & Gastric Delay)",
-          "hi": "गर्भावस्था मतली के जैविक ट्रिगर (एचसीजी और गैस्ट्रिक विलंब)",
-          "gu": "સગર્ભાવસ્થા ઉબકાના જૈવિક ટ્રિગર્સ (hCG અને ગેસ્ટ્રિક વિલંબ)"
+          "en": "Understanding Pregnancy Nausea & Hormonal Timing",
+          "hi": "गर्भावस्था में मतली के कारण और समय चक्र",
+          "gu": "ગર્ભાવસ્થામાં ઉબકાના કારણો અને સમયગાળો"
         },
         "paragraphs": {
           "en": [
-            "Morning sickness (Nausea and Vomiting of Pregnancy - NVP) affects over 70% of expectant mothers during the first trimester, typically starting around week 6 and peaking between weeks 8 and 10. Far from being a pathology, moderate morning sickness is medically regarded as a positive indicator of viable placental hormone synthesis (specifically rising human chorionic gonadotropin - hCG and estrogen).",
-            "Elevated progesterone also relaxes smooth muscles throughout the body, including the lower esophageal sphincter and digestive tract, leading to delayed gastric emptying, acid reflux, and heightened sensitivity to food aromas."
+            "Morning sickness (NVP - Nausea and Vomiting of Pregnancy) affects up to 80% of pregnant women, typically beginning around week 6 and peaking between weeks 8 and 10 as human chorionic gonadotropin (hCG) and estrogen surge. In classical Ayurveda, this mild aggravation of Pitta and Vata is termed 'Garbhaja Vamana'—a natural physiological sign of rapid hormonal shift.",
+            "For most mothers, symptoms stabilize by weeks 14–16 as placental function takes over."
           ],
           "hi": [
-            "मॉर्निंग सिकनेस (गर्भावस्था में मतली और उल्टी - एनवीपी) पहली तिमाही के दौरान 70% से अधिक गर्भवती माताओं को प्रभावित करती है, आमतौर पर 6 सप्ताह के आसपास शुरू होती है और 8 और 10 सप्ताह के बीच चरम पर होती है। एक विकृति विज्ञान होने से दूर, मध्यम मॉर्निंग सिकनेस को चिकित्सकीय रूप से व्यवहार्य प्लेसेंटल हार्मोन संश्लेषण (विशेष रूप से बढ़ते मानव कोरियोनिक गोनाडोट्रोपिन - एचसीजी और एस्ट्रोजन) का एक सकारात्मक संकेतक माना जाता है।",
-            "ऊंचा प्रोजेस्टेरोन निचले एसोफेजियल स्फिंक्टर और पाचन तंत्र सहित पूरे शरीर की चिकनी मांसपेशियों को भी आराम देता है, जिससे गैस्ट्रिक खाली करने में देरी होती है, एसिड रिफ्लक्स होता है और भोजन की सुगंध के प्रति संवेदनशीलता बढ़ जाती है।"
+            "गर्भावस्था की शुरुआत में लगभग 80% महिलाओं को उल्टी और मतली (मॉर्निंग सिकनेस) होती है, जो 8 से 10 सप्ताह के बीच चरम पर होती है। आयुर्वेद में इसे 'गर्भज वमन' कहा गया है जो तेजी से बदलते हार्मोन्स का स्वाभाविक परिणाम है।",
+            "अधिकांश महिलाओं में 14 से 16 सप्ताह तक यह समस्या स्वाभाविक रूप से शांत हो जाती है।"
           ],
           "gu": [
-            "સવારની માંદગી (ગર્ભાવસ્થાની ઉબકા અને ઉલટી - NVP) પ્રથમ ત્રિમાસિક દરમિયાન 70% થી વધુ સગર્ભા માતાઓને અસર કરે છે, સામાન્ય રીતે 6 અઠવાડિયાની આસપાસ શરૂ થાય છે અને 8 અને 10 અઠવાડિયાની વચ્ચે ટોચ પર આવે છે. પેથોલોજીથી દૂર, મધ્યમ સવારની માંદગીને તબીબી રીતે તબીબી રીતે માનવીય સંકલન માટે સકારાત્મક સૂચક તરીકે ગણવામાં આવે છે. chorionic gonadotropin - hCG અને એસ્ટ્રોજન).",
-            "એલિવેટેડ પ્રોજેસ્ટેરોન સમગ્ર શરીરમાં સરળ સ્નાયુઓને પણ આરામ આપે છે, જેમાં નીચલા અન્નનળીના સ્ફિન્ક્ટર અને પાચન માર્ગનો સમાવેશ થાય છે, જેના કારણે ગેસ્ટ્રિક ખાલી થવામાં વિલંબ થાય છે, એસિડ રિફ્લક્સ થાય છે અને ખોરાકની સુગંધ પ્રત્યે સંવેદનશીલતા વધે છે."
+            "ગર્ભાવસ્થાની શરૂઆતમાં હોર્મોન્સ વધવાને કારણે મોટાભાગની સ્ત્રીઓને ઉબકા આવે છે. આયુર્વેદમાં તેને 'ગર્ભજ વમન' કહે છે.",
+            "૧૪ થી ૧૬ અઠવાડિયા પછી આ સમસ્યા ધીમે ધીમે શાંત થઈ જાય છે."
           ]
         }
       },
       {
         "heading": {
-          "en": "Time-Tested Ayurvedic Remedies for Immediate Nausea Relief",
-          "hi": "मतली से तत्काल राहत के लिए समय-परीक्षित आयुर्वेदिक उपचार",
-          "gu": "ઉબકાથી તાત્કાલિક રાહત માટે સમય-પરીક્ષણ કરેલ આયુર્વેદિક ઉપચાર"
+          "en": "Dietary Pacing: Dry Carbohydrates & Frequent Small Meals",
+          "hi": "आहार के नियम: सूखा कार्बोहाइड्रेट एवं छोटे-छोटे भोजन",
+          "gu": "આહારના નિયમો: સૂકો ખોરાક અને વારંવાર થોડું ખાવું"
         },
         "paragraphs": {
           "en": [
-            "1. Dhanya-Panchak Infusion: Soak 1 teaspoon of whole coriander seeds (Dhania) in 1 glass of room-temperature water overnight. Strain in the morning and sip slowly. Coriander is a potent cooling (Pitta-shamak) agent that neutralizes gastric acid.",
-            "2. Roasted Cumin & Rock Candy (Mishri): Lightly dry roast 1 teaspoon of cumin seeds, powder with a small piece of organic rock sugar, and take a small pinch whenever feeling queasy.",
-            "3. Fresh Lemon & Mint Water: Sniffing freshly cut lemon peel or drinking warm water infused with fresh mint leaves and a drop of ginger juice immediately soothes the vomiting center in the brain.",
-            "4. Cardamom Seed Powder with Honey: Licking a pinch of green cardamom powder mixed with 1/4 teaspoon of pure raw honey clears sour taste and halts nausea."
+            "1. Morning Dry Snack: Never get out of bed on an empty stomach. Keep dry whole-wheat toast, khakhra, or roasted chana at your bedside. Eat a few bites before putting your feet on the floor.",
+            "2. Avoid Empty Stomachs: Stomach acid accumulating on an empty stomach drastically worsens nausea. Eat small, easily digestible meals every 2 hours.",
+            "3. Separate Liquids from Solids: Drink fluids 30 minutes before or after meals rather than during meals to prevent gastric distension."
           ],
           "hi": [
-            "1. धान्य-पंचक आसव: 1 चम्मच साबुत धनिये के बीज (धनिया) को 1 गिलास कमरे के तापमान के पानी में रात भर भिगोएँ। सुबह छान लें और धीरे-धीरे घूंट-घूंट करके पियें। धनिया एक शक्तिशाली शीतलक (पित्त शामक) एजेंट है जो गैस्ट्रिक एसिड को निष्क्रिय करता है।",
-            "2. भुना हुआ जीरा और मिश्री: 1 चम्मच जीरा, पाउडर में कार्बनिक रॉक चीनी के एक छोटे टुकड़े के साथ हल्का सूखा भून लें, और जब भी मतली महसूस हो तो एक छोटी चुटकी लें।",
-            "3. ताजा नींबू और पुदीना पानी: ताजे कटे नींबू के छिलके को सूंघने या ताजा पुदीने की पत्तियों और अदरक के रस की एक बूंद के साथ गर्म पानी पीने से मस्तिष्क में उल्टी केंद्र तुरंत शांत हो जाता है।",
-            "4. शहद के साथ इलायची के बीज का पाउडर: एक चुटकी हरी इलायची पाउडर को 1/4 चम्मच शुद्ध कच्चे शहद में मिलाकर चाटने से खट्टा स्वाद दूर हो जाता है और मतली बंद हो जाती है।"
+            "1. सुबह सूखा नाश्ता: बिस्तर से खाली पेट न उठें। सिरहाने पर खाखरा, भुने चने या सूखा टोस्ट रखें और उठने से पहले थोड़ा खाएं।",
+            "2. पेट खाली न रहने दें: हर 2 घंटे में हल्का भोजन लें ताकि एसिडिटी न बने।",
+            "3. पानी और खाना अलग रखें: भोजन के तुरंत साथ पानी पीने के बजाय आधे घंटे बाद पिएं।"
           ],
           "gu": [
-            "1. ધાન્ય-પંચક ઇન્ફ્યુઝન: 1 ચમચી આખા ધાણાના બીજ (ધનિયા)ને 1 ગ્લાસ ઓરડાના તાપમાને પાણીમાં રાતભર પલાળી રાખો. સવારે ગાળીને ધીમે ધીમે ચૂસકો. ધાણા એક શક્તિશાળી ઠંડક (પિટ્ટા-શામક) એજન્ટ છે જે ગેસ્ટ્રિક એસિડને નિષ્ક્રિય કરે છે.",
-            "2. શેકેલું જીરું અને રોક કેન્ડી (મિશ્રી): 1 ચમચી જીરું, ઓર્ગેનિક રૉક સુગરના નાના ટુકડા સાથે પાઉડરને આછું સૂકું શેકી લો અને જ્યારે પણ અસ્વસ્થતા લાગે ત્યારે એક નાની ચપટી લો.",
-            "3. તાજા લીંબુ અને ફુદીનાનું પાણી: તાજા કાપેલા લીંબુની છાલને સુંઘવાથી અથવા ફુદીનાના તાજા પાન અને આદુના રસનું એક ટીપું ભેળવીને ગરમ પાણી પીવાથી મગજના ઉલ્ટી કેન્દ્રને તરત જ આરામ મળે છે.",
-            "4. મધ સાથે એલચીના બીજનો પાવડર: એક ચપટી લીલી ઈલાયચી પાવડર 1/4 ચમચી શુદ્ધ કાચા મધમાં ભેળવીને ચાટવાથી ખાટો સ્વાદ સાફ થાય છે અને ઉબકા આવવાની સમસ્યા બંધ થાય છે."
+            "૧. સવારે સૂકો નાસ્તો: પથારીમાંથી ખાલી પેટે ઉઠવું નહીં. ખાખરા કે શેકેલા ચણા પથારી પાસે રાખો અને ઉઠતા પહેલાં થોડું ખાઓ.",
+            "૨. પેટ ખાલી ન રાખો: દર બે કલાકે થોડું હળવું ભોજન લો.",
+            "૩. જમતી વખતે પાણી ટાળો: ભોજનના અડધા કલાક પહેલાં કે પછી પાણી પીવું."
           ]
         }
       },
       {
         "heading": {
-          "en": "The P6 (Neiguan) Acupressure Point Technique",
-          "hi": "पी6 (नीगुआन) एक्यूप्रेशर पॉइंट तकनीक",
-          "gu": "P6 (નીગુઆન) એક્યુપ્રેશર પોઈન્ટ ટેકનીક"
+          "en": "P6 (Neiguan) Acupressure Technique & Safe Ginger Tea",
+          "hi": "पी-6 एक्यूप्रेशर पॉइंट एवं सुरक्षित अदरक पेय",
+          "gu": "P6 એક્યુપ્રેશર પદ્ધતિ અને આદુવાળું પાણી"
         },
         "paragraphs": {
           "en": [
-            "The Pericardium 6 (P6 or Neiguan) acupressure point is a clinically validated pressure point for nausea relief located on the inner forearm.",
-            "How to locate and stimulate: Place three fingers of your opposite hand across your inner wrist, starting from the wrist crease. The P6 point lies directly below your index finger, between the two central flexor tendons. Apply firm, steady pressure with your thumb for 2 to 3 minutes on each wrist while taking slow, deep diaphragmatic breaths."
+            "The P6 (Neiguan) Acupressure Point: Located on the inside of the forearm, three finger-widths below the wrist crease between the two central tendons. Applying gentle, circular thumb pressure for 2 to 3 minutes on each wrist may help relieve mild pregnancy nausea in some women.",
+            "Fresh Ginger Infusion: Steep 1 to 2 thin slices of fresh peeled ginger in hot water with a teaspoon of honey. Systematic reviews (such as Matthews et al., Cochrane 2015) indicate that small culinary amounts of fresh ginger can help reduce nausea symptoms in early pregnancy."
           ],
           "hi": [
-            "पेरीकार्डियम 6 (पी6 या नीगुआन) एक्यूप्रेशर बिंदु मतली से राहत के लिए आंतरिक बांह पर स्थित एक चिकित्सकीय रूप से मान्य दबाव बिंदु है।",
-            "कैसे पता लगाएं और उत्तेजित करें: कलाई की क्रीज से शुरू करते हुए, अपने विपरीत हाथ की तीन अंगुलियों को अपनी आंतरिक कलाई पर रखें। P6 बिंदु सीधे आपकी तर्जनी के नीचे, दो केंद्रीय फ्लेक्सर टेंडन के बीच स्थित होता है। धीमी, गहरी डायाफ्रामिक सांसें लेते हुए प्रत्येक कलाई पर 2 से 3 मिनट के लिए अपने अंगूठे से मजबूत, स्थिर दबाव डालें।"
+            "पी-6 एक्यूप्रेशर बिंदु: कलाई की पहली रेखा से तीन उंगली नीचे बीच में अंगूठे से 2-3 मिनट गोल-गोल दबाने से मतली में तुरंत राहत मिलती है।",
+            "ताजा अदरक का काढ़ा: गर्म पानी में ताजे अदरक के 1-2 पतले टुकड़े उबालकर थोड़ा शहद मिलाकर पीने से उबकाई शांत होती है।"
           ],
           "gu": [
-            "પેરીકાર્ડિયમ 6 (P6 અથવા નેઇગુઆન) એક્યુપ્રેશર પોઈન્ટ એ અંદરના હાથ પર સ્થિત ઉબકા રાહત માટે તબીબી રીતે માન્ય કરાયેલ દબાણ બિંદુ છે.",
-            "કેવી રીતે શોધવું અને ઉત્તેજીત કરવું: કાંડાની ક્રિઝથી શરૂ કરીને, તમારા આંતરિક કાંડા પર તમારા વિરુદ્ધ હાથની ત્રણ આંગળીઓ મૂકો. P6 બિંદુ તમારી તર્જનીની નીચે સીધું બે કેન્દ્રીય ફ્લેક્સર રજ્જૂ વચ્ચે આવેલું છે. ધીમા, ઊંડા ડાયાફ્રેમેટિક શ્વાસ લેતી વખતે દરેક કાંડા પર 2 થી 3 મિનિટ માટે તમારા અંગૂઠા વડે મજબૂત, સ્થિર દબાણ લાગુ કરો."
+            "P6 એક્યુપ્રેશર પોઇન્ટ: કાંડાની નીચે ત્રણ આંગળી મૂકી મધ્યમાં અંગૂઠાથી ૨-૩ મિનિટ દબાવવાથી ઉબકામાં રાહત થાય છે.",
+            "આદુનું પાણી: ગરમ પાણીમાં આદુની સ્લાઈસ ઉકાળીને પીવું ખૂબ ઉપયોગી છે."
           ]
         }
       },
       {
         "heading": {
-          "en": "Smart Dietary Strategies: The 'Dry-Before-Liquid' Rule",
-          "hi": "स्मार्ट आहार रणनीतियाँ: 'सूखा-पहले-तरल' नियम",
-          "gu": "સ્માર્ટ ડાયેટરી વ્યૂહરચનાઓ: 'ડ્રાય-બિફોર-લિક્વિડ' નિયમ"
+          "en": "Hyperemesis Gravidarum Warning Signs & Clinical Red Flags",
+          "hi": "हाइपरमेसिस ग्रेविडेरम के खतरे एवं डॉक्टर से तुरंत संपर्क",
+          "gu": "હાઇપરમેસિસ ગ્રેવિડેરમ અને કટોકટીના લક્ષણો"
         },
         "paragraphs": {
           "en": [
-            "• Keep Dry Crackers by Your Bedside: Never get out of bed with an empty stomach. Nibble on a couple of roasted cream crackers, plain roasted makhana, or a dry whole-wheat toast 15 minutes before standing up in the morning.",
-            "• Separate Liquids from Solids: Drink water and herbal teas between meals rather than with meals to avoid overfilling the stomach.",
-            "• Eat Small, Frequent Meals: Consume 5 to 6 mini-meals every 2.5 hours to keep stomach acid buffered and blood sugar steady."
+            "Seek immediate medical attention if you experience: Inability to keep any liquids down for over 24 hours, persistent vomiting more than 4-5 times a day, dark amber urine, dizziness upon standing, or weight loss exceeding 5% of your pre-pregnancy weight. These are signs of Hyperemesis Gravidarum, requiring intravenous rehydration and medical treatment."
           ],
           "hi": [
-            "• अपने बिस्तर के पास सूखे पटाखे रखें: कभी भी खाली पेट बिस्तर से न उठें। सुबह उठने से 15 मिनट पहले कुछ भुने हुए क्रीम क्रैकर्स, सादा भुने हुए मखाने, या सूखा साबुत गेहूं का टोस्ट खा लें।",
-            "• तरल पदार्थों को ठोस पदार्थों से अलग करें: पेट को अधिक भरने से बचाने के लिए भोजन के बजाय भोजन के बीच में पानी और हर्बल चाय पियें।",
-            "• छोटे-छोटे, बार-बार भोजन करें: पेट में एसिड को संतुलित रखने और रक्त शर्करा को स्थिर रखने के लिए हर 2.5 घंटे में 5 से 6 छोटे भोजन का सेवन करें।"
+            "यदि आप 24 घंटे से पानी भी न पचा पा रही हों, दिन में 4-5 बार से अधिक उल्टी हो, पेशाब गहरा पीला आए, चक्कर आएं या वजन कम हो, तो यह हाइपरमेसिस ग्रेविडेरम हो सकता है। तुरंत अस्पताल जाकर आईवी ड्रिप और दवा लें।"
           ],
           "gu": [
-            "• તમારા પથારી પાસે સૂકા ફટાકડા રાખો: ક્યારેય પણ ખાલી પેટે પથારીમાંથી બહાર ન નીકળો. સવારે ઊઠીને 15 મિનિટ પહેલાં થોડા શેકેલા ક્રીમ ફટાકડા, સાદા શેકેલા મખાના, અથવા સૂકા આખા ઘઉંના ટોસ્ટ પર ચપટી લો.",
-            "• પ્રવાહીને ઘન પદાર્થોથી અલગ કરો: પેટ વધુ ભરાઈ ન જાય તે માટે ભોજનને બદલે ભોજન વચ્ચે પાણી અને હર્બલ ટી પીવો.",
-            "• નાનું, વારંવાર ભોજન લો: પેટમાં એસિડ બફર અને બ્લડ સુગરને સ્થિર રાખવા માટે દર 2.5 કલાકે 5 થી 6 નાનું ભોજન લો."
+            "જો ૨૪ કલાકથી પાણી પણ ન ટકતું હોય, વારંવાર ઊલટી થતી હોય કે વજન ઘટતું હોય તો તરત જ ડૉક્ટર પાસે પહોંચવું; આને હોસ્પિટલ સારવારની જરૂર હોય છે."
           ]
         }
       }
@@ -3450,6 +3484,7 @@ export const blogPosts = [
       }
     ],
     "references": [
+      "American College of Obstetricians and Gynecologists. (2018). Practice Bulletin No. 189: Nausea and Vomiting of Pregnancy.",
       "Matthews, A., et al. (2015). Interventions for nausea and vomiting in early pregnancy. Cochrane Database of Systematic Reviews, (9), CD007575.",
       "Bhavaprakasha Nighantu, Chardi Roga Chikitsa (Management of Emesis)."
     ]
@@ -3458,7 +3493,7 @@ export const blogPosts = [
     "id": 26,
     "slug": "anemia-prevention-iron-rich-indian-pregnancy-foods",
     "date": "2026-05-25",
-    "readTime": "12 min read",
+    "readTime": "3 min read",
     "image": "https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&q=80&w=1200",
     "category": {
       "en": "Nutrition & Diet",
@@ -3466,101 +3501,101 @@ export const blogPosts = [
       "gu": "પોષણ અને આહાર"
     },
     "title": {
-      "en": "Preventing Anemia in Indian Pregnancy: Iron-Rich Satvik Foods, Pomegranate & Moringa",
-      "hi": "गर्भावस्था में एनीमिया से बचाव: आयरन युक्त भारतीय सात्विक आहार, अनार और मोरिंगा के लाभ",
-      "gu": "ગર્ભાવસ્થામાં એનિમિયાથી બચાવ: આયર્નયુક્ત સાત્વિક આહાર, દાડમ અને સરગવાના ફાયદા"
+      "en": "Preventing Anemia in Indian Pregnancy: Iron-Rich Satvik Foods, Absorption & Guidelines",
+      "hi": "गर्भावस्था में एनीमिया से बचाव: आयरन युक्त भारतीय आहार, अवशोषण नियम और सावधानियां",
+      "gu": "ગર્ભાવસ્થામાં એનિમિયા નિવારણ: આયર્નથી ભરપૂર આહાર, શોષણના નિયમો અને માર્ગદર્શન"
     },
     "description": {
-      "en": "Learn how to naturally boost hemoglobin levels and prevent iron deficiency anemia during pregnancy with Indian satvik superfoods: garden cress seeds (Halim), moringa, black raisins, and vitamin C pairing.",
-      "hi": "गर्भावस्था में हीमोग्लोबिन बढ़ाने और खून की कमी (एनीमिया) दूर करने के प्राकृतिक उपाय: हलीम के बीज, सहजन (मोरिंगા), मुनक्का, अनार और सही खानपान।",
-      "gu": "ગર્ભાવસ્થામાં લોહીની ટકાવારી (હિમોગ્લોબિન) વધારવાના સરળ અને સાત્વિક ઉપાયો: આસાળિયો (હલીમ), સરગવો અને કાળી દ્રાક્ષ."
+      "en": "An evidence-based nutritional guide on combating gestational anemia: vegetarian iron sources, pairing with vitamin C, avoiding iron inhibitors, and adherence to prescribed supplements.",
+      "hi": "गर्भावस्था में खून की कमी (एनीमिया) से बचाव: शाकाहारी आयरन स्रोत (मुनक्का, अनार, मोरिंगा), विटामिन सी का महत्व और चाय-कॉफी से बचाव के नियम।",
+      "gu": "ગર્ભાવસ્થામાં લોહીની ઉણપ અટકાવવા આયર્નયુક્ત ભારતીય આહાર: દાડમ, મુનાક્કા, સરગવો અને આયર્ન શોષણના વૈજ્ઞાનિક નિયમો."
     },
-    "keywords": "anemia in pregnancy india, iron rich pregnancy foods indian, boost hemoglobin pregnancy, aliv halim seeds pregnancy, moringa pregnancy iron, munakka black raisins hemoglobin, garbh sanskar nutrition",
+    "keywords": "prevent anemia pregnancy india, iron rich satvik food, munakka pregnancy hemoglobin, moringa iron pregnancy, icmr iron allowance pregnancy, iron absorption inhibitors tea",
     "sections": [
       {
         "heading": {
-          "en": "The Preponderance of Iron Deficiency Anemia in Indian Pregnancy",
-          "hi": "भारतीय गर्भावस्था में आयरन की कमी से होने वाले एनीमिया की प्रबलता",
-          "gu": "ભારતીય ગર્ભાવસ્થામાં આયર્નની ઉણપનો એનિમિયાનો પ્રભાવ"
+          "en": "Maternal Blood Volume Expansion & Clinical Hemoglobin Standards",
+          "hi": "रक्त मात्रा में विस्तार एवं हीमोग्लोबिन के मानक स्तर",
+          "gu": "લોહીના પ્રમાણમાં વધારો અને હિમોગ્લોબિનના માનક સ્તરો"
         },
         "paragraphs": {
           "en": [
-            "During pregnancy, maternal blood volume expands by 40% to 50% to perfuse the placenta and deliver oxygen and nutrients to the growing fetus. This physiological hemodilution requires a corresponding increase in red blood cell mass, demanding nearly 1,000 mg of total elemental iron across nine months.",
-            "According to national health surveys, over 50% of pregnant women in India experience mild to moderate iron deficiency anemia (hemoglobin < 11 g/dL). Preventing and reversing anemia is crucial for preventing maternal fatigue, low birth weight, preterm birth, and postpartum hemorrhage."
+            "During pregnancy, maternal plasma volume expands by nearly 50% to nourish the placenta and expanding fetus. Because fluid volume expands faster than red blood cells, a physiological dilution occurs. According to the World Health Organization (WHO) and ICMR, hemoglobin should remain at or above 11.0 g/dL in the first and third trimesters, and at or above 10.5 g/dL in the second trimester.",
+            "Iron deficiency anemia during pregnancy can cause severe fatigue, breathlessness, increased risk of preterm labor, and low birth weight."
           ],
           "hi": [
-            "गर्भावस्था के दौरान, नाल को प्रवाहित करने और बढ़ते भ्रूण को ऑक्सीजन और पोषक तत्व पहुंचाने के लिए मातृ रक्त की मात्रा 40% से 50% तक बढ़ जाती है। इस शारीरिक हेमोडायल्यूशन के लिए लाल रक्त कोशिका द्रव्यमान में समान वृद्धि की आवश्यकता होती है, जिसके लिए नौ महीनों में लगभग 1,000 मिलीग्राम कुल मौलिक आयरन की आवश्यकता होती है।",
-            "राष्ट्रीय स्वास्थ्य सर्वेक्षणों के अनुसार, भारत में 50% से अधिक गर्भवती महिलाओं को हल्के से मध्यम आयरन की कमी वाले एनीमिया (हीमोग्लोबिन <11 ग्राम/डीएल) का अनुभव होता है। मातृ थकान, जन्म के समय कम वजन, समय से पहले जन्म और प्रसवोत्तर रक्तस्राव को रोकने के लिए एनीमिया को रोकना और ठीक करना महत्वपूर्ण है।"
+            "गर्भावस्था में प्लेसेंटा और शिशु के पोषण के लिए रक्त का प्रवाह 50% तक बढ़ जाता है। डब्ल्यूएचओ और आईसीएमआर के अनुसार हीमोग्लोबिन पहली और तीसरी तिमाही में कम से कम 11.0 g/dL तथा दूसरी तिमाही में 10.5 g/dL होना चाहिए।",
+            "एनीमिया के कारण माँ को थकान, सांस फूलना और समय से पूर्व प्रसव का जोखिम हो सकता है।"
           ],
           "gu": [
-            "સગર્ભાવસ્થા દરમિયાન, માતાના રક્તનું પ્રમાણ 40% થી 50% સુધી વિસ્તરે છે જેથી પ્લેસેન્ટાને પરફ્યુઝ કરવામાં આવે અને વધતા ગર્ભને ઓક્સિજન અને પોષક તત્વો પહોંચાડવામાં આવે. આ શારીરિક હેમોડ્યુલેશન માટે લાલ રક્ત કોશિકાઓના સમૂહમાં અનુરૂપ વધારો જરૂરી છે, જે નવ મહિનામાં કુલ એલિમેન્ટલ આયર્નના લગભગ 1,000 મિલિગ્રામની માંગ કરે છે.",
-            "રાષ્ટ્રીય સ્વાસ્થ્ય સર્વેક્ષણો અનુસાર, ભારતમાં 50% થી વધુ સગર્ભા સ્ત્રીઓ હળવાથી મધ્યમ આયર્નની ઉણપનો એનિમિયા (હિમોગ્લોબિન <11 g/dL) અનુભવે છે. માતૃત્વનો થાક, ઓછું જન્મ વજન, અકાળ જન્મ અને પોસ્ટપાર્ટમ હેમરેજને રોકવા માટે એનિમિયાને અટકાવવું અને ઉલટાવવું મહત્વપૂર્ણ છે."
+            "ગર્ભાવસ્થામાં લોહીનું પ્રમાણ લગભગ ૫૦% વધે છે. WHO મુજબ હિમોગ્લોબિન ૧૧.૦ g/dL થી વધુ હોવું જરૂરી છે.",
+            "લોહીની ઉણપથી થાક અને નબળાઈ આવી શકે છે."
           ]
         }
       },
       {
         "heading": {
-          "en": "Four Indian Satvik Superfoods for Rapid Hemoglobin Elevation",
-          "hi": "तेजी से हीमोग्लोबिन बढ़ाने के लिए चार भारतीय सात्विक सुपरफूड",
-          "gu": "ઝડપી હિમોગ્લોબિન એલિવેશન માટે ચાર ભારતીય સાત્વિક સુપરફૂડ્સ"
+          "en": "Best Vegetarian & Satvik Iron Sources in Indian Kitchens",
+          "hi": "भारतीय रसोई में शाकाहारी एवं सात्विक आयरन के प्रमुख स्रोत",
+          "gu": "ભારતીય રસોડામાં આયર્નના શ્રેષ્ઠ શાકાહારી સ્ત્રોતો"
         },
         "paragraphs": {
           "en": [
-            "1. Garden Cress Seeds (Aliv / Halim / Asaliya): Nature's richest plant-based iron powerhouse (providing 100 mg of iron per 100g). Safe preparation: Soak 1/2 teaspoon of Halim seeds in warm water or lemon water for 2 hours, and consume with milk or water from the second trimester onwards.",
-            "2. Moringa Leaves (Sahjan / Drumstick Leaves): Packed with bioavailable non-heme iron, folic acid, calcium, and vitamin C. Add a handful of fresh moringa leaves to your daily yellow moong dal or soup.",
-            "3. Soaked Black Raisins (Munakka): Soak 6 to 8 black raisins in water overnight. In the morning, drink the water and chew the soft raisins thoroughly. This traditional Ayurvedic tonic builds 'Rakta Dhatu' (blood tissue) and relieves constipation.",
-            "4. Fresh Pomegranate & Beetroot Elixir: Freshly prepared pomegranate juice combined with a dash of beetroot and fresh amla (Indian gooseberry) juice provides dense iron paired with natural ascorbic acid."
+            "1. Soaked Black Raisins (Munakka): Soak 6-8 Munakka overnight in water, chew them thoroughly in the morning, and drink the soaking water. Rich in natural non-heme iron and bioflavonoids.",
+            "2. Pomegranate (Anar) & Beetroot: Fresh pomegranate pearls and lightly steamed beetroot soup stimulate healthy erythropoiesis.",
+            "3. Moringa (Drumstick Leaves / Saragvo): One of nature's richest plant iron sources. Add fresh drumstick leaves to dals or soups twice weekly.",
+            "4. Sprouted Moong & Sesame Seeds (Til): High in plant iron and copper for hemoglobin synthesis."
           ],
           "hi": [
-            "1. गार्डन क्रेस सीड्स (अलिव / हलीम / असालिया): प्रकृति का सबसे समृद्ध पौधा-आधारित लौह पावरहाउस (प्रति 100 ग्राम 100 मिलीग्राम आयरन प्रदान करता है)। सुरक्षित तैयारी: 1/2 चम्मच हलीम के बीज को गर्म पानी या नींबू पानी में 2 घंटे के लिए भिगो दें, और दूसरी तिमाही से दूध या पानी के साथ सेवन करें।",
-            "2. मोरिंगा की पत्तियां (सहजन / सहजन की पत्तियां): जैवउपलब्ध गैर-हीम आयरन, फोलिक एसिड, कैल्शियम और विटामिन सी से भरपूर। अपने दैनिक पीली मूंग दाल या सूप में मुट्ठी भर ताजा मोरिंगा की पत्तियां मिलाएं।",
-            "3. भीगी हुई काली किशमिश (मुनक्का): 6 से 8 काली किशमिश को रात भर पानी में भिगो दें। सुबह उठकर पानी पी लें और नरम किशमिश खूब चबा-चबाकर खा लें। यह पारंपरिक आयुर्वेदिक टॉनिक 'रक्त धातु' (रक्त ऊतक) का निर्माण करता है और कब्ज से राहत देता है।",
-            "4. ताजा अनार और चुकंदर अमृत: ताजा तैयार अनार के रस में थोड़ा सा चुकंदर और ताजा आंवला का रस मिलाकर पीने से प्राकृतिक एस्कॉर्बिक एसिड के साथ घना आयरन मिलता है।"
+            "1. भीगे मुनक्के: 6-8 मुनक्के रातभर पानी में भिगोएं और सुबह चबाकर पानी पिएं; यह प्राकृतिक आयरन का बेहतरीन स्रोत है।",
+            "2. अनार और चुकंदर: अनार के दाने और उबले चुकंदर का सूप हीमोग्लोबिन बढ़ाने में सहायक हैं।",
+            "3. सहजन (मोरिंगा/सहजन के पत्ते): दाल या सूप में सहजन की पत्तियों का उपयोग करें।",
+            "4. अंकुरित मूंग और सफेद तिल: दालों में तिल का तड़का आयरन अवशोषण को बढ़ाता है।"
           ],
           "gu": [
-            "1. ગાર્ડન ક્રેસ સીડ્સ (અલીવ/હલીમ/અસાલિયા): કુદરતનું સૌથી ધનાઢ્ય છોડ આધારિત આયર્ન પાવરહાઉસ (100 ગ્રામ દીઠ 100 મિલિગ્રામ આયર્ન પૂરું પાડે છે). સલામત તૈયારી: 1/2 ચમચી હલીમના બીજને હુંફાળા પાણીમાં અથવા લીંબુના પાણીમાં 2 કલાક પલાળી રાખો અને બીજા ત્રિમાસિકથી દૂધ અથવા પાણી સાથે તેનું સેવન કરો.",
-            "2. મોરિંગાના પાંદડા (સહજન/ડ્રમસ્ટિક લીવ્સ): જૈવઉપલબ્ધ નોન-હેમ આયર્ન, ફોલિક એસિડ, કેલ્શિયમ અને વિટામિન સીથી ભરપૂર. તમારી રોજની પીળી મગની દાળ અથવા સૂપમાં મુઠ્ઠીભર તાજા મોરિંગાના પાન ઉમેરો.",
-            "3. પલાળેલી કાળી કિસમિસ (મુનાક્કા): 6 થી 8 કાળા કિસમિસને આખી રાત પાણીમાં પલાળી રાખો. સવારે તે પાણી પી લો અને નરમ કિસમિસને સારી રીતે ચાવી લો. આ પરંપરાગત આયુર્વેદિક ટોનિક 'રક્ત ધતુ' (રક્ત પેશી) બનાવે છે અને કબજિયાતમાં રાહત આપે છે.",
-            "4. તાજા દાડમ અને બીટરૂટ એલીક્સિર: તાજા તૈયાર દાડમનો રસ બીટરૂટ અને તાજા આમળા (ભારતીય ગૂસબેરી) ના રસ સાથે મળીને કુદરતી એસ્કોર્બિક એસિડ સાથે ગાઢ આયર્ન પ્રદાન કરે છે."
+            "૧. પલાળેલા મુનાક્કા: રાત્રે પલાળેલા ૬-૮ મુનાક્કા સવારે ચાવીને તેનું પાણી પીવું.",
+            "૨. દાડમ અને બીટ: રોજ દાડમ અથવા બીટનું સૂપ લેવું.",
+            "૩. સરગવાના પાન (મોરિંગા): દાળ કે સૂપમાં સરગવાના પાન વાપરવા.",
+            "૪. ફણગાવેલા મગ અને તલ આયર્ન વધારે છે."
           ]
         }
       },
       {
         "heading": {
-          "en": "The Golden Rule of Iron Absorption: Vitamin C Pairing",
-          "hi": "लौह अवशोषण का स्वर्णिम नियम: विटामिन सी युग्मन",
-          "gu": "આયર્ન શોષણનો સુવર્ણ નિયમ: વિટામિન સીની જોડી"
+          "en": "The Science of Absorption: Vitamin C Enhancers vs. Tea/Tannin Inhibitors",
+          "hi": "अवशोषण का विज्ञान: विटामिन सी का महत्व और चाय-कॉफी से बचाव",
+          "gu": "શોષણનું વિજ્ઞાન: વિટામિન સી અને ચા-કોફીથી સાવચેતી"
         },
         "paragraphs": {
           "en": [
-            "Plant-based (non-heme) iron requires an acidic gastric environment for optimal absorption across the intestinal lining. Always squeeze fresh lemon juice over your cooked lentils, spinach, and salads.",
-            "Foods that Block Iron Absorption: Calcium supplements, cow's milk, black tea, coffee, and antacids bind to iron and inhibit absorption by up to 60%. Always maintain a 2-hour gap between iron-rich meals/supplements and calcium/tea consumption."
+            "Plant-based (non-heme) iron requires an acidic gastric environment for optimal bioavailability. Always pair iron foods with vitamin C: squeeze fresh lemon over your lentils or consume fresh amla.",
+            "Strict Inhibitor Rule: Tannins and polyphenols in chai, coffee, and calcium in dairy actively bind to dietary iron and inhibit its absorption. Never drink tea or coffee within 2 hours before or after an iron-rich meal or iron tablet."
           ],
           "hi": [
-            "वनस्पति-आधारित (गैर-हीम) आयरन को आंतों की परत में इष्टतम अवशोषण के लिए अम्लीय गैस्ट्रिक वातावरण की आवश्यकता होती है। अपनी पकी हुई दाल, पालक और सलाद के ऊपर हमेशा ताजा नींबू का रस निचोड़ें।",
-            "खाद्य पदार्थ जो आयरन के अवशोषण को रोकते हैं: कैल्शियम सप्लीमेंट, गाय का दूध, काली चाय, कॉफी और एंटासिड आयरन से बंधते हैं और अवशोषण को 60% तक रोकते हैं। आयरन युक्त भोजन/पूरक और कैल्शियम/चाय के सेवन के बीच हमेशा 2 घंटे का अंतर रखें।"
+            "पौधों से मिलने वाले आयरन को सोखने के लिए विटामिन सी जरूरी है। दाल पर नींबू निचोड़ें या ताजे आंवले का सेवन करें।",
+            "चाय-कॉफी से दूरी: चाय और कॉफी में मौजूद टैनिन आयरन को शरीर में सोखने से रोकते हैं। भोजन या आयरन की गोली के 2 घंटे आगे-पीछे चाय बिल्कुल न पिएं।"
           ],
           "gu": [
-            "છોડ આધારિત (નોન-હેમ) આયર્નને આંતરડાના અસ્તરમાં શ્રેષ્ઠ શોષણ માટે એસિડિક ગેસ્ટ્રિક વાતાવરણની જરૂર છે. તમારી રાંધેલી દાળ, પાલક અને સલાડ પર હંમેશા તાજા લીંબુનો રસ નીચોવો.",
-            "ખોરાક કે જે આયર્નના શોષણને અવરોધે છે: કેલ્શિયમ પૂરક, ગાયનું દૂધ, કાળી ચા, કોફી અને એન્ટાસિડ્સ આયર્ન સાથે જોડાય છે અને શોષણને 60% સુધી અટકાવે છે. આયર્ન-સમૃદ્ધ ભોજન/સપ્લીમેન્ટ્સ અને કેલ્શિયમ/ચાના વપરાશ વચ્ચે હંમેશા 2-કલાકનું અંતર જાળવો."
+            "આયર્ન પચાવવા માટે વિટામિન સી જરૂરી છે; દાળમાં લીંબુ નીચોવો અથવા આમળાં લો.",
+            "ભોજન કે આયર્નની ગોળી લીધાના ૨ કલાક સુધી ચા-કોફી પીવી નહીં, કારણ કે તે આયર્નને શરીરમાં શોષાવા દેતી નથી."
           ]
         }
       },
       {
         "heading": {
-          "en": "Cooking in Traditional Cast Iron Cookware (Loha Patra)",
-          "hi": "पारंपरिक कास्ट आयरन कुकवेयर (लोहा पात्र) में खाना पकाना",
-          "gu": "પરંપરાગત કાસ્ટ આયર્ન કુકવેર (લોહા પાત્ર) માં રસોઈ"
+          "en": "Mandatory Doctor-Prescribed Iron Supplements",
+          "hi": "डॉक्टर द्वारा निर्धारित आयरन की गोलियों का अनिवार्य सेवन",
+          "gu": "ડૉક્ટર દ્વારા લખાયેલ આયર્નની ગોળીઓનું નિયમિત સેવન"
         },
         "paragraphs": {
           "en": [
-            "Preparing daily curries, dals, and vegetables in traditional seasoned cast iron pans naturally fortifies meals with bioavailable iron ions—a simple, time-honored Ayurvedic practice practiced for centuries across Indian households."
+            "Dietary modifications support general nutrition, but they cannot replace daily oral Iron & Folic Acid (IFA) tablets prescribed by your obstetrician. Adhere faithfully to prescribed supplementation and monitor your complete blood count (CBC) every trimester."
           ],
           "hi": [
-            "पारंपरिक कच्चे लोहे के बर्तनों में दैनिक करी, दाल और सब्जियाँ तैयार करने से स्वाभाविक रूप से जैव उपलब्ध लौह आयनों के साथ भोजन को मजबूत बनाया जाता है - यह एक सरल, समय-सम्मानित आयुर्वेदिक अभ्यास है जो भारतीय घरों में सदियों से प्रचलित है।"
+            "आहार केवल सहयोग करता है; डॉक्टर द्वारा दी गई आयरन और फोलिक एसिड की गोलियों का नियमित सेवन अनिवार्य है। हर तिमाही में हीमोग्लोबिन की जांच जरूर कराएं।"
           ],
           "gu": [
-            "પરંપરાગત પકવેલા કાસ્ટ આયર્ન પેનમાં દૈનિક કઢી, દાળ અને શાકભાજી તૈયાર કરવાથી જૈવઉપલબ્ધ આયર્ન આયનો સાથે ભોજનને કુદરતી રીતે મજબૂત બનાવે છે - એક સરળ, સમય-સન્માનિત આયુર્વેદિક પ્રથા જે સદીઓથી ભારતીય પરિવારોમાં પ્રેક્ટિસ કરવામાં આવે છે."
+            "ખોરાક માત્ર ટેકો આપે છે; ડૉક્ટરે આપેલ આયર્ન-ફોલિક એસિડની ગોળીઓ રોજ લેવી અનિવાર્ય છે."
           ]
         }
       }
@@ -3593,6 +3628,7 @@ export const blogPosts = [
     ],
     "references": [
       "World Health Organization. (2016). WHO recommendations on antenatal care for a positive pregnancy experience: Nutritional interventions.",
+      "Indian Council of Medical Research & National Institute of Nutrition (ICMR-NIN). (2020). Nutrient Requirements for Indians: Iron and Folic Acid.",
       "Charaka Samhita, Chikitsa Sthana, Chapter 16: Pandu Roga Chikitsa (Management of Anemia)."
     ]
   },
@@ -3600,7 +3636,7 @@ export const blogPosts = [
     "id": 27,
     "slug": "twin-pregnancy-care-and-garbh-sanskar-guidance",
     "date": "2026-05-26",
-    "readTime": "13 min read",
+    "readTime": "3 min read",
     "image": "https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&q=80&w=1200",
     "category": {
       "en": "Trimesters & Delivery",
@@ -3608,9 +3644,9 @@ export const blogPosts = [
       "gu": "ત્રિમાસિક અને પ્રસૂતિ"
     },
     "title": {
-      "en": "Twin Pregnancy Care: Dual Nutrition, Pelvic Rest & Garbh Sanskar for Multiples",
-      "hi": "जुड़वां गर्भावस्था (Twin Pregnancy) संपूर्ण देखभाल: दोहरा पोषण, आराम और गर्भ संस्कार",
-      "gu": "જોડિયા ગર્ભાવસ્થા (Twin Pregnancy) ની સંપૂર્ણ સંભાળ: બમણું પોષણ, આરામ અને ગર્ભ સંસ્કાર"
+      "en": "Twin Pregnancy Care: Nutrition, Clinical Monitoring & Garbh Sanskar for Multiples",
+      "hi": "जुड़वां गर्भावस्था (Twin Pregnancy) संपूर्ण देखभाल: पोषण, चिकित्सीय निगरानी और गर्भ संस्कार",
+      "gu": "જોડિયા ગર્ભાવસ્થા (Twin Pregnancy) ની સંપૂર્ણ સંભાળ: પોષણ, તબીબી દેખરેખ અને ગર્ભ સંસ્કાર"
     },
     "description": {
       "en": "A specialized maternal wellness guide for carrying twins or multiples: meeting increased macronutrient requirements, preventing preterm labor, pelvic floor rest, and twin Garbh Samvad practices.",
@@ -3669,28 +3705,28 @@ export const blogPosts = [
       },
       {
         "heading": {
-          "en": "Preventing Preterm Labor & The Importance of Pelvic Rest",
-          "hi": "समय से पहले प्रसव को रोकना और पेल्विक आराम का महत्व",
-          "gu": "પ્રિટર્મ લેબર અટકાવવું અને પેલ્વિક આરામનું મહત્વ"
+          "en": "Obstetric Monitoring, Individualized Care & Daily Comfort",
+          "hi": "प्रसूति संबंधी निगरानी, व्यक्तिगत देखभाल और दैनिक आराम",
+          "gu": "પ્રસૂતિ દેખરેખ, વ્યક્તિગત સંભાળ અને દૈનિક આરામ"
         },
         "paragraphs": {
           "en": [
-            "Because uterine muscle fibers stretch earlier in twin gestations, the average gestation for twins is 36 to 37 weeks. To prevent premature cervical shortening:",
-            "• Prioritize Side-Lying Rest: Rest in the left-lateral position for at least 60 to 90 minutes during the afternoon to maximize uterine arterial perfusion.",
-            "• Avoid Heavy Lifting & Strenuous High-Impact Activities: Switch from brisk walking to gentle prenatal stretches, butterfly pose, and seated breathwork from week 28 onwards.",
-            "• Monitor Warning Signs: Be vigilant about regular lower back cramps, unusual pelvic pressure, or increased watery vaginal discharge."
+            "Because carrying twins places higher physiological demands on maternal systems, closer obstetric surveillance—including serial growth ultrasounds, monitoring chorionicity, and cervical length assessments—is the cornerstone of multiple gestation care.",
+            "• Avoid Routine Bed Rest: Professional guidelines, including ACOG Committee Opinion No. 804 and Practice Bulletin No. 231, advise that routine bed rest or strict activity restriction should not be prescribed to prevent preterm birth in uncomplicated twin pregnancies, as evidence of benefit is lacking and prolonged immobility carries maternal risks such as physical deconditioning and thromboembolism.",
+            "• Individualized Activity Modifications: Rather than blanket prescriptions, discuss daily activity with your obstetrician. If cervical changes or obstetric complications develop, your maternity team will recommend personalized activity adjustments.",
+            "• Rest for Comfort: Rest in a supported side-lying position whenever fatigued, practice gentle pelvic tilting to ease lumbar tension, and stay alert to warning signs such as regular contractions, unusual pelvic pressure, or fluid leakage."
           ],
           "hi": [
-            "क्योंकि जुड़वा बच्चों के गर्भधारण में गर्भाशय की मांसपेशियों के तंतु पहले खिंचते हैं, इसलिए जुड़वा बच्चों का औसत गर्भधारण 36 से 37 सप्ताह का होता है। समय से पहले गर्भाशय ग्रीवा को छोटा होने से बचाने के लिए:",
-            "• करवट लेकर आराम को प्राथमिकता दें: गर्भाशय धमनी छिड़काव को अधिकतम करने के लिए दोपहर के दौरान कम से कम 60 से 90 मिनट के लिए बाईं ओर लेटने की स्थिति में आराम करें।",
-            "• भारी वजन उठाने और ज़ोरदार उच्च-प्रभाव वाली गतिविधियों से बचें: 28वें सप्ताह के बाद से तेज चलने की बजाय हल्के प्रसव पूर्व स्ट्रेच, तितली मुद्रा और बैठकर सांस लेने की क्रिया पर स्विच करें।",
-            "• चेतावनी संकेतों पर नज़र रखें: नियमित रूप से पीठ के निचले हिस्से में ऐंठन, असामान्य पेल्विक दबाव, या बढ़े हुए पानी वाले योनि स्राव के बारे में सतर्क रहें।"
+            "चूंकि जुड़वा बच्चों के गर्भधारण से शरीर पर अतिरिक्त मांग पड़ती है, इसलिए नियमित अल्ट्रासाउंड, कोरियोनिसिटी की जांच और सर्वाइकल लंबाई की निगरानी आवश्यक है।",
+            "• नियमित बेड रेस्ट से बचें: विशेषज्ञ दिशानिर्देश (जैसे ACOG समिति राय संख्या 804 और प्रैक्टिस बुलेटिन 231) स्पष्ट करते हैं कि जटिलता-रहित जुड़वां गर्भावस्था में समय से पहले प्रसव रोकने के लिए नियमित बेड रेस्ट की सिफारिश नहीं की जाती है, क्योंकि इससे कोई प्रमाणित लाभ नहीं होता और मांसपेशियों में कमजोरी आ सकती है।",
+            "• व्यक्तिगत गतिविधि समायोजन: अपनी दैनिक गतिविधि के बारे में अपने डॉक्टर से चर्चा करें। यदि कोई जटिलता आती है, तो आपकी मेडिकल टीम आपकी स्थिति के अनुसार व्यक्तिगत सलाह देगी।",
+            "• आराम और सतर्कता: थकान होने पर करवट लेकर आराम करें और नियमित संकुचन, असामान्य दबाव या पानी के रिसाव जैसे चेतावनी संकेतों पर तुरंत डॉक्टर से संपर्क करें।"
           ],
           "gu": [
-            "કારણ કે ગર્ભાશયના સ્નાયુ તંતુઓ જોડિયા સગર્ભાવસ્થામાં વહેલા વિસ્તરે છે, જોડિયા માટે સરેરાશ ગર્ભાવસ્થા 36 થી 37 અઠવાડિયા હોય છે. અકાળ સર્વાઇકલ શોર્ટનિંગને રોકવા માટે:",
-            "• સાઇડ-લાઇંગ રેસ્ટને પ્રાધાન્ય આપો: ગર્ભાશયની ધમનીના પરફ્યુઝનને મહત્તમ કરવા માટે બપોરના સમયે ઓછામાં ઓછા 60 થી 90 મિનિટ સુધી ડાબી બાજુની સ્થિતિમાં આરામ કરો.",
-            "• ભારે લિફ્ટિંગ અને સખત ઉચ્ચ-અસરકારક પ્રવૃત્તિઓ ટાળો: 28 અઠવાડિયા પછીથી ઝડપી ચાલવાથી હળવા પ્રિનેટલ સ્ટ્રેચ, બટરફ્લાય પોઝ અને બેઠેલા શ્વાસોચ્છવાસ તરફ સ્વિચ કરો.",
-            "• ચેતવણીના ચિહ્નોનું નિરીક્ષણ કરો: પીઠના નીચેના ભાગમાં નિયમિત ખેંચાણ, અસામાન્ય પેલ્વિક દબાણ, અથવા પાણીયુક્ત યોનિમાર્ગ સ્રાવમાં વધારો વિશે જાગ્રત રહો."
+            "જોડિયા ગર્ભાવસ્થામાં નિયમિત સોનોગ્રાફી અને સર્વાઇકલ લંબાઈની તબીબી દેખરેખ ખૂબ મહત્વપૂર્ણ છે.",
+            "• સામાન્ય બેડ રેસ્ટ ટાળો: ACOG માર્ગદર્શિકા મુજબ જટિલતા વગરની જોડિયા ગર્ભાવસ્થામાં નિયમિત બેડ રેસ્ટની ભલામણ કરવામાં આવતી નથી, કારણ કે તેનો કોઈ સાબિત ફાયદો નથી અને તે શારીરિક નબળાઈ લાવી શકે છે.",
+            "• વ્યક્તિગત સલાહ: તમારી દૈનિક પ્રવૃત્તિઓ અંગે ગાયનેકોલોજિસ્ટની સલાહ લો. જો કોઈ તબીબી કારણ જણાય તો જ પ્રવૃત્તિ મર્યાદિત કરવી.",
+            "• આરામ અને કાળજી: થાક લાગે ત્યારે પડખું ફરીને આરામ કરો અને અસામાન્ય દુખાવો કે પાણી પડવા જેવા લક્ષણો જણાય તો તરત જ ડૉક્ટરનો સંપર્ક કરો."
           ]
         }
       },
@@ -3741,6 +3777,7 @@ export const blogPosts = [
     ],
     "references": [
       "American College of Obstetricians and Gynecologists. (2021). Multifetal Gestations: Twin, Triplet, and Higher-Order Multifetal Pregnancies. Practice Bulletin No. 231.",
+      "American College of Obstetricians and Gynecologists. (2020). Physical Activity and Exercise During Pregnancy and the Postpartum Period. Committee Opinion No. 804.",
       "Sushruta Samhita, Sharira Sthana, Chapter 2: Dvagarbha Vyakaran."
     ]
   },
@@ -3748,7 +3785,7 @@ export const blogPosts = [
     "id": 28,
     "slug": "breastfeeding-preparation-and-lactation-ayurvedic-guide",
     "date": "2026-05-27",
-    "readTime": "12 min read",
+    "readTime": "3 min read",
     "image": "https://images.unsplash.com/photo-1555252333-9f8e92e65df9?auto=format&fit=crop&q=80&w=1200",
     "category": {
       "en": "Maternal Wellbeing",
@@ -3756,104 +3793,95 @@ export const blogPosts = [
       "gu": "માતૃ સ્વાસ્થ્ય અને જીવનશૈલી"
     },
     "title": {
-      "en": "Prenatal Breastfeeding Preparation: Ayurvedic Lactation Diet, Galactagogues & Nipple Care",
-      "hi": "स्तनपान की पूर्व तैयारी: आयुर्वेदिक दुग्धवर्धक आहार, शतावरी और निप्पल की देखभाल",
-      "gu": "સ્તનપાનની પૂર્વ તૈયારી: આયુર્વેદિક દૂધવર્ધક આહાર, શતાવરી અને નિપલની સાચી સંભાળ"
+      "en": "Prenatal Breastfeeding Preparation: Ayurvedic Lactation Diet & Newborn Care",
+      "hi": "स्तनपान की प्रसवपूर्व तैयारी: आयुर्वेदिक पोषण, कोलोस्ट्रम की समझ और उचित देखभाल",
+      "gu": "સ્તનપાનની પૂર્વ તૈયારી: આયુર્વેદિક આહાર, કોલોસ્ટ્રમનું મહત્વ અને યોગ્ય સંભાળ"
     },
     "description": {
-      "en": "A comprehensive guide to preparing for successful breastfeeding during the third trimester: natural galactagogues (Shatavari, fennel, dill), colostrum awareness, nipple conditioning, and the Golden Hour latch.",
-      "hi": "गर्भावस्था के अंतिम महीनों में स्तनपान की तैयारी: प्राकृतिक दुग्धवर्धक (Galactagogues) जड़ी-बूटियां, कोलेस्ट्रम का महत्व, और प्रसव के तुरंत बाद सही लैच तकनीक।",
-      "gu": "ગર્ભાવસ્થાના છેલ્લા મહિનાઓમાં સ્તનપાનની સંપૂર્ણ તૈયારી: શતાવરી, સુવાદાણા, કોલેસ્ટ્રમનું મહત્વ અને લેચિંગ તકનીક."
+      "en": "A comprehensive prenatal guide to successful lactation: colostrum education, gentle nipple care, culinary galactagogues (jeera, fennel, methi in meals), and early latch techniques.",
+      "hi": "स्तनपान की सफल शुरुआत के लिए प्रसवपूर्व तैयारी: पहले पीले गाढ़े दूध (कोलोस्ट्रम) का महत्व, स्तन देखभाल और दूध बढ़ाने वाले सुरक्षित आहार नियम।",
+      "gu": "સફળ સ્તનપાનની પૂર્વ તૈયારી: પ્રથમ પીળા દૂધ (કોલોસ્ટ્રમ) નું મહત્વ, સ્તનની સંભાળ અને દૂધ વધારતા પરંપરાગત આહાર."
     },
-    "keywords": "breastfeeding preparation pregnancy, ayurvedic galactagogues lactation, shatavari for breastmilk, colostrum first milk, nipple care pregnancy, stanyajanana herbs, golden hour breastfeeding",
+    "keywords": "prenatal breastfeeding preparation, colostrum pregnancy benefits, ayurvedic galactagogues stanyajanana, newborn latch tips, nipple care pregnancy",
     "sections": [
       {
         "heading": {
-          "en": "Lactation Begins in Pregnancy: The Physiology of Colostrum",
-          "hi": "गर्भावस्था में स्तनपान शुरू होता है: कोलोस्ट्रम की फिजियोलॉजी",
-          "gu": "સ્તનપાન ગર્ભાવસ્થામાં શરૂ થાય છે: કોલોસ્ટ્રમનું શરીરવિજ્ઞાન"
+          "en": "The Biology of Lactation & Colostrum: Newborn Liquid Gold",
+          "hi": "स्तनपान का शरीर विज्ञान एवं कोलोस्ट्रम: नवजात का पहला सुरक्षा कवच",
+          "gu": "સ્તનપાનનું શરીર વિજ્ઞાન અને કોલોસ્ટ્રમ: નવજાત શિશુનું પ્રથમ અમૃત"
         },
         "paragraphs": {
           "en": [
-            "Many mothers believe that milk production begins only after delivery. In reality, the mammary glandular alveoli begin producing 'Colostrum'—the thick, golden, antibody-rich first milk—as early as the 16th to 20th week of pregnancy under the influence of prolactin.",
-            "High circulating levels of progesterone and estrogen temporarily hold back copious milk flow until the placenta is delivered. Preparing your mind, body, and nutrition in the final trimester guarantees a smooth transition when your baby arrives."
+            "Lactation begins long before delivery. During the second trimester (around week 16), prolactin triggers the production of colostrum—the thick, golden early milk. Colostrum is packed with maternal Secretory Immunoglobulin A (sIgA), white blood cells, and natural growth factors that coat your baby's immature intestinal tract, shielding against infections.",
+            "Mature breast milk naturally transitions 3 to 5 days postpartum as progesterone drops following placental delivery."
           ],
           "hi": [
-            "कई माताओं का मानना ​​है कि दूध का उत्पादन प्रसव के बाद ही शुरू होता है। वास्तव में, स्तन ग्रंथि संबंधी एल्वियोली प्रोलैक्टिन के प्रभाव में गर्भावस्था के 16वें से 20वें सप्ताह में ही 'कोलोस्ट्रम' - गाढ़ा, सुनहरा, एंटीबॉडी युक्त पहला दूध - का उत्पादन शुरू कर देती है।",
-            "प्रोजेस्टेरोन और एस्ट्रोजन का उच्च परिसंचारी स्तर अस्थायी रूप से प्रचुर मात्रा में दूध के प्रवाह को तब तक रोकता है जब तक कि प्लेसेंटा का प्रसव नहीं हो जाता। अंतिम तिमाही में अपने दिमाग, शरीर और पोषण को तैयार करना आपके बच्चे के आने पर एक सुचारु परिवर्तन की गारंटी देता है।"
+            "स्तनपान की तैयारी प्रसव से पहले ही शुरू हो जाती है। गर्भावस्था के 16वें सप्ताह से शरीर में कोलोस्ट्रम (पहला पीला गाढ़ा दूध) बनना शुरू होता है, जो नवजात शिशु के लिए पहला टीका और रोग प्रतिरोधक कवच है।",
+            "प्रसव के 3 से 5 दिन बाद सामान्य दूध उतरना शुरू होता है।"
           ],
           "gu": [
-            "ઘણી માતાઓ માને છે કે ડિલિવરી પછી જ દૂધનું ઉત્પાદન શરૂ થાય છે. વાસ્તવમાં, પ્રોલેક્ટીનના પ્રભાવ હેઠળ ગર્ભાવસ્થાના 16માથી 20મા સપ્તાહની શરૂઆતમાં સ્તનધારી ગ્રંથિની એલ્વિઓલી 'કોલોસ્ટ્રમ' - જાડા, સોનેરી, એન્ટિબોડીથી ભરપૂર પ્રથમ દૂધ - ઉત્પન્ન કરવાનું શરૂ કરે છે.",
-            "પ્રોજેસ્ટેરોન અને એસ્ટ્રોજનના ઉચ્ચ પરિભ્રમણ સ્તરો જ્યાં સુધી પ્લેસેન્ટા ડિલિવરી ન થાય ત્યાં સુધી પુષ્કળ દૂધના પ્રવાહને અસ્થાયી રૂપે રોકે છે. અંતિમ ત્રિમાસિકમાં તમારા મન, શરીર અને પોષણની તૈયારી તમારા બાળકના આવે ત્યારે સરળ સંક્રમણની ખાતરી આપે છે."
+            "સ્તનપાનની શરૂઆત ગર્ભાવસ્થા દરમિયાન જ થાય છે. ૧૬મા અઠવાડિયાથી કોલોસ્ટ્રમ બનવાનું શરૂ થાય છે, જે બાળકની રોગપ્રતિકારક શક્તિ માટે અમૃત સમાન છે.",
+            "પ્રસૂતિના ૩-૫ દિવસ પછી સંપૂર્ણ દૂધ આવવાનું શરૂ થાય છે."
           ]
         }
       },
       {
         "heading": {
-          "en": "Ayurvedic Galactagogues (Stanyajanana Dravyas) in the 9th Month",
-          "hi": "9वें महीने में आयुर्वेदिक गैलेक्टागॉग्स (स्टन्याजनन द्रव्य)।",
-          "gu": "9મા મહિનામાં આયુર્વેદિક ગેલેક્ટાગોગ્સ (સ્તન્યજનન દ્રવ્યાસ)"
+          "en": "Prenatal Breast Care & Discussing Colostrum Harvesting",
+          "hi": "प्रसव पूर्व स्तन देखभाल एवं कोलोस्ट्रम पर चिकित्सकीय सलाह",
+          "gu": "પ્રસૂતિ પૂર્વ સ્તન સંભાળ અને કોલોસ્ટ્રમ અંગે તબીબી સલાહ"
         },
         "paragraphs": {
           "en": [
-            "Ayurveda describes a specialized class of nourishing herbs that naturally promote abundant, pure breast milk (Shuddha Stanya):",
-            "1. Shatavari (Asparagus Racemosus): The quintessential female rejuvenation tonic that optimizes prolactin receptivity and calms maternal anxiety. Take 1/2 teaspoon of Shatavari Kalpa in warm milk daily during the final month.",
-            "2. Suva / Dill Seeds (Anethum Sowa): Traditional roasted dill seeds taken with warm water after meals enhance breast milk flow and alleviate infant colic through the mother's milk.",
-            "3. Jeera & Saunf (Cumin & Fennel): Cleanses milk ducts (Stanyashodhana) and boosts maternal digestive fire.",
-            "4. Garlic (Lahsuna) & Fenugreek (Methi): Known universally to stimulate glandular breast tissue."
+            "During late pregnancy, wear supportive, well-fitted, non-wired cotton bras that accommodate naturally changing breast tissue.",
+            "If you are interested in antenatal colostrum harvesting (expressing and storing early milk before birth), discuss this with your obstetrician or midwife first. Antenatal expression may not be recommended if you have a history of preterm labor, cervical shortening, or pregnancy complications."
           ],
           "hi": [
-            "आयुर्वेद पौष्टिक जड़ी-बूटियों की एक विशेष श्रेणी का वर्णन करता है जो स्वाभाविक रूप से प्रचुर मात्रा में, शुद्ध स्तन दूध (शुद्ध स्टैन्या) को बढ़ावा देती है:",
-            "1. शतावरी (शतावरी रेसमोसस): सर्वोत्कृष्ट महिला कायाकल्प टॉनिक जो प्रोलैक्टिन ग्रहणशीलता को अनुकूलित करता है और मातृ चिंता को शांत करता है। आखिरी महीने में रोजाना गर्म दूध में आधा चम्मच शतावरी कल्पा लें।",
-            "2. सुवा / डिल बीज (एनेथम सोवा): भोजन के बाद गर्म पानी के साथ पारंपरिक भुने हुए डिल बीज स्तन के दूध के प्रवाह को बढ़ाते हैं और मां के दूध के माध्यम से शिशु के पेट के दर्द को कम करते हैं।",
-            "3. जीरा और सौंफ (जीरा और सौंफ): दूध नलिकाओं को साफ करता है (स्तन्याशोधन) और मातृ पाचन अग्नि को बढ़ाता है।",
-            "4. लहसुन (लहसुन) और मेथी (मेथी): ग्रंथि संबंधी स्तन ऊतक को उत्तेजित करने के लिए सार्वभौमिक रूप से जाना जाता है।"
+            "गर्भावस्था के अंतिम महीनों में आरामदायक और बिना तार वाली सूती ब्रा पहनें।",
+            "यदि आप प्रसव से पहले कोलोस्ट्रम निकालने में रुचि रखती हैं, तो पहले अपने डॉक्टर से सलाह लें। यदि समय से पहले प्रसव का इतिहास रहा हो, तो प्रसवपूर्व स्तन उत्तेजना की सलाह नहीं दी जाती।"
           ],
           "gu": [
-            "આયુર્વેદ પૌષ્ટિક જડીબુટ્ટીઓના વિશિષ્ટ વર્ગનું વર્ણન કરે છે જે કુદરતી રીતે વિપુલ પ્રમાણમાં, શુદ્ધ સ્તન દૂધ (શુદ્ધ સ્તન્ય) ને પ્રોત્સાહન આપે છે:",
-            "1. શતાવરી (શતાવરીનો છોડ રેસમોસસ): ઉત્કૃષ્ટ સ્ત્રી કાયાકલ્પ ટોનિક જે પ્રોલેક્ટીન ગ્રહણક્ષમતાને શ્રેષ્ઠ બનાવે છે અને માતાની ચિંતાને શાંત કરે છે. છેલ્લા મહિનામાં દરરોજ ગરમ દૂધમાં 1/2 ચમચી શતાવરી કલ્પ લો.",
-            "2. સુવા / સુવાદાણાના બીજ (એનેથમ સોવા): પરંપરાગત શેકેલા સુવાદાણાના બીજ ભોજન પછી ગરમ પાણી સાથે લેવામાં આવે છે જે માતાના દૂધ દ્વારા માતાના દૂધના પ્રવાહમાં વધારો કરે છે અને શિશુમાં થતી કોલિકને દૂર કરે છે.",
-            "3. જીરા અને સોંફ (જીરું અને વરિયાળી): દૂધની નળીઓ (સ્તન્યશોધન) સાફ કરે છે અને માતાની પાચન શક્તિને વેગ આપે છે.",
-            "4. લસણ (લહસુના) અને મેથી (મેથી): ગ્રંથીયુકત સ્તન પેશીઓને ઉત્તેજીત કરવા માટે સાર્વત્રિક રીતે જાણીતા છે."
+            "ગર્ભાવસ્થાના છેલ્લા મહિનાઓમાં આરામદાયક સુતરાઉ બ્રા પહેરો.",
+            "જો તમે પ્રસૂતિ પહેલાં કોલોસ્ટ્રમ સંગ્રહિત કરવા માંગતા હો, તો પહેલાં તમારા ડૉક્ટર સાથે ચર્ચા કરો. પ્રિટર્મ લેબરનું જોખમ હોય તો ડૉક્ટરની મંજૂરી વગર સ્તન ઉત્તેજના કરવી નહીં."
           ]
         }
       },
       {
         "heading": {
-          "en": "Prenatal Nipple Conditioning & Flat/Inverted Nipple Assessment",
-          "hi": "प्रसवपूर्व निपल कंडीशनिंग और फ्लैट/उलटा निपल मूल्यांकन",
-          "gu": "પ્રિનેટલ નિપલ કન્ડીશનીંગ અને ફ્લેટ/ઈન્વર્ટેડ નિપલ એસેસમેન્ટ"
+          "en": "Ayurvedic Galactagogue Foods (Stanyajanana) in Indian Cuisine",
+          "hi": "दूध बढ़ाने वाले आयुर्वेदिक आहार (स्तन्यजनन द्रव्य)",
+          "gu": "ધાવણ વધારતા આયુર્વેદિક આહાર"
         },
         "paragraphs": {
           "en": [
-            "During the 8th and 9th months, inspect your nipples during your daily warm bath. If nipples appear flat or inverted, perform gentle outward rolling between thumb and forefinger using pure virgin coconut oil for 1 to 2 minutes daily.",
-            "Avoid harsh soaps or aggressive scrubbing on the areola. The tiny bumps around your nipple (Montgomery glands) secrete natural lubricating oils that cleanse and protect the skin against cracks and infections."
+            "Classical Ayurveda recommends wholesome culinary foods known as 'Stanyajanana' (lactation supporters) incorporated into late-pregnancy and postpartum meals: whole cumin seeds (jeera), fennel seeds (saunf), soaked fenugreek (methi) in dal seasoning, steel-cut oats, and warm milk prepared with fennel or cumin (traditional Ksheerapaka). Avoid high-dose unregulated commercial lactation pills."
           ],
           "hi": [
-            "8वें और 9वें महीने के दौरान, अपने दैनिक गर्म स्नान के दौरान अपने निपल्स का निरीक्षण करें। यदि निपल्स सपाट या उल्टे दिखाई देते हैं, तो प्रतिदिन 1 से 2 मिनट के लिए शुद्ध वर्जिन नारियल तेल का उपयोग करके अंगूठे और तर्जनी के बीच धीरे से बाहर की ओर रोल करें।",
-            "एरोला पर कठोर साबुन या आक्रामक स्क्रबिंग से बचें। आपके निपल के चारों ओर छोटे-छोटे उभार (मोंटगोमरी ग्रंथियां) प्राकृतिक चिकनाई वाले तेलों का स्राव करते हैं जो त्वचा को साफ करते हैं और दरारों और संक्रमणों से बचाते हैं।"
+            "आयुर्वेद में स्तनपान को सुगम बनाने वाले सुरक्षित घरेलू आहार की सलाह दी गई है: जैसे भोजन में जीरा, सौंफ, मेथी दाने का तड़का, ओट्स और हल्का लहसुन का सूप। अज्ञात दवाओं या सप्लीमेंट्स से बचें।"
           ],
           "gu": [
-            "8મા અને 9મા મહિના દરમિયાન, તમારા દૈનિક ગરમ સ્નાન દરમિયાન તમારા સ્તનની ડીંટીનું નિરીક્ષણ કરો. જો સ્તનની ડીંટી સપાટ અથવા ઊંધી દેખાય છે, તો દરરોજ 1 થી 2 મિનિટ માટે શુદ્ધ વર્જિન નાળિયેર તેલનો ઉપયોગ કરીને અંગૂઠા અને તર્જની વચ્ચે હળવા બાહ્ય રોલિંગ કરો.",
-            "એરોલા પર સખત સાબુ અથવા આક્રમક સ્ક્રબિંગ ટાળો. તમારા સ્તનની ડીંટડી (મોન્ટગોમરી ગ્રંથીઓ) ની આસપાસના નાના બમ્પ્સ કુદરતી લુબ્રિકેટિંગ તેલનો સ્ત્રાવ કરે છે જે તિરાડો અને ચેપ સામે ત્વચાને સાફ કરે છે અને રક્ષણ આપે છે."
+            "આહારમાં જીરું, વરિયાળી, મેથીનો વઘાર અને ઓટ્સ સામેલ કરો. બિનજરૂરી દબાઓ ટાળો."
           ]
         }
       },
       {
         "heading": {
-          "en": "The Golden Hour After Delivery: First Latch Mastery",
-          "hi": "प्रसव के बाद का स्वर्णिम समय: पहली कुंडी महारत",
-          "gu": "ડિલિવરી પછીનો ગોલ્ડન અવર: ફર્સ્ટ લેચ માસ્ટરી"
+          "en": "The Golden Hour & Early Latch Preparation",
+          "hi": "जन्म का पहला घंटा (Golden Hour) एवं सही लैचिंग",
+          "gu": "જન્મ પછીનો પ્રથમ કલાક (Golden Hour) અને લેચિંગ"
         },
         "paragraphs": {
           "en": [
-            "The first 60 minutes after birth—known as the 'Golden Hour'—is the most sensitive bonding window. Placing your naked baby directly skin-to-skin against your chest triggers a surge of maternal oxytocin and prolactin. The baby's natural stepping and rooting reflexes guide them to self-attach and ingest their first drops of liquid gold (colostrum), sealing their immature gut lining with lifelong immune protection."
+            "Whenever medically feasible, request uninterrupted skin-to-skin contact with your baby immediately during the first 60 minutes after birth ('The Golden Hour'). This skin contact stabilizes newborn temperature, regulates blood glucose, and triggers the baby's natural rooting and suckling reflexes.",
+            "Consult a certified lactation consultant (IBCLC) in the hospital if you experience latch difficulties or flat/inverted nipples."
           ],
           "hi": [
-            "जन्म के बाद पहले 60 मिनट - जिसे 'गोल्डन आवर' के रूप में जाना जाता है - सबसे संवेदनशील बंधन खिड़की है। अपने नग्न बच्चे को अपनी छाती से सीधे त्वचा से सटाकर रखने से मातृ ऑक्सीटोसिन और प्रोलैक्टिन में वृद्धि होती है। बच्चे की प्राकृतिक कदम उठाने और जड़ें जमाने की प्रतिक्रिया उन्हें खुद से जुड़ने और तरल सोने (कोलोस्ट्रम) की पहली बूंदों को निगलने के लिए मार्गदर्शन करती है, जिससे उनकी अपरिपक्व आंत की परत आजीवन प्रतिरक्षा सुरक्षा से सील हो जाती है।"
+            "जन्म के तुरंत बाद पहले 1 घंटे में शिशु को माँ की छाती पर सीधे त्वचा से त्वचा सटाकर रखना चाहिए। इससे शिशु को गर्माहट मिलती है और वह स्वाभाविक रूप से दूध पीना शुरू करता है।",
+            "यदि दूध पिलाने में कठिनाई हो तो तुरंत अस्पताल के स्तनपान सलाहकार (Lactation Consultant) से मदद लें।"
           ],
           "gu": [
-            "જન્મ પછીની પ્રથમ 60 મિનિટ - જેને 'ગોલ્ડન અવર' તરીકે ઓળખવામાં આવે છે - સૌથી સંવેદનશીલ બંધન વિન્ડો છે. તમારા નગ્ન બાળકને તમારી છાતીની સામે સીધી ત્વચાથી ત્વચા પર મૂકવાથી માતૃત્વ ઓક્સિટોસિન અને પ્રોલેક્ટીનનો વધારો થાય છે. બાળકના કુદરતી સ્ટેપિંગ અને રુટિંગ રીફ્લેક્સ તેમને સ્વ-જોડવામાં અને પ્રવાહી સોના (કોલોસ્ટ્રમ) ના પ્રથમ ટીપાં પીવા માટે માર્ગદર્શન આપે છે, તેમના અપરિપક્વ આંતરડાના અસ્તરને આજીવન રોગપ્રતિકારક સંરક્ષણ સાથે સીલ કરે છે."
+            "જન્મના પ્રથમ કલાકમાં બાળકને માતાની છાતી પર સીધું સ્પર્શ કરાવો. આનાથી બાળક સરળતાથી દૂધ પીતાં શીખે છે.",
+            "કોઈ તકલીફ જણાય તો હોસ્પિટલના લેક્ટેશન કન્સલ્ટન્ટની મદદ લો."
           ]
         }
       }
@@ -3866,26 +3894,27 @@ export const blogPosts = [
           "gu": "શું પ્રથમ 2-3 દિવસમાં નવજાત શિશુ માટે કોલોસ્ટ્રમ પૂરતું છે?"
         },
         "answer": {
-          "en": "Yes, absolutely. A newborn baby's stomach is only the size of a marble (5 to 7 ml) on day one. A few teaspoons of nutrient-dense colostrum per feeding provides 100% of their fluid, caloric, and immunoglobin requirements before mature milk arrives on day 3 or 4.",
+          "en": "Yes, absolutely. A newborn baby's stomach is only the size of a marble (5 to 7 ml) on day one. A few teaspoons of nutrient-dense colostrum per feeding provides sufficient fluid and concentrated immunoglobulins to meet the newborn's initial needs before mature milk arrives on day 3 to 5.",
           "hi": "हां बिल्कुल। एक नवजात शिशु का पेट पहले दिन केवल एक कंचे (5 से 7 मिली) के आकार का होता है। तीसरे या चौथे दिन परिपक्व दूध आने से पहले प्रति आहार कुछ चम्मच पोषक तत्वों से भरपूर कोलोस्ट्रम उनकी तरल, कैलोरी और इम्युनोग्लोबिन आवश्यकताओं को 100% प्रदान करता है।",
           "gu": "હા, ચોક્કસ. નવજાત શિશુનું પેટ પહેલા દિવસે માર્બલ (5 થી 7 મિલી) જેટલું જ હોય ​​છે. 3 અથવા 4 દિવસે પરિપક્વ દૂધ આવે તે પહેલાં ખોરાક દીઠ પોષક-ગાઢ કોલોસ્ટ્રમના થોડા ચમચી તેમના પ્રવાહી, કેલરી અને ઇમ્યુનોગ્લોબિન જરૂરિયાતોના 100% પૂરા પાડે છે."
         }
       },
       {
         "question": {
-          "en": "Should I express or pump breast milk before giving birth?",
-          "hi": "क्या मुझे जन्म देने से पहले स्तन का दूध निकालना या पंप करना चाहिए?",
-          "gu": "શું મારે જન્મ આપતા પહેલા સ્તન દૂધ વ્યક્ત કરવું જોઈએ અથવા પંપ કરવું જોઈએ?"
+          "en": "Should I express or harvest colostrum before giving birth?",
+          "hi": "क्या मुझे जन्म देने से पहले कोलोस्ट्रम निकालना चाहिए?",
+          "gu": "શું મારે જન્મ આપતા પહેલા કોલોસ્ટ્રમ એકત્ર કરવું જોઈએ?"
         },
         "answer": {
-          "en": "Do not use a breast pump before 37 completed weeks, as nipple stimulation can trigger oxytocin and uterine contractions. Antenatal hand expression of colostrum should only be done after 37 weeks with your obstetrician's explicit approval.",
-          "hi": "37 सप्ताह पूरे होने से पहले स्तन पंप का उपयोग न करें, क्योंकि निपल उत्तेजना ऑक्सीटोसिन और गर्भाशय संकुचन को ट्रिगर कर सकती है। प्रसवपूर्व कोलोस्ट्रम को हाथ से निकालना आपके प्रसूति विशेषज्ञ की स्पष्ट स्वीकृति के साथ 37 सप्ताह के बाद ही किया जाना चाहिए।",
-          "gu": "37 પૂર્ણ અઠવાડિયા પહેલા સ્તન પંપનો ઉપયોગ કરશો નહીં, કારણ કે સ્તનની ડીંટડી ઉત્તેજના ઓક્સીટોસિન અને ગર્ભાશયના સંકોચનને ઉત્તેજિત કરી શકે છે. તમારા પ્રસૂતિ ચિકિત્સકની સ્પષ્ટ મંજૂરી સાથે જ 37 અઠવાડિયા પછી કોલોસ્ટ્રમના પ્રસૂતિ પહેલા હાથની અભિવ્યક્તિ થવી જોઈએ."
+          "en": "Discuss antenatal colostrum harvesting with your maternity care team before attempting it, particularly if you have pregnancy complications or are at risk of preterm labor. If clinically appropriate for you, your healthcare team will provide guidance on safe timing and gentle hand expression techniques.",
+          "hi": "प्रसव से पहले कोलोस्ट्रम निकालने या स्तन उत्तेजना के बारे में अपनी प्रसूति टीम से सलाह लें, विशेष रूप से यदि आपको गर्भावस्था की जटिलताएं हैं या समय से पहले प्रसव का इतिहास रहा है। यदि यह आपकी स्थिति के लिए उपयुक्त है, तो आपकी स्वास्थ्य टीम आपको सही समय और तकनीक के बारे में मार्गदर्शन करेगी।",
+          "gu": "પ્રસૂતિ પહેલાં કોલોસ્ટ્રમ એકત્ર કરવા વિશે તમારા પ્રસૂતિ નિષ્ણાત સાથે ચર્ચા કરો, ખાસ કરીને જો તમને ગર્ભાવસ્થાની ગૂંચવણો હોય અથવા પ્રિટર્મ લેબરનું જોખમ હોય. તમારી તબીબી ટીમ યોગ્ય સમય અને પદ્ધતિ વિશે માર્ગદર્શન આપશે."
         }
       }
     ],
     "references": [
       "Academy of Breastfeeding Medicine. (2019). ABM Clinical Protocol #3: Supplementary Feedings in the Healthy Term Breastfed Neonate, Revised 2017. Breastfeeding Medicine, 12(4), 188-198.",
+      "World Health Organization & UNICEF. (2018). Protecting, promoting and supporting breastfeeding: the baby-friendly hospital initiative.",
       "Sushruta Samhita, Sharira Sthana, Chapter 10: Stanyadosha and Stanyajanana Chikitsa."
     ]
   }

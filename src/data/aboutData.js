@@ -10,7 +10,7 @@ export const aboutData = {
     },
     {
       title: "Holistic Well-being & Psychology (આધુનિક વિજ્ઞાન)",
-      description: "Modern maternal health research confirms that managing cortisol and maternal stress, maintaining balanced micronutrient nutrition, and practicing soothing sound therapy directly benefit maternal tranquility and mother-child emotional bonding."
+      description: "Modern maternal health research confirms that reducing maternal stress, maintaining balanced nutrition, and enjoying soothing sound practices benefit maternal tranquility and emotional wellbeing."
     }
   ],
   pillars: [

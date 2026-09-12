@@ -25,14 +25,14 @@ const Faculty = () => {
     {
       icon: <Heart className="w-5 h-5 text-vermillion shrink-0 mt-0.5" />,
       title: {
-        hi: "आधुनिक भ्रूण विज्ञान और तनाव मुक्ति",
-        en: "Modern Embryology & Stress Reduction",
-        gu: "આધુનિક ભ્રૂણ વિજ્ઞાન અને તણાવ મુક્તિ"
+        hi: "मातृ कल्याण और तनाव प्रबंधन",
+        en: "Maternal Wellness & Stress Management",
+        gu: "માતૃ કલ્યાણ અને તણાવ વ્યવસ્થાપન"
       },
       desc: {
-        hi: "गर्भावस्था के दौरान कोर्टिसोल (तनाव हार्मोन) को कम करने और सुरक्षित प्रसव के लिए वैज्ञानिक दृष्टिकोण।",
-        en: "Clinical methods to lower maternal cortisol levels, enhance endorphins, and prepare for gentle, calm childbirth.",
-        gu: "ગર્ભાવસ્થા દરમિયાન તણાવ હોર્મોન્સ ઘટાડવા અને સુરક્ષિત પ્રસૂતિ માટે વૈજ્ઞાનિક અભિગમ."
+        hi: "गर्भावस्था के दौरान तनाव को कम करने, मानसिक शांति बनाए रखने और एक सकारात्मक वातावरण तैयार करने के व्यावहारिक तरीके।",
+        en: "Practical relaxation techniques and mindful routines to reduce daily stress and cultivate emotional calm during pregnancy.",
+        gu: "ગર્ભાવસ્થા દરમિયાન તણાવ હળવો કરવા, માનસિક શાંતિ જાળવવા અને હકારાત્મક વાતાવરણ સર્જવા માટેની વ્યવહારુ પદ્ધતિઓ."
       }
     },
     {
