@@ -1,13 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { Phone, MessageCircle } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const WhatsAppFloat = () => {
   const [showStickyBar, setShowStickyBar] = useState(false);
   const { t } = useLanguage();
+  const location = useLocation();
+
+  const isBlogRoute = location.pathname.startsWith('/blog');
 
   useEffect(() => {
+    // If on blog route, keep sticky bar hidden to avoid distracting readers and colliding with mobile bottom ads
+    if (isBlogRoute) {
+      setShowStickyBar(false);
+      return;
+    }
+
     const handleScroll = () => {
       const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
       if (totalHeight > 100 && window.scrollY > totalHeight * 0.35) {
@@ -19,7 +28,7 @@ const WhatsAppFloat = () => {
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [isBlogRoute]);
 
   return (
     <>

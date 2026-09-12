@@ -43,9 +43,15 @@ const CookieConsent = () => {
               en: "We use cookies to retain your language preferences, analyze traffic, and display relevant Google AdSense ads. By clicking 'Accept All', you consent to our use of cookies.",
               gu: "અમે તમારી પસંદગીની ભાષા યાદ રાખવા, પૃથ્થકરણ અને Google AdSense માટે કૂકીઝનો ઉપયોગ કરીએ છીએ."
             })}{' '}
-            <Link to="/cookie-policy" className="text-divineGold font-semibold hover:underline">
-              {t({ hi: "कुकी नीति पढ़ें", en: "Read Cookie Policy", gu: "કૂકી નીતિ વાંચો" })}
-            </Link>
+            <span className="inline-block mt-1 sm:mt-0">
+              <Link to="/privacy-policy" className="text-divineGold font-semibold hover:underline mr-2">
+                {t({ hi: "गोपनीयता नीति", en: "Privacy Policy", gu: "ગોપનીયતા નીતિ" })}
+              </Link>
+              <span className="text-divineGold/50 mr-2">•</span>
+              <Link to="/cookie-policy" className="text-divineGold font-semibold hover:underline">
+                {t({ hi: "कुकी नीति", en: "Cookie Policy", gu: "કૂકી નીતિ" })}
+              </Link>
+            </span>
           </div>
         </div>
 

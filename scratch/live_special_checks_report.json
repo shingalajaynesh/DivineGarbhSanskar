@@ -1,0 +1,144 @@
+{
+  "step3_ymyl": {
+    "gdm": {
+      "status": 200,
+      "noCureOrReversal": true,
+      "noPancreaticStimulation": true,
+      "medicalMonitoringRequired": true,
+      "medicationNotDiscouraged": false,
+      "pass": false
+    },
+    "herbs": {
+      "status": 200,
+      "culinaryVsMedicinalSeparated": false,
+      "noFairSkin": true,
+      "noBloodPurificationDetox": true,
+      "noUnsupportedTherapeuticDosage": true,
+      "concentratedExtractsWarning": true,
+      "pass": false
+    },
+    "yoga": {
+      "status": 200,
+      "noGuaranteeNormalDelivery": true,
+      "deliveryModeDependsOnObstetrics": true,
+      "contraindicationsVisible": true,
+      "pass": true
+    },
+    "labor": {
+      "status": 200,
+      "noCsectionAvoidanceOrFailure": true,
+      "noGheeLubricatesBirthCanal": false,
+      "traditionalAyurvedaLabeled": true,
+      "pass": false
+    },
+    "twins": {
+      "status": 200,
+      "noRoutinePelvicRest": true,
+      "noGenericBedRest": true,
+      "noPreventPrematureBirthClaim": true,
+      "individualizedActivityGuidance": true,
+      "closerClinicalMonitoring": true,
+      "pass": true
+    },
+    "meditation": {
+      "status": 200,
+      "noCerebrospinalResonance": true,
+      "noFetalHormonalBenefits": true,
+      "noUnsupportedVagalMechanisms": true,
+      "pass": true
+    },
+    "father": {
+      "status": 200,
+      "noLowerPitchAcousticPenetration": true,
+      "noFetalBrainStimulation": true,
+      "pass": true
+    },
+    "breastfeeding": {
+      "status": 200,
+      "noUniversalPre37wNippleProhibition": true,
+      "antenatalColostrumDeferredToDoctor": true,
+      "pass": true
+    }
+  },
+  "step4_global_search": {},
+  "step5_references": {
+    "acog_804": true,
+    "acog_766": true,
+    "acog_231": true,
+    "acog_189": true,
+    "ada_gdm": true,
+    "icmr_gdm": true,
+    "cochrane_labor": true,
+    "no_acog_650_restored": true,
+    "no_pb_209_for_labor": true
+  },
+  "step6_phase1_regression": {
+    "/about": {
+      "status": 200,
+      "words": 411,
+      "hasMinWords": true
+    },
+    "/authors": {
+      "status": 200,
+      "words": 673,
+      "hasMinWords": true,
+      "hasPillars": true
+    },
+    "/editorial-policy": {
+      "status": 200,
+      "words": 458,
+      "hasMinWords": true
+    },
+    "/disclaimer": {
+      "status": 200,
+      "words": 355,
+      "hasMinWords": true
+    },
+    "/privacy-policy": {
+      "status": 200,
+      "words": 516,
+      "hasMinWords": true,
+      "hasAdSense": false
+    },
+    "/cookie-policy": {
+      "status": 200,
+      "words": 332,
+      "hasMinWords": true
+    },
+    "/terms-of-service": {
+      "status": 200,
+      "words": 354,
+      "hasMinWords": true
+    },
+    "/refund-policy": {
+      "status": 200,
+      "words": 293,
+      "hasMinWords": true
+    },
+    "/courses": {
+      "status": 200,
+      "words": 355,
+      "hasMinWords": true
+    },
+    "/simantonayan": {
+      "status": 200,
+      "words": 351,
+      "hasMinWords": true
+    },
+    "/card": {
+      "status": 200,
+      "words": 121,
+      "isNoindex": true
+    },
+    "/non-existent-url-regression-test": {
+      "status": 404,
+      "words": 85,
+      "is404": true
+    },
+    "/": {
+      "status": 200,
+      "noStockPhotos": true,
+      "noOurDoctorsWording": true
+    }
+  }
+}

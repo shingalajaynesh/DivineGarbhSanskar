@@ -125,13 +125,29 @@ const BlogPost = () => {
 
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           
-          {/* Back to Blog Navigation */}
-          <Link
-            to="/blog"
-            className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-sacredMaroon hover:text-vermillion uppercase tracking-wider transition-colors mb-6"
-          >
-            <span>{t({ hi: "← सभी लेखों पर वापस जाएं", en: "← Back to All Articles", gu: "← બધા લેખો પર પાછા જાઓ" })}</span>
-          </Link>
+          {/* Breadcrumb & Back Navigation Bar */}
+          <div className="flex flex-wrap items-center justify-between gap-3 mb-6">
+            <nav aria-label="Breadcrumb" className="flex items-center gap-1.5 text-xs text-sacredMaroon/80 font-sans flex-wrap">
+              <Link to="/" className="hover:text-vermillion transition-colors font-medium">
+                {t({ hi: "होम", en: "Home", gu: "હોમ" })}
+              </Link>
+              <span className="text-divineGold/60">/</span>
+              <Link to="/blog" className="hover:text-vermillion transition-colors font-medium">
+                {t({ hi: "ब्लॉग", en: "Blog", gu: "બ્લોગ" })}
+              </Link>
+              <span className="text-divineGold/60">/</span>
+              <span className="text-vermillion font-semibold">
+                {t(post.category)}
+              </span>
+            </nav>
+
+            <Link
+              to="/blog"
+              className="inline-flex items-center gap-1 text-xs font-bold text-sacredMaroon hover:text-vermillion uppercase tracking-wider transition-colors"
+            >
+              <span>{t({ hi: "← सभी लेख", en: "← All Articles", gu: "← બધા લેખો" })}</span>
+            </Link>
+          </div>
 
           {/* Hero Image */}
           <div className="rounded-[28px] overflow-hidden border-2 border-divineGold/30 shadow-lg bg-white">

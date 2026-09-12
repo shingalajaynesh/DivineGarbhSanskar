@@ -1,0 +1,338 @@
+[
+  {
+    "url": "https://www.thedivinegarbhsanskar.com/",
+    "contentQuality": "890 words, H1: \"Divine Garbh Sanskar (दिव्य गर...\"",
+    "technical": "200 OK, Canonical: YES, Schema: YES, Robots: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+    "ymylTrust": "Author: YES, Disclaimer: YES, Ref: N/A",
+    "adEligible": "Eligible (Content)",
+    "finalStatus": "PASS"
+  },
+  {
+    "url": "https://www.thedivinegarbhsanskar.com/about",
+    "contentQuality": "706 words, H1: \"About Divine Garbh Sanskar...\"",
+    "technical": "200 OK, Canonical: YES, Schema: YES, Robots: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+    "ymylTrust": "Author: YES, Disclaimer: YES, Ref: N/A",
+    "adEligible": "Eligible (Content)",
+    "finalStatus": "PASS"
+  },
+  {
+    "url": "https://www.thedivinegarbhsanskar.com/courses",
+    "contentQuality": "600 words, H1: \"Garbh Sanskar Programs & Cours...\"",
+    "technical": "200 OK, Canonical: YES, Schema: YES, Robots: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+    "ymylTrust": "Author: YES, Disclaimer: YES, Ref: N/A",
+    "adEligible": "Excluded (Safe)",
+    "finalStatus": "PASS"
+  },
+  {
+    "url": "https://www.thedivinegarbhsanskar.com/simantonayan",
+    "contentQuality": "565 words, H1: \"Simantonayan (Godh Bharai) San...\"",
+    "technical": "200 OK, Canonical: YES, Schema: YES, Robots: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+    "ymylTrust": "Author: YES, Disclaimer: YES, Ref: N/A",
+    "adEligible": "Excluded (Safe)",
+    "finalStatus": "PASS"
+  },
+  {
+    "url": "https://www.thedivinegarbhsanskar.com/blog",
+    "contentQuality": "885 words, H1: \"Educational Blog & Prenatal Gu...\"",
+    "technical": "200 OK, Canonical: YES, Schema: YES, Robots: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+    "ymylTrust": "Author: YES, Disclaimer: YES, Ref: N/A",
+    "adEligible": "Eligible (Content)",
+    "finalStatus": "PASS"
+  },
+  {
+    "url": "https://www.thedivinegarbhsanskar.com/contact",
+    "contentQuality": "123 words, H1: \"Contact Divine Garbh Sanskar...\"",
+    "technical": "200 OK, Canonical: YES, Schema: YES, Robots: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+    "ymylTrust": "Author: YES, Disclaimer: YES, Ref: N/A",
+    "adEligible": "Excluded (Safe)",
+    "finalStatus": "PASS"
+  },
+  {
+    "url": "https://www.thedivinegarbhsanskar.com/authors",
+    "contentQuality": "1225 words, H1: \"Authors, Editorial Leadership ...\"",
+    "technical": "200 OK, Canonical: YES, Schema: YES, Robots: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+    "ymylTrust": "Author: YES, Disclaimer: YES, Ref: N/A",
+    "adEligible": "Excluded (Safe)",
+    "finalStatus": "PASS"
+  },
+  {
+    "url": "https://www.thedivinegarbhsanskar.com/editorial-policy",
+    "contentQuality": "784 words, H1: \"Editorial & Quality Policy...\"",
+    "technical": "200 OK, Canonical: YES, Schema: YES, Robots: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+    "ymylTrust": "Author: YES, Disclaimer: YES, Ref: N/A",
+    "adEligible": "Excluded (Safe)",
+    "finalStatus": "PASS"
+  },
+  {
+    "url": "https://www.thedivinegarbhsanskar.com/disclaimer",
+    "contentQuality": "578 words, H1: \"Medical & Health Disclaimer...\"",
+    "technical": "200 OK, Canonical: YES, Schema: YES, Robots: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+    "ymylTrust": "Author: YES, Disclaimer: YES, Ref: N/A",
+    "adEligible": "Excluded (Safe)",
+    "finalStatus": "PASS"
+  },
+  {
+    "url": "https://www.thedivinegarbhsanskar.com/privacy-policy",
+    "contentQuality": "898 words, H1: \"Privacy Policy...\"",
+    "technical": "200 OK, Canonical: YES, Schema: YES, Robots: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+    "ymylTrust": "Author: YES, Disclaimer: YES, Ref: N/A",
+    "adEligible": "Excluded (Safe)",
+    "finalStatus": "PASS"
+  },
+  {
+    "url": "https://www.thedivinegarbhsanskar.com/terms-of-service",
+    "contentQuality": "583 words, H1: \"Terms of Service...\"",
+    "technical": "200 OK, Canonical: YES, Schema: YES, Robots: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+    "ymylTrust": "Author: YES, Disclaimer: YES, Ref: N/A",
+    "adEligible": "Excluded (Safe)",
+    "finalStatus": "PASS"
+  },
+  {
+    "url": "https://www.thedivinegarbhsanskar.com/refund-policy",
+    "contentQuality": "458 words, H1: \"Refund & Cancellation Policy...\"",
+    "technical": "200 OK, Canonical: YES, Schema: YES, Robots: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+    "ymylTrust": "Author: YES, Disclaimer: YES, Ref: N/A",
+    "adEligible": "Excluded (Safe)",
+    "finalStatus": "PASS"
+  },
+  {
+    "url": "https://www.thedivinegarbhsanskar.com/cookie-policy",
+    "contentQuality": "540 words, H1: \"Cookie Policy...\"",
+    "technical": "200 OK, Canonical: YES, Schema: YES, Robots: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+    "ymylTrust": "Author: YES, Disclaimer: YES, Ref: N/A",
+    "adEligible": "Excluded (Safe)",
+    "finalStatus": "PASS"
+  },
+  {
+    "url": "https://www.thedivinegarbhsanskar.com/blog/first-trimester-diet-guide",
+    "contentQuality": "2170 words, H1: \"First Trimester Diet Guide: Sa...\"",
+    "technical": "200 OK, Canonical: YES, Schema: YES, Robots: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+    "ymylTrust": "Author: YES, Disclaimer: YES, Ref: YES",
+    "adEligible": "Eligible (Content)",
+    "finalStatus": "PASS"
+  },
+  {
+    "url": "https://www.thedivinegarbhsanskar.com/blog/music-and-ragas-during-pregnancy",
+    "contentQuality": "1443 words, H1: \"Music Therapy &amp; Classical ...\"",
+    "technical": "200 OK, Canonical: YES, Schema: YES, Robots: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+    "ymylTrust": "Author: YES, Disclaimer: YES, Ref: YES",
+    "adEligible": "Eligible (Content)",
+    "finalStatus": "PASS"
+  },
+  {
+    "url": "https://www.thedivinegarbhsanskar.com/blog/safe-prenatal-yoga-for-normal-delivery",
+    "contentQuality": "1476 words, H1: \"Safe Prenatal Yoga &amp; Pelvi...\"",
+    "technical": "200 OK, Canonical: YES, Schema: YES, Robots: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+    "ymylTrust": "Author: YES, Disclaimer: YES, Ref: YES",
+    "adEligible": "Eligible (Content)",
+    "finalStatus": "PASS"
+  },
+  {
+    "url": "https://www.thedivinegarbhsanskar.com/blog/garbh-sanskar-benefits-for-mother-and-baby",
+    "contentQuality": "1304 words, H1: \"The Holistic &amp; Spiritual B...\"",
+    "technical": "200 OK, Canonical: YES, Schema: YES, Robots: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+    "ymylTrust": "Author: YES, Disclaimer: YES, Ref: YES",
+    "adEligible": "Eligible (Content)",
+    "finalStatus": "PASS"
+  },
+  {
+    "url": "https://www.thedivinegarbhsanskar.com/blog/what-to-eat-during-pregnancy-indian-diet-chart",
+    "contentQuality": "1323 words, H1: \"Complete Indian Pregnancy Diet...\"",
+    "technical": "200 OK, Canonical: YES, Schema: YES, Robots: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+    "ymylTrust": "Author: YES, Disclaimer: YES, Ref: YES",
+    "adEligible": "Eligible (Content)",
+    "finalStatus": "PASS"
+  },
+  {
+    "url": "https://www.thedivinegarbhsanskar.com/blog/simantonayan-ceremony-meaning-and-guidance",
+    "contentQuality": "1119 words, H1: \"Simantonayan Sanskar: The Sacr...\"",
+    "technical": "200 OK, Canonical: YES, Schema: YES, Robots: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+    "ymylTrust": "Author: YES, Disclaimer: YES, Ref: YES",
+    "adEligible": "Eligible (Content)",
+    "finalStatus": "PASS"
+  },
+  {
+    "url": "https://www.thedivinegarbhsanskar.com/blog/pregnancy-meditation-and-mantra-benefits",
+    "contentQuality": "983 words, H1: \"Meditation and Mantra Chanting...\"",
+    "technical": "200 OK, Canonical: YES, Schema: YES, Robots: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+    "ymylTrust": "Author: YES, Disclaimer: YES, Ref: YES",
+    "adEligible": "Eligible (Content)",
+    "finalStatus": "PASS"
+  },
+  {
+    "url": "https://www.thedivinegarbhsanskar.com/blog/pregnancy-stress-management-tips",
+    "contentQuality": "855 words, H1: \"Holistic Pregnancy Stress Mana...\"",
+    "technical": "200 OK, Canonical: YES, Schema: YES, Robots: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+    "ymylTrust": "Author: YES, Disclaimer: YES, Ref: YES",
+    "adEligible": "Eligible (Content)",
+    "finalStatus": "PASS"
+  },
+  {
+    "url": "https://www.thedivinegarbhsanskar.com/blog/best-books-and-stories-to-read-during-pregnancy",
+    "contentQuality": "754 words, H1: \"Best Books, Stories, and Liter...\"",
+    "technical": "200 OK, Canonical: YES, Schema: YES, Robots: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+    "ymylTrust": "Author: YES, Disclaimer: YES, Ref: YES",
+    "adEligible": "Eligible (Content)",
+    "finalStatus": "PASS"
+  },
+  {
+    "url": "https://www.thedivinegarbhsanskar.com/blog/morning-routine-for-pregnant-women",
+    "contentQuality": "647 words, H1: \"Ayurvedic Morning Routine (Din...\"",
+    "technical": "200 OK, Canonical: YES, Schema: YES, Robots: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+    "ymylTrust": "Author: YES, Disclaimer: YES, Ref: YES",
+    "adEligible": "Eligible (Content)",
+    "finalStatus": "PASS"
+  },
+  {
+    "url": "https://www.thedivinegarbhsanskar.com/blog/pregnancy-yoga-breathing-exercises",
+    "contentQuality": "796 words, H1: \"Gentle Pregnancy Yoga Breathin...\"",
+    "technical": "200 OK, Canonical: YES, Schema: YES, Robots: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+    "ymylTrust": "Author: YES, Disclaimer: YES, Ref: YES",
+    "adEligible": "Eligible (Content)",
+    "finalStatus": "PASS"
+  },
+  {
+    "url": "https://www.thedivinegarbhsanskar.com/blog/foods-to-avoid-during-pregnancy-india",
+    "contentQuality": "819 words, H1: \"Foods to Avoid During Pregnanc...\"",
+    "technical": "200 OK, Canonical: YES, Schema: YES, Robots: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+    "ymylTrust": "Author: YES, Disclaimer: YES, Ref: YES",
+    "adEligible": "Eligible (Content)",
+    "finalStatus": "PASS"
+  },
+  {
+    "url": "https://www.thedivinegarbhsanskar.com/blog/how-to-create-a-positive-pregnancy-environment-at-home",
+    "contentQuality": "697 words, H1: \"Creating a Positive Pregnancy ...\"",
+    "technical": "200 OK, Canonical: YES, Schema: YES, Robots: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+    "ymylTrust": "Author: YES, Disclaimer: YES, Ref: YES",
+    "adEligible": "Eligible (Content)",
+    "finalStatus": "PASS"
+  },
+  {
+    "url": "https://www.thedivinegarbhsanskar.com/blog/third-trimester-garbh-sanskar-preparation",
+    "contentQuality": "1179 words, H1: \"Third Trimester Garbh Sanskar:...\"",
+    "technical": "200 OK, Canonical: YES, Schema: YES, Robots: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+    "ymylTrust": "Author: YES, Disclaimer: YES, Ref: YES",
+    "adEligible": "Eligible (Content)",
+    "finalStatus": "PASS"
+  },
+  {
+    "url": "https://www.thedivinegarbhsanskar.com/blog/ayurvedic-pregnancy-care-garbhini-paricharya",
+    "contentQuality": "1015 words, H1: \"Garbhini Paricharya: Classical...\"",
+    "technical": "200 OK, Canonical: YES, Schema: YES, Robots: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+    "ymylTrust": "Author: YES, Disclaimer: YES, Ref: YES",
+    "adEligible": "Eligible (Content)",
+    "finalStatus": "PASS"
+  },
+  {
+    "url": "https://www.thedivinegarbhsanskar.com/blog/garbh-samvad-communicating-with-unborn-baby",
+    "contentQuality": "847 words, H1: \"Garbh Samvad: The Art and Scie...\"",
+    "technical": "200 OK, Canonical: YES, Schema: YES, Robots: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+    "ymylTrust": "Author: YES, Disclaimer: YES, Ref: YES",
+    "adEligible": "Eligible (Content)",
+    "finalStatus": "PASS"
+  },
+  {
+    "url": "https://www.thedivinegarbhsanskar.com/blog/postpartum-recovery-sutika-paricharya-guide",
+    "contentQuality": "874 words, H1: \"Sutika Paricharya: Complete Ay...\"",
+    "technical": "200 OK, Canonical: YES, Schema: YES, Robots: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+    "ymylTrust": "Author: YES, Disclaimer: YES, Ref: YES",
+    "adEligible": "Eligible (Content)",
+    "finalStatus": "PASS"
+  },
+  {
+    "url": "https://www.thedivinegarbhsanskar.com/blog/father-role-in-garbh-sanskar-prenatal-support",
+    "contentQuality": "686 words, H1: \"The Father&#039;s Essential Ro...\"",
+    "technical": "200 OK, Canonical: YES, Schema: YES, Robots: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+    "ymylTrust": "Author: YES, Disclaimer: YES, Ref: YES",
+    "adEligible": "Eligible (Content)",
+    "finalStatus": "PASS"
+  },
+  {
+    "url": "https://www.thedivinegarbhsanskar.com/blog/second-trimester-care-baby-movements-and-diet",
+    "contentQuality": "1288 words, H1: \"Second Trimester Guide: Feelin...\"",
+    "technical": "200 OK, Canonical: YES, Schema: YES, Robots: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+    "ymylTrust": "Author: YES, Disclaimer: YES, Ref: YES",
+    "adEligible": "Eligible (Content)",
+    "finalStatus": "PASS"
+  },
+  {
+    "url": "https://www.thedivinegarbhsanskar.com/blog/gestational-diabetes-diet-and-ayurvedic-lifestyle",
+    "contentQuality": "1193 words, H1: \"Gestational Diabetes Care: Ind...\"",
+    "technical": "200 OK, Canonical: YES, Schema: YES, Robots: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+    "ymylTrust": "Author: YES, Disclaimer: YES, Ref: YES",
+    "adEligible": "Eligible (Content)",
+    "finalStatus": "PASS"
+  },
+  {
+    "url": "https://www.thedivinegarbhsanskar.com/blog/pregnancy-sleep-positions-and-rest-techniques",
+    "contentQuality": "1125 words, H1: \"Optimal Sleep Positions in Pre...\"",
+    "technical": "200 OK, Canonical: YES, Schema: YES, Robots: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+    "ymylTrust": "Author: YES, Disclaimer: YES, Ref: YES",
+    "adEligible": "Eligible (Content)",
+    "finalStatus": "PASS"
+  },
+  {
+    "url": "https://www.thedivinegarbhsanskar.com/blog/safe-herbs-and-ayurvedic-spices-during-pregnancy",
+    "contentQuality": "1091 words, H1: \"Safe Ayurvedic Herbs &amp; Kit...\"",
+    "technical": "200 OK, Canonical: YES, Schema: YES, Robots: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+    "ymylTrust": "Author: YES, Disclaimer: YES, Ref: YES",
+    "adEligible": "Eligible (Content)",
+    "finalStatus": "PASS"
+  },
+  {
+    "url": "https://www.thedivinegarbhsanskar.com/blog/normal-delivery-preparation-pelvic-exercises-and-diet",
+    "contentQuality": "1113 words, H1: \"Preparing for Normal Delivery:...\"",
+    "technical": "200 OK, Canonical: YES, Schema: YES, Robots: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+    "ymylTrust": "Author: YES, Disclaimer: YES, Ref: YES",
+    "adEligible": "Eligible (Content)",
+    "finalStatus": "PASS"
+  },
+  {
+    "url": "https://www.thedivinegarbhsanskar.com/blog/prenatal-creative-arts-and-brain-stimulation",
+    "contentQuality": "872 words, H1: \"Prenatal Creative Arts &amp; M...\"",
+    "technical": "200 OK, Canonical: YES, Schema: YES, Robots: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+    "ymylTrust": "Author: YES, Disclaimer: YES, Ref: YES",
+    "adEligible": "Eligible (Content)",
+    "finalStatus": "PASS"
+  },
+  {
+    "url": "https://www.thedivinegarbhsanskar.com/blog/managing-morning-sickness-and-pregnancy-nausea",
+    "contentQuality": "985 words, H1: \"Managing Morning Sickness &amp...\"",
+    "technical": "200 OK, Canonical: YES, Schema: YES, Robots: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+    "ymylTrust": "Author: YES, Disclaimer: YES, Ref: YES",
+    "adEligible": "Eligible (Content)",
+    "finalStatus": "PASS"
+  },
+  {
+    "url": "https://www.thedivinegarbhsanskar.com/blog/anemia-prevention-iron-rich-indian-pregnancy-foods",
+    "contentQuality": "965 words, H1: \"Preventing Anemia in Indian Pr...\"",
+    "technical": "200 OK, Canonical: YES, Schema: YES, Robots: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+    "ymylTrust": "Author: YES, Disclaimer: YES, Ref: YES",
+    "adEligible": "Eligible (Content)",
+    "finalStatus": "PASS"
+  },
+  {
+    "url": "https://www.thedivinegarbhsanskar.com/blog/twin-pregnancy-care-and-garbh-sanskar-guidance",
+    "contentQuality": "1209 words, H1: \"Twin Pregnancy Care: Nutrition...\"",
+    "technical": "200 OK, Canonical: YES, Schema: YES, Robots: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+    "ymylTrust": "Author: YES, Disclaimer: YES, Ref: YES",
+    "adEligible": "Eligible (Content)",
+    "finalStatus": "PASS"
+  },
+  {
+    "url": "https://www.thedivinegarbhsanskar.com/blog/breastfeeding-preparation-and-lactation-ayurvedic-guide",
+    "contentQuality": "941 words, H1: \"Prenatal Breastfeeding Prepara...\"",
+    "technical": "200 OK, Canonical: YES, Schema: YES, Robots: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+    "ymylTrust": "Author: YES, Disclaimer: YES, Ref: YES",
+    "adEligible": "Eligible (Content)",
+    "finalStatus": "PASS"
+  },
+  {
+    "url": "https://www.thedivinegarbhsanskar.com/card",
+    "contentQuality": "112 words, H1: \"Dr. Taruna Jiyani...\"",
+    "technical": "200 OK, Canonical: YES, Schema: YES, Robots: noindex, nofollow",
+    "ymylTrust": "Author: YES, Disclaimer: YES, Ref: N/A",
+    "adEligible": "Excluded (Safe)",
+    "finalStatus": "PASS"
+  }
+]

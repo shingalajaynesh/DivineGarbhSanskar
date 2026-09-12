@@ -1,0 +1,115 @@
+{
+  "totalHtmlFiles": 85,
+  "validRoutesCount": 42,
+  "internalLinksCount": 43,
+  "externalLinks": [
+    "https://fonts.googleapis.com",
+    "https://fonts.gstatic.com",
+    "https://www.youtube.com",
+    "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,400..700;1,400..700&family=Mukta:wght@300;400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Noto+Sans+Gujarati:wght@400;500;600;700&family=Noto+Serif+Devanagari:wght@400;500;600;700&family=Noto+Serif+Gujarati:wght@400;500;600;700&family=Tiro+Devanagari+Hindi:ital@0;1&display=swap",
+    "https://www.google.com/settings/ads",
+    "https://www.aboutads.info"
+  ],
+  "linkIssues": [
+    {
+      "source": "404/index.html",
+      "destination": "https://www.thedivinegarbhsanskar.com/404",
+      "problem": "Internal absolute link points to unknown route: /404",
+      "fix": "Update or remove link"
+    },
+    {
+      "source": "404.html",
+      "destination": "https://www.thedivinegarbhsanskar.com/404",
+      "problem": "Internal absolute link points to unknown route: /404",
+      "fix": "Update or remove link"
+    }
+  ],
+  "liveChecks": {
+    "adsTxt": {
+      "status": 200,
+      "contentType": "text/plain; charset=utf-8",
+      "bodySnippet": "google.com, pub-6303291083449043, DIRECT, f08c47fec0942fa0",
+      "hasCorrectPub": true
+    },
+    "robotsTxt": {
+      "status": 200,
+      "contentType": "text/plain; charset=utf-8",
+      "hasMediapartners": true,
+      "hasGooglebot": true,
+      "hasSitemap": true
+    },
+    "sitemap": {
+      "status": 200,
+      "urlCount": 41,
+      "containsCard": false,
+      "urls": [
+        "https://www.thedivinegarbhsanskar.com/",
+        "https://www.thedivinegarbhsanskar.com/about",
+        "https://www.thedivinegarbhsanskar.com/courses",
+        "https://www.thedivinegarbhsanskar.com/simantonayan",
+        "https://www.thedivinegarbhsanskar.com/blog",
+        "https://www.thedivinegarbhsanskar.com/contact",
+        "https://www.thedivinegarbhsanskar.com/authors",
+        "https://www.thedivinegarbhsanskar.com/editorial-policy",
+        "https://www.thedivinegarbhsanskar.com/disclaimer",
+        "https://www.thedivinegarbhsanskar.com/privacy-policy",
+        "https://www.thedivinegarbhsanskar.com/terms-of-service",
+        "https://www.thedivinegarbhsanskar.com/refund-policy",
+        "https://www.thedivinegarbhsanskar.com/cookie-policy",
+        "https://www.thedivinegarbhsanskar.com/blog/first-trimester-diet-guide",
+        "https://www.thedivinegarbhsanskar.com/blog/music-and-ragas-during-pregnancy",
+        "https://www.thedivinegarbhsanskar.com/blog/safe-prenatal-yoga-for-normal-delivery",
+        "https://www.thedivinegarbhsanskar.com/blog/garbh-sanskar-benefits-for-mother-and-baby",
+        "https://www.thedivinegarbhsanskar.com/blog/what-to-eat-during-pregnancy-indian-diet-chart",
+        "https://www.thedivinegarbhsanskar.com/blog/simantonayan-ceremony-meaning-and-guidance",
+        "https://www.thedivinegarbhsanskar.com/blog/pregnancy-meditation-and-mantra-benefits",
+        "https://www.thedivinegarbhsanskar.com/blog/pregnancy-stress-management-tips",
+        "https://www.thedivinegarbhsanskar.com/blog/best-books-and-stories-to-read-during-pregnancy",
+        "https://www.thedivinegarbhsanskar.com/blog/morning-routine-for-pregnant-women",
+        "https://www.thedivinegarbhsanskar.com/blog/pregnancy-yoga-breathing-exercises",
+        "https://www.thedivinegarbhsanskar.com/blog/foods-to-avoid-during-pregnancy-india",
+        "https://www.thedivinegarbhsanskar.com/blog/how-to-create-a-positive-pregnancy-environment-at-home",
+        "https://www.thedivinegarbhsanskar.com/blog/third-trimester-garbh-sanskar-preparation",
+        "https://www.thedivinegarbhsanskar.com/blog/ayurvedic-pregnancy-care-garbhini-paricharya",
+        "https://www.thedivinegarbhsanskar.com/blog/garbh-samvad-communicating-with-unborn-baby",
+        "https://www.thedivinegarbhsanskar.com/blog/postpartum-recovery-sutika-paricharya-guide",
+        "https://www.thedivinegarbhsanskar.com/blog/father-role-in-garbh-sanskar-prenatal-support",
+        "https://www.thedivinegarbhsanskar.com/blog/second-trimester-care-baby-movements-and-diet",
+        "https://www.thedivinegarbhsanskar.com/blog/gestational-diabetes-diet-and-ayurvedic-lifestyle",
+        "https://www.thedivinegarbhsanskar.com/blog/pregnancy-sleep-positions-and-rest-techniques",
+        "https://www.thedivinegarbhsanskar.com/blog/safe-herbs-and-ayurvedic-spices-during-pregnancy",
+        "https://www.thedivinegarbhsanskar.com/blog/normal-delivery-preparation-pelvic-exercises-and-diet",
+        "https://www.thedivinegarbhsanskar.com/blog/prenatal-creative-arts-and-brain-stimulation",
+        "https://www.thedivinegarbhsanskar.com/blog/managing-morning-sickness-and-pregnancy-nausea",
+        "https://www.thedivinegarbhsanskar.com/blog/anemia-prevention-iron-rich-indian-pregnancy-foods",
+        "https://www.thedivinegarbhsanskar.com/blog/twin-pregnancy-care-and-garbh-sanskar-guidance",
+        "https://www.thedivinegarbhsanskar.com/blog/breastfeeding-preparation-and-lactation-ayurvedic-guide"
+      ]
+    }
+  },
+  "privacyPolicyAudit": {
+    "mentionsAdSense": true,
+    "mentionsCookies": true,
+    "mentionsAnalytics": true,
+    "mentionsUserChoices": true
+  },
+  "routeSchemasSample": {
+    "home": [
+      "Organization"
+    ],
+    "about": [
+      "AboutPage"
+    ],
+    "courses": [
+      "Course"
+    ],
+    "blog": [
+      "CollectionPage"
+    ],
+    "firstArticle": [
+      "Article",
+      "BreadcrumbList",
+      "FAQPage"
+    ]
+  }
+}

@@ -35,6 +35,7 @@ const Navbar = () => {
     { path: '/courses', label: { hi: 'कोर्स', en: 'Courses', gu: 'કોર્સ' } },
     { path: '/simantonayan', label: { hi: 'सीमंतोन्नयन', en: 'Simantonayan', gu: 'સીમંતોન્નયન' }, highlight: true },
     { path: '/blog', label: { hi: 'ब्लॉग', en: 'Blog', gu: 'બ્લોગ' } },
+    { path: '/authors', label: { hi: 'विशेषज्ञ', en: 'Authors', gu: 'નિષ્ણાતો' } },
     { path: '/contact', label: { hi: 'संपर्क', en: 'Contact', gu: 'સંપર્ક' } }
   ];
 
