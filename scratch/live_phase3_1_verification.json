@@ -1,0 +1,99 @@
+{
+  "articles": [
+    {
+      "id": 2,
+      "slug": "music-and-ragas-during-pregnancy",
+      "status": 200,
+      "liveTitle": "Music &amp; Classical Indian Ragas During Pregnancy: Relaxation and Traditional Garbh Sanskar | Divine Garbh Sanskar",
+      "liveH1": "Music &amp; Classical Indian Ragas During Pregnancy: Relaxation and Traditional Garbh Sanskar",
+      "hasBreadcrumbs": true,
+      "hasExpectedH1": false,
+      "hasForbiddenTerm": false,
+      "pass": true
+    },
+    {
+      "id": 7,
+      "slug": "pregnancy-meditation-and-mantra-benefits",
+      "status": 200,
+      "liveTitle": "Meditation &amp; Mantra Chanting During Pregnancy: Calm, Focus &amp; Traditional Garbh Sanskar | Divine Garbh Sanskar",
+      "liveH1": "Meditation &amp; Mantra Chanting During Pregnancy: Calm, Focus &amp; Traditional Garbh Sanskar",
+      "hasBreadcrumbs": true,
+      "hasExpectedH1": false,
+      "hasForbiddenTerm": false,
+      "pass": true
+    },
+    {
+      "id": 11,
+      "slug": "pregnancy-yoga-breathing-exercises",
+      "status": 200,
+      "liveTitle": "Gentle Pregnancy Breathing (Pranayama): Relaxation, Comfort &amp; Safe Practice | Divine Garbh Sanskar",
+      "liveH1": "Gentle Pregnancy Breathing (Pranayama): Relaxation, Comfort &amp; Safe Practice",
+      "hasBreadcrumbs": true,
+      "hasExpectedH1": false,
+      "hasForbiddenTerm": false,
+      "pass": true
+    },
+    {
+      "id": 15,
+      "slug": "ayurvedic-pregnancy-care-garbhini-paricharya",
+      "status": 200,
+      "liveTitle": "Garbhini Paricharya: Traditional Month-by-Month Ayurvedic Pregnancy Guidance | Divine Garbh Sanskar",
+      "liveH1": "Garbhini Paricharya: Traditional Month-by-Month Ayurvedic Pregnancy Guidance",
+      "hasBreadcrumbs": true,
+      "hasExpectedH1": true,
+      "hasForbiddenTerm": false,
+      "pass": true
+    },
+    {
+      "id": 16,
+      "slug": "garbh-samvad-communicating-with-unborn-baby",
+      "status": 200,
+      "liveTitle": "Garbh Samvad: Traditional Practice &amp; Conscious Communication with Your Unborn Baby | Divine Garbh Sanskar",
+      "liveH1": "Garbh Samvad: Traditional Practice &amp; Conscious Communication with Your Unborn Baby",
+      "hasBreadcrumbs": true,
+      "hasExpectedH1": false,
+      "hasForbiddenTerm": false,
+      "pass": true
+    },
+    {
+      "id": 23,
+      "slug": "normal-delivery-preparation-pelvic-exercises-and-diet",
+      "status": 200,
+      "liveTitle": "Preparing for Labor: Pelvic Floor Exercises, Perineal Massage &amp; Comfort Measures | Divine Garbh Sanskar",
+      "liveH1": "Preparing for Labor: Pelvic Floor Exercises, Perineal Massage &amp; Comfort Measures",
+      "hasBreadcrumbs": true,
+      "hasExpectedH1": false,
+      "hasForbiddenTerm": false,
+      "pass": true
+    }
+  ],
+  "home": {
+    "status": 200,
+    "hasAuthorsLink": true,
+    "hasFooterLegal": true
+  },
+  "card": {
+    "status": 200,
+    "hasNoindex": true
+  },
+  "fake404": {
+    "status": 404,
+    "is404": true
+  },
+  "adsTxt": {
+    "status": 200,
+    "snippet": "google.com, pub-6303291083449043, DIRECT, f08c47fec0942fa0",
+    "isValid": true
+  },
+  "robots": {
+    "status": 200,
+    "hasMediapartners": true,
+    "hasGooglebot": true,
+    "hasSitemap": true
+  },
+  "sitemap": {
+    "status": 200,
+    "containsCard": false,
+    "urlCount": 41
+  }
+}
