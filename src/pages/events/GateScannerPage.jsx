@@ -6,7 +6,7 @@ import {
   RefreshCw, Volume2, Search, Lock, User
 } from 'lucide-react';
 
-const API_BASE = '/api';
+import { API_BASE } from '../../utils/apiConfig';
 
 // Web Audio API Synthesizers for gate entry sound cues
 const playSuccessChime = () => {

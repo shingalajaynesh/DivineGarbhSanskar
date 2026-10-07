@@ -9,7 +9,7 @@ import {
 } from 'lucide-react';
 import { compressImage } from './imageCompression';
 
-const API_BASE = '/api';
+import { API_BASE } from '../../utils/apiConfig';
 const ADMIN_WHATSAPP = '919586979897';
 
 export default function DivyaGarbhYatra() {
@@ -319,6 +319,20 @@ export default function DivyaGarbhYatra() {
         </span>
       ))}
 
+      {/* Subtle Warm Luxury Ambient Glows (Native GPU Vector Gradients from ekdujekeliye) */}
+      <div
+        className="fixed inset-0 pointer-events-none z-0 opacity-70"
+        style={{
+          backgroundImage: `
+            radial-gradient(ellipse 65% 55% at 25% 10%, rgba(254, 205, 211, 0.45) 0%, transparent 70%),
+            radial-gradient(ellipse 55% 45% at 85% 35%, rgba(254, 243, 199, 0.45) 0%, transparent 70%),
+            radial-gradient(ellipse 60% 50% at 10% 85%, rgba(254, 215, 170, 0.35) 0%, transparent 70%)
+          `,
+          willChange: 'transform',
+          transform: 'translateZ(0)'
+        }}
+      />
+
       {/* Header Sticky Navigation Bar for Event - ekdujekeliye Clean Luxury Style */}
       <header className="relative z-20 border-b border-stone-200/80 bg-white/90 backdrop-blur-md sticky top-0 px-4 py-3">
         <div className="max-w-6xl mx-auto flex items-center justify-between">
@@ -351,65 +365,162 @@ export default function DivyaGarbhYatra() {
       </header>
 
       {/* Main Container */}
-      <main className="relative z-10 max-w-4xl mx-auto px-4 py-8 md:py-12">
+      <main className="relative z-10 max-w-5xl mx-auto px-4 py-8 md:py-12">
 
-        {/* 1. HERO BANNER */}
-        <div className="text-center space-y-4 mb-8">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-rose-50 border border-rose-200 text-rose-800 text-xs md:text-sm font-bold shadow-xs">
-            <Sparkles className="w-4 h-4 text-rose-600" />
-            <span>વિશેષ કપલ સેમિનાર • COUPLE SEMINAR</span>
+        {/* 1. HERO SECTION - ekdujekeliye Signature 2-Column Luxury Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center mb-10">
+          
+          {/* Left Column (7 cols) */}
+          <div className="lg:col-span-7 space-y-5 text-center lg:text-left">
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-rose-50 border border-rose-200 text-rose-800 text-xs font-bold uppercase tracking-wider shadow-2xs">
+                <Heart className="w-3.5 h-3.5 text-rose-600 flex-shrink-0 fill-rose-600" />
+                <span>વિશેષ કપલ સેમિનાર • COUPLE SEMINAR</span>
+              </div>
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50 border border-amber-300 text-amber-950 text-xs font-extrabold uppercase tracking-wider shadow-2xs">
+                <span>19 Dec 2026, શનિવાર</span>
+              </div>
+            </div>
+
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-stone-900 tracking-tight leading-tight">
+              પ્રેમ અને સંસ્કારની સફર <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#9F1239] via-[#BE123C] to-[#D97706]">
+                દિવ્ય ગર્ભયાત્રા સેમિનાર
+              </span>
+            </h1>
+
+            <p className="text-stone-600 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto lg:mx-0 font-normal">
+              માતા અને પિતા બંનેની સંયુક્ત સહભાગિતાથી ગર્ભસ્થ શિશુમાં દિવ્ય સંસ્કારોનું સિંચન કરવા માટે ખાસ આયોજિત લાઈવ કપલ વર્કશોપ, led by <strong>નેહલ ગઢવી (Life Coach & Expert)</strong>.
+            </p>
+
+            {/* Event Quick Meta Badges */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-1 text-xs text-left">
+              <div className="bg-white border border-stone-200/90 rounded-2xl p-3 shadow-xs">
+                <Calendar className="w-4 h-4 text-rose-600 mb-1" />
+                <span className="text-stone-500 text-[10px] block font-medium">તારીખ</span>
+                <strong className="text-stone-900 block font-bold text-[11px] sm:text-xs">19 Dec 2026</strong>
+              </div>
+              <div className="bg-white border border-stone-200/90 rounded-2xl p-3 shadow-xs">
+                <Clock className="w-4 h-4 text-rose-600 mb-1" />
+                <span className="text-stone-500 text-[10px] block font-medium">સમય</span>
+                <strong className="text-stone-900 block font-bold text-[11px] sm:text-xs">રાત્રે 8:30 PM</strong>
+              </div>
+              <div className="bg-white border border-stone-200/90 rounded-2xl p-3 shadow-xs">
+                <MapPin className="w-4 h-4 text-rose-600 mb-1" />
+                <span className="text-stone-500 text-[10px] block font-medium">સ્થળ</span>
+                <strong className="text-stone-900 block font-bold text-[11px] sm:text-xs">જમના બા ભવન</strong>
+              </div>
+              <div className="bg-white border border-stone-200/90 rounded-2xl p-3 shadow-xs">
+                <Heart className="w-4 h-4 text-rose-600 mb-1 fill-rose-600" />
+                <span className="text-stone-500 text-[10px] block font-medium">પ્રવેશ</span>
+                <strong className="text-stone-900 block font-bold text-[11px] sm:text-xs">1 પાસ = 1 કપલ</strong>
+              </div>
+            </div>
+
+            {/* Badges / Guarantees from ekdujekeliye */}
+            <div className="pt-3 border-t border-stone-200/80 flex flex-wrap items-center justify-center lg:justify-start gap-2.5 text-[11px] font-semibold text-stone-600">
+              <div className="flex items-center gap-1">
+                <ShieldCheck className="w-3.5 h-3.5 text-rose-600 flex-shrink-0" />
+                <span>પતિ-પત્ની (Couples Only)</span>
+              </div>
+              <div className="flex items-center gap-1">
+                <ShieldCheck className="w-3.5 h-3.5 text-rose-600 flex-shrink-0" />
+                <span>ઇન્સ્ટન્ટ ડિજિટલ પાસ + QR</span>
+              </div>
+              <div className="flex items-center gap-1">
+                <ShieldCheck className="w-3.5 h-3.5 text-rose-600 flex-shrink-0" />
+                <span>WhatsApp ડિલિવરી</span>
+              </div>
+              <div className="flex items-center gap-1 text-amber-950 font-bold">
+                <ShieldCheck className="w-3.5 h-3.5 text-amber-600 flex-shrink-0" />
+                <span>મર્યાદિત ૨૫૦ કપલ સીટો</span>
+              </div>
+            </div>
           </div>
 
-          <h1 className="text-4xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#9F1239] via-[#BE123C] to-[#D97706] tracking-tight leading-tight">
-            દિવ્ય ગર્ભયાત્રા
-          </h1>
-
-          <p className="text-base md:text-xl text-stone-600 font-medium max-w-2xl mx-auto italic">
-            "પ્રેમ, સંસ્કાર અને સમર્પણની અનોખી સફર — ગર્ભાવસ્થા દરમિયાન માતા-પિતાની દિવ્ય ભાગીદારી"
-          </p>
-
-          {/* Speaker Highlight Card (Nehal Gadhavi) in ekdujekeliye Host Card Style */}
-          <div className="max-w-2xl mx-auto mt-6 bg-white border border-stone-200/90 rounded-3xl p-5 md:p-6 shadow-xl flex flex-col sm:flex-row items-center gap-5 text-center sm:text-left relative overflow-hidden">
-            <div className="relative w-28 h-28 sm:w-32 sm:h-32 rounded-2xl overflow-hidden border-2 border-stone-200 shadow-md shrink-0">
+          {/* Right Column: Hero Visual Card (Nehal Gadhavi) in exact ekdujekeliye Signature Style */}
+          <div className="lg:col-span-5 relative flex justify-center w-full">
+            <div className="relative w-full max-w-sm aspect-[4/5] rounded-3xl overflow-hidden border border-stone-200/90 shadow-2xl bg-stone-100 group">
               <img
                 src="/events/divy-garbhyatra/nehal-gadhavi.jpg"
-                alt="નેહલ ગઢવી"
-                className="w-full h-full object-cover object-top"
+                alt="નેહલ ગઢવી - દિવ્ય ગર્ભયાત્રા"
+                className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                loading="eager"
                 onError={(e) => {
                   e.target.style.display = 'none';
                 }}
               />
-            </div>
-            <div className="space-y-1">
-              <span className="text-xs uppercase tracking-widest text-rose-700 font-bold block">મુખ્ય વક્તા (Key Speaker)</span>
-              <h2 className="text-2xl font-black text-stone-900">નેહલ ગઢવી (Nehal Gadhavi)</h2>
-              <p className="text-xs sm:text-sm text-stone-600 font-medium leading-relaxed">
-                ખ્યાતનામ Life Coach & Garbh Sanskar Expert • ૧૦,૦૦૦+ પરિવારોને વૈદિક માતૃત્વ માટે સફળ માર્ગદર્શન આપનાર
-              </p>
+              <div className="absolute inset-0 bg-gradient-to-t from-stone-950/85 via-stone-900/20 to-transparent pointer-events-none" />
+
+              {/* Floating Glassmorphism Host Badge from ekdujekeliye */}
+              <div className="absolute bottom-4 left-4 right-4 p-4 rounded-2xl bg-white/95 backdrop-blur-md border border-stone-200/80 shadow-lg text-left">
+                <div className="flex items-center justify-between gap-2 mb-1">
+                  <span className="text-[10px] font-bold text-rose-700 uppercase tracking-wider">
+                    મુખ્ય વક્તા (Keynote Speaker)
+                  </span>
+                  <span className="text-[10px] font-extrabold text-amber-950 bg-amber-50 border border-amber-200 px-2 py-0.5 rounded-full">
+                    10,000+ Couples Guided
+                  </span>
+                </div>
+                <span className="text-base font-black text-stone-900 block">
+                  નેહલ ગઢવી (Nehal Gadhavi)
+                </span>
+                <span className="text-xs text-stone-600 block font-medium">
+                  ખ્યાતનામ Life Coach &amp; Garbh Sanskar Expert
+                </span>
+              </div>
             </div>
           </div>
 
-          {/* Event Quick Meta Pill Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-2.5 max-w-3xl mx-auto mt-6 text-xs md:text-sm">
-            <div className="bg-white border border-stone-200/90 rounded-2xl p-3.5 flex flex-col items-center justify-center text-center shadow-xs">
-              <Calendar className="w-5 h-5 text-rose-600 mb-1" />
-              <span className="text-stone-500 text-[11px] font-medium">તારીખ</span>
-              <span className="font-bold text-stone-900">19 Dec 2026, શનિવાર</span>
+        </div>
+
+        {/* 1.5. THE 4 PILLARS EXPERIENCE (Why Attend) from ekdujekeliye */}
+        <div className="mb-10 bg-white border border-stone-200/90 rounded-3xl p-6 sm:p-8 shadow-sm">
+          <div className="text-center space-y-1 mb-6">
+            <span className="text-xs font-bold text-rose-700 uppercase tracking-widest block">Why Attend</span>
+            <h3 className="text-2xl font-black text-stone-900">આ સેમિનાર તમારા માટે કેમ અનિવાર્ય છે?</h3>
+            <p className="text-xs text-stone-500">ગર્ભાવસ્થા દરમિયાન માતા-પિતાના સંબંધો અને બાળકના સંસ્કારોનું દિવ્ય જોડાણ</p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="bg-[#FFFDF9] border border-stone-200/80 rounded-2xl p-4 space-y-2 shadow-2xs">
+              <div className="w-10 h-10 rounded-xl bg-rose-50 text-rose-600 border border-rose-200 flex items-center justify-center font-bold">
+                01
+              </div>
+              <h4 className="text-sm font-bold text-stone-900">ખુલ્લા દિલથી સંવાદ</h4>
+              <p className="text-xs text-stone-600 leading-relaxed font-normal">
+                ગર્ભાવસ્થામાં પતિ-પત્ની વચ્ચે ઊંડો પરસ્પર સ્નેહ અને ભાવનાત્મક સહકાર સ્થાપિત કરવો.
+              </p>
             </div>
-            <div className="bg-white border border-stone-200/90 rounded-2xl p-3.5 flex flex-col items-center justify-center text-center shadow-xs">
-              <Clock className="w-5 h-5 text-rose-600 mb-1" />
-              <span className="text-stone-500 text-[11px] font-medium">સમય</span>
-              <span className="font-bold text-stone-900">રાત્રે 8:30 થી 12:00 PM</span>
+
+            <div className="bg-[#FFFDF9] border border-stone-200/80 rounded-2xl p-4 space-y-2 shadow-2xs">
+              <div className="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 border border-amber-200 flex items-center justify-center font-bold">
+                02
+              </div>
+              <h4 className="text-sm font-bold text-stone-900">વૈદિક ગર્ભ સંવાદ</h4>
+              <p className="text-xs text-stone-600 leading-relaxed font-normal">
+                ગર્ભસ્થ શિશુ સાથે વાતચીત કરીને તેના મગજના કોષો અને સંસ્કારોને જાગૃત કરવાની કળા.
+              </p>
             </div>
-            <div className="bg-white border border-stone-200/90 rounded-2xl p-3.5 flex flex-col items-center justify-center text-center shadow-xs">
-              <MapPin className="w-5 h-5 text-rose-600 mb-1" />
-              <span className="text-stone-500 text-[11px] font-medium">સ્થળ</span>
-              <span className="font-bold text-stone-900">જમના બા ભવન, સુરત</span>
+
+            <div className="bg-[#FFFDF9] border border-stone-200/80 rounded-2xl p-4 space-y-2 shadow-2xs">
+              <div className="w-10 h-10 rounded-xl bg-rose-50 text-rose-600 border border-rose-200 flex items-center justify-center font-bold">
+                03
+              </div>
+              <h4 className="text-sm font-bold text-stone-900">પતિની સક્રિય ભાગીદારી</h4>
+              <p className="text-xs text-stone-600 leading-relaxed font-normal">
+                માતાની લાગણીઓને સમજીને પિતા તરીકે ગર્ભ સંસ્કારમાં બરાબરીની ભૂમિકા ભજવવી.
+              </p>
             </div>
-            <div className="bg-white border border-stone-200/90 rounded-2xl p-3.5 flex flex-col items-center justify-center text-center shadow-xs">
-              <Heart className="w-5 h-5 text-rose-600 mb-1 fill-rose-600" />
-              <span className="text-stone-500 text-[11px] font-medium">પ્રવેશ</span>
-              <span className="font-bold text-stone-900">1 પાસ = 1 કપલ (2 વ્યક્તિ)</span>
+
+            <div className="bg-[#FFFDF9] border border-stone-200/80 rounded-2xl p-4 space-y-2 shadow-2xs">
+              <div className="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 border border-amber-200 flex items-center justify-center font-bold">
+                04
+              </div>
+              <h4 className="text-sm font-bold text-stone-900">દિવ્ય શિશુ નિર્માણ</h4>
+              <p className="text-xs text-stone-600 leading-relaxed font-normal">
+                તંદુરસ્ત, તેજસ્વી અને સંસ્કારી સંતાન પ્રાપ્તિ માટે પ્રાચીન ઋષિ વિજ્ઞાનનું માર્ગદર્શન.
+              </p>
             </div>
           </div>
         </div>
@@ -482,6 +593,46 @@ export default function DivyaGarbhYatra() {
                 </div>
               );
             })}
+          </div>
+        </div>
+
+        {/* 2.5 5-STEP SEAMLESS REGISTRATION PROCESS from ekdujekeliye */}
+        <div className="mb-8">
+          <div className="text-center space-y-1 mb-5">
+            <span className="text-[11px] font-bold text-rose-700 uppercase tracking-widest block">Seamless Experience</span>
+            <h3 className="text-xl md:text-2xl font-black text-stone-900">૫ સરળ પગલાંમાં તમારી સીટ બુક કરો</h3>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-5 gap-2.5 text-center text-xs">
+            <div className="bg-white border border-stone-200 rounded-2xl p-3.5 space-y-1 shadow-2xs">
+              <span className="text-lg font-black text-rose-600 block">01</span>
+              <h4 className="font-bold text-stone-900 text-xs">સ્લોટ પસંદગી</h4>
+              <p className="text-[10px] text-stone-500 font-medium leading-tight">હાલનો ૫૦-કપલ સ્લેબ રેટ તપાસો.</p>
+            </div>
+
+            <div className="bg-white border border-stone-200 rounded-2xl p-3.5 space-y-1 shadow-2xs">
+              <span className="text-lg font-black text-amber-600 block">02</span>
+              <h4 className="font-bold text-stone-900 text-xs">કપલ વિગત</h4>
+              <p className="text-[10px] text-stone-500 font-medium leading-tight">પતિ-પત્નીનું નામ અને મોબાઈલ નંબર.</p>
+            </div>
+
+            <div className="bg-white border border-stone-200 rounded-2xl p-3.5 space-y-1 shadow-2xs">
+              <span className="text-lg font-black text-rose-600 block">03</span>
+              <h4 className="font-bold text-stone-900 text-xs">કપલ ફોટો</h4>
+              <p className="text-[10px] text-stone-500 font-medium leading-tight">ડિજિટલ પાસ માટે કપલ ફોટો અપલોડ કરો.</p>
+            </div>
+
+            <div className="bg-white border border-stone-200 rounded-2xl p-3.5 space-y-1 shadow-2xs">
+              <span className="text-lg font-black text-amber-600 block">04</span>
+              <h4 className="font-bold text-stone-900 text-xs">UPI પેમેન્ટ</h4>
+              <p className="text-[10px] text-stone-500 font-medium leading-tight">કોઈપણ UPI એપથી ચૂકવી રિસીપ્ટ જોડો.</p>
+            </div>
+
+            <div className="col-span-2 sm:col-span-1 bg-white border border-stone-200 rounded-2xl p-3.5 space-y-1 shadow-2xs">
+              <span className="text-lg font-black text-emerald-600 block">05</span>
+              <h4 className="font-bold text-stone-900 text-xs">QR પાસ</h4>
+              <p className="text-[10px] text-stone-500 font-medium leading-tight">ઇન્સ્ટન્ટ QR પાસ ડાઉનલોડ & WhatsApp.</p>
+            </div>
           </div>
         </div>
 

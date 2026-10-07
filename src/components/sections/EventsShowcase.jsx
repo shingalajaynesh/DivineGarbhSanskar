@@ -4,14 +4,15 @@ import { Calendar, Clock, MapPin, Sparkles, ArrowRight, Heart, Users, ShieldChec
 import { useLanguage } from '../../context/LanguageContext';
 import SectionLabel from '../ui/SectionLabel';
 import MandalaBg from '../ui/MandalaBg';
+import { API_BASE } from '../../utils/apiConfig';
 
 export default function EventsShowcase() {
   const { t } = useLanguage();
   const [liveEvent, setLiveEvent] = useState(null);
 
   useEffect(() => {
-    // Attempt to fetch live event rates from local API if available
-    fetch('/api/event')
+    // Attempt to fetch live event rates from API if available
+    fetch(`${API_BASE}/event`)
       .then((res) => res.json())
       .then((data) => {
         if (data?.success) setLiveEvent(data);
@@ -139,65 +140,76 @@ export default function EventsShowcase() {
               </div>
 
               {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row items-center gap-3 pt-2">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2">
                 <Link
                   to="/events/divy-garbhyatra"
-                  className="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-rose-600 via-amber-600 to-rose-600 hover:from-rose-700 hover:to-amber-700 text-white font-extrabold text-sm md:text-base shadow-lg shadow-rose-600/20 active:scale-95 transition-all flex items-center justify-center gap-2"
+                  className="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-rose-600 via-amber-600 to-rose-600 hover:from-rose-700 hover:to-amber-700 text-white font-extrabold text-sm md:text-base shadow-lg shadow-rose-600/25 active:scale-95 transition-all flex items-center justify-center gap-2 text-center"
                 >
-                  <span>કપલ પાસ બુક કરો (Book Couple Pass)</span>
-                  <ArrowRight className="w-4 h-4 stroke-[3]" />
+                  <Heart className="w-4 h-4 fill-white shrink-0" />
+                  <span>કપલ પાસ બુક કરો (Book Pass) &rarr;</span>
                 </Link>
 
                 <Link
-                  to="/events"
-                  className="w-full sm:w-auto px-6 py-4 rounded-xl bg-stone-100 hover:bg-stone-200 border border-stone-300 text-stone-800 font-bold text-xs md:text-sm text-center transition-all"
+                  to="/events/divy-garbhyatra"
+                  className="w-full sm:w-auto px-6 py-4 rounded-xl bg-white hover:bg-stone-50 border border-stone-300 text-stone-700 font-bold text-xs md:text-sm text-center transition-all shadow-2xs"
                 >
-                  ઇવેન્ટ વિગતો જુઓ
+                  ૫૦-કપલ સ્લેબ વિગત જુઓ
                 </Link>
+              </div>
+
+              {/* Badges / Guarantees from ekdujekeliye */}
+              <div className="pt-4 border-t border-stone-200/80 flex flex-wrap items-center gap-2 sm:gap-4 text-[11px] sm:text-xs font-semibold text-stone-600">
+                <div className="flex items-center gap-1.5">
+                  <ShieldCheck className="w-3.5 h-3.5 text-rose-600 shrink-0" />
+                  <span>Husband &amp; Wife (Couples Only)</span>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <ShieldCheck className="w-3.5 h-3.5 text-rose-600 shrink-0" />
+                  <span>Instant Digital Pass + QR</span>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <ShieldCheck className="w-3.5 h-3.5 text-rose-600 shrink-0" />
+                  <span>WhatsApp Delivery</span>
+                </div>
+                <div className="flex items-center gap-1.5 text-amber-950 font-bold">
+                  <ShieldCheck className="w-3.5 h-3.5 text-amber-600 shrink-0" />
+                  <span>Strictly 250 Couples</span>
+                </div>
               </div>
 
             </div>
 
-            {/* Right Column: Speaker Showcase (Nehal Gadhavi) in ekdujekeliye Host Card Style */}
-            <div className="lg:col-span-5 flex flex-col items-center">
-              <div className="w-full max-w-sm bg-white border border-stone-200/90 rounded-3xl p-6 md:p-7 text-center space-y-4 shadow-xl relative">
-                
-                {/* Speaker Portrait in Clean Luxury Rounded Frame */}
-                <div className="relative w-40 h-40 mx-auto rounded-2xl overflow-hidden border-2 border-stone-200 shadow-md">
-                  <img
-                    src="/events/divy-garbhyatra/nehal-gadhavi.jpg"
-                    alt="નેહલ ગઢવી"
-                    className="w-full h-full object-cover object-top"
-                    onError={(e) => {
-                      e.target.style.display = 'none';
-                    }}
-                  />
-                </div>
+            {/* Right Column: Hero Visual Card (Nehal Gadhavi) in exact ekdujekeliye Signature Style */}
+            <div className="lg:col-span-5 relative flex justify-center w-full">
+              <div className="relative w-full max-w-sm sm:max-w-md aspect-[4/5] rounded-3xl overflow-hidden border border-stone-200/90 shadow-2xl bg-stone-100 group">
+                <img
+                  src="/events/divy-garbhyatra/nehal-gadhavi.jpg"
+                  alt="નેહલ ગઢવી - દિવ્ય ગર્ભયાત્રા"
+                  className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                  loading="eager"
+                  onError={(e) => {
+                    e.target.style.display = 'none';
+                  }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-stone-950/85 via-stone-900/20 to-transparent pointer-events-none" />
 
-                <div className="space-y-1.5">
-                  <span className="px-3 py-1 rounded-full bg-rose-50 border border-rose-200 text-rose-800 text-[11px] font-bold uppercase tracking-widest inline-block">
-                    મુખ્ય વક્તા (Keynote Speaker)
-                  </span>
-                  <h4 className="text-2xl font-black text-stone-900">
+                {/* Floating Glassmorphism Host Badge from ekdujekeliye */}
+                <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6 p-4 rounded-2xl bg-white/95 backdrop-blur-md border border-stone-200/80 shadow-lg text-left">
+                  <div className="flex items-center justify-between gap-2 mb-1">
+                    <span className="text-[10px] sm:text-[11px] font-bold text-rose-700 uppercase tracking-wider">
+                      મુખ્ય વક્તા (Keynote Speaker)
+                    </span>
+                    <span className="text-[10px] font-extrabold text-amber-950 bg-amber-50 border border-amber-200 px-2.5 py-0.5 rounded-full">
+                      10,000+ Couples Guided
+                    </span>
+                  </div>
+                  <span className="text-base sm:text-lg font-black text-stone-900 block">
                     નેહલ ગઢવી (Nehal Gadhavi)
-                  </h4>
-                  <p className="text-xs text-stone-600 leading-relaxed font-medium">
-                    ખ્યાતનામ Life Coach & Garbh Sanskar Expert • હજારો યુવા દંપતીઓને વૈદિક માતૃત્વ અને પિતૃત્વ માટે પ્રેરિત કરનાર
-                  </p>
+                  </span>
+                  <span className="text-xs text-stone-600 block font-medium">
+                    ખ્યાતનામ Life Coach &amp; Garbh Sanskar Expert
+                  </span>
                 </div>
-
-                <div className="pt-3 border-t border-stone-100 flex items-center justify-around text-xs">
-                  <div>
-                    <span className="font-extrabold text-stone-900 block">૨૫૦ કપલ</span>
-                    <span className="text-[10px] text-stone-500 font-medium">મર્યાદિત ક્ષમતા</span>
-                  </div>
-                  <div className="w-px h-8 bg-stone-200" />
-                  <div>
-                    <span className="font-extrabold text-emerald-700 block">સુરક્ષા & QR</span>
-                    <span className="text-[10px] text-stone-500 font-medium">ડિજિટલ એન્ટ્રી પાસ</span>
-                  </div>
-                </div>
-
               </div>
             </div>
 

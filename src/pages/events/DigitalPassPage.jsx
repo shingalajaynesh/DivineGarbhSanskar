@@ -7,7 +7,7 @@ import {
 } from 'lucide-react';
 import { generateDigitalPassCanvas } from './canvasPassGenerator';
 
-const API_BASE = '/api';
+import { API_BASE } from '../../utils/apiConfig';
 const ADMIN_WHATSAPP = '919586979897';
 
 export default function DigitalPassPage() {

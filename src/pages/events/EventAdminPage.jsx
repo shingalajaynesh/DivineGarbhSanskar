@@ -7,7 +7,7 @@ import {
   IndianRupee, ShieldAlert, LogOut, Check, X, AlertTriangle
 } from 'lucide-react';
 
-const API_BASE = '/api';
+import { API_BASE } from '../../utils/apiConfig';
 
 export default function EventAdminPage() {
   const [password, setPassword] = useState(() => sessionStorage.getItem('divineAdminPassword') || '');
