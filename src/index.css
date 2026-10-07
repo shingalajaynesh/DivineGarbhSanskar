@@ -205,3 +205,26 @@ html[lang="gu"] .font-accent {
   font-weight: 700;
 }
 
+/* Divya Garbh Yatra Romantic Floating Hearts */
+@keyframes floatHeart {
+  0% {
+    transform: translateY(0) scale(0.7) rotate(0deg);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.7;
+  }
+  80% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(-110vh) scale(1.2) rotate(20deg);
+    opacity: 0;
+  }
+}
+
+.animate-float-heart {
+  animation: floatHeart linear infinite;
+}
+
+

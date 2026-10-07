@@ -1,9 +1,9 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
+import { Link } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 import { seoConfig } from '../seo/seoConfig';
 import SectionLabel from '../components/ui/SectionLabel';
-import CoursesSection from '../components/sections/Courses';
 import MandalaBg from '../components/ui/MandalaBg';
 import { getCoursesSchema, getBreadcrumbSchema } from '../seo/structuredData';
 import { courses } from '../data/courses';
@@ -137,11 +137,49 @@ const Courses = () => {
             ))}
           </div>
 
+          {/* Direct Consultation & Live Event Banner */}
+          <div className="bg-gradient-to-r from-sacredMaroon to-[#3F0F00] text-white rounded-divine-lg p-8 sm:p-12 text-center space-y-6 shadow-2xl relative overflow-hidden mb-12">
+            <div className="max-w-2xl mx-auto space-y-3">
+              <span className="text-xs font-bold uppercase tracking-wider text-amber-300 bg-white/10 px-3.5 py-1 rounded-full border border-amber-300/30 inline-block">
+                {t({ hi: "व्यक्तिगत मार्गदर्शन", en: "1:1 Personal Guidance", gu: "વ્યક્તિગત માર્ગદર્શન" })}
+              </span>
+              <h3 className="font-serif text-2xl sm:text-4xl font-bold">
+                {t({
+                  hi: "डॉ. तरुणा जियाणी के साथ 1:1 परामर्श बुक करें",
+                  en: "Schedule 1:1 Counseling with Dr. Taruna Jiyani",
+                  gu: "ડૉ. તરુણા જીયાણી સાથે ૧:૧ પરામર્શ બુક કરો"
+                })}
+              </h3>
+              <p className="text-sm text-softCream/90 leading-relaxed">
+                {t({
+                  hi: "अपनी गर्भावस्था के प्रत्येक चरण के लिए आहार, योग, गर्भ संवाद और मानसिक शांति का व्यक्तिगत मार्गदर्शन प्राप्त करें।",
+                  en: "Receive personalized prenatal lifestyle guidance, satvik diet plans, and womb communication methods tailored to your trimester.",
+                  gu: "તમારી ગર્ભાવસ્થાના દરેક તબક્કા માટે આહાર, યોગ, ગર્ભ સંવાદ અને માનસિક શાંતિનું વ્યક્તિગત માર્ગદર્શન મેળવો."
+                })}
+              </p>
+            </div>
+
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
+              <a
+                href="https://wa.me/919586979897?text=%E0%AA%A8%E0%AA%AE%E0%AA%B8%E0%AB%8D%E0%AA%A4%E0%AB%87%2C%20%E0%AA%AE%E0%AA%BE%E0%AA%B0%E0%AB%87%20%E0%AA%A1%E0%AB%89.%20%E0%AA%A4%E0%AA%B0%E0%AB%81%E0%AA%A3%E0%AA%BE%20%E0%AA%9C%E0%AB%80%E0%AA%AF%E0%AA%BE%E0%AA%A3%E0%AB%80%20%E0%AA%B8%E0%AA%BE%E0%AA%A5%E0%AB%87%20%E0%AA%97%E0%AA%B0%E0%AB%8D%E0%AA%AD%20%E0%AA%B8%E0%AA%82%E0%AA%B8%E0%AB%8D%E0%AA%95%E0%AA%BE%E0%AA%B0%20%E0%AA%AA%E0%AA%B0%E0%AA%BE%E0%AA%AE%E0%AA%B0%E0%AB%8D%E0%AA%B6%20%E0%AA%AE%E0%AA%BE%E0%AA%9F%E0%AB%87%20%E0%AA%B5%E0%AA%BF%E0%AA%97%E0%AA%A4%20%E0%AA%9C%E0%AB%8B%E0%AA%88%E0%AA%8F%20%E0%AA%9B%E0%AB%87."
+                target="_blank"
+                rel="noreferrer"
+                className="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm shadow-lg transition-colors flex items-center justify-center gap-2"
+              >
+                <span>{t({ hi: "WhatsApp पर परामर्श बुक करें", en: "Book via WhatsApp", gu: "WhatsApp પર પરામર્શ બુક કરો" })}</span>
+              </a>
+
+              <Link
+                to="/events/divy-garbhyatra"
+                className="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-sacredMaroon font-extrabold text-sm shadow-lg transition-colors flex items-center justify-center gap-2"
+              >
+                <span>{t({ hi: "दिव्य गर्भयात्रा कपल सेमिनार देखें", en: "View Divya Garbh Yatra Event", gu: "દિવ્ય ગર્ભયાત્રા કપલ સેમિનાર જુઓ" })}</span>
+              </Link>
+            </div>
+          </div>
+
         </div>
       </div>
-
-      {/* Render pricing plans section */}
-      <CoursesSection />
     </>
   );
 };

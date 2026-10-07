@@ -106,8 +106,8 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/courses" className="hover:text-divineGold transition-colors">
-                  {t({ hi: "कोर्स", en: "Courses", gu: "કોર્સ" })}
+                <Link to="/events" className="hover:text-divineGold transition-colors font-semibold text-amber-300">
+                  {t({ hi: "इवेंट्स एवं सेमिनार", en: "Events & Seminars", gu: "ઇવેન્ટ્સ અને સેમિનાર" })}
                 </Link>
               </li>
               <li>
@@ -122,7 +122,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link to="/authors" className="hover:text-divineGold transition-colors">
-                  {t({ hi: "विशेषज्ञ एवं लेखक", en: "Authors & Experts", gu: "નિષ્ણાતો અને લેખકો" })}
+                  {t({ hi: "डॉ. तरुणा जियाणी", en: "Dr. Taruna Jiyani", gu: "ડૉ. તરુણા જીયાણી" })}
                 </Link>
               </li>
               <li>
@@ -136,27 +136,27 @@ const Footer = () => {
           {/* Column 3: Programs */}
           <div className="flex flex-col gap-4">
             <h3 className="font-accent text-white font-bold tracking-widest text-sm uppercase border-b border-divineGold/30 pb-2">
-              {t({ hi: "हमारे कार्यक्रम", en: "OUR PROGRAMS", gu: "અમારા કાર્યક્રમો" })}
+              {t({ hi: "हमारे प्रमुख कार्यक्रम", en: "FEATURED PROGRAMS", gu: "અમારા મુખ્ય કાર્યક્રમો" })}
             </h3>
             <ul className="flex flex-col gap-2.5 text-sm">
               <li>
-                <Link to="/courses" className="hover:text-divineGold transition-colors">
-                  {t({ hi: "स्टार्टर गाइड (3 महीने)", en: "Starter Guide (3 Months)", gu: "સ્ટાર્ટર ગાઇડ (૩ મહિના)" })}
+                <Link to="/events/divy-garbhyatra" className="hover:text-divineGold transition-colors font-medium text-amber-200">
+                  {t({ hi: "दिव्य गर्भयात्रा कपल सेमिनार (19 Dec)", en: "Divya Garbh Yatra Seminar (19 Dec)", gu: "દિવ્ય ગર્ભયાત્રા સેમિનાર (19 Dec)" })}
                 </Link>
               </li>
               <li>
-                <Link to="/courses" className="hover:text-divineGold transition-colors">
-                  {t({ hi: "सम्पूर्ण कार्यक्रम (9 महीने)", en: "Complete Program (9 Months)", gu: "સંપૂર્ણ કાર્યક્રમ (૯ મહિના)" })}
+                <Link to="/simantonayan" className="hover:text-divineGold transition-colors">
+                  {t({ hi: "सीमंतोन्नयन (गोद भराई) संस्कार", en: "Simantonayan (Godh Bharai) Sanskar", gu: "સીમંતોન્નયન (ગોદ ભરાઈ) સંસ્કાર" })}
                 </Link>
               </li>
               <li>
-                <Link to="/courses" className="hover:text-divineGold transition-colors">
-                  {t({ hi: "दिव्य प्लस प्रीमियम (12 महीने)", en: "Divine Plus Premium (12 Months)", gu: "દિવ્ય પ્લસ પ્રીમિયમ (૧૨ મહિના)" })}
+                <Link to="/authors" className="hover:text-divineGold transition-colors">
+                  {t({ hi: "डॉ. तरुणा जियाणी के साथ 1:1 परामर्श", en: "1:1 Counseling with Dr. Taruna Jiyani", gu: "ડૉ. તરુણા જીયાણી સાથે ૧:૧ પરામર્શ" })}
                 </Link>
               </li>
               <li>
                 <Link to="/blog" className="hover:text-divineGold transition-colors">
-                  {t({ hi: "हमारी पुस्तकें एवं साहित्य", en: "Garbh Sanskar Books & Wisdom", gu: "અમારી પુસ્તકો અને સાહિત્ય" })}
+                  {t({ hi: "वैदिक गर्भ संस्कार साहित्य एवं लेख", en: "Vedic Garbh Sanskar Wisdom & Books", gu: "વૈદિક ગર્ભ સંસ્કાર સાહિત્ય અને લેખો" })}
                 </Link>
               </li>
             </ul>

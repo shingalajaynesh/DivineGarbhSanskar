@@ -21,7 +21,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-[95vh] flex items-center justify-center pt-24 pb-16 overflow-hidden bg-softCream" id="main-content">
+    <section className="relative min-h-[95vh] flex items-center justify-center pt-32 sm:pt-36 pb-16 overflow-hidden bg-softCream" id="main-content">
       {/* Dynamic Particle Field background */}
       <ParticleField />
       

@@ -28,19 +28,39 @@ import Disclaimer from './pages/Disclaimer';
 import EditorialPolicy from './pages/EditorialPolicy';
 import Authors from './pages/Authors';
 
-// Layout wrapper to conditionally hide header, footer and whatsapp float on the digital card page
+// Event Pages (Divya Garbh Yatra & Events Hub)
+import EventsHub from './pages/EventsHub';
+import DivyaGarbhYatra from './pages/events/DivyaGarbhYatra';
+import DigitalPassPage from './pages/events/DigitalPassPage';
+import EventAdminPage from './pages/events/EventAdminPage';
+import GateScannerPage from './pages/events/GateScannerPage';
+
+// Layout wrapper to conditionally hide header, footer and whatsapp float on standalone pages
 const AppContent = () => {
   const location = useLocation();
-  const isCardPage = location.pathname === '/card';
+  const isStandalonePage = 
+    location.pathname === '/card' || 
+    location.pathname === '/events/divy-garbhyatra' || 
+    location.pathname.startsWith('/divy-garbhyatra') || 
+    location.pathname.startsWith('/pass') || 
+    location.pathname.startsWith('/events/pass') || 
+    location.pathname.startsWith('/event-admin');
 
   return (
     <div className="flex flex-col min-h-screen bg-softCream">
       <ScrollToTop />
-      {!isCardPage && <Navbar />}
+      {!isStandalonePage && <Navbar />}
       <div className="flex-grow">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
+          <Route path="/events" element={<EventsHub />} />
+          <Route path="/events/divy-garbhyatra" element={<DivyaGarbhYatra />} />
+          <Route path="/divy-garbhyatra" element={<DivyaGarbhYatra />} />
+          <Route path="/events/pass/:inquiryId" element={<DigitalPassPage />} />
+          <Route path="/pass/:inquiryId" element={<DigitalPassPage />} />
+          <Route path="/event-admin" element={<EventAdminPage />} />
+          <Route path="/event-admin/scanner" element={<GateScannerPage />} />
           <Route path="/courses" element={<Courses />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
@@ -57,8 +77,8 @@ const AppContent = () => {
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
-      {!isCardPage && <WhatsAppFloat />}
-      {!isCardPage && <Footer />}
+      {!isStandalonePage && <WhatsAppFloat />}
+      {!isStandalonePage && <Footer />}
       <CookieConsent />
     </div>
   );

@@ -10,7 +10,7 @@ import WhyGarbhSanskar from '../components/sections/WhyGarbhSanskar';
 import StatsCounter from '../components/sections/StatsCounter';
 import WhyChooseUs from '../components/sections/WhyChooseUs';
 import HowItWorks from '../components/sections/HowItWorks';
-import Courses from '../components/sections/Courses';
+import EventsShowcase from '../components/sections/EventsShowcase';
 import SimantonayanTeaser from '../components/sections/SimantonayanTeaser';
 import Testimonials from '../components/sections/Testimonials';
 import VideoGallery from '../components/sections/VideoGallery';
@@ -82,8 +82,8 @@ const Home = () => {
         {/* 3 Step journey timeline */}
         <HowItWorks />
 
-        {/* Course card options */}
-        <Courses />
+        {/* Live Events & Seminars Showcase */}
+        <EventsShowcase />
 
         {/* Parent carousel reviews */}
         <Testimonials />
