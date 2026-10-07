@@ -18,19 +18,23 @@ const upload = multer({
 });
 
 // Authentication middleware
-const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'V74rhHD_V6VwUc05ppWeGq6YAHw9';
-const SUPER_ADMIN_PASSWORD = process.env.SUPER_ADMIN_PASSWORD || 'PaECWCO-X3BKs6d4sQYsXjpnaBTQ';
-const ADMIN_FALLBACK = process.env.ADMIN_PASSWORD_FALLBACK || 'Manas@1177';
-const SUPER_FALLBACK = process.env.SUPER_ADMIN_PASSWORD_FALLBACK || 'Manish@1177';
+const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD;
+const SUPER_ADMIN_PASSWORD = process.env.SUPER_ADMIN_PASSWORD;
+const ADMIN_FALLBACK = process.env.ADMIN_PASSWORD_FALLBACK;
+const SUPER_FALLBACK = process.env.SUPER_ADMIN_PASSWORD_FALLBACK;
 
 const verifyAuth = (req) => {
   const authHeader = req.headers['authorization'] || req.headers['x-admin-password'];
   if (!authHeader) return null;
   const token = authHeader.replace(/^Bearer\s+/i, '').trim();
-  if (token === SUPER_ADMIN_PASSWORD || token === SUPER_FALLBACK) {
+
+  const validSuper = [SUPER_ADMIN_PASSWORD, SUPER_FALLBACK].filter(Boolean);
+  const validAdmin = [ADMIN_PASSWORD, ADMIN_FALLBACK].filter(Boolean);
+
+  if (validSuper.length > 0 && validSuper.includes(token)) {
     return 'superadmin';
   }
-  if (token === ADMIN_PASSWORD || token === ADMIN_FALLBACK) {
+  if (validAdmin.length > 0 && validAdmin.includes(token)) {
     return 'admin';
   }
   return null;
@@ -96,11 +100,21 @@ router.get('/event', async (req, res) => {
         venueAddress: setting.venueAddress,
         speaker: setting.speaker,
         speakerTitle: setting.speakerTitle,
+        speakerBio: setting.speakerBio || 'Vedic Prenatal Science Guide & Inspirational Speaker',
+        speakerPhoto: setting.speakerPhoto || '',
+        supportPhone: setting.supportPhone || '+91 94285 24890',
+        supportWhatsapp: setting.supportWhatsapp || '919586979897',
+        venueMapUrl: setting.venueMapUrl || '',
+        isRegistrationOpen: setting.isRegistrationOpen !== false,
+        registrationClosedNotice: setting.registrationClosedNotice || 'દિલગીર છીએ, રજીસ્ટ્રેશન હાલ પૂર્ણ થયેલ છે.',
+        passNotice: setting.passNotice || 'કૃપા કરીને સમયસર પહોંચવું. ગેટ પર ડિજિટલ પાસ QR કોડ બતાવવો ફરજિયાત છે.',
         totalCapacity
       },
       payment: {
         upiId: setting.upiId,
-        payeeName: setting.payeeName
+        payeeName: setting.payeeName,
+        customQrImage: setting.customQrImage || '',
+        useCustomQr: Boolean(setting.useCustomQr)
       },
       liveRates: {
         registeredCount,
@@ -284,17 +298,19 @@ router.get('/status/:inquiryId', async (req, res) => {
 // ADMIN & GATE SCANNER ENDPOINTS
 // ==========================================
 
-// 4. POST /api/auth/login - Admin Login verification
 router.post('/auth/login', (req, res) => {
   const { password } = req.body;
   if (!password) {
     return res.status(400).json({ error: 'પાસવર્ડ જરૂરી છે.' });
   }
   const cleanPass = password.trim();
-  if (cleanPass === SUPER_ADMIN_PASSWORD || cleanPass === SUPER_FALLBACK) {
+  const validSuper = [SUPER_ADMIN_PASSWORD, SUPER_FALLBACK].filter(Boolean);
+  const validAdmin = [ADMIN_PASSWORD, ADMIN_FALLBACK].filter(Boolean);
+
+  if (validSuper.length > 0 && validSuper.includes(cleanPass)) {
     return res.json({ success: true, role: 'superadmin', message: 'સુપર એડમિન લૉગિન સફળ.' });
   }
-  if (cleanPass === ADMIN_PASSWORD || cleanPass === ADMIN_FALLBACK) {
+  if (validAdmin.length > 0 && validAdmin.includes(cleanPass)) {
     return res.json({ success: true, role: 'admin', message: 'એડમિન લૉગિન સફળ.' });
   }
   return res.status(401).json({ error: 'ખોટો પાસવર્ડ! કૃપા કરીને સાચો પાસવર્ડ નાખો.' });
@@ -543,14 +559,82 @@ router.get('/admin/settings', requireAdmin, async (req, res) => {
 
 router.post('/admin/settings', requireAdmin, async (req, res) => {
   try {
-    const { upiId, payeeName } = req.body;
+    const {
+      title, subtitle, dateGujarati, dateIso, time,
+      venue, venueAddress, venueMapUrl,
+      speaker, speakerTitle, speakerBio, speakerPhoto,
+      upiId, payeeName, customQrImage, useCustomQr,
+      totalCoupleCapacity, tiers,
+      supportPhone, supportWhatsapp,
+      isRegistrationOpen, registrationClosedNotice, passNotice
+    } = req.body;
+
     const setting = await getOrCreateEventSetting();
-    if (upiId) setting.upiId = upiId.trim();
-    if (payeeName) setting.payeeName = payeeName.trim();
+
+    if (title !== undefined) setting.title = title;
+    if (subtitle !== undefined) setting.subtitle = subtitle;
+    if (dateGujarati !== undefined) setting.dateGujarati = dateGujarati;
+    if (dateIso !== undefined) setting.dateIso = dateIso;
+    if (time !== undefined) setting.time = time;
+    if (venue !== undefined) setting.venue = venue;
+    if (venueAddress !== undefined) setting.venueAddress = venueAddress;
+    if (venueMapUrl !== undefined) setting.venueMapUrl = venueMapUrl;
+
+    if (speaker !== undefined) setting.speaker = speaker;
+    if (speakerTitle !== undefined) setting.speakerTitle = speakerTitle;
+    if (speakerBio !== undefined) setting.speakerBio = speakerBio;
+    if (speakerPhoto !== undefined) setting.speakerPhoto = speakerPhoto;
+
+    if (upiId !== undefined) setting.upiId = upiId.trim();
+    if (payeeName !== undefined) setting.payeeName = payeeName.trim();
+    if (customQrImage !== undefined) setting.customQrImage = customQrImage;
+    if (useCustomQr !== undefined) setting.useCustomQr = Boolean(useCustomQr);
+
+    if (totalCoupleCapacity !== undefined) setting.totalCoupleCapacity = Number(totalCoupleCapacity);
+    if (Array.isArray(tiers) && tiers.length > 0) {
+      setting.tiers = tiers;
+    }
+
+    if (supportPhone !== undefined) setting.supportPhone = supportPhone;
+    if (supportWhatsapp !== undefined) setting.supportWhatsapp = supportWhatsapp;
+    if (isRegistrationOpen !== undefined) setting.isRegistrationOpen = Boolean(isRegistrationOpen);
+    if (registrationClosedNotice !== undefined) setting.registrationClosedNotice = registrationClosedNotice;
+    if (passNotice !== undefined) setting.passNotice = passNotice;
+
     await setting.save();
     res.json({ success: true, message: 'સેટિંગ્સ સફળતાપૂર્વક અપડેટ થયા.', setting });
   } catch (err) {
-    res.status(500).json({ error: 'સેટિંગ્સ અપડેટ કરવામાં ભૂલ આવી.' });
+    console.error('[API /admin/settings] Error:', err);
+    res.status(500).json({ error: 'સેટિંગ્સ અપડેટ કરવામાં ભૂલ આવી: ' + err.message });
+  }
+});
+
+// Dedicated QR Code Upload Endpoint
+router.post('/admin/upload-qr', requireAdmin, upload.single('qrImage'), async (req, res) => {
+  try {
+    if (!req.file) {
+      return res.status(400).json({ error: 'કૃપા કરીને QR કોડ ઈમેજ ફાઈલ પસંદ કરો.' });
+    }
+    const compressed = await sharp(req.file.buffer)
+      .resize({ width: 600, height: 600, fit: 'inside', withoutEnlargement: true })
+      .jpeg({ quality: 85 })
+      .toBuffer();
+    const base64Data = `data:image/jpeg;base64,${compressed.toString('base64')}`;
+
+    const setting = await getOrCreateEventSetting();
+    setting.customQrImage = base64Data;
+    setting.useCustomQr = true;
+    await setting.save();
+
+    res.json({
+      success: true,
+      message: 'કસ્ટમ QR કોડ સફળતાપૂર્વક અપલોડ અને સેવ થઈ ગયો!',
+      customQrImage: base64Data,
+      useCustomQr: true
+    });
+  } catch (err) {
+    console.error('[API /admin/upload-qr] Error:', err);
+    res.status(500).json({ error: 'QR કોડ અપલોડ કરવામાં ભૂલ આવી: ' + err.message });
   }
 });
 

@@ -1020,8 +1020,8 @@ routes.forEach(route => {
     </div>
   `;
 
-  // Inject directly inside #root for immediate first-paint / headless crawler DOM visibility
-  html = html.replace(/<div id="root">[\s\S]*?<\/div>/, `<div id="root">${staticBody}</div>`);
+  // Keep #root clean and empty so React mounts instantaneously without flashing raw text to users
+  html = html.replace(/<div id="root">[\s\S]*?<\/div>/, '<div id="root"></div>');
 
   // Also replace noscript
   const noscriptBlock = `

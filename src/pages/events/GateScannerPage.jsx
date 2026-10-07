@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { 
   Camera, CheckCircle2, XCircle, AlertTriangle, ArrowLeft, 
-  RefreshCw, Volume2, Search, Lock, User
+  RefreshCw, Users, ShieldCheck, Check, Search, Lock
 } from 'lucide-react';
 
 import { API_BASE } from '../../utils/apiConfig';
@@ -92,11 +92,11 @@ export default function GateScannerPage() {
           data: json.registration || null
         });
       }
-    } catch (err) {
+    } catch {
       playWarningBuzzer();
       setScanResult({
         status: 'SERVER_ERROR',
-        message: 'સર્વર સાથે કનેક્શન થઈ શક્યું નથી.',
+        message: 'સર્વર સાથે જોડાણ થઈ શક્યું નથી.',
         data: null
       });
     } finally {
@@ -107,142 +107,203 @@ export default function GateScannerPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#090104] text-slate-100 font-sans p-4 md:p-8 flex flex-col justify-between">
+    <div className="min-h-screen bg-[#FAF9F6] text-stone-900 font-sans antialiased p-4 md:p-8 flex flex-col justify-between">
       <Helmet>
         <title>Gate Entry Scanner - દિવ્ય ગર્ભયાત્રા</title>
       </Helmet>
 
       {/* Top Bar */}
-      <header className="max-w-xl mx-auto w-full flex items-center justify-between border-b border-rose-950 pb-4 mb-6">
+      <header className="max-w-xl mx-auto w-full flex items-center justify-between border-b border-stone-200 pb-4 mb-6">
         <Link
           to="/event-admin"
-          className="inline-flex items-center gap-1.5 text-xs text-amber-300 hover:text-white transition-colors"
+          className="inline-flex items-center gap-1.5 text-xs text-rose-800 hover:text-stone-900 font-bold transition-colors"
         >
           <ArrowLeft className="w-4 h-4" />
-          <span>એડમિન ડેશબોર્ડ</span>
+          <span>← એડમિન ડેશબોર્ડ</span>
         </Link>
 
-        <span className="text-xs text-purple-400 font-bold uppercase tracking-wider flex items-center gap-1">
-          <Camera className="w-3.5 h-3.5" />
-          <span>Gate Scanner Online</span>
+        <span className="text-[10px] font-black uppercase px-2.5 py-1 rounded-full bg-purple-50 border border-purple-200 text-purple-900 tracking-wider flex items-center gap-1.5">
+          <Camera className="w-3.5 h-3.5 text-purple-700" />
+          <span>Gate Scanner Active</span>
         </span>
       </header>
 
       {/* Main Scanner Box */}
       <main className="max-w-xl mx-auto w-full space-y-6">
-
         {/* Scanner Input Card */}
-        <div className="bg-[#18040E] border-2 border-amber-500/40 rounded-3xl p-6 shadow-2xl space-y-4">
-          <div className="text-center">
-            <h1 className="text-xl md:text-2xl font-black text-white">ગેટ એન્ટ્રી પાસ સ્કેનર</h1>
-            <p className="text-xs text-slate-400 mt-1">
+        <div className="bg-white border border-stone-200/90 rounded-3xl p-6 sm:p-8 shadow-xl shadow-stone-200/50 space-y-5">
+          <div className="text-center space-y-1">
+            <div className="w-12 h-12 rounded-2xl bg-purple-50 border border-purple-200 text-purple-800 mx-auto flex items-center justify-center mb-2">
+              <Camera className="w-6 h-6" />
+            </div>
+            <h1 className="text-xl sm:text-2xl font-black text-stone-900 font-serif">
+              ગેટ એન્ટ્રી પાસ સ્કેનર
+            </h1>
+            <p className="text-xs text-stone-500 font-medium">
               બારકોડ સ્કેનરથી સ્કેન કરો અથવા પાસ ID (દા.ત. CPL-1001) લખી Enter દબાવો.
             </p>
           </div>
 
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              handleVerifyId();
-            }}
-            className="flex gap-2"
-          >
-            <input
-              ref={inputRef}
-              type="text"
-              autoFocus
-              value={inquiryInput}
-              onChange={(e) => setInquiryInput(e.target.value)}
-              placeholder="સ્કેન કરો અથવા CPL-1001 લખો..."
-              className="flex-1 bg-black border-2 border-rose-900 rounded-2xl px-4 py-3.5 text-white font-mono text-lg tracking-wider placeholder-slate-600 focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400"
-            />
-            <button
-              type="submit"
-              disabled={verifying || !inquiryInput.trim()}
-              className="px-6 py-3.5 rounded-2xl bg-gradient-to-r from-amber-500 to-rose-600 text-white font-bold text-sm hover:brightness-110 active:scale-95 transition-all disabled:opacity-50"
-            >
-              {verifying ? <RefreshCw className="w-5 h-5 animate-spin" /> : 'વેરિફાય'}
-            </button>
-          </form>
-        </div>
-
-        {/* Verification Result Card */}
-        {scanResult && (
-          <div className={`rounded-3xl p-6 border-2 shadow-2xl transition-all ${
-            scanResult.status === 'SUCCESS'
-              ? 'bg-emerald-950/90 border-emerald-400 shadow-emerald-900/30'
-              : scanResult.status === 'ALREADY_CHECKED_IN'
-              ? 'bg-amber-950/90 border-amber-400 shadow-amber-900/30'
-              : 'bg-rose-950/90 border-rose-500 shadow-rose-900/30'
-          }`}>
-            <div className="flex items-center gap-3 border-b border-white/10 pb-4 mb-4">
-              {scanResult.status === 'SUCCESS' ? (
-                <div className="w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-300 flex items-center justify-center shrink-0">
-                  <CheckCircle2 className="w-8 h-8" />
-                </div>
-              ) : scanResult.status === 'ALREADY_CHECKED_IN' ? (
-                <div className="w-12 h-12 rounded-full bg-amber-500/20 text-amber-300 flex items-center justify-center shrink-0">
-                  <AlertTriangle className="w-8 h-8" />
-                </div>
-              ) : (
-                <div className="w-12 h-12 rounded-full bg-rose-500/20 text-rose-300 flex items-center justify-center shrink-0">
-                  <XCircle className="w-8 h-8" />
-                </div>
-              )}
-
-              <div>
-                <span className="text-[11px] font-bold uppercase tracking-wider block opacity-80">
-                  {scanResult.status}
-                </span>
-                <h2 className="text-xl font-black text-white">
-                  {scanResult.message}
-                </h2>
-              </div>
+          <form onSubmit={(e) => { e.preventDefault(); handleVerifyId(); }} className="space-y-3">
+            <div className="relative">
+              <input
+                ref={inputRef}
+                type="text"
+                autoFocus
+                value={inquiryInput}
+                onChange={(e) => setInquiryInput(e.target.value)}
+                placeholder="CPL-1001 સ્કેન કરો..."
+                className="w-full bg-stone-50 border-2 border-stone-300 rounded-2xl px-5 py-4 text-center font-mono font-black text-lg text-stone-900 uppercase tracking-widest focus:outline-none focus:border-rose-700 focus:bg-white transition-all shadow-inner"
+              />
             </div>
 
-            {/* Couple Card if found */}
-            {scanResult.data && (
-              <div className="flex items-center gap-4 bg-black/40 rounded-2xl p-4 border border-white/10">
-                {scanResult.data.couplePhoto && (
-                  <div className="w-20 h-20 rounded-xl overflow-hidden border-2 border-white/20 shrink-0">
-                    <img
-                      src={scanResult.data.couplePhoto}
-                      alt="Couple"
-                      className="w-full h-full object-cover"
-                    />
+            <button
+              type="submit"
+              disabled={verifying}
+              className="w-full py-3.5 rounded-xl bg-gradient-to-r from-purple-700 via-indigo-700 to-purple-800 text-white font-black text-sm shadow-md transition-all cursor-pointer disabled:opacity-50 active:scale-95 flex items-center justify-center gap-2"
+            >
+              {verifying ? (
+                <>
+                  <RefreshCw className="w-4 h-4 animate-spin text-white" />
+                  <span>ચકાસણી ચાલુ છે...</span>
+                </>
+              ) : (
+                <>
+                  <ShieldCheck className="w-4 h-4" />
+                  <span>વેરિફાય કરો &amp; એન્ટ્રી આપો</span>
+                </>
+              )}
+            </button>
+          </form>
+
+          {/* Fallback Password Field if session is empty */}
+          {!adminPassword && (
+            <div className="pt-3 border-t border-stone-100">
+              <label className="block text-[11px] font-bold text-stone-600 mb-1">
+                સ્કેનર ઓથોરાઈઝેશન પાસવર્ડ (Required for Scanner)
+              </label>
+              <input
+                type="password"
+                placeholder="એડમિન પાસવર્ડ..."
+                onChange={(e) => {
+                  setAdminPassword(e.target.value);
+                  sessionStorage.setItem('divineAdminPassword', e.target.value);
+                }}
+                className="w-full bg-stone-50 border border-stone-200 rounded-xl px-3 py-2 text-xs text-stone-900"
+              />
+            </div>
+          )}
+        </div>
+
+        {/* Scan Result Feedback Banner */}
+        {scanResult && (
+          <div className="animate-in fade-in slide-in-from-bottom-2 duration-300">
+            {scanResult.status === 'SUCCESS' && (
+              <div className="bg-emerald-50 border-2 border-emerald-500 rounded-3xl p-6 shadow-xl space-y-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 rounded-full bg-emerald-500 text-white flex items-center justify-center flex-shrink-0">
+                    <CheckCircle2 className="w-7 h-7" />
+                  </div>
+                  <div>
+                    <span className="text-[10px] font-black uppercase text-emerald-800 tracking-wider">
+                      ENTRY GRANTED
+                    </span>
+                    <h2 className="text-xl font-black text-emerald-950 font-serif">
+                      {scanResult.message}
+                    </h2>
+                  </div>
+                </div>
+
+                {scanResult.data && (
+                  <div className="bg-white/80 backdrop-blur-xs rounded-2xl p-4 border border-emerald-200 flex items-center gap-4">
+                    {scanResult.data.couplePhoto && (
+                      <img
+                        src={scanResult.data.couplePhoto}
+                        alt="Couple"
+                        className="w-16 h-16 rounded-xl object-cover border border-emerald-300 flex-shrink-0"
+                      />
+                    )}
+                    <div>
+                      <span className="font-mono text-xs font-black text-stone-600 block">
+                        {scanResult.data.inquiryId}
+                      </span>
+                      <strong className="text-base font-black text-stone-900 block">
+                        {scanResult.data.husbandName} &amp; {scanResult.data.wifeName} {scanResult.data.surname}
+                      </strong>
+                      <span className="text-xs text-emerald-700 font-bold block mt-0.5">
+                        કપલ પાસ માન્ય છે
+                      </span>
+                    </div>
                   </div>
                 )}
-                <div className="space-y-1">
-                  <span className="text-xs font-mono font-bold text-amber-300 block">
-                    {scanResult.data.inquiryId}
-                  </span>
-                  <div className="text-base font-bold text-white">
-                    {scanResult.data.husbandName} & {scanResult.data.wifeName} {scanResult.data.surname}
-                  </div>
-                  <span className="text-xs text-slate-300 block">
-                    કપલ પ્રવેશ: <strong className="text-emerald-400">માન્ય (2 Persons)</strong>
-                  </span>
-                </div>
               </div>
             )}
 
-            <button
-              onClick={() => {
-                setScanResult(null);
-                inputRef.current?.focus();
-              }}
-              className="w-full mt-4 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs transition-colors"
-            >
-              બીજો પાસ સ્કેન કરો (Next Scan)
-            </button>
+            {scanResult.status === 'ALREADY_CHECKED_IN' && (
+              <div className="bg-amber-50 border-2 border-amber-500 rounded-3xl p-6 shadow-xl space-y-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 rounded-full bg-amber-500 text-white flex items-center justify-center flex-shrink-0">
+                    <AlertTriangle className="w-7 h-7" />
+                  </div>
+                  <div>
+                    <span className="text-[10px] font-black uppercase text-amber-800 tracking-wider">
+                      DUPLICATE ENTRY ALERT
+                    </span>
+                    <h2 className="text-lg font-black text-amber-950">
+                      {scanResult.message}
+                    </h2>
+                  </div>
+                </div>
+
+                {scanResult.data && (
+                  <div className="bg-white/80 rounded-2xl p-4 border border-amber-200 flex items-center gap-4">
+                    {scanResult.data.couplePhoto && (
+                      <img
+                        src={scanResult.data.couplePhoto}
+                        alt="Couple"
+                        className="w-16 h-16 rounded-xl object-cover border border-amber-300 flex-shrink-0"
+                      />
+                    )}
+                    <div>
+                      <span className="font-mono text-xs font-black text-stone-600 block">
+                        {scanResult.data.inquiryId}
+                      </span>
+                      <strong className="text-base font-black text-stone-900 block">
+                        {scanResult.data.husbandName} &amp; {scanResult.data.wifeName} {scanResult.data.surname}
+                      </strong>
+                      <span className="text-xs text-amber-800 font-bold block mt-0.5">
+                        આ પાસ પર અગાઉ એન્ટ્રી લેવાઈ ચૂકી છે!
+                      </span>
+                    </div>
+                  </div>
+                )}
+              </div>
+            )}
+
+            {scanResult.status !== 'SUCCESS' && scanResult.status !== 'ALREADY_CHECKED_IN' && (
+              <div className="bg-rose-50 border-2 border-rose-500 rounded-3xl p-6 shadow-xl space-y-3">
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 rounded-full bg-rose-600 text-white flex items-center justify-center flex-shrink-0">
+                    <XCircle className="w-7 h-7" />
+                  </div>
+                  <div>
+                    <span className="text-[10px] font-black uppercase text-rose-800 tracking-wider">
+                      ACCESS DENIED
+                    </span>
+                    <h2 className="text-lg font-black text-rose-950">
+                      {scanResult.message}
+                    </h2>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         )}
-
       </main>
 
-      {/* Footer Info */}
-      <footer className="max-w-xl mx-auto w-full text-center py-4 text-xs text-slate-500">
-        The Divine Garbh Sanskar • Gate Scanner • 19 Dec 2026
+      {/* Footer Instructions */}
+      <footer className="max-w-xl mx-auto w-full text-center text-xs text-stone-400 pt-6">
+        The Divine Garbh Sanskar • Gate Entry Control
       </footer>
     </div>
   );

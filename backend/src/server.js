@@ -42,18 +42,21 @@ app.use((err, req, res, next) => {
 
 // Start Server & Connect Database
 const start = async () => {
+  app.listen(PORT, () => {
+    console.log(`=======================================================`);
+    console.log(`🚀 Divya Garbh Yatra Backend running on port ${PORT}`);
+    console.log(`🎯 Health check: http://localhost:${PORT}/api/health`);
+    console.log(`=======================================================`);
+  });
+
   try {
-    await connectDB();
-    await getOrCreateEventSetting();
-    app.listen(PORT, () => {
-      console.log(`=======================================================`);
-      console.log(`🚀 Divya Garbh Yatra Backend running on port ${PORT}`);
-      console.log(`🎯 Health check: http://localhost:${PORT}/api/health`);
-      console.log(`=======================================================`);
-    });
+    const conn = await connectDB();
+    if (conn) {
+      await getOrCreateEventSetting();
+    }
   } catch (err) {
-    console.error('Failed to start server:', err);
-    process.exit(1);
+    console.warn('[Database] Initial connection deferred:', err.message);
+    console.warn('[Database] Backend is live. Awaiting database connection string...');
   }
 };
 

@@ -31,7 +31,17 @@ const EventSettingSchema = new mongoose.Schema({
       { tierNumber: 4, name: 'Phase 4 (151 થી 200 કપલ)', minCouple: 151, maxCouple: 200, price: 1500 },
       { tierNumber: 5, name: 'Final Phase (201 થી 250 કપલ)', minCouple: 201, maxCouple: 250, price: 1800 }
     ]
-  }
+  },
+  customQrImage: { type: String, default: '' },
+  useCustomQr: { type: Boolean, default: false },
+  speakerBio: { type: String, default: 'Vedic Prenatal Science Guide & Inspirational Speaker' },
+  speakerPhoto: { type: String, default: '' },
+  supportPhone: { type: String, default: '+91 94285 24890' },
+  supportWhatsapp: { type: String, default: '919586979897' },
+  venueMapUrl: { type: String, default: 'https://maps.google.com' },
+  isRegistrationOpen: { type: Boolean, default: true },
+  registrationClosedNotice: { type: String, default: 'દિલગીર છીએ, રજીસ્ટ્રેશન હાલ પૂર્ણ થયેલ છે.' },
+  passNotice: { type: String, default: 'કૃપા કરીને સમયસર પહોંચવું. ગેટ પર ડિજિટલ પાસ QR કોડ બતાવવો ફરજિયાત છે.' }
 }, { timestamps: true });
 
 export const EventSetting = mongoose.model('EventSetting', EventSettingSchema);

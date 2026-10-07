@@ -107,6 +107,12 @@ export default function DivyaGarbhYatra() {
   // Generate UPI QR Code when in Step 2 or when eventData loads
   useEffect(() => {
     if (!eventData || !eventData.payment) return;
+
+    if (eventData.payment.customQrImage && eventData.payment.useCustomQr) {
+      setUpiQrDataUrl(eventData.payment.customQrImage);
+      return;
+    }
+
     const currentPrice = eventData.liveRates?.currentPrice || 900;
     const upiId = eventData.payment.upiId || 'thedivinegarbhsanskar@okaxis';
     const payeeName = encodeURIComponent(eventData.payment.payeeName || 'The Divine Garbh Sanskar');
