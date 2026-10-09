@@ -64,10 +64,24 @@ export default function EventAdminPage() {
     speaker: 'નેહલ ગઢવી',
     speakerTitle: 'Life Coach & Garbh Sanskar Expert',
     speakerBio: 'Vedic Prenatal Science Guide & Inspirational Speaker',
-    upiId: 'thedivinegarbhsanskar@okaxis',
-    payeeName: 'The Divine Garbh Sanskar',
-    customQrImage: '',
-    useCustomQr: false,
+    upiId: 'jayneshshingala2005-2@okicici',
+    payeeName: 'Shingala Jaynesh',
+    customQrImage: '/events/divy-garbhyatra/primary-upi-qr.jpg',
+    useCustomQr: true,
+    upiAccounts: [
+      {
+        id: '1',
+        upiId: 'jayneshshingala2005-2@okicici',
+        payeeName: 'Shingala Jaynesh',
+        customQrImage: '/events/divy-garbhyatra/primary-upi-qr.jpg',
+        limit: 50,
+        bookingsCount: 0,
+        isActive: true
+      }
+    ],
+    autoRotateUpi: true,
+    upiRollingThreshold: 50,
+    activeUpiIndex: 0,
     totalCoupleCapacity: 250,
     supportPhone: '+91 94285 24890',
     supportWhatsapp: '919586979897',
@@ -75,11 +89,8 @@ export default function EventAdminPage() {
     registrationClosedNotice: 'દિલગીર છીએ, આ ઇવેન્ટનું રજીસ્ટ્રેશન હાલ પૂર્ણ થયેલ છે.',
     passNotice: 'કૃપા કરીને સમયસર પહોંચવું. ગેટ પર ડિજિટલ પાસ QR કોડ બતાવવો ફરજિયાત છે.',
     tiers: [
-      { tierNumber: 1, name: 'Early Bird (પહેલા 50 કપલ માટે)', minCouple: 1, maxCouple: 50, price: 900 },
-      { tierNumber: 2, name: 'Phase 2 (51 થી 100 કપલ)', minCouple: 51, maxCouple: 100, price: 1100 },
-      { tierNumber: 3, name: 'Phase 3 (101 થી 150 કપલ)', minCouple: 101, maxCouple: 150, price: 1300 },
-      { tierNumber: 4, name: 'Phase 4 (151 થી 200 કપલ)', minCouple: 151, maxCouple: 200, price: 1500 },
-      { tierNumber: 5, name: 'Final Phase (201 થી 250 કપલ)', minCouple: 201, maxCouple: 250, price: 1800 }
+      { tierNumber: 1, name: 'Early Access (પહેલા 50 કપલ માટે)', minCouple: 1, maxCouple: 50, price: 600 },
+      { tierNumber: 2, name: 'Phase 2 (51 થી 250 કપલ માટે)', minCouple: 51, maxCouple: 250, price: 900 }
     ]
   });
 
@@ -317,6 +328,70 @@ export default function EventAdminPage() {
     });
   };
 
+  const handleAddTier = () => {
+    setEventSettings((prev) => {
+      const currentTiers = prev.tiers || [];
+      const nextNum = currentTiers.length + 1;
+      const lastTier = currentTiers[currentTiers.length - 1];
+      const min = lastTier ? lastTier.maxCouple + 1 : 1;
+      const max = min + 49;
+      return {
+        ...prev,
+        tiers: [
+          ...currentTiers,
+          { tierNumber: nextNum, name: `Phase ${nextNum}`, minCouple: min, maxCouple: max, price: 1000 }
+        ]
+      };
+    });
+  };
+
+  const handleRemoveTier = (idx) => {
+    if ((eventSettings.tiers?.length || 0) <= 1) {
+      alert('ઓછામાં ઓછો એક પ્રાઇસિંગ સ્લેબ હોવો જરૂરી છે.');
+      return;
+    }
+    setEventSettings((prev) => ({
+      ...prev,
+      tiers: prev.tiers.filter((_, i) => i !== idx).map((t, i) => ({ ...t, tierNumber: i + 1 }))
+    }));
+  };
+
+  // Multi-UPI Account Pool Handlers
+  const handleAddUpiAccount = () => {
+    const newAccount = {
+      id: Date.now().toString(),
+      upiId: '',
+      payeeName: 'Shingala Jaynesh',
+      customQrImage: '',
+      limit: 50,
+      bookingsCount: 0,
+      isActive: true
+    };
+    setEventSettings((prev) => ({
+      ...prev,
+      upiAccounts: [...(prev.upiAccounts || []), newAccount]
+    }));
+  };
+
+  const handleRemoveUpiAccount = (idx) => {
+    if ((eventSettings.upiAccounts?.length || 0) <= 1) {
+      alert('ઓછામાં ઓછું એક પ્રાથમિક UPI એકાઉન્ટ હોવું જરૂરી છે.');
+      return;
+    }
+    setEventSettings((prev) => ({
+      ...prev,
+      upiAccounts: prev.upiAccounts.filter((_, i) => i !== idx)
+    }));
+  };
+
+  const handleUpiAccountChange = (idx, field, value) => {
+    setEventSettings((prev) => {
+      const updated = [...(prev.upiAccounts || [])];
+      updated[idx] = { ...updated[idx], [field]: value };
+      return { ...prev, upiAccounts: updated };
+    });
+  };
+
   // Save All Settings Dynamically to Database
   const handleSaveSettings = async (e) => {
     if (e) e.preventDefault();
@@ -389,9 +464,11 @@ export default function EventAdminPage() {
         {/* Top Header */}
         <header className="w-full max-w-lg pt-4 sm:pt-6 flex items-center justify-between z-10">
           <Link to="/" className="flex items-center gap-2.5">
-            <span className="w-8 h-8 rounded-full bg-gradient-to-tr from-rose-700 to-amber-600 flex items-center justify-center text-white font-serif font-black text-xs shadow-md">
-              DG
-            </span>
+            <img
+              src="/logo.jpg"
+              alt="The Divine Garbh Sanskar"
+              className="w-9 h-9 rounded-full p-0.5 bg-white object-contain border border-amber-400 shadow-md shrink-0"
+            />
             <span className="font-extrabold text-stone-900 text-sm tracking-tight hidden sm:inline font-serif">
               The Divine Garbh Sanskar
             </span>
@@ -508,14 +585,16 @@ export default function EventAdminPage() {
           {/* Brand & Role */}
           <div className="flex items-center gap-3">
             <Link to="/divy-garbhyatra" className="flex items-center gap-2.5">
-              <span className="w-8 h-8 rounded-full bg-gradient-to-tr from-rose-700 to-amber-600 flex items-center justify-center text-white font-serif font-black text-xs shadow-md">
-                DG
-              </span>
+              <img
+                src="/logo.jpg"
+                alt="The Divine Garbh Sanskar"
+                className="w-9 h-9 rounded-full p-0.5 bg-white object-contain border border-amber-400 shadow-md shrink-0"
+              />
               <div>
                 <span className="text-xs font-black text-stone-900 block font-serif tracking-tight leading-tight">
                   દિવ્ય ગર્ભયાત્રા
                 </span>
-                <span className="text-[10px] text-stone-400 block font-sans">
+                <span className="text-[10px] text-stone-500 font-semibold block font-sans">
                   The Divine Garbh Sanskar
                 </span>
               </div>
@@ -1050,6 +1129,92 @@ export default function EventAdminPage() {
                     </div>
                   </div>
 
+                  {/* UPI Auto-Rolling Pool (Google Pay Velocity Protection) */}
+                  <div className="p-4 rounded-2xl bg-amber-50/70 border border-amber-200 space-y-3">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                      <div>
+                        <div className="flex items-center gap-2">
+                          <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
+                          <strong className="text-xs font-bold text-amber-950">
+                            Google Pay વેલોસિટી લિમિટ પ્રોટેક્શન (Auto-Rolling UPI Pool)
+                          </strong>
+                        </div>
+                        <p className="text-[11px] text-amber-800 mt-0.5">
+                          GPay/PhonePe ના દૈનિક ટ્રાન્ઝેક્શન બ્લોકથી બચવા દર ૫૦ કપલ રજીસ્ટ્રેશન પછી સિસ્ટમ આપોઆપ બીજા UPI ID / QR પર સ્વિચ કરે છે.
+                        </p>
+                      </div>
+                      <button
+                        type="button"
+                        onClick={() => setEventSettings({ ...eventSettings, autoRotateUpi: !eventSettings.autoRotateUpi })}
+                        className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer self-start sm:self-auto ${
+                          eventSettings.autoRotateUpi
+                            ? 'bg-amber-700 text-white shadow-xs'
+                            : 'bg-stone-200 text-stone-700'
+                        }`}
+                      >
+                        {eventSettings.autoRotateUpi ? 'ઓટો-રોલિંગ ચાલુ (ACTIVE)' : 'બંધ (OFF)'}
+                      </button>
+                    </div>
+
+                    {/* Connected Pool Accounts */}
+                    <div className="pt-2 border-t border-amber-200/60 space-y-2">
+                      <div className="flex items-center justify-between">
+                        <span className="text-[11px] font-bold text-amber-900">
+                          કનેક્ટેડ UPI એકાઉન્ટ્સ પૂલ ({eventSettings.upiAccounts?.length || 1})
+                        </span>
+                        <button
+                          type="button"
+                          onClick={handleAddUpiAccount}
+                          className="text-[11px] px-2.5 py-1 rounded-lg bg-amber-100 hover:bg-amber-200 text-amber-900 font-bold transition-colors cursor-pointer"
+                        >
+                          + બેકઅપ UPI એકાઉન્ટ ઉમેરો
+                        </button>
+                      </div>
+
+                      {eventSettings.upiAccounts?.map((acc, aIdx) => (
+                        <div key={acc.id || aIdx} className="bg-white p-3 rounded-xl border border-amber-200/80 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
+                          <div className="flex items-center gap-2 min-w-0 w-full sm:w-auto">
+                            <span className="w-6 h-6 rounded-full bg-amber-100 text-amber-900 font-bold text-[11px] flex items-center justify-center flex-shrink-0">
+                              #{aIdx + 1}
+                            </span>
+                            <div className="min-w-0 flex flex-wrap items-center gap-2">
+                              <input
+                                type="text"
+                                value={acc.upiId}
+                                onChange={(e) => handleUpiAccountChange(aIdx, 'upiId', e.target.value)}
+                                placeholder="UPI ID (e.g. name@okaxis)"
+                                className="font-mono text-xs font-bold text-stone-900 bg-transparent border-b border-stone-200 focus:outline-none focus:border-amber-600 px-1 py-0.5"
+                              />
+                              <input
+                                type="text"
+                                value={acc.payeeName}
+                                onChange={(e) => handleUpiAccountChange(aIdx, 'payeeName', e.target.value)}
+                                placeholder="Payee Name"
+                                className="text-[11px] text-stone-600 bg-transparent border-b border-stone-200 focus:outline-none focus:border-amber-600 px-1 py-0.5"
+                              />
+                            </div>
+                          </div>
+
+                          <div className="flex items-center gap-2 self-end sm:self-center">
+                            <span className="text-[10px] px-2 py-0.5 rounded-full bg-stone-100 text-stone-600 font-medium">
+                              લિમિટ: {acc.limit || 50} કપલ
+                            </span>
+                            {eventSettings.upiAccounts.length > 1 && (
+                              <button
+                                type="button"
+                                onClick={() => handleRemoveUpiAccount(aIdx)}
+                                className="text-stone-400 hover:text-rose-700 p-1 cursor-pointer"
+                                title="એકાઉન્ટ કાઢી નાખો"
+                              >
+                                <Trash2 className="w-3.5 h-3.5" />
+                              </button>
+                            )}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
                   {/* QR Code Mode Selector */}
                   <div className="p-4 rounded-2xl bg-stone-50 border border-stone-200 space-y-3">
                     <span className="text-xs font-bold text-stone-800 block">
@@ -1070,7 +1235,7 @@ export default function EventAdminPage() {
                           {!eventSettings.useCustomQr && <Check className="w-4 h-4 text-rose-700" />}
                         </div>
                         <p className="text-[11px] text-stone-500">
-                          કપલના નામે લાઈવ સ્લેબ પ્રાઇસ (₹900, ₹1100 વગેરે) આપોઆપ એન્કોડ થાય છે. (ભૂલ વગર).
+                          કપલના નામે લાઈવ સ્લેબ પ્રાઇસ (₹600, ₹900 વગેરે) આપોઆપ એન્કોડ થાય છે. (ભૂલ વગર).
                         </p>
                       </button>
 
@@ -1088,7 +1253,7 @@ export default function EventAdminPage() {
                           {eventSettings.useCustomQr && <Check className="w-4 h-4 text-rose-700" />}
                         </div>
                         <p className="text-[11px] text-stone-500">
-                          તમારી દુકાન/સંસ્થાનો ફિઝિકલ બેંક/PhonePe QR કોડ ઈમેજ અપલોડ કરી વાપરો.
+                          તમારી સંસ્થા/બેંકનો QR કોડ ઈમેજ અપલોડ કરી વાપરો (Shingala Jaynesh).
                         </p>
                       </button>
                     </div>
@@ -1181,28 +1346,38 @@ export default function EventAdminPage() {
               </div>
             </div>
 
-            {/* SECTION 2: 5-TIER DYNAMIC PRICING SLABS */}
+            {/* SECTION 2: DYNAMIC PRICING SLABS */}
             <div className="bg-white border border-stone-200/90 rounded-3xl p-6 shadow-xs space-y-5">
-              <div className="border-b border-stone-100 pb-3 flex items-center justify-between">
+              <div className="border-b border-stone-100 pb-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                 <div>
                   <h3 className="text-sm sm:text-base font-black text-stone-900 flex items-center gap-2 font-serif">
                     <IndianRupee className="w-5 h-5 text-amber-700" />
-                    <span>2. ડાયનેમિક 5-સ્લેબ પ્રાઇસિંગ મેનેજર (5-Tier Live Pricing)</span>
+                    <span>2. ડાયનેમિક પ્રાઇસિંગ સ્લેબ મેનેજર (Dynamic Pricing Slabs)</span>
                   </h3>
                   <p className="text-xs text-stone-500">
-                    દરેક ૫૦ કપલ પછી સ્લેબ અને પ્રાઇસ આપોઆપ બદલાય છે. તમે અહીંથી કોઈપણ સ્લેબનો ભાવ અને લિમિટ બદલી શકો છો.
+                    હાલમાં Early Access (₹600) અને Phase 2 (₹900) સક્રિય છે. તમે સ્લેબ ઉમેરી કે ડિલીટ કરી શકો છો.
                   </p>
                 </div>
-                <div className="text-right">
-                  <span className="text-[10px] text-stone-400 block">કુલ ક્ષમતા</span>
-                  <div className="flex items-center gap-1">
-                    <input
-                      type="number"
-                      value={eventSettings.totalCoupleCapacity}
-                      onChange={(e) => setEventSettings({ ...eventSettings, totalCoupleCapacity: Number(e.target.value) })}
-                      className="w-20 bg-stone-50 border border-stone-200 rounded-lg px-2 py-1 text-xs text-stone-900 font-bold text-center"
-                    />
-                    <span className="text-xs font-bold text-stone-700">કપલ</span>
+                <div className="flex items-center gap-3">
+                  <button
+                    type="button"
+                    onClick={handleAddTier}
+                    className="px-3 py-1.5 rounded-xl bg-amber-50 hover:bg-amber-100 border border-amber-300 text-amber-900 text-xs font-bold transition-all cursor-pointer"
+                  >
+                    + નવો સ્લેબ ઉમેરો (+ Add Slab)
+                  </button>
+
+                  <div className="text-right">
+                    <span className="text-[10px] text-stone-400 block">કુલ ક્ષમતા</span>
+                    <div className="flex items-center gap-1">
+                      <input
+                        type="number"
+                        value={eventSettings.totalCoupleCapacity}
+                        onChange={(e) => setEventSettings({ ...eventSettings, totalCoupleCapacity: Number(e.target.value) })}
+                        className="w-20 bg-stone-50 border border-stone-200 rounded-lg px-2 py-1 text-xs text-stone-900 font-bold text-center"
+                      />
+                      <span className="text-xs font-bold text-stone-700">કપલ</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1216,6 +1391,7 @@ export default function EventAdminPage() {
                       <th className="py-2.5 px-3">કપલ રેન્જ (Min - Max)</th>
                       <th className="py-2.5 px-3">કિંમત ₹ (Price per Couple)</th>
                       <th className="py-2.5 px-3 text-center">લાઈવ સ્ટેટસ</th>
+                      <th className="py-2.5 px-3 text-center">એક્શન</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-stone-100">
@@ -1273,6 +1449,18 @@ export default function EventAdminPage() {
                               <span className="text-stone-400 text-[11px]">પૂર્ણ (Filled)</span>
                             ) : (
                               <span className="text-stone-400 text-[11px]">આગામી (Upcoming)</span>
+                            )}
+                          </td>
+                          <td className="py-3 px-3 text-center">
+                            {eventSettings.tiers.length > 1 && (
+                              <button
+                                type="button"
+                                onClick={() => handleRemoveTier(idx)}
+                                className="p-1 text-stone-400 hover:text-rose-700 cursor-pointer"
+                                title="સ્લેબ ડિલીટ કરો"
+                              >
+                                <Trash2 className="w-3.5 h-3.5" />
+                              </button>
                             )}
                           </td>
                         </tr>

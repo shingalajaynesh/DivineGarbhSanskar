@@ -49,26 +49,49 @@ export const generateDigitalPassCanvas = async (canvas, data) => {
   drawCorner(width - 20, height - 20, -1, -1);
 
   // 3. Brand & Event Header
+  try {
+    const logoImg = await loadImage('/logo.jpg');
+    const logoSize = 46;
+    const logoX = width / 2 - logoSize / 2;
+    const logoY = 32;
+
+    ctx.save();
+    ctx.beginPath();
+    ctx.arc(width / 2, logoY + logoSize / 2, logoSize / 2, 0, Math.PI * 2);
+    ctx.clip();
+    ctx.drawImage(logoImg, logoX, logoY, logoSize, logoSize);
+    ctx.restore();
+
+    // Golden ring around logo
+    ctx.strokeStyle = '#D4AF37';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.arc(width / 2, logoY + logoSize / 2, logoSize / 2, 0, Math.PI * 2);
+    ctx.stroke();
+  } catch (logoErr) {
+    console.warn('Canvas logo load deferred:', logoErr);
+  }
+
   ctx.textAlign = 'center';
   ctx.fillStyle = '#D4AF37';
-  ctx.font = 'bold 16px "Plus Jakarta Sans", sans-serif';
+  ctx.font = 'bold 15px "Plus Jakarta Sans", sans-serif';
   ctx.letterSpacing = '3px';
-  ctx.fillText('THE DIVINE GARBH SANSKAR', width / 2, 70);
+  ctx.fillText('THE DIVINE GARBH SANSKAR', width / 2, 98);
 
   ctx.fillStyle = '#FF8C00';
-  ctx.font = 'bold 13px "Plus Jakarta Sans", sans-serif';
+  ctx.font = 'bold 12px "Plus Jakarta Sans", sans-serif';
   ctx.letterSpacing = '2px';
-  ctx.fillText('COUPLE SEMINAR • SPECIAL EVENT', width / 2, 95);
+  ctx.fillText('COUPLE SEMINAR • SPECIAL PROGRAM', width / 2, 118);
 
   // Event Main Gujarati Title
   ctx.fillStyle = '#FFFFFF';
-  ctx.font = 'bold 44px "Noto Sans Gujarati", sans-serif';
-  ctx.fillText('દિવ્ય ગર્ભયાત્રા', width / 2, 150);
+  ctx.font = 'bold 42px "Noto Sans Gujarati", sans-serif';
+  ctx.fillText('દિવ્ય ગર્ભયાત્રા', width / 2, 165);
 
   // Subtitle
   ctx.fillStyle = '#E2E8F0';
-  ctx.font = 'italic 16px "Playfair Display", serif';
-  ctx.fillText('પ્રેમ, સંસ્કાર અને સમર્પણની અનોખી સફર', width / 2, 185);
+  ctx.font = 'italic 15px "Playfair Display", serif';
+  ctx.fillText('પ્રેમ, સંસ્કાર અને સમર્પણની અનોખી સફર', width / 2, 195);
 
   // Divider line
   ctx.strokeStyle = 'rgba(212, 175, 55, 0.5)';

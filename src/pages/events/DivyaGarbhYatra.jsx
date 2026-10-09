@@ -113,9 +113,9 @@ export default function DivyaGarbhYatra() {
       return;
     }
 
-    const currentPrice = eventData.liveRates?.currentPrice || 900;
-    const upiId = eventData.payment.upiId || 'thedivinegarbhsanskar@okaxis';
-    const payeeName = encodeURIComponent(eventData.payment.payeeName || 'The Divine Garbh Sanskar');
+    const currentPrice = eventData.liveRates?.currentPrice || 600;
+    const upiId = eventData.payment.upiId || 'jayneshshingala2005-2@okicici';
+    const payeeName = encodeURIComponent(eventData.payment.payeeName || 'Shingala Jaynesh');
     const note = encodeURIComponent(`Divya Garbh Yatra Couple Pass ${husbandName ? `for ${husbandName}` : ''}`.trim());
 
     const upiString = `upi://pay?pa=${upiId}&pn=${payeeName}&am=${currentPrice}&cu=INR&tn=${note}`;
@@ -265,7 +265,7 @@ export default function DivyaGarbhYatra() {
     }
   };
 
-  const currentPrice = eventData?.liveRates?.currentPrice || 900;
+  const currentPrice = eventData?.liveRates?.currentPrice || 600;
   const activeTier = eventData?.liveRates?.activeTier;
   const slotsLeftInTier = eventData?.liveRates?.slotsLeftInTier ?? 50;
   const registeredCount = eventData?.liveRates?.registeredCount ?? 0;
@@ -273,8 +273,8 @@ export default function DivyaGarbhYatra() {
   const isSoldOut = eventData?.liveRates?.isSoldOut;
 
   // Direct UPI Intent links for mobile
-  const upiIdVal = eventData?.payment?.upiId || 'thedivinegarbhsanskar@okaxis';
-  const payeeNameVal = encodeURIComponent(eventData?.payment?.payeeName || 'The Divine Garbh Sanskar');
+  const upiIdVal = eventData?.payment?.upiId || 'jayneshshingala2005-2@okicici';
+  const payeeNameVal = encodeURIComponent(eventData?.payment?.payeeName || 'Shingala Jaynesh');
   const genericUpiUri = `upi://pay?pa=${upiIdVal}&pn=${payeeNameVal}&am=${currentPrice}&cu=INR&tn=DivyaGarbhYatra`;
 
   return (
@@ -342,13 +342,20 @@ export default function DivyaGarbhYatra() {
       {/* Header Sticky Navigation Bar for Event - ekdujekeliye Clean Luxury Style */}
       <header className="relative z-20 border-b border-stone-200/80 bg-white/90 backdrop-blur-md sticky top-0 px-4 py-3">
         <div className="max-w-6xl mx-auto flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-2 group">
-            <span className="w-9 h-9 rounded-full bg-gradient-to-tr from-rose-600 via-amber-500 to-rose-600 flex items-center justify-center text-white shadow-md shadow-rose-900/10 group-hover:scale-105 transition-transform">
-              <Heart className="w-5 h-5 fill-white" />
-            </span>
-            <div>
-              <span className="text-sm font-black tracking-wider text-stone-900 block uppercase">The Divine</span>
-              <span className="text-xs text-rose-700 font-bold block">Garbh Sanskar</span>
+          <Link to="/" className="flex items-center gap-2.5 sm:gap-3 group">
+            <img
+              src="/logo.jpg"
+              alt="The Divine Garbh Sanskar Logo"
+              className="w-10 h-10 sm:w-11 sm:h-11 rounded-full p-0.5 bg-white object-contain group-hover:scale-105 transition-transform duration-300 shadow-md border border-amber-500/40 shrink-0"
+            />
+            <div className="flex flex-col">
+              <span className="text-xs sm:text-sm font-black tracking-wider text-stone-900 uppercase leading-none">
+                The Divine Garbh Sanskar
+              </span>
+              <span className="text-[10px] sm:text-xs text-rose-700 font-bold leading-none mt-1 flex items-center gap-1">
+                <span>કાર્યક્રમ:</span>
+                <span className="text-amber-800">દિવ્ય ગર્ભયાત્રા સેમિનાર</span>
+              </span>
             </div>
           </Link>
 
@@ -378,6 +385,23 @@ export default function DivyaGarbhYatra() {
           
           {/* Left Column (7 cols) */}
           <div className="lg:col-span-7 space-y-5 text-center lg:text-left">
+            {/* The Divine Garbh Sanskar Main Brand Banner */}
+            <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-2xl bg-white border border-stone-200/90 shadow-xs mb-1">
+              <img
+                src="/logo.jpg"
+                alt="The Divine Garbh Sanskar"
+                className="w-7 h-7 sm:w-8 sm:h-8 rounded-full p-0.5 bg-white object-contain border border-amber-500/60 shadow-2xs shrink-0"
+              />
+              <div className="text-left">
+                <span className="text-[11px] sm:text-xs font-black tracking-wider text-stone-900 uppercase block leading-none">
+                  The Divine Garbh Sanskar
+                </span>
+                <span className="text-[9px] sm:text-[10px] text-rose-700 font-bold leading-none block mt-0.5">
+                  સંસ્થા દ્વારા આયોજિત વિશેષ કાર્યક્રમ
+                </span>
+              </div>
+            </div>
+
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2">
               <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-rose-50 border border-rose-200 text-rose-800 text-xs font-bold uppercase tracking-wider shadow-2xs">
                 <Heart className="w-3.5 h-3.5 text-rose-600 flex-shrink-0 fill-rose-600" />
@@ -572,20 +596,17 @@ export default function DivyaGarbhYatra() {
           </div>
 
           {/* Tier Pills Visualizer */}
-          <div className="grid grid-cols-2 sm:grid-cols-5 gap-2 mt-4 text-[11px]">
-            {[
-              { num: 1, range: '1-50 કપલ', rate: '₹900', label: 'Early Bird' },
-              { num: 2, range: '51-100 કપલ', rate: '₹1100', label: 'Phase 2' },
-              { num: 3, range: '101-150 કપલ', rate: '₹1300', label: 'Phase 3' },
-              { num: 4, range: '151-200 કપલ', rate: '₹1500', label: 'Phase 4' },
-              { num: 5, range: '201-250 કપલ', rate: '₹1800', label: 'Final Slots' }
-            ].map((t) => {
-              const isActive = activeTier?.tierNumber === t.num;
-              const isPast = (activeTier?.tierNumber || 1) > t.num;
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-4 text-[11px]">
+            {(eventData?.liveRates?.tiers || [
+              { tierNumber: 1, name: 'Early Access (પહેલા 50 કપલ માટે)', minCouple: 1, maxCouple: 50, price: 600 },
+              { tierNumber: 2, name: 'Phase 2 (51 થી 250 કપલ માટે)', minCouple: 51, maxCouple: 250, price: 900 }
+            ]).map((t) => {
+              const isActive = (activeTier?.tierNumber || 1) === t.tierNumber;
+              const isPast = (activeTier?.tierNumber || 1) > t.tierNumber;
               return (
                 <div
-                  key={t.num}
-                  className={`rounded-xl p-2.5 text-center border transition-all ${
+                  key={t.tierNumber}
+                  className={`rounded-2xl p-3.5 text-center border transition-all ${
                     isActive
                       ? 'bg-rose-50 border-rose-500 text-rose-900 shadow-md ring-2 ring-rose-500/20 font-bold'
                       : isPast
@@ -593,9 +614,24 @@ export default function DivyaGarbhYatra() {
                       : 'bg-white border-stone-200 text-stone-600 hover:border-stone-300'
                   }`}
                 >
-                  <span className={`block text-xs ${isActive ? 'text-rose-700 font-extrabold text-sm' : 'font-bold'}`}>{t.rate}</span>
-                  <span className="text-[10px] block opacity-75">{t.range}</span>
-                  {isActive && <span className="inline-block px-1.5 py-0.5 text-[9px] bg-rose-600 text-white rounded-full mt-1 font-bold">સક્રિય</span>}
+                  <div className="flex items-center justify-between gap-2">
+                    <span className="font-bold text-stone-800 text-xs">{t.name}</span>
+                    <span className={`text-sm ${isActive ? 'text-rose-700 font-extrabold text-base' : 'font-bold'}`}>
+                      ₹{t.price}
+                    </span>
+                  </div>
+                  <div className="flex items-center justify-between text-[10px] text-stone-500 mt-1">
+                    <span>{t.minCouple} થી {t.maxCouple} કપલ</span>
+                    {isActive ? (
+                      <span className="px-2 py-0.5 text-[9px] bg-rose-600 text-white rounded-full font-bold">
+                        લાઇવ સક્રિય (Active)
+                      </span>
+                    ) : isPast ? (
+                      <span className="text-stone-400">સ્લોટ પૂર્ણ</span>
+                    ) : (
+                      <span className="text-stone-400">આગામી ફેઝ</span>
+                    )}
+                  </div>
                 </div>
               );
             })}
@@ -675,14 +711,21 @@ export default function DivyaGarbhYatra() {
         ======================================================== */}
         {step === 1 && (
           <div className="bg-white border border-stone-200/90 rounded-3xl p-6 md:p-8 shadow-xl">
-            <div className="border-b border-stone-200/80 pb-4 mb-6">
-              <h2 className="text-xl md:text-2xl font-extrabold text-stone-900 flex items-center gap-2">
-                <Heart className="w-5 h-5 text-rose-600 fill-rose-600" />
-                કપલ નોંધણી વિગત (Couple Details)
-              </h2>
-              <p className="text-xs md:text-sm text-stone-600 mt-1">
-                કૃપા કરીને સાચી વિગતો ભરો. આ વિગતો તમારા ડિજિટલ એન્ટ્રી પાસ પર પ્રિન્ટ થશે.
-              </p>
+            <div className="border-b border-stone-200/80 pb-4 mb-6 flex items-center justify-between">
+              <div>
+                <h2 className="text-xl md:text-2xl font-extrabold text-stone-900 flex items-center gap-2">
+                  <Heart className="w-5 h-5 text-rose-600 fill-rose-600" />
+                  કપલ નોંધણી વિગત (Couple Details)
+                </h2>
+                <p className="text-xs md:text-sm text-stone-600 mt-1">
+                  The Divine Garbh Sanskar ના 'દિવ્ય ગર્ભયાત્રા' કાર્યક્રમ માટે તમારી બેઠક બુક કરો.
+                </p>
+              </div>
+              <img
+                src="/logo.jpg"
+                alt="The Divine Garbh Sanskar Logo"
+                className="w-11 h-11 rounded-full p-0.5 bg-white object-contain border border-amber-400 shadow-xs hidden sm:block shrink-0"
+              />
             </div>
 
             <form onSubmit={handleProceedToPayment} className="space-y-5">
@@ -819,14 +862,21 @@ export default function DivyaGarbhYatra() {
         {step === 2 && (
           <div className="bg-white border border-stone-200/90 rounded-3xl p-6 md:p-8 shadow-xl space-y-6">
             <div className="border-b border-stone-200/80 pb-4 flex items-center justify-between">
-              <div>
-                <h2 className="text-xl md:text-2xl font-extrabold text-stone-900 flex items-center gap-2">
-                  <ShieldCheck className="w-6 h-6 text-rose-700" />
-                  સ્ટેપ ૨: UPI પેમેન્ટ & રિસીપ્ટ અપલોડ
-                </h2>
-                <p className="text-xs md:text-sm text-stone-600 mt-0.5">
-                  કપલ: <span className="font-bold text-rose-800">{husbandName} & {wifeName} {surname}</span>
-                </p>
+              <div className="flex items-center gap-3">
+                <img
+                  src="/logo.jpg"
+                  alt="The Divine Garbh Sanskar Logo"
+                  className="w-10 h-10 rounded-full p-0.5 bg-white object-contain border border-amber-400 shadow-xs hidden sm:block shrink-0"
+                />
+                <div>
+                  <h2 className="text-xl md:text-2xl font-extrabold text-stone-900 flex items-center gap-2">
+                    <ShieldCheck className="w-6 h-6 text-rose-700" />
+                    સ્ટેપ ૨: UPI પેમેન્ટ & રિસીપ્ટ અપલોડ
+                  </h2>
+                  <p className="text-xs md:text-sm text-stone-600 mt-0.5">
+                    The Divine Garbh Sanskar • કપલ: <span className="font-bold text-rose-800">{husbandName} & {wifeName} {surname}</span>
+                  </p>
+                </div>
               </div>
 
               <button
@@ -990,16 +1040,20 @@ export default function DivyaGarbhYatra() {
         ======================================================== */}
         {step === 3 && submissionResult && (
           <div className="bg-white border-2 border-stone-200/90 rounded-3xl p-6 md:p-10 shadow-2xl text-center space-y-6">
-            <div className="w-16 h-16 rounded-full bg-emerald-50 border-2 border-emerald-400 mx-auto flex items-center justify-center text-emerald-600 shadow-sm">
-              <CheckCircle2 className="w-9 h-9" />
+            <div className="flex items-center justify-center gap-3 mx-auto">
+              <img
+                src="/logo.jpg"
+                alt="The Divine Garbh Sanskar Logo"
+                className="w-14 h-14 rounded-full p-0.5 bg-white object-contain border-2 border-amber-500 shadow-md"
+              />
             </div>
 
             <div className="space-y-2">
               <span className="px-3.5 py-1 rounded-full bg-rose-50 border border-rose-200 text-rose-800 text-xs font-bold uppercase tracking-wider">
-                Registration Submitted
+                The Divine Garbh Sanskar • Registration Submitted
               </span>
               <h2 className="text-2xl md:text-4xl font-black text-stone-900">
-                અભિનંદન! તમારું ફોર્મ સબમિટ થઈ ગયું છે
+                અભિનંદન! 'દિવ્ય ગર્ભયાત્રા' માટે તમારું ફોર્મ સબમિટ થઈ ગયું છે
               </h2>
               <p className="text-sm text-stone-600 max-w-lg mx-auto">
                 તમારી નોંધણી વિગતો અને પેમેન્ટ રિસીપ્ટ સફળતાપૂર્વક સિસ્ટમમાં જમા થઈ ગઈ છે.
@@ -1051,6 +1105,26 @@ export default function DivyaGarbhYatra() {
           </div>
         )}
 
+        {/* Footer Brand Info */}
+        <footer className="mt-16 pt-8 border-t border-stone-200/80 text-center space-y-3 pb-8">
+          <div className="flex items-center justify-center gap-2.5">
+            <img
+              src="/logo.jpg"
+              alt="The Divine Garbh Sanskar"
+              className="w-9 h-9 rounded-full p-0.5 bg-white object-contain border border-amber-400 shadow-xs"
+            />
+            <span className="text-sm font-black tracking-wider text-stone-900 uppercase">
+              The Divine Garbh Sanskar
+            </span>
+          </div>
+          <p className="text-xs text-stone-500 max-w-md mx-auto leading-relaxed">
+            'દિવ્ય ગર્ભયાત્રા' એ The Divine Garbh Sanskar દ્વારા સંચાલિત વિશેષ કપલ સેમિનાર કાર્યક્રમ છે.
+          </p>
+          <div className="text-[11px] text-stone-400 font-medium">
+            © {new Date().getFullYear()} The Divine Garbh Sanskar • All Rights Reserved
+          </div>
+        </footer>
+
       </main>
 
       {/* ========================================================
@@ -1070,14 +1144,20 @@ export default function DivyaGarbhYatra() {
               <X className="w-5 h-5" />
             </button>
 
-            <div>
-              <h2 className="text-xl font-extrabold text-stone-900 flex items-center gap-2">
-                <Search className="w-5 h-5 text-rose-600" />
-                રજીસ્ટ્રેશન સ્ટેટસ તપાસો
-              </h2>
-              <p className="text-xs text-stone-600 mt-1">
-                તમારો ઇન્ક્વાયરી આઈડી (દા.ત. CPL-1001) અથવા રજીસ્ટર્ડ મોબાઇલ નંબર દાખલ કરો.
-              </p>
+            <div className="flex items-center gap-3">
+              <img
+                src="/logo.jpg"
+                alt="The Divine Garbh Sanskar"
+                className="w-10 h-10 rounded-full p-0.5 bg-white object-contain border border-amber-400 shadow-xs shrink-0"
+              />
+              <div>
+                <h2 className="text-lg font-extrabold text-stone-900">
+                  રજીસ્ટ્રેશન સ્ટેટસ તપાસો
+                </h2>
+                <p className="text-[11px] text-stone-500">
+                  The Divine Garbh Sanskar • 'દિવ્ય ગર્ભયાત્રા' કાર્યક્રમ
+                </p>
+              </div>
             </div>
 
             <form onSubmit={handleCheckStatus} className="flex gap-2">

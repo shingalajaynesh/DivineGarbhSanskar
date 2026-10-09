@@ -93,13 +93,20 @@ export default function DigitalPassPage() {
       <div className="max-w-xl mx-auto mb-6 flex items-center justify-between">
         <Link
           to="/events/divy-garbhyatra"
-          className="inline-flex items-center gap-1.5 text-xs font-bold text-rose-700 hover:text-rose-900 transition-colors"
+          className="inline-flex items-center gap-2.5 text-xs font-bold text-rose-700 hover:text-rose-900 transition-colors"
         >
-          <ArrowLeft className="w-4 h-4" />
-          <span>ઇવેન્ટ પેજ પર પાછા જાઓ</span>
+          <img
+            src="/logo.jpg"
+            alt="The Divine Garbh Sanskar"
+            className="w-8 h-8 rounded-full p-0.5 bg-white object-contain border border-amber-400 shadow-2xs shrink-0"
+          />
+          <div className="text-left">
+            <span className="text-[10px] text-stone-500 uppercase block leading-none font-bold">The Divine Garbh Sanskar</span>
+            <span className="text-xs text-rose-800 font-extrabold leading-none mt-1 block">← દિવ્ય ગર્ભયાત્રા પેજ</span>
+          </div>
         </Link>
 
-        <span className="text-xs font-mono font-bold text-stone-500 bg-stone-100 px-3 py-1 rounded-full border border-stone-200">
+        <span className="text-xs font-mono font-bold text-stone-700 bg-white px-3 py-1 rounded-full border border-stone-200 shadow-2xs">
           ID: {inquiryId?.toUpperCase()}
         </span>
       </div>

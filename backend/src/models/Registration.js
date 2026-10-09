@@ -52,12 +52,12 @@ const RegistrationSchema = new mongoose.Schema({
   },
   tierName: {
     type: String,
-    default: 'Early Bird (પહેલા 50 કપલ માટે)'
+    default: 'Early Access (પહેલા 50 કપલ માટે)'
   },
   amount: {
     type: Number,
     required: true,
-    default: 900
+    default: 600
   },
   status: {
     type: String,

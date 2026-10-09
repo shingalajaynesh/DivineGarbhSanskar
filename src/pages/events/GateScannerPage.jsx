@@ -116,10 +116,17 @@ export default function GateScannerPage() {
       <header className="max-w-xl mx-auto w-full flex items-center justify-between border-b border-stone-200 pb-4 mb-6">
         <Link
           to="/event-admin"
-          className="inline-flex items-center gap-1.5 text-xs text-rose-800 hover:text-stone-900 font-bold transition-colors"
+          className="inline-flex items-center gap-2 text-xs text-rose-800 hover:text-stone-900 font-bold transition-colors"
         >
-          <ArrowLeft className="w-4 h-4" />
-          <span>← એડમિન ડેશબોર્ડ</span>
+          <img
+            src="/logo.jpg"
+            alt="The Divine Garbh Sanskar"
+            className="w-8 h-8 rounded-full p-0.5 bg-white object-contain border border-amber-400 shadow-2xs shrink-0"
+          />
+          <div className="text-left">
+            <span className="text-[10px] text-stone-500 uppercase block leading-none font-bold">The Divine Garbh Sanskar</span>
+            <span className="text-xs text-stone-900 font-extrabold leading-none mt-0.5 block">← એડમિન ડેશબોર્ડ</span>
+          </div>
         </Link>
 
         <span className="text-[10px] font-black uppercase px-2.5 py-1 rounded-full bg-purple-50 border border-purple-200 text-purple-900 tracking-wider flex items-center gap-1.5">

@@ -20,21 +20,16 @@ const upload = multer({
 // Authentication middleware
 const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD;
 const SUPER_ADMIN_PASSWORD = process.env.SUPER_ADMIN_PASSWORD;
-const ADMIN_FALLBACK = process.env.ADMIN_PASSWORD_FALLBACK;
-const SUPER_FALLBACK = process.env.SUPER_ADMIN_PASSWORD_FALLBACK;
 
 const verifyAuth = (req) => {
   const authHeader = req.headers['authorization'] || req.headers['x-admin-password'];
   if (!authHeader) return null;
   const token = authHeader.replace(/^Bearer\s+/i, '').trim();
 
-  const validSuper = [SUPER_ADMIN_PASSWORD, SUPER_FALLBACK].filter(Boolean);
-  const validAdmin = [ADMIN_PASSWORD, ADMIN_FALLBACK].filter(Boolean);
-
-  if (validSuper.length > 0 && validSuper.includes(token)) {
+  if (token === SUPER_ADMIN_PASSWORD) {
     return 'superadmin';
   }
-  if (validAdmin.length > 0 && validAdmin.includes(token)) {
+  if (token === ADMIN_PASSWORD) {
     return 'admin';
   }
   return null;
@@ -74,6 +69,52 @@ const calculateActiveTier = (registeredCount, tiers) => {
   return { activeTier: lastTier, slotsLeft: 0 };
 };
 
+// Helper: Resolve Active UPI Account with Auto-Rolling every 50 couples
+const resolveActiveUpi = (setting, registeredCount) => {
+  const accounts = Array.isArray(setting.upiAccounts) && setting.upiAccounts.length > 0
+    ? setting.upiAccounts.filter(a => a.isActive !== false)
+    : [];
+
+  const threshold = setting.upiRollingThreshold || 50;
+
+  if (accounts.length === 0) {
+    const bookingsInWindow = registeredCount % threshold;
+    return {
+      upiId: setting.upiId || 'jayneshshingala2005-2@okicici',
+      payeeName: setting.payeeName || 'Shingala Jaynesh',
+      customQrImage: setting.customQrImage || '/events/divy-garbhyatra/primary-upi-qr.jpg',
+      useCustomQr: setting.useCustomQr !== false,
+      accountIndex: 0,
+      rollingThreshold: threshold,
+      bookingsInCurrentWindow: bookingsInWindow,
+      slotsLeftOnCurrentUpi: Math.max(0, threshold - bookingsInWindow),
+      totalAccountsInPool: 1
+    };
+  }
+
+  let activeIndex = setting.activeUpiIndex || 0;
+  if (setting.autoRotateUpi !== false) {
+    const windowIndex = Math.floor(registeredCount / threshold);
+    activeIndex = windowIndex % accounts.length;
+  }
+
+  const activeAccount = accounts[activeIndex] || accounts[0];
+  const bookingsInWindow = registeredCount % threshold;
+  const slotsLeftOnUpi = Math.max(0, threshold - bookingsInWindow);
+
+  return {
+    upiId: activeAccount.upiId,
+    payeeName: activeAccount.payeeName,
+    customQrImage: activeAccount.customQrImage || setting.customQrImage || '/events/divy-garbhyatra/primary-upi-qr.jpg',
+    useCustomQr: activeAccount.customQrImage ? true : Boolean(setting.useCustomQr),
+    accountIndex: activeIndex,
+    rollingThreshold: threshold,
+    bookingsInCurrentWindow: bookingsInWindow,
+    slotsLeftOnCurrentUpi: slotsLeftOnUpi,
+    totalAccountsInPool: accounts.length
+  };
+};
+
 // ==========================================
 // PUBLIC ENDPOINTS
 // ==========================================
@@ -84,6 +125,7 @@ router.get('/event', async (req, res) => {
     const setting = await getOrCreateEventSetting();
     const registeredCount = await Registration.countDocuments({ status: { $ne: 'rejected' } });
     const { activeTier, slotsLeft } = calculateActiveTier(registeredCount, setting.tiers);
+    const activePayment = resolveActiveUpi(setting, registeredCount);
 
     const totalCapacity = setting.totalCoupleCapacity || 250;
     const isSoldOut = registeredCount >= totalCapacity;
@@ -111,10 +153,16 @@ router.get('/event', async (req, res) => {
         totalCapacity
       },
       payment: {
-        upiId: setting.upiId,
-        payeeName: setting.payeeName,
-        customQrImage: setting.customQrImage || '',
-        useCustomQr: Boolean(setting.useCustomQr)
+        upiId: activePayment.upiId,
+        payeeName: activePayment.payeeName,
+        customQrImage: activePayment.customQrImage || '',
+        useCustomQr: Boolean(activePayment.useCustomQr),
+        autoRotate: setting.autoRotateUpi !== false,
+        accountIndex: activePayment.accountIndex,
+        slotsLeftOnCurrentUpi: activePayment.slotsLeftOnCurrentUpi,
+        bookingsInCurrentWindow: activePayment.bookingsInCurrentWindow,
+        rollingThreshold: activePayment.rollingThreshold,
+        totalAccountsInPool: activePayment.totalAccountsInPool
       },
       liveRates: {
         registeredCount,
@@ -304,13 +352,11 @@ router.post('/auth/login', (req, res) => {
     return res.status(400).json({ error: 'પાસવર્ડ જરૂરી છે.' });
   }
   const cleanPass = password.trim();
-  const validSuper = [SUPER_ADMIN_PASSWORD, SUPER_FALLBACK].filter(Boolean);
-  const validAdmin = [ADMIN_PASSWORD, ADMIN_FALLBACK].filter(Boolean);
 
-  if (validSuper.length > 0 && validSuper.includes(cleanPass)) {
+  if (cleanPass === SUPER_ADMIN_PASSWORD) {
     return res.json({ success: true, role: 'superadmin', message: 'સુપર એડમિન લૉગિન સફળ.' });
   }
-  if (validAdmin.length > 0 && validAdmin.includes(cleanPass)) {
+  if (cleanPass === ADMIN_PASSWORD) {
     return res.json({ success: true, role: 'admin', message: 'એડમિન લૉગિન સફળ.' });
   }
   return res.status(401).json({ error: 'ખોટો પાસવર્ડ! કૃપા કરીને સાચો પાસવર્ડ નાખો.' });
@@ -564,6 +610,7 @@ router.post('/admin/settings', requireAdmin, async (req, res) => {
       venue, venueAddress, venueMapUrl,
       speaker, speakerTitle, speakerBio, speakerPhoto,
       upiId, payeeName, customQrImage, useCustomQr,
+      upiAccounts, autoRotateUpi, upiRollingThreshold, activeUpiIndex,
       totalCoupleCapacity, tiers,
       supportPhone, supportWhatsapp,
       isRegistrationOpen, registrationClosedNotice, passNotice
@@ -589,6 +636,11 @@ router.post('/admin/settings', requireAdmin, async (req, res) => {
     if (payeeName !== undefined) setting.payeeName = payeeName.trim();
     if (customQrImage !== undefined) setting.customQrImage = customQrImage;
     if (useCustomQr !== undefined) setting.useCustomQr = Boolean(useCustomQr);
+
+    if (Array.isArray(upiAccounts)) setting.upiAccounts = upiAccounts;
+    if (autoRotateUpi !== undefined) setting.autoRotateUpi = Boolean(autoRotateUpi);
+    if (upiRollingThreshold !== undefined) setting.upiRollingThreshold = Number(upiRollingThreshold);
+    if (activeUpiIndex !== undefined) setting.activeUpiIndex = Number(activeUpiIndex);
 
     if (totalCoupleCapacity !== undefined) setting.totalCoupleCapacity = Number(totalCoupleCapacity);
     if (Array.isArray(tiers) && tiers.length > 0) {
