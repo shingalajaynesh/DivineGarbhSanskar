@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import QRCode from 'qrcode';
 import { 
@@ -12,7 +12,10 @@ import {
 
 import { API_BASE } from '../../utils/apiConfig';
 
-export default function EventAdminPage() {
+export default function EventAdminPage({ defaultRole }) {
+  const location = useLocation();
+  const isSuperAdminRoute = location.pathname.includes('superadmin') || defaultRole === 'superadmin';
+
   // Session Authentication
   const [password, setPassword] = useState(() => sessionStorage.getItem('divineAdminPassword') || '');
   const [showPassword, setShowPassword] = useState(false);
@@ -487,14 +490,20 @@ export default function EventAdminPage() {
         <main className="max-w-md w-full my-auto z-10 py-6 space-y-6">
           <div className="bg-white border border-stone-200/90 rounded-3xl p-6 sm:p-8 shadow-xl shadow-stone-200/50 space-y-6">
             <div className="text-center space-y-2">
-              <div className="inline-flex p-3 rounded-2xl bg-rose-50 border border-rose-200 text-rose-800 shadow-xs mb-1">
-                <ShieldCheck className="w-7 h-7" />
+              <div className={`inline-flex p-3 rounded-2xl border shadow-xs mb-1 ${
+                isSuperAdminRoute 
+                  ? 'bg-purple-50 border-purple-200 text-purple-800' 
+                  : 'bg-rose-50 border-rose-200 text-rose-800'
+              }`}>
+                {isSuperAdminRoute ? <Crown className="w-7 h-7" /> : <ShieldCheck className="w-7 h-7" />}
               </div>
               <h1 className="text-xl sm:text-2xl font-black text-stone-900 tracking-tight font-serif">
-                Event Command &amp; Admin
+                {isSuperAdminRoute ? 'Super Admin Console' : 'Event Admin Operations'}
               </h1>
               <p className="text-xs text-stone-500 font-medium">
-                દિવ્ય ગર્ભયાત્રા • કપલ સેમિનાર વેરિફિકેશન &amp; ડેશબોર્ડ
+                {isSuperAdminRoute 
+                  ? 'દિવ્ય ગર્ભયાત્રા • સંપૂર્ણ કંટ્રોલ અને ડેટાબેઝ રીસેટ અધિકાર' 
+                  : 'દિવ્ય ગર્ભયાત્રા • કપલ સેમિનાર વેરિફિકેશન & ડેશબોર્ડ'}
               </p>
             </div>
 
@@ -553,12 +562,23 @@ export default function EventAdminPage() {
 
             <div className="pt-3 border-t border-stone-100 flex items-center justify-between text-xs text-stone-500">
               <Link to="/divy-garbhyatra" className="hover:text-rose-700 font-medium transition-colors">
-                ← ઇવેન્ટ પેજ પર જાઓ
+                ← ઇવેન્ટ પેજ
               </Link>
-              <Link to="/event-admin/scanner" className="text-purple-700 hover:text-purple-900 font-bold flex items-center gap-1">
-                <Camera className="w-3.5 h-3.5" />
-                <span>ગેટ સ્કેનર</span>
-              </Link>
+              <div className="flex items-center gap-3">
+                {isSuperAdminRoute ? (
+                  <Link to="/admin" className="text-rose-700 hover:text-rose-900 font-bold">
+                    એડમિન (/admin)
+                  </Link>
+                ) : (
+                  <Link to="/superadmin" className="text-purple-700 hover:text-purple-900 font-bold">
+                    સુપર એડમિન (/superadmin)
+                  </Link>
+                )}
+                <Link to="/scanner" className="text-stone-600 hover:text-stone-900 font-bold flex items-center gap-1">
+                  <Camera className="w-3 h-3 text-purple-700" />
+                  <span>સ્કેનર</span>
+                </Link>
+              </div>
             </div>
           </div>
         </main>

@@ -31,6 +31,7 @@ import Authors from './pages/Authors';
 // Event Pages (Divya Garbh Yatra & Events Hub)
 import EventsHub from './pages/EventsHub';
 import DivyaGarbhYatra from './pages/events/DivyaGarbhYatra';
+import EventRegisterPage from './pages/events/EventRegisterPage';
 import DigitalPassPage from './pages/events/DigitalPassPage';
 import EventAdminPage from './pages/events/EventAdminPage';
 import GateScannerPage from './pages/events/GateScannerPage';
@@ -44,7 +45,12 @@ const AppContent = () => {
     location.pathname.startsWith('/divy-garbhyatra') || 
     location.pathname.startsWith('/pass') || 
     location.pathname.startsWith('/events/pass') || 
-    location.pathname.startsWith('/event-admin');
+    location.pathname.startsWith('/event-admin') ||
+    location.pathname.startsWith('/admin') ||
+    location.pathname.startsWith('/superadmin') ||
+    location.pathname.startsWith('/register') ||
+    location.pathname.startsWith('/events/register') ||
+    location.pathname.startsWith('/scanner');
 
   return (
     <div className="flex flex-col min-h-screen bg-softCream">
@@ -57,10 +63,17 @@ const AppContent = () => {
           <Route path="/events" element={<EventsHub />} />
           <Route path="/events/divy-garbhyatra" element={<DivyaGarbhYatra />} />
           <Route path="/divy-garbhyatra" element={<DivyaGarbhYatra />} />
+          <Route path="/register" element={<EventRegisterPage />} />
+          <Route path="/divy-garbhyatra/register" element={<EventRegisterPage />} />
+          <Route path="/events/divy-garbhyatra/register" element={<EventRegisterPage />} />
+          <Route path="/events/register" element={<EventRegisterPage />} />
           <Route path="/events/pass/:inquiryId" element={<DigitalPassPage />} />
           <Route path="/pass/:inquiryId" element={<DigitalPassPage />} />
+          <Route path="/admin" element={<EventAdminPage />} />
+          <Route path="/superadmin" element={<EventAdminPage />} />
           <Route path="/event-admin" element={<EventAdminPage />} />
           <Route path="/event-admin/scanner" element={<GateScannerPage />} />
+          <Route path="/scanner" element={<GateScannerPage />} />
           <Route path="/courses" element={<Courses />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogPost />} />

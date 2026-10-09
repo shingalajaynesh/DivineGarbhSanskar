@@ -13,6 +13,8 @@ import { API_BASE } from '../../utils/apiConfig';
 const ADMIN_WHATSAPP = '919586979897';
 
 export default function DivyaGarbhYatra() {
+  const registrationSectionRef = useRef(null);
+
   // Step State: 1 = Couple Form, 2 = UPI Payment & Receipt, 3 = Confirmation
   const [step, setStep] = useState(1);
 
@@ -197,7 +199,7 @@ export default function DivyaGarbhYatra() {
 
     setErrorMessage('');
     setStep(2);
-    window.scrollTo({ top: 350, behavior: 'smooth' });
+    registrationSectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
   // Step 2 Final Submission
@@ -229,7 +231,7 @@ export default function DivyaGarbhYatra() {
       if (res.ok && json.success) {
         setSubmissionResult(json.data);
         setStep(3);
-        window.scrollTo({ top: 250, behavior: 'smooth' });
+        registrationSectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
       } else {
         setErrorMessage(json.error || 'રજીસ્ટ્રેશન કરવામાં ભૂલ આવી. કૃપા કરીને ફરી પ્રયાસ કરો.');
       }
@@ -359,16 +361,24 @@ export default function DivyaGarbhYatra() {
             </div>
           </Link>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2.5 sm:gap-3">
+            <Link
+              to="/divy-garbhyatra/register"
+              className="text-xs font-black bg-gradient-to-r from-rose-600 via-amber-600 to-rose-600 hover:from-rose-700 hover:to-amber-700 text-white px-3.5 py-1.5 rounded-full shadow-md shadow-rose-600/20 transition-all flex items-center gap-1"
+            >
+              <span>બુક કરો (₹600)</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+
             <button
               onClick={() => setShowStatusModal(true)}
-              className="text-xs font-bold px-3.5 py-1.5 rounded-full border border-stone-300 text-stone-700 hover:bg-stone-100 flex items-center gap-1.5 transition-colors shadow-xs"
+              className="text-xs font-bold px-3 py-1.5 rounded-full border border-stone-300 text-stone-700 hover:bg-stone-100 flex items-center gap-1.5 transition-colors shadow-2xs"
             >
               <Search className="w-3.5 h-3.5 text-rose-600" />
-              <span>સ્ટેટસ ચેક કરો</span>
+              <span>સ્ટેટસ</span>
             </button>
             <Link
-              to="/event-admin"
+              to="/admin"
               className="text-xs text-stone-500 hover:text-stone-900 font-semibold transition-colors"
             >
               Admin
@@ -445,6 +455,25 @@ export default function DivyaGarbhYatra() {
                 <span className="text-stone-500 text-[10px] block font-medium">પ્રવેશ</span>
                 <strong className="text-stone-900 block font-bold text-[11px] sm:text-xs">1 પાસ = 1 કપલ</strong>
               </div>
+            </div>
+
+            {/* Hero Direct Register CTA Buttons */}
+            <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+              <Link
+                to="/divy-garbhyatra/register"
+                className="py-3.5 px-6 rounded-2xl bg-gradient-to-r from-rose-600 via-amber-600 to-rose-600 hover:from-rose-700 hover:to-amber-700 text-white font-black text-sm sm:text-base flex items-center justify-center gap-2 shadow-xl shadow-rose-600/25 active:scale-[0.99] transition-all"
+              >
+                <span>હમણાં જ સીટ બુક કરો (Book Pass • ₹{currentPrice})</span>
+                <ArrowRight className="w-5 h-5 stroke-[3]" />
+              </Link>
+
+              <button
+                type="button"
+                onClick={() => registrationSectionRef.current?.scrollIntoView({ behavior: 'smooth' })}
+                className="py-3.5 px-5 rounded-2xl bg-white border border-stone-300 hover:bg-stone-50 text-stone-700 font-bold text-xs sm:text-sm text-center transition-colors shadow-2xs"
+              >
+                નીચે ફોર્મ જુઓ ↓
+              </button>
             </div>
 
             {/* Badges / Guarantees from ekdujekeliye */}
@@ -678,8 +707,33 @@ export default function DivyaGarbhYatra() {
           </div>
         </div>
 
-        {/* 3. STEPPER TABS */}
-        <div className="flex items-center justify-center gap-2 sm:gap-3 mb-6">
+        {/* 3. STEPPER & REGISTRATION SECTION ANCHOR */}
+        <div ref={registrationSectionRef} className="scroll-mt-20">
+          
+          {/* Fast Dedicated Registration Page Banner */}
+          <div className="mb-6 bg-gradient-to-r from-rose-50 via-amber-50 to-rose-50 border border-rose-200 rounded-2xl p-4 flex flex-col sm:flex-row items-center justify-between gap-3 shadow-2xs">
+            <div className="flex items-center gap-3">
+              <span className="w-8 h-8 rounded-full bg-rose-600 text-white flex items-center justify-center shrink-0">
+                <Sparkles className="w-4 h-4" />
+              </span>
+              <div className="text-left">
+                <strong className="text-xs sm:text-sm font-black text-stone-900 block">
+                  ઝડપી અને સરળ રજીસ્ટ્રેશન ફોર્મ (Dedicated Checkout)
+                </strong>
+                <span className="text-[11px] text-stone-600 block">
+                  અલગ ક્લીન પેજ પર માત્ર ૩ સરળ પગલાંમાં સીટ બુક કરો.
+                </span>
+              </div>
+            </div>
+            <Link
+              to="/divy-garbhyatra/register"
+              className="w-full sm:w-auto px-4 py-2 rounded-xl bg-gradient-to-r from-rose-600 via-amber-600 to-rose-600 text-white font-extrabold text-xs shadow-md shrink-0 flex items-center justify-center gap-1.5"
+            >
+              <span>ઓપન ડેડિકેટેડ ફોર્મ →</span>
+            </Link>
+          </div>
+
+          <div className="flex items-center justify-center gap-2 sm:gap-3 mb-6">
           <div className={`flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold transition-all ${step === 1 ? 'bg-gradient-to-r from-rose-600 via-amber-600 to-rose-600 text-white shadow-md shadow-rose-600/20' : 'bg-white text-stone-600 border border-stone-200 shadow-xs'}`}>
             <span>૧. કપલ વિગત</span>
           </div>
@@ -1104,6 +1158,7 @@ export default function DivyaGarbhYatra() {
             </div>
           </div>
         )}
+        </div>
 
         {/* Footer Brand Info */}
         <footer className="mt-16 pt-8 border-t border-stone-200/80 text-center space-y-3 pb-8">
