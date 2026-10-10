@@ -482,6 +482,82 @@ function generateCardHtml() {
   `;
 }
 
+function generateEventsHubHtml() {
+  return `
+    <header style="border-bottom: 2px solid #D4AF37; padding-bottom: 1.5rem; margin-bottom: 2rem;">
+      <h1 style="color: #5D1A00; font-size: 2.2rem; margin: 0 0 0.5rem 0;">Events & Seminars | The Divine Garbh Sanskar</h1>
+      <p style="font-size: 1.2rem; color: #8B2500; margin: 0;">Offline & Online Prenatal Wellness Workshops & Couple Seminars</p>
+    </header>
+    <section style="margin-bottom: 2rem; line-height: 1.8;">
+      <h2 style="color: #5D1A00; font-size: 1.5rem;">Featured Event: દિવ્ય ગર્ભયાત્રા (Divya Garbh Yatra)</h2>
+      <p>A transformative couple seminar dedicated to Vedic prenatal wisdom, positive fetal parenting, and holistic maternal wellbeing in Surat.</p>
+      <p><a href="/divy-garbhyatra" style="display: inline-block; background: #8B2500; color: #FFF; padding: 0.75rem 1.5rem; border-radius: 6px; text-decoration: none; font-weight: bold;">View Event Details (વિગતો જુઓ) →</a></p>
+    </section>
+  `;
+}
+
+function generateDivyaGarbhYatraHtml() {
+  return `
+    <header style="border-bottom: 2px solid #D4AF37; padding-bottom: 1.5rem; margin-bottom: 2rem;">
+      <h1 style="color: #5D1A00; font-size: 2.2rem; margin: 0 0 0.5rem 0;">દિવ્ય ગર્ભયાત્રા (Divya Garbh Yatra)</h1>
+      <p style="font-size: 1.2rem; color: #8B2500; margin: 0;">Special Couple Seminar by Nehal Gadhvi & Dr. Taruna Jiyani</p>
+    </header>
+    <section style="margin-bottom: 2rem; line-height: 1.8;">
+      <h2 style="color: #5D1A00; font-size: 1.5rem;">સુરતમાં ભવ્ય કપલ સેમિનાર - ૧૯ ડિસેમ્બર ૨૦૨૬</h2>
+      <p>આધ્યાત્મિક, વૈજ્ઞાનિક અને પારિવારિક સંસ્કારોનું અનોખું મિલન. જમના બા ભવન, સુરત ખાતે આયોજિત વિશેષ કપલ સેમિનાર.</p>
+      <p><a href="/register" style="display: inline-block; background: #8B2500; color: #FFF; padding: 0.75rem 1.5rem; border-radius: 6px; text-decoration: none; font-weight: bold;">હમણાં જ રજીસ્ટ્રેશન કરો (Register Now) →</a></p>
+    </section>
+  `;
+}
+
+function generateEventRegisterHtml() {
+  return `
+    <header style="border-bottom: 2px solid #D4AF37; padding-bottom: 1.5rem; margin-bottom: 2rem;">
+      <h1 style="color: #5D1A00; font-size: 2.2rem; margin: 0 0 0.5rem 0;">દિવ્ય ગર્ભયાત્રા કપલ રજીસ્ટ્રેશન</h1>
+      <p style="font-size: 1.2rem; color: #8B2500; margin: 0;">Divya Garbh Yatra Couple Seminar Registration</p>
+    </header>
+    <section style="margin-bottom: 2rem; line-height: 1.8;">
+      <p>કૃપા કરીને કપલ વિગતો ભરો અને UPI દ્વારા પેમેન્ટ કરી તમારો ડિજિટલ એન્ટ્રી પાસ મેળવો.</p>
+    </section>
+  `;
+}
+
+function generateAdminHtml() {
+  return `
+    <header style="text-align: center; margin-bottom: 2rem;">
+      <h1 style="color: #5D1A00; font-size: 2rem; margin: 0 0 0.5rem 0;">Event Admin Portal - The Divine Garbh Sanskar</h1>
+      <p style="font-size: 1.1rem; color: #8B2500;">દિવ્ય ગર્ભયાત્રા • કપલ સેમિનાર વેરિફિકેશન & મેનેજમેન્ટ</p>
+    </header>
+    <div style="text-align: center; padding: 2rem; color: #666;">
+      <p>Authentication Required. Loading Admin Console...</p>
+    </div>
+  `;
+}
+
+function generateScannerHtml() {
+  return `
+    <header style="text-align: center; margin-bottom: 2rem;">
+      <h1 style="color: #5D1A00; font-size: 2rem; margin: 0 0 0.5rem 0;">Gate Pass QR Scanner</h1>
+      <p style="font-size: 1.1rem; color: #8B2500;">દિવ્ય ગર્ભયાત્રા ગેટ વેરિફિકેશન સ્કેનર</p>
+    </header>
+    <div style="text-align: center; padding: 2rem; color: #666;">
+      <p>Loading Camera Scanner...</p>
+    </div>
+  `;
+}
+
+function generatePassHtml() {
+  return `
+    <header style="text-align: center; margin-bottom: 2rem;">
+      <h1 style="color: #5D1A00; font-size: 2rem; margin: 0 0 0.5rem 0;">દિવ્ય ગર્ભયાત્રા ડિજિટલ પ્રવેશ પાસ</h1>
+      <p style="font-size: 1.1rem; color: #8B2500;">Digital Event Entry Pass</p>
+    </header>
+    <div style="text-align: center; padding: 2rem; color: #666;">
+      <p>પાસ લોડ થઈ રહ્યો છે... (Loading pass...)</p>
+    </div>
+  `;
+}
+
 // Route definitions for static generation
 const routes = [
   {
@@ -768,6 +844,118 @@ const routes = [
       }
     ],
     htmlContent: generateCardHtml()
+  },
+  {
+    path: '/events',
+    title: 'Events & Seminars | The Divine Garbh Sanskar',
+    description: 'Explore upcoming offline and online prenatal workshops, seminars, and couple sessions by The Divine Garbh Sanskar in Surat.',
+    canonical: 'https://www.thedivinegarbhsanskar.com/events',
+    htmlContent: generateEventsHubHtml()
+  },
+  {
+    path: '/events/divy-garbhyatra',
+    title: 'દિવ્ય ગર્ભયાત્રા (Divya Garbh Yatra) | The Divine Garbh Sanskar',
+    description: 'Divya Garbh Yatra couple seminar by Nehal Gadhvi and Dr. Taruna Jiyani in Surat on 19 December 2026.',
+    canonical: 'https://www.thedivinegarbhsanskar.com/events/divy-garbhyatra',
+    htmlContent: generateDivyaGarbhYatraHtml()
+  },
+  {
+    path: '/divy-garbhyatra',
+    title: 'દિવ્ય ગર્ભયાત્રા (Divya Garbh Yatra) | The Divine Garbh Sanskar',
+    description: 'Divya Garbh Yatra couple seminar by Nehal Gadhvi and Dr. Taruna Jiyani in Surat on 19 December 2026.',
+    canonical: 'https://www.thedivinegarbhsanskar.com/divy-garbhyatra',
+    htmlContent: generateDivyaGarbhYatraHtml()
+  },
+  {
+    path: '/register',
+    title: 'દિવ્ય ગર્ભયાત્રા રજીસ્ટ્રેશન | The Divine Garbh Sanskar',
+    description: 'Register for Divya Garbh Yatra couple seminar in Surat.',
+    canonical: 'https://www.thedivinegarbhsanskar.com/register',
+    htmlContent: generateEventRegisterHtml()
+  },
+  {
+    path: '/divy-garbhyatra/register',
+    title: 'દિવ્ય ગર્ભયાત્રા રજીસ્ટ્રેશન | The Divine Garbh Sanskar',
+    description: 'Register for Divya Garbh Yatra couple seminar in Surat.',
+    canonical: 'https://www.thedivinegarbhsanskar.com/divy-garbhyatra/register',
+    htmlContent: generateEventRegisterHtml()
+  },
+  {
+    path: '/events/divy-garbhyatra/register',
+    title: 'દિવ્ય ગર્ભયાત્રા રજીસ્ટ્રેશન | The Divine Garbh Sanskar',
+    description: 'Register for Divya Garbh Yatra couple seminar in Surat.',
+    canonical: 'https://www.thedivinegarbhsanskar.com/events/divy-garbhyatra/register',
+    htmlContent: generateEventRegisterHtml()
+  },
+  {
+    path: '/events/register',
+    title: 'દિવ્ય ગર્ભયાત્રા રજીસ્ટ્રેશન | The Divine Garbh Sanskar',
+    description: 'Register for Divya Garbh Yatra couple seminar in Surat.',
+    canonical: 'https://www.thedivinegarbhsanskar.com/events/register',
+    htmlContent: generateEventRegisterHtml()
+  },
+  {
+    path: '/admin',
+    title: 'Admin Operations | The Divine Garbh Sanskar',
+    description: 'Admin operations portal for Divya Garbh Yatra.',
+    canonical: 'https://www.thedivinegarbhsanskar.com/admin',
+    robots: 'noindex, nofollow',
+    structuredData: [],
+    htmlContent: generateAdminHtml()
+  },
+  {
+    path: '/superadmin',
+    title: 'Super Admin Console | The Divine Garbh Sanskar',
+    description: 'Super Admin console for Divya Garbh Yatra.',
+    canonical: 'https://www.thedivinegarbhsanskar.com/superadmin',
+    robots: 'noindex, nofollow',
+    structuredData: [],
+    htmlContent: generateAdminHtml()
+  },
+  {
+    path: '/event-admin',
+    title: 'Event Admin Operations | The Divine Garbh Sanskar',
+    description: 'Event admin operations portal.',
+    canonical: 'https://www.thedivinegarbhsanskar.com/event-admin',
+    robots: 'noindex, nofollow',
+    structuredData: [],
+    htmlContent: generateAdminHtml()
+  },
+  {
+    path: '/scanner',
+    title: 'Gate Pass QR Scanner | The Divine Garbh Sanskar',
+    description: 'Gate pass scanner for Divya Garbh Yatra.',
+    canonical: 'https://www.thedivinegarbhsanskar.com/scanner',
+    robots: 'noindex, nofollow',
+    structuredData: [],
+    htmlContent: generateScannerHtml()
+  },
+  {
+    path: '/event-admin/scanner',
+    title: 'Gate Pass QR Scanner | The Divine Garbh Sanskar',
+    description: 'Gate pass scanner for Divya Garbh Yatra.',
+    canonical: 'https://www.thedivinegarbhsanskar.com/event-admin/scanner',
+    robots: 'noindex, nofollow',
+    structuredData: [],
+    htmlContent: generateScannerHtml()
+  },
+  {
+    path: '/pass',
+    title: 'Digital Event Pass | The Divine Garbh Sanskar',
+    description: 'Digital pass for Divya Garbh Yatra couple seminar.',
+    canonical: 'https://www.thedivinegarbhsanskar.com/pass',
+    robots: 'noindex, nofollow',
+    structuredData: [],
+    htmlContent: generatePassHtml()
+  },
+  {
+    path: '/events/pass',
+    title: 'Digital Event Pass | The Divine Garbh Sanskar',
+    description: 'Digital pass for Divya Garbh Yatra couple seminar.',
+    canonical: 'https://www.thedivinegarbhsanskar.com/events/pass',
+    robots: 'noindex, nofollow',
+    structuredData: [],
+    htmlContent: generatePassHtml()
   },
   {
     path: '/404',

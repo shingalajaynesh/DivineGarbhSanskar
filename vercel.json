@@ -53,6 +53,14 @@
   ],
   "rewrites": [
     {
+      "source": "/pass/(.*)",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/events/pass/(.*)",
+      "destination": "/index.html"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }
