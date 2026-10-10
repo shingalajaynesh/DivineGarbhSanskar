@@ -5,10 +5,13 @@ import dotenv from 'dotenv';
 if (dns.setDefaultResultOrder) {
   dns.setDefaultResultOrder('ipv4first');
 }
-try {
-  dns.setServers(['8.8.8.8', '1.1.1.1']);
-} catch {
-  // Ignore fallback
+// Only override DNS in local dev if needed; preserve container DNS in Render/cloud environments
+if (process.env.NODE_ENV !== 'production' && !process.env.RENDER) {
+  try {
+    dns.setServers(['8.8.8.8', '1.1.1.1']);
+  } catch {
+    // Ignore fallback
+  }
 }
 
 dotenv.config();

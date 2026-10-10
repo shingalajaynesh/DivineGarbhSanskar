@@ -21,6 +21,16 @@ app.use(cors({
 app.use(express.json({ limit: '25mb' }));
 app.use(express.urlencoded({ extended: true, limit: '25mb' }));
 
+// Root endpoint for Render / Uptime robot health checks
+app.get('/', (req, res) => {
+  res.status(200).json({
+    status: 'ok',
+    service: 'Divya Garbh Yatra Backend API',
+    uptime: Math.floor(process.uptime()),
+    timestamp: new Date().toISOString()
+  });
+});
+
 // Health Check
 app.get('/api/health', (req, res) => {
   res.json({
@@ -42,10 +52,10 @@ app.use((err, req, res, next) => {
 
 // Start Server & Connect Database
 const start = async () => {
-  app.listen(PORT, () => {
+  app.listen(PORT, '0.0.0.0', () => {
     console.log(`=======================================================`);
     console.log(`🚀 Divya Garbh Yatra Backend running on port ${PORT}`);
-    console.log(`🎯 Health check: http://localhost:${PORT}/api/health`);
+    console.log(`🎯 Health check: http://0.0.0.0:${PORT}/api/health`);
     console.log(`=======================================================`);
   });
 
