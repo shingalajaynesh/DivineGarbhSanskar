@@ -28,17 +28,27 @@ export default function EventAdminPage({ defaultRole }) {
   // Active Tab: 'registrations' | 'settings'
   const [activeTab, setActiveTab] = useState('registrations');
 
-  // Registrations & Stats
+  // Registrations & Stats with Instant-Cache restoration
   const [registrations, setRegistrations] = useState([]);
-  const [stats, setStats] = useState({
-    total: 0,
-    approved: 0,
-    pending: 0,
-    rejected: 0,
-    checkedIn: 0,
-    totalRevenue: 0
+  const [stats, setStats] = useState(() => {
+    try {
+      const cached = sessionStorage.getItem('divineAdminStats');
+      if (cached) return JSON.parse(cached);
+    } catch {
+      // fallback
+    }
+    return {
+      total: 0,
+      approved: 0,
+      pending: 0,
+      rejected: 0,
+      checkedIn: 0,
+      totalRevenue: 0
+    };
   });
   const [loadingList, setLoadingList] = useState(false);
+  const [fetchError, setFetchError] = useState('');
+  const [inspectLoading, setInspectLoading] = useState(false);
 
   // Filters & Search
   const [activeFilter, setActiveFilter] = useState('all');
@@ -169,29 +179,83 @@ export default function EventAdminPage({ defaultRole }) {
     setRegistrations([]);
   };
 
-  // Fetch registrations
+  // Fetch registrations with 15s timeout and abort controller
   const fetchRegistrations = async (passVal = password, statusVal = activeFilter, searchVal = searchQuery) => {
     const activePass = passVal || password;
     if (!activePass) return;
 
     setLoadingList(true);
+    setFetchError('');
+
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 15000);
+
     try {
       const params = new URLSearchParams();
       if (statusVal && statusVal !== 'all') params.append('status', statusVal);
       if (searchVal) params.append('search', searchVal);
 
       const res = await fetch(`${API_BASE}/admin/registrations?${params.toString()}`, {
-        headers: { 'Authorization': activePass }
+        headers: { 'Authorization': activePass },
+        signal: controller.signal
       });
+      clearTimeout(timeoutId);
+
+      const contentType = res.headers.get('content-type') || '';
+      if (!contentType.includes('application/json')) {
+        throw new Error('સર્વરથી અમાન્ય પ્રતિસાદ મળ્યો (Non-JSON 404/500). કૃપા કરીને બેકએન્ડ કનેક્શન તપાસો.');
+      }
+
       const json = await res.json();
       if (res.ok && json.success) {
         setRegistrations(json.registrations || []);
-        if (json.stats) setStats(json.stats);
+        if (json.stats) {
+          setStats(json.stats);
+          try {
+            sessionStorage.setItem('divineAdminStats', JSON.stringify(json.stats));
+          } catch {
+            // storage fallback
+          }
+        }
+      } else {
+        setFetchError(json.error || 'ડેટા લોડ કરવામાં અસમર્થ.');
       }
     } catch (err) {
-      console.error('Error fetching registrations:', err);
+      clearTimeout(timeoutId);
+      if (err.name === 'AbortError') {
+        setFetchError('સર્વર રિસ્પોન્સ ટાઈમઆઉટ (15s Timeout). કૃપા કરીને ફરી પ્રયાસ કરો.');
+      } else {
+        setFetchError(err.message || 'સર્વર સાથે જોડાણ થઈ શક્યું નથી.');
+      }
     } finally {
       setLoadingList(false);
+    }
+  };
+
+  // On-Demand Single Registration Inspection (Full Details & Receipt)
+  const handleOpenInspect = async (item) => {
+    setInspectItem(item);
+    setShowRejectInput(false);
+    setRejectReason('');
+
+    // If payment screenshot receipt is not in memory, fetch it on-demand in background
+    if (!item.paymentScreenshot) {
+      setInspectLoading(true);
+      try {
+        const res = await fetch(`${API_BASE}/admin/registrations/${item.inquiryId}`, {
+          headers: { 'Authorization': password }
+        });
+        if (res.ok) {
+          const json = await res.json();
+          if (json.registration) {
+            setInspectItem((prev) => (prev?.inquiryId === item.inquiryId ? { ...prev, ...json.registration } : prev));
+          }
+        }
+      } catch (err) {
+        console.error('Error fetching inspect details:', err);
+      } finally {
+        setInspectLoading(false);
+      }
     }
   };
 
@@ -240,30 +304,81 @@ export default function EventAdminPage({ defaultRole }) {
     });
   }, [eventSettings.upiId, eventSettings.payeeName, eventSettings.useCustomQr, eventSettings.customQrImage, eventSettings.tiers]);
 
-  // 1-Click Approve
+  // 1-Click Instant Optimistic Approve (0ms latency)
   const handleApprove = async (inquiryId) => {
     setActionLoading(true);
+    const prevRegs = [...registrations];
+    const prevStats = { ...stats };
+    const target = registrations.find(r => r.inquiryId === inquiryId);
+    const wasPending = target?.status === 'pending';
+    const wasRejected = target?.status === 'rejected';
+
+    // Optimistic UI update in 0ms
+    setRegistrations(prev => prev.map(r => r.inquiryId === inquiryId ? { ...r, status: 'approved' } : r));
+    setStats(prev => {
+      const updated = {
+        ...prev,
+        approved: prev.approved + 1,
+        pending: wasPending ? Math.max(0, prev.pending - 1) : prev.pending,
+        rejected: wasRejected ? Math.max(0, prev.rejected - 1) : prev.rejected,
+        totalRevenue: prev.totalRevenue + (target?.amount || 600)
+      };
+      try { sessionStorage.setItem('divineAdminStats', JSON.stringify(updated)); } catch {}
+      return updated;
+    });
+
+    if (inspectItem?.inquiryId === inquiryId) {
+      setInspectItem(prev => ({ ...prev, status: 'approved' }));
+    }
+
     try {
       const res = await fetch(`${API_BASE}/admin/registrations/${inquiryId}/approve`, {
         method: 'POST',
         headers: { 'Authorization': password }
       });
-      if (res.ok) {
-        fetchRegistrations();
-        if (inspectItem?.inquiryId === inquiryId) {
-          setInspectItem((prev) => ({ ...prev, status: 'approved' }));
-        }
+      if (!res.ok) {
+        setRegistrations(prevRegs);
+        setStats(prevStats);
+        alert('એપ્રુવ કરવામાં ભૂલ આવી.');
       }
-    } catch (err) {
-      console.error('Approval failed:', err);
+    } catch {
+      setRegistrations(prevRegs);
+      setStats(prevStats);
+      alert('સર્વર સાથે જોડાણ થઈ શક્યું નથી.');
     } finally {
       setActionLoading(false);
     }
   };
 
-  // 1-Click Reject
+  // 1-Click Instant Optimistic Reject (0ms latency)
   const handleReject = async (inquiryId) => {
     setActionLoading(true);
+    const prevRegs = [...registrations];
+    const prevStats = { ...stats };
+    const target = registrations.find(r => r.inquiryId === inquiryId);
+    const wasPending = target?.status === 'pending';
+    const wasApproved = target?.status === 'approved';
+
+    // Optimistic UI update in 0ms
+    setRegistrations(prev => prev.map(r => r.inquiryId === inquiryId ? { ...r, status: 'rejected', rejectionReason: rejectReason } : r));
+    setStats(prev => {
+      const updated = {
+        ...prev,
+        rejected: prev.rejected + 1,
+        pending: wasPending ? Math.max(0, prev.pending - 1) : prev.pending,
+        approved: wasApproved ? Math.max(0, prev.approved - 1) : prev.approved,
+        totalRevenue: wasApproved ? Math.max(0, prev.totalRevenue - (target?.amount || 600)) : prev.totalRevenue
+      };
+      try { sessionStorage.setItem('divineAdminStats', JSON.stringify(updated)); } catch {}
+      return updated;
+    });
+
+    if (inspectItem?.inquiryId === inquiryId) {
+      setInspectItem(prev => ({ ...prev, status: 'rejected', rejectionReason: rejectReason }));
+    }
+    setShowRejectInput(false);
+    setRejectReason('');
+
     try {
       const res = await fetch(`${API_BASE}/admin/registrations/${inquiryId}/reject`, {
         method: 'POST',
@@ -273,35 +388,57 @@ export default function EventAdminPage({ defaultRole }) {
         },
         body: JSON.stringify({ reason: rejectReason || 'પેમેન્ટ વેરિફિકેશન અમાન્ય.' })
       });
-      if (res.ok) {
-        fetchRegistrations();
-        if (inspectItem?.inquiryId === inquiryId) {
-          setInspectItem((prev) => ({ ...prev, status: 'rejected', rejectionReason: rejectReason }));
-        }
-        setShowRejectInput(false);
-        setRejectReason('');
+      if (!res.ok) {
+        setRegistrations(prevRegs);
+        setStats(prevStats);
+        alert('રિજેક્ટ કરવામાં ભૂલ આવી.');
       }
-    } catch (err) {
-      console.error('Rejection failed:', err);
+    } catch {
+      setRegistrations(prevRegs);
+      setStats(prevStats);
+      alert('સર્વર સાથે જોડાણ થઈ શક્યું નથી.');
     } finally {
       setActionLoading(false);
     }
   };
 
-  // Delete registration
+  // Instant Optimistic Delete
   const handleDelete = async (inquiryId) => {
     if (!window.confirm(`શું તમે ખરેખર ઇન્ક્વાયરી ${inquiryId} કાયમ માટે ડિલીટ કરવા માંગો છો?`)) return;
+    const prevRegs = [...registrations];
+    const prevStats = { ...stats };
+    const target = registrations.find(r => r.inquiryId === inquiryId);
+
+    // Optimistically remove in 0ms
+    setRegistrations(prev => prev.filter(r => r.inquiryId !== inquiryId));
+    setStats(prev => {
+      const updated = {
+        ...prev,
+        total: Math.max(0, prev.total - 1),
+        approved: target?.status === 'approved' ? Math.max(0, prev.approved - 1) : prev.approved,
+        pending: target?.status === 'pending' ? Math.max(0, prev.pending - 1) : prev.pending,
+        rejected: target?.status === 'rejected' ? Math.max(0, prev.rejected - 1) : prev.rejected,
+        totalRevenue: target?.status === 'approved' ? Math.max(0, prev.totalRevenue - (target?.amount || 600)) : prev.totalRevenue
+      };
+      try { sessionStorage.setItem('divineAdminStats', JSON.stringify(updated)); } catch {}
+      return updated;
+    });
+    if (inspectItem?.inquiryId === inquiryId) setInspectItem(null);
+
     try {
       const res = await fetch(`${API_BASE}/admin/registrations/${inquiryId}`, {
         method: 'DELETE',
         headers: { 'Authorization': password }
       });
-      if (res.ok) {
-        fetchRegistrations();
-        if (inspectItem?.inquiryId === inquiryId) setInspectItem(null);
+      if (!res.ok) {
+        setRegistrations(prevRegs);
+        setStats(prevStats);
+        alert('ડિલીટ કરવામાં ભૂલ આવી.');
       }
-    } catch (err) {
-      console.error('Delete failed:', err);
+    } catch {
+      setRegistrations(prevRegs);
+      setStats(prevStats);
+      alert('સર્વર એરર.');
     }
   };
 
@@ -1060,11 +1197,46 @@ export default function EventAdminPage({ defaultRole }) {
               </div>
             </div>
 
-            {/* Registrations List (Mobile Cards Layout) */}
+            {/* Connection Error Banner (with 1-tap Retry) */}
+            {fetchError && (
+              <div className="bg-rose-50 border border-rose-200 rounded-2xl p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 shadow-xs">
+                <div className="flex items-center gap-2.5 text-xs text-rose-900 font-semibold">
+                  <AlertTriangle className="w-5 h-5 text-rose-600 shrink-0" />
+                  <div>
+                    <p className="font-bold">ડેટા કનેક્શન એરર (Connection Error)</p>
+                    <p className="text-rose-700 text-[11px] mt-0.5">{fetchError}</p>
+                  </div>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => fetchRegistrations(password, activeFilter, searchQuery)}
+                  className="px-3.5 py-1.5 rounded-xl bg-rose-700 hover:bg-rose-800 text-white font-bold text-xs flex items-center gap-1.5 cursor-pointer shadow-xs shrink-0 active:scale-95 transition-all"
+                >
+                  <RefreshCw className="w-3.5 h-3.5" />
+                  <span>ફરી પ્રયાસ કરો (Retry)</span>
+                </button>
+              </div>
+            )}
+
+            {/* Registrations List (Modern Fast Skeleton + Mobile Cards Layout) */}
             {loadingList ? (
-              <div className="bg-white border border-stone-200/90 rounded-2xl p-10 text-center text-stone-400 space-y-2">
-                <RefreshCw className="w-6 h-6 animate-spin mx-auto text-rose-700" />
-                <p className="text-xs font-semibold">ડેટા લોડ થઈ રહ્યો છે...</p>
+              <div className="space-y-3">
+                {[1, 2, 3, 4].map((i) => (
+                  <div key={i} className="bg-white border border-stone-200/80 rounded-2xl p-4 shadow-xs animate-pulse space-y-3">
+                    <div className="flex justify-between items-center">
+                      <div className="h-5 w-20 bg-stone-200 rounded-md" />
+                      <div className="h-5 w-16 bg-stone-200 rounded-full" />
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-stone-200 shrink-0" />
+                      <div className="space-y-2 flex-1">
+                        <div className="h-4 w-3/4 bg-stone-200 rounded-md" />
+                        <div className="h-3 w-1/2 bg-stone-200 rounded-md" />
+                        <div className="h-3 w-1/3 bg-stone-200 rounded-md" />
+                      </div>
+                    </div>
+                  </div>
+                ))}
               </div>
             ) : registrations.length === 0 ? (
               <div className="bg-white border border-stone-200/90 rounded-2xl p-10 text-center text-stone-400 space-y-2">
@@ -1121,7 +1293,7 @@ export default function EventAdminPage({ defaultRole }) {
                       {/* Couple Photo (Tap to Inspect) */}
                       <button
                         type="button"
-                        onClick={() => setInspectItem(item)}
+                        onClick={() => handleOpenInspect(item)}
                         className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-2xl overflow-hidden border border-stone-200 bg-stone-100 shrink-0 cursor-pointer group hover:ring-2 hover:ring-rose-500 transition-all"
                         title="ફોટો જુઓ"
                       >
@@ -1130,8 +1302,16 @@ export default function EventAdminPage({ defaultRole }) {
                             <img
                               src={item.couplePhoto}
                               alt="Couple"
+                              loading="lazy"
                               className="w-full h-full object-cover"
+                              onError={(e) => {
+                                e.target.style.display = 'none';
+                                if (e.target.nextSibling) e.target.nextSibling.style.display = 'flex';
+                              }}
                             />
+                            <div className="w-full h-full hidden items-center justify-center text-stone-400 bg-stone-100">
+                              <Users className="w-6 h-6" />
+                            </div>
                             <div className="absolute inset-0 bg-stone-900/30 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity">
                               <ZoomIn className="w-4 h-4 text-white" />
                             </div>
@@ -1193,7 +1373,7 @@ export default function EventAdminPage({ defaultRole }) {
                       {/* Inspect Button */}
                       <button
                         type="button"
-                        onClick={() => setInspectItem(item)}
+                        onClick={() => handleOpenInspect(item)}
                         className="flex-1 min-w-[120px] py-2 px-3 rounded-xl bg-stone-100 hover:bg-stone-200 border border-stone-200 text-stone-700 text-xs font-bold transition-all cursor-pointer flex items-center justify-center gap-1.5"
                       >
                         <Eye className="w-3.5 h-3.5" />
@@ -1230,7 +1410,7 @@ export default function EventAdminPage({ defaultRole }) {
                         <button
                           type="button"
                           onClick={() => {
-                            setInspectItem(item);
+                            handleOpenInspect(item);
                             setShowRejectInput(true);
                           }}
                           className="py-2 px-3 rounded-xl bg-stone-50 hover:bg-rose-50 text-stone-600 hover:text-rose-700 border border-stone-200 text-xs font-bold transition-all cursor-pointer"
@@ -2168,6 +2348,12 @@ export default function EventAdminPage({ defaultRole }) {
                           <ZoomIn className="w-2.5 h-2.5" /> પૂર્ણ સ્ક્રીનમાં જુઓ
                         </span>
                       </>
+                    ) : inspectLoading ? (
+                      <div className="p-10 text-center text-stone-500 text-xs space-y-2">
+                        <RefreshCw className="w-6 h-6 animate-spin mx-auto text-rose-700" />
+                        <p className="font-semibold text-stone-700">પેમેન્ટ રસીદ લોડ થઈ રહી છે...</p>
+                        <p className="text-[10px] text-stone-400">બેંક સ્ક્રીનશોટ અને OCR વિગતો આવી રહી છે</p>
+                      </div>
                     ) : (
                       <div className="p-10 text-center text-stone-400 text-xs">
                         સ્ક્રીનશોટ ઉપલબ્ધ નથી

@@ -20,6 +20,10 @@ const MONGODB_URI = process.env.MONGODB_URI;
 const DB_NAME = process.env.MONGODB_DB_NAME || 'divine_website_events';
 
 export const connectDB = async (retries = 3) => {
+  if (mongoose.connection.readyState === 1) {
+    return mongoose.connection;
+  }
+
   if (!MONGODB_URI) {
     console.warn('[MongoDB] MONGODB_URI is not set in environment. Running in disconnected mode.');
     return null;
@@ -30,7 +34,9 @@ export const connectDB = async (retries = 3) => {
       const conn = await mongoose.connect(MONGODB_URI, {
         dbName: DB_NAME,
         family: 4,
-        serverSelectionTimeoutMS: 15000,
+        maxPoolSize: 20,
+        minPoolSize: 2,
+        serverSelectionTimeoutMS: 10000,
         socketTimeoutMS: 45000
       });
       console.log(`[MongoDB] Connected successfully to database: ${conn.connection.name}`);
@@ -38,7 +44,7 @@ export const connectDB = async (retries = 3) => {
     } catch (err) {
       console.error(`[MongoDB] Connection attempt ${attempt} failed: ${err.message}`);
       if (attempt === retries) throw err;
-      await new Promise(r => setTimeout(r, 2000));
+      await new Promise(r => setTimeout(r, 1500));
     }
   }
 };

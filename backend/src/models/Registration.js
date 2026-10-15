@@ -81,4 +81,8 @@ const RegistrationSchema = new mongoose.Schema({
   timestamps: true
 });
 
+// Performance Indexes for sub-second sorting and status queries
+RegistrationSchema.index({ status: 1, createdAt: -1 });
+RegistrationSchema.index({ createdAt: -1 });
+
 export const Registration = mongoose.model('Registration', RegistrationSchema);
