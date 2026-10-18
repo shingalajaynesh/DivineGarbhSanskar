@@ -1,23 +1,77 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import QRCode from 'qrcode';
-import { 
-  Lock, Unlock, CheckCircle2, XCircle, Search, RefreshCw, Download, 
-  ExternalLink, Eye, EyeOff, Trash2, Camera, Settings, Users, 
-  IndianRupee, ShieldAlert, ShieldCheck, Shield, LogOut, Check, X, 
-  AlertTriangle, QrCode, Upload, Calendar, Clock, MapPin, 
-  Phone, MessageCircle, Sliders, Database, Crown, Copy, ZoomIn, 
-  Share2, ChevronRight, Sparkles
+import {
+  Lock, CheckCircle2, XCircle, Search, RefreshCw, Download,
+  ExternalLink, Eye, EyeOff, Trash2, Camera, Settings, Users,
+  ShieldAlert, ShieldCheck, LogOut, Check, X, AlertTriangle,
+  QrCode, Upload, Clock, Phone, MessageCircle, Copy,
+  ZoomIn, ZoomOut, RotateCw, Plus, LayoutGrid, LayoutList, Flag,
+  FileText, CheckCheck, Maximize2, UserPlus, Sparkles, AlertCircle,
+  RotateCcw
 } from 'lucide-react';
 
 import { API_BASE } from '../../utils/apiConfig';
+
+// Safely resolve backend asset and API URLs
+const resolveApiUrl = (url) => {
+  if (!url) return '';
+  if (url.startsWith('data:') || url.startsWith('http://') || url.startsWith('https://')) {
+    return url;
+  }
+  if (url.startsWith('/api')) {
+    if (API_BASE.startsWith('http')) {
+      return `${API_BASE}${url.replace(/^\/api/, '')}`;
+    }
+    return url;
+  }
+  return `${API_BASE}/${url.replace(/^\/+/, '')}`;
+};
+
+// Formatter for Indian Standard Time (IST) readable format
+const formatISTDateTime = (dateStr) => {
+  if (!dateStr) return 'N/A';
+  try {
+    const d = new Date(dateStr);
+    if (isNaN(d.getTime())) return 'N/A';
+    return d.toLocaleString('en-IN', {
+      day: '2-digit',
+      month: 'short',
+      year: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: true
+    });
+  } catch {
+    return 'N/A';
+  }
+};
+
+// Relative time calculation
+const formatTimeAgo = (dateStr) => {
+  if (!dateStr) return '';
+  try {
+    const diffMs = Date.now() - new Date(dateStr).getTime();
+    const diffSec = Math.floor(diffMs / 1000);
+    if (diffSec < 60) return 'હમણાં જ';
+    const diffMin = Math.floor(diffSec / 60);
+    if (diffMin < 60) return `${diffMin}m ago`;
+    const diffHr = Math.floor(diffMin / 60);
+    if (diffHr < 24) return `${diffHr}h ago`;
+    const diffDays = Math.floor(diffHr / 24);
+    if (diffDays === 1) return 'ગઈકાલે';
+    return `${diffDays}d ago`;
+  } catch {
+    return '';
+  }
+};
 
 export default function EventAdminPage({ defaultRole }) {
   const location = useLocation();
   const isSuperAdminRoute = location.pathname.includes('superadmin') || defaultRole === 'superadmin';
 
-  // Session Authentication
+  // Authentication State
   const [password, setPassword] = useState(() => sessionStorage.getItem('divineAdminPassword') || '');
   const [showPassword, setShowPassword] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -25,308 +79,224 @@ export default function EventAdminPage({ defaultRole }) {
   const [authError, setAuthError] = useState('');
   const [loggingIn, setLoggingIn] = useState(false);
 
-  // Active Tab: 'registrations' | 'settings'
-  const [activeTab, setActiveTab] = useState('registrations');
+  // Tab & View Controls
+  const [activeTab, setActiveTab] = useState('registrations'); // 'registrations' | 'settings'
+  const [viewMode, setViewMode] = useState('table'); // 'table' | 'cards'
+  const [sortBy, setSortBy] = useState('newest'); // 'newest' | 'oldest' | 'amount'
 
-  // Registrations & Stats with Instant-Cache restoration
+  // Registrations & Metrics
   const [registrations, setRegistrations] = useState([]);
   const [stats, setStats] = useState(() => {
     try {
       const cached = sessionStorage.getItem('divineAdminStats');
       if (cached) return JSON.parse(cached);
-    } catch {
-      // fallback
-    }
+    } catch {}
     return {
       total: 0,
       approved: 0,
       pending: 0,
       rejected: 0,
       checkedIn: 0,
+      flagged: 0,
+      manual: 0,
       totalRevenue: 0
     };
   });
   const [loadingList, setLoadingList] = useState(false);
   const [fetchError, setFetchError] = useState('');
-  const [inspectLoading, setInspectLoading] = useState(false);
 
-  // Filters & Search
-  const [activeFilter, setActiveFilter] = useState('all');
+  // Filters
+  const [activeFilter, setActiveFilter] = useState('all'); // 'all' | 'pending' | 'approved' | 'rejected'
   const [searchQuery, setSearchQuery] = useState('');
 
-  // Inspection Modal (Side-by-side view)
+  // Inspection Modal (Payment SS & Couple Verification)
   const [inspectItem, setInspectItem] = useState(null);
+  const [screenshotZoom, setScreenshotZoom] = useState(1);
+  const [screenshotRotation, setScreenshotRotation] = useState(0);
+  const [adminNoteInput, setAdminNoteInput] = useState('');
+  const [savingNote, setSavingNote] = useState(false);
+  const [showRejectBox, setShowRejectBox] = useState(false);
   const [rejectReason, setRejectReason] = useState('');
-  const [showRejectInput, setShowRejectInput] = useState(false);
   const [actionLoading, setActionLoading] = useState(false);
 
-  // Fullscreen Lightbox for payment screenshot / couple photo zoom
-  const [lightboxImage, setLightboxImage] = useState(null); // { url, title }
-  const [copiedNotification, setCopiedNotification] = useState('');
+  // Dedicated Couple Photo Lightbox (Blurred background, click outside to close)
+  const [couplePhotoModal, setCouplePhotoModal] = useState(null);
 
-  // Dynamic Settings State
-  const [settingsLoading, setSettingsLoading] = useState(false);
-  const [settingsSaving, setSettingsSaving] = useState(false);
-  const [settingsToast, setSettingsToast] = useState({ type: '', message: '' });
+  // Dedicated Receipt Fullscreen Lightbox (Blurred background, click outside to close)
+  const [lightboxImage, setLightboxImage] = useState(null);
+  const [toastMessage, setToastMessage] = useState('');
 
-  // Event Settings Fields
+  // Manual Entry Modal
+  const [showManualModal, setShowManualModal] = useState(false);
+  const [manualForm, setManualForm] = useState({
+    husbandName: '',
+    wifeName: '',
+    surname: '',
+    phoneNumber: '',
+    tier: 1,
+    amount: 900,
+    paymentMethod: 'CASH',
+    status: 'approved',
+    adminNotes: '',
+    utr: ''
+  });
+  const [manualSubmitting, setManualSubmitting] = useState(false);
+
+  // Flag Fraud Modal
+  const [showFakeModal, setShowFakeModal] = useState(false);
+  const [fakeTargetItem, setFakeTargetItem] = useState(null);
+  const [fakeReasonText, setFakeReasonText] = useState('ખોટો / એડિટ કરેલ પેમેન્ટ સ્ક્રીનશોટ (Fake Receipt)');
+
+  // Event Settings State
   const [eventSettings, setEventSettings] = useState({
-    title: 'દિવ્ય ગર્ભયાત્રા',
-    subtitle: 'Couple Seminar • The Divine Garbh Sanskar',
-    dateGujarati: '19 December 2026, શનિવાર',
-    dateIso: '2026-12-19',
-    time: 'રાત્રે 8:30 PM થી 12:00 PM',
-    venue: 'જમના બા ભવન, સુરત',
-    venueAddress: 'Jamna Baa Bhavan, Surat, Gujarat',
-    venueMapUrl: '',
-    speaker: 'નેહલ ગઢવી',
-    speakerTitle: 'Life Coach & Garbh Sanskar Expert',
-    speakerBio: 'Vedic Prenatal Science Guide & Inspirational Speaker',
     upiId: 'jayneshshingala2005-2@okicici',
     payeeName: 'Shingala Jaynesh',
-    customQrImage: '/events/divy-garbhyatra/primary-upi-qr.jpg',
-    useCustomQr: true,
-    upiAccounts: [
-      {
-        id: '1',
-        upiId: 'jayneshshingala2005-2@okicici',
-        payeeName: 'Shingala Jaynesh',
-        customQrImage: '/events/divy-garbhyatra/primary-upi-qr.jpg',
-        limit: 50,
-        bookingsCount: 0,
-        isActive: true
-      }
-    ],
-    autoRotateUpi: true,
-    upiRollingThreshold: 50,
-    activeUpiIndex: 0,
-    totalCoupleCapacity: 250,
-    supportPhone: '+91 94285 24890',
-    supportWhatsapp: '919586979897',
+    totalCoupleCapacity: 500,
     isRegistrationOpen: true,
-    registrationClosedNotice: 'દિલગીર છીએ, આ ઇવેન્ટનું રજીસ્ટ્રેશન હાલ પૂર્ણ થયેલ છે.',
-    passNotice: 'કૃપા કરીને સમયસર પહોંચવું. ગેટ પર ડિજિટલ પાસ QR કોડ બતાવવો ફરજિયાત છે.',
+    supportWhatsapp: '919586979897',
+    customQrImage: '',
+    useCustomQr: true,
     tiers: [
-      { tierNumber: 1, name: 'Early Access (પહેલા 50 કપલ માટે)', minCouple: 1, maxCouple: 50, price: 600 },
-      { tierNumber: 2, name: 'Phase 2 (51 થી 250 કપલ માટે)', minCouple: 51, maxCouple: 250, price: 900 }
+      { tierNumber: 1, name: 'કપલ પ્રવેશ પાસ (Couple Pass)', price: 900, minCouple: 1, maxCouple: 500 }
     ]
   });
-
-  // Dynamic QR Preview in Settings
+  const [settingsLoading, setSettingsLoading] = useState(false);
+  const [settingsSaving, setSettingsSaving] = useState(false);
   const [previewQrUrl, setPreviewQrUrl] = useState('');
   const qrFileInputRef = useRef(null);
 
-  // Super Admin Reset Modal
-  const [showResetModal, setShowResetModal] = useState(false);
-  const [resetConfirmText, setResetConfirmText] = useState('');
-  const [resettingData, setResettingData] = useState(false);
-
-  // Copy helper with visual toast
-  const handleCopyText = (text, label = 'કોપી થયું!') => {
-    if (!text) return;
-    try {
-      navigator.clipboard.writeText(text);
-      setCopiedNotification(label);
-      setTimeout(() => setCopiedNotification(''), 2200);
-    } catch {
-      // Fallback
-    }
+  // Show quick toast notification
+  const showToast = (msg) => {
+    setToastMessage(msg);
+    setTimeout(() => setToastMessage(''), 3000);
   };
 
-  // Verify auth on mount if password in session
-  useEffect(() => {
-    if (password) {
-      handleLogin(password);
+  // Copy text to clipboard
+  const handleCopy = (text, label = 'Copied') => {
+    if (!text) return;
+    navigator.clipboard.writeText(text);
+    showToast(`${label}: ${text}`);
+  };
+
+  // Open dedicated Couple Photo Modal
+  const handleOpenCouplePhoto = (e, item) => {
+    if (e && e.stopPropagation) e.stopPropagation();
+    if (!item.couplePhoto && !item.hasPhoto) return;
+    setCouplePhotoModal({
+      url: resolveApiUrl(item.couplePhoto),
+      name: `${item.husbandName} & ${item.wifeName} ${item.surname}`,
+      id: item.inquiryId,
+      phone: item.phoneNumber,
+      date: item.createdAt
+    });
+  };
+
+  // Login handler
+  const handleLogin = async (passToTry = password) => {
+    if (!passToTry) {
+      setAuthError('કૃપા કરીને એડમિન પાસવર્ડ દાખલ કરો.');
+      return;
     }
-  }, []);
-
-  const handleLogin = async (passVal) => {
-    const p = passVal || password;
-    if (!p) return;
-
     setLoggingIn(true);
     setAuthError('');
 
     try {
-      const res = await fetch(`${API_BASE}/auth/login`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ password: p })
+      const res = await fetch(`${API_BASE}/admin/registrations?limit=1`, {
+        headers: { 'Authorization': passToTry }
       });
       const data = await res.json();
+
       if (res.ok && data.success) {
         setIsAuthenticated(true);
-        setRole(data.role);
-        sessionStorage.setItem('divineAdminPassword', p);
-        fetchRegistrations(p, activeFilter, searchQuery);
-        fetchSettings(p);
+        sessionStorage.setItem('divineAdminPassword', passToTry);
+
+        if (passToTry === 'ADMIN_RESET_2026' || isSuperAdminRoute) {
+          setRole('superadmin');
+        } else {
+          setRole('admin');
+        }
+
+        if (data.stats) {
+          setStats(data.stats);
+          try { sessionStorage.setItem('divineAdminStats', JSON.stringify(data.stats)); } catch {}
+        }
+        fetchRegistrations(passToTry, activeFilter, searchQuery);
+        fetchSettings(passToTry);
       } else {
-        setAuthError(data.error || 'ખોટો પાસવર્ડ! કૃપા કરીને સાચો પાસવર્ડ નાખો.');
-        sessionStorage.removeItem('divineAdminPassword');
+        setAuthError(data.error || 'ખોટો પાસવર્ડ. ફરી પ્રયાસ કરો.');
       }
     } catch {
-      setAuthError('સર્વર સાથે જોડાણ થઈ શક્યું નથી. કૃપા કરીને થોડીવાર પછી પ્રયત્ન કરો.');
+      setAuthError('સર્વર સાથે જોડાણ થઈ શક્યું નથી. કૃપા કરીને બેકએન્ડ તપાસો.');
     } finally {
       setLoggingIn(false);
     }
   };
 
-  const handleLogout = () => {
-    sessionStorage.removeItem('divineAdminPassword');
-    setPassword('');
-    setIsAuthenticated(false);
-    setRole(null);
-    setRegistrations([]);
-  };
+  // Auto-login if password in sessionStorage
+  useEffect(() => {
+    const saved = sessionStorage.getItem('divineAdminPassword');
+    if (saved) {
+      handleLogin(saved);
+    }
+  }, []);
 
-  // Fetch registrations with 15s timeout and abort controller
-  const fetchRegistrations = async (passVal = password, statusVal = activeFilter, searchVal = searchQuery) => {
+  // Fetch registrations list with filters
+  const fetchRegistrations = async (passVal = password, filterVal = activeFilter, queryVal = searchQuery) => {
     const activePass = passVal || password;
     if (!activePass) return;
 
     setLoadingList(true);
     setFetchError('');
 
-    const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 15000);
-
     try {
       const params = new URLSearchParams();
-      if (statusVal && statusVal !== 'all') params.append('status', statusVal);
-      if (searchVal) params.append('search', searchVal);
+      if (filterVal && filterVal !== 'all') params.append('status', filterVal);
+      if (queryVal && queryVal.trim()) params.append('search', queryVal.trim());
 
       const res = await fetch(`${API_BASE}/admin/registrations?${params.toString()}`, {
-        headers: { 'Authorization': activePass },
-        signal: controller.signal
+        headers: { 'Authorization': activePass }
       });
-      clearTimeout(timeoutId);
+      const data = await res.json();
 
-      const contentType = res.headers.get('content-type') || '';
-      if (!contentType.includes('application/json')) {
-        throw new Error('સર્વરથી અમાન્ય પ્રતિસાદ મળ્યો (Non-JSON 404/500). કૃપા કરીને બેકએન્ડ કનેક્શન તપાસો.');
-      }
-
-      const json = await res.json();
-      if (res.ok && json.success) {
-        setRegistrations(json.registrations || []);
-        if (json.stats) {
-          setStats(json.stats);
-          try {
-            sessionStorage.setItem('divineAdminStats', JSON.stringify(json.stats));
-          } catch {
-            // storage fallback
-          }
+      if (res.ok && data.success) {
+        setRegistrations(data.registrations || []);
+        if (data.stats) {
+          setStats(data.stats);
+          try { sessionStorage.setItem('divineAdminStats', JSON.stringify(data.stats)); } catch {}
         }
       } else {
-        setFetchError(json.error || 'ડેટા લોડ કરવામાં અસમર્થ.');
+        setFetchError(data.error || 'રજીસ્ટ્રેશન લિસ્ટ લાવવામાં ભૂલ આવી.');
       }
-    } catch (err) {
-      clearTimeout(timeoutId);
-      if (err.name === 'AbortError') {
-        setFetchError('સર્વર રિસ્પોન્સ ટાઈમઆઉટ (15s Timeout). કૃપા કરીને ફરી પ્રયાસ કરો.');
-      } else {
-        setFetchError(err.message || 'સર્વર સાથે જોડાણ થઈ શક્યું નથી.');
-      }
+    } catch {
+      setFetchError('સર્વર જોડાણ નિષ્ફળ ગયું.');
     } finally {
       setLoadingList(false);
     }
   };
 
-  // On-Demand Single Registration Inspection (Full Details & Receipt)
-  const handleOpenInspect = async (item) => {
+  // Open Inspection Modal for a couple
+  const handleOpenInspect = (item) => {
     setInspectItem(item);
-    setShowRejectInput(false);
+    setScreenshotZoom(1);
+    setScreenshotRotation(0);
+    setAdminNoteInput(item.adminNotes || '');
+    setShowRejectBox(false);
     setRejectReason('');
-
-    // If payment screenshot receipt is not in memory, fetch it on-demand in background
-    if (!item.paymentScreenshot) {
-      setInspectLoading(true);
-      try {
-        const res = await fetch(`${API_BASE}/admin/registrations/${item.inquiryId}`, {
-          headers: { 'Authorization': password }
-        });
-        if (res.ok) {
-          const json = await res.json();
-          if (json.registration) {
-            setInspectItem((prev) => (prev?.inquiryId === item.inquiryId ? { ...prev, ...json.registration } : prev));
-          }
-        }
-      } catch (err) {
-        console.error('Error fetching inspect details:', err);
-      } finally {
-        setInspectLoading(false);
-      }
-    }
   };
 
-  // Fetch Settings
-  const fetchSettings = async (passVal = password) => {
-    const activePass = passVal || password;
-    if (!activePass) return;
-
-    setSettingsLoading(true);
-    try {
-      const res = await fetch(`${API_BASE}/admin/settings`, {
-        headers: { 'Authorization': activePass }
-      });
-      const json = await res.json();
-      if (res.ok && json.setting) {
-        setEventSettings((prev) => ({
-          ...prev,
-          ...json.setting
-        }));
-      }
-    } catch (err) {
-      console.error('Error loading settings:', err);
-    } finally {
-      setSettingsLoading(false);
-    }
-  };
-
-  // Generate Preview QR in settings whenever UPI info changes
-  useEffect(() => {
-    if (eventSettings.useCustomQr && eventSettings.customQrImage) {
-      setPreviewQrUrl(eventSettings.customQrImage);
-      return;
-    }
-
-    const testPrice = eventSettings.tiers?.[0]?.price || 900;
-    const upiUri = `upi://pay?pa=${encodeURIComponent(eventSettings.upiId)}&pn=${encodeURIComponent(eventSettings.payeeName)}&am=${testPrice}&cu=INR&tn=Divya%20Garbh%20Yatra%20Couple%20Pass`;
-    
-    QRCode.toDataURL(upiUri, {
-      margin: 1,
-      width: 260,
-      color: { dark: '#120208', light: '#FFFFFF' }
-    }).then((url) => {
-      setPreviewQrUrl(url);
-    }).catch(() => {
-      // Fallback
-    });
-  }, [eventSettings.upiId, eventSettings.payeeName, eventSettings.useCustomQr, eventSettings.customQrImage, eventSettings.tiers]);
-
-  // 1-Click Instant Optimistic Approve (0ms latency)
+  // Quick Approve Registration
   const handleApprove = async (inquiryId) => {
-    setActionLoading(true);
     const prevRegs = [...registrations];
     const prevStats = { ...stats };
-    const target = registrations.find(r => r.inquiryId === inquiryId);
-    const wasPending = target?.status === 'pending';
-    const wasRejected = target?.status === 'rejected';
+    setActionLoading(true);
 
-    // Optimistic UI update in 0ms
+    // Optimistic UI update
     setRegistrations(prev => prev.map(r => r.inquiryId === inquiryId ? { ...r, status: 'approved' } : r));
-    setStats(prev => {
-      const updated = {
-        ...prev,
-        approved: prev.approved + 1,
-        pending: wasPending ? Math.max(0, prev.pending - 1) : prev.pending,
-        rejected: wasRejected ? Math.max(0, prev.rejected - 1) : prev.rejected,
-        totalRevenue: prev.totalRevenue + (target?.amount || 600)
-      };
-      try { sessionStorage.setItem('divineAdminStats', JSON.stringify(updated)); } catch {}
-      return updated;
-    });
-
+    setStats(prev => ({
+      ...prev,
+      approved: (prev.approved || 0) + 1,
+      pending: Math.max(0, (prev.pending || 0) - 1)
+    }));
     if (inspectItem?.inquiryId === inquiryId) {
       setInspectItem(prev => ({ ...prev, status: 'approved' }));
     }
@@ -336,10 +306,13 @@ export default function EventAdminPage({ defaultRole }) {
         method: 'POST',
         headers: { 'Authorization': password }
       });
-      if (!res.ok) {
+      const data = await res.json();
+      if (res.ok && data.success) {
+        showToast(`ઇન્ક્વાયરી ${inquiryId} સફળતાપૂર્વક એપ્રુવ થઈ! પાસ ઇસ્યુ થયો.`);
+      } else {
         setRegistrations(prevRegs);
         setStats(prevStats);
-        alert('એપ્રુવ કરવામાં ભૂલ આવી.');
+        alert(data.error || 'એપ્રુવ કરવામાં ભૂલ આવી.');
       }
     } catch {
       setRegistrations(prevRegs);
@@ -350,79 +323,166 @@ export default function EventAdminPage({ defaultRole }) {
     }
   };
 
-  // 1-Click Instant Optimistic Reject (0ms latency)
+  // Reject Registration
   const handleReject = async (inquiryId) => {
+    const reason = rejectReason.trim() || 'પેમેન્ટ રસીદ અમાન્ય અથવા રકમ મેળ ખાતી નથી.';
     setActionLoading(true);
-    const prevRegs = [...registrations];
-    const prevStats = { ...stats };
-    const target = registrations.find(r => r.inquiryId === inquiryId);
-    const wasPending = target?.status === 'pending';
-    const wasApproved = target?.status === 'approved';
-
-    // Optimistic UI update in 0ms
-    setRegistrations(prev => prev.map(r => r.inquiryId === inquiryId ? { ...r, status: 'rejected', rejectionReason: rejectReason } : r));
-    setStats(prev => {
-      const updated = {
-        ...prev,
-        rejected: prev.rejected + 1,
-        pending: wasPending ? Math.max(0, prev.pending - 1) : prev.pending,
-        approved: wasApproved ? Math.max(0, prev.approved - 1) : prev.approved,
-        totalRevenue: wasApproved ? Math.max(0, prev.totalRevenue - (target?.amount || 600)) : prev.totalRevenue
-      };
-      try { sessionStorage.setItem('divineAdminStats', JSON.stringify(updated)); } catch {}
-      return updated;
-    });
-
-    if (inspectItem?.inquiryId === inquiryId) {
-      setInspectItem(prev => ({ ...prev, status: 'rejected', rejectionReason: rejectReason }));
-    }
-    setShowRejectInput(false);
-    setRejectReason('');
 
     try {
       const res = await fetch(`${API_BASE}/admin/registrations/${inquiryId}/reject`, {
         method: 'POST',
-        headers: { 
+        headers: {
           'Authorization': password,
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ reason: rejectReason || 'પેમેન્ટ વેરિફિકેશન અમાન્ય.' })
+        body: JSON.stringify({ reason })
       });
-      if (!res.ok) {
-        setRegistrations(prevRegs);
-        setStats(prevStats);
-        alert('રિજેક્ટ કરવામાં ભૂલ આવી.');
+      const data = await res.json();
+      if (res.ok && data.success) {
+        setRegistrations(prev => prev.map(r => r.inquiryId === inquiryId ? { ...r, status: 'rejected', rejectionReason: reason } : r));
+        setStats(prev => ({
+          ...prev,
+          rejected: (prev.rejected || 0) + 1,
+          pending: Math.max(0, (prev.pending || 0) - 1)
+        }));
+        if (inspectItem?.inquiryId === inquiryId) {
+          setInspectItem(prev => ({ ...prev, status: 'rejected', rejectionReason: reason }));
+        }
+        setShowRejectBox(false);
+        showToast(`ઇન્ક્વાયરી ${inquiryId} રિજેક્ટ કરવામાં આવી.`);
+      } else {
+        alert(data.error || 'રિજેક્ટ કરવામાં ભૂલ આવી.');
       }
     } catch {
-      setRegistrations(prevRegs);
-      setStats(prevStats);
-      alert('સર્વર સાથે જોડાણ થઈ શક્યું નથી.');
+      alert('સર્વર એરર.');
     } finally {
       setActionLoading(false);
     }
   };
 
-  // Instant Optimistic Delete
-  const handleDelete = async (inquiryId) => {
-    if (!window.confirm(`શું તમે ખરેખર ઇન્ક્વાયરી ${inquiryId} કાયમ માટે ડિલીટ કરવા માંગો છો?`)) return;
-    const prevRegs = [...registrations];
-    const prevStats = { ...stats };
-    const target = registrations.find(r => r.inquiryId === inquiryId);
+  // Flag as Fake / Fraud
+  const handleConfirmFlagFake = async () => {
+    if (!fakeTargetItem) return;
+    const inquiryId = fakeTargetItem.inquiryId;
+    setActionLoading(true);
 
-    // Optimistically remove in 0ms
+    try {
+      const res = await fetch(`${API_BASE}/admin/registrations/${inquiryId}/flag-fake`, {
+        method: 'POST',
+        headers: {
+          'Authorization': password,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ reason: fakeReasonText, isFake: true })
+      });
+      const data = await res.json();
+      if (res.ok && data.success) {
+        setRegistrations(prev => prev.map(r => r.inquiryId === inquiryId ? {
+          ...r,
+          status: 'rejected',
+          isFlaggedFake: true,
+          fakeReason: fakeReasonText
+        } : r));
+        setStats(prev => ({
+          ...prev,
+          flagged: (prev.flagged || 0) + 1,
+          rejected: (prev.rejected || 0) + 1,
+          pending: Math.max(0, (prev.pending || 0) - 1)
+        }));
+        if (inspectItem?.inquiryId === inquiryId) {
+          setInspectItem(prev => ({ ...prev, status: 'rejected', isFlaggedFake: true, fakeReason: fakeReasonText }));
+        }
+        setShowFakeModal(false);
+        setFakeTargetItem(null);
+        showToast(`ઇન્ક્વાયરી ${inquiryId} ફેક તરીકે ફ્લેગ થઈ.`);
+      } else {
+        alert('ફેક ફ્લેગ કરવામાં ભૂલ આવી.');
+      }
+    } catch {
+      alert('સર્વર એરર.');
+    } finally {
+      setActionLoading(false);
+    }
+  };
+
+  // Save Admin Notes
+  const handleSaveNote = async () => {
+    if (!inspectItem) return;
+    setSavingNote(true);
+    try {
+      const res = await fetch(`${API_BASE}/admin/registrations/${inspectItem.inquiryId}/notes`, {
+        method: 'POST',
+        headers: {
+          'Authorization': password,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ notes: adminNoteInput })
+      });
+      if (res.ok) {
+        setRegistrations(prev => prev.map(r => r.inquiryId === inspectItem.inquiryId ? { ...r, adminNotes: adminNoteInput } : r));
+        setInspectItem(prev => ({ ...prev, adminNotes: adminNoteInput }));
+        showToast('નોટ સાચવવામાં આવી!');
+      }
+    } catch {
+      alert('નોટ સેવ કરવામાં ભૂલ આવી.');
+    } finally {
+      setSavingNote(false);
+    }
+  };
+
+  // Manual Entry Submission
+  const handleManualSubmit = async (e) => {
+    e.preventDefault();
+    if (!manualForm.husbandName || !manualForm.wifeName || !manualForm.surname || !manualForm.phoneNumber) {
+      alert('કૃપા કરીને પતિનું નામ, પત્નીનું નામ, અટક અને ૧૦ આંકડાનો મોબાઇલ નંબર ભરો.');
+      return;
+    }
+
+    setManualSubmitting(true);
+    try {
+      const formData = new FormData();
+      Object.keys(manualForm).forEach(k => {
+        formData.append(k, manualForm[k]);
+      });
+
+      const res = await fetch(`${API_BASE}/admin/registrations/manual`, {
+        method: 'POST',
+        headers: { 'Authorization': password },
+        body: formData
+      });
+      const data = await res.json();
+      if (res.ok && data.success) {
+        showToast(`સફળતા! નવું રજીસ્ટ્રેશન ${data.data?.inquiryId} સેવ થયું.`);
+        setShowManualModal(false);
+        setManualForm({
+          husbandName: '',
+          wifeName: '',
+          surname: '',
+          phoneNumber: '',
+          tier: 1,
+          amount: 900,
+          paymentMethod: 'CASH',
+          status: 'approved',
+          adminNotes: '',
+          utr: ''
+        });
+        fetchRegistrations(password, activeFilter, searchQuery);
+      } else {
+        alert(data.error || 'મેન્યુઅલ એન્ટ્રી સેવ કરવામાં ભૂલ આવી.');
+      }
+    } catch {
+      alert('સર્વર સાથે જોડાણ થઈ શક્યું નથી.');
+    } finally {
+      setManualSubmitting(false);
+    }
+  };
+
+  // Delete registration
+  const handleDelete = async (inquiryId) => {
+    if (!window.confirm(`શું તમે ખરેખર ${inquiryId} કાયમ માટે ડિલીટ કરવા માંગો છો?`)) return;
+    const prevRegs = [...registrations];
+
     setRegistrations(prev => prev.filter(r => r.inquiryId !== inquiryId));
-    setStats(prev => {
-      const updated = {
-        ...prev,
-        total: Math.max(0, prev.total - 1),
-        approved: target?.status === 'approved' ? Math.max(0, prev.approved - 1) : prev.approved,
-        pending: target?.status === 'pending' ? Math.max(0, prev.pending - 1) : prev.pending,
-        rejected: target?.status === 'rejected' ? Math.max(0, prev.rejected - 1) : prev.rejected,
-        totalRevenue: target?.status === 'approved' ? Math.max(0, prev.totalRevenue - (target?.amount || 600)) : prev.totalRevenue
-      };
-      try { sessionStorage.setItem('divineAdminStats', JSON.stringify(updated)); } catch {}
-      return updated;
-    });
     if (inspectItem?.inquiryId === inquiryId) setInspectItem(null);
 
     try {
@@ -430,131 +490,48 @@ export default function EventAdminPage({ defaultRole }) {
         method: 'DELETE',
         headers: { 'Authorization': password }
       });
-      if (!res.ok) {
+      if (res.ok) {
+        showToast(`રજીસ્ટ્રેશન ${inquiryId} ડિલીટ થયું.`);
+        fetchRegistrations(password, activeFilter, searchQuery);
+      } else {
         setRegistrations(prevRegs);
-        setStats(prevStats);
         alert('ડિલીટ કરવામાં ભૂલ આવી.');
       }
     } catch {
       setRegistrations(prevRegs);
-      setStats(prevStats);
       alert('સર્વર એરર.');
     }
   };
 
-  // Download CSV
+  // Export CSV
   const handleExportCSV = () => {
     window.open(`${API_BASE}/admin/export/csv?auth=${encodeURIComponent(password)}`, '_blank');
   };
 
-  // Custom QR Image Upload handler
-  const handleQrFileUpload = (e) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
-
-    if (!file.type.startsWith('image/')) {
-      alert('કૃપા કરીને માન્ય ઈમેજ ફાઈલ (JPG અથવા PNG) પસંદ કરો.');
-      return;
-    }
-
-    const reader = new FileReader();
-    reader.onload = (uploadEvent) => {
-      const base64 = uploadEvent.target?.result;
-      if (base64) {
-        setEventSettings((prev) => ({
-          ...prev,
-          customQrImage: base64,
-          useCustomQr: true
-        }));
-        setPreviewQrUrl(base64);
-        setSettingsToast({ type: 'success', message: 'કસ્ટમ QR કોડ પસંદ થયો! સેટિંગ્સ સેવ કરવાનું ભૂલશો નહીં.' });
+  // Load Settings
+  const fetchSettings = async (passVal = password) => {
+    const activePass = passVal || password;
+    if (!activePass) return;
+    setSettingsLoading(true);
+    try {
+      const res = await fetch(`${API_BASE}/admin/settings`, {
+        headers: { 'Authorization': activePass }
+      });
+      const json = await res.json();
+      if (res.ok && json.setting) {
+        setEventSettings(prev => ({ ...prev, ...json.setting }));
       }
-    };
-    reader.readAsDataURL(file);
-  };
-
-  // Tier pricing input change handler
-  const handleTierChange = (index, field, value) => {
-    setEventSettings((prev) => {
-      const updatedTiers = [...prev.tiers];
-      updatedTiers[index] = {
-        ...updatedTiers[index],
-        [field]: field === 'price' || field === 'minCouple' || field === 'maxCouple' ? Number(value) : value
-      };
-      return { ...prev, tiers: updatedTiers };
-    });
-  };
-
-  const handleAddTier = () => {
-    setEventSettings((prev) => {
-      const currentTiers = prev.tiers || [];
-      const nextNum = currentTiers.length + 1;
-      const lastTier = currentTiers[currentTiers.length - 1];
-      const min = lastTier ? lastTier.maxCouple + 1 : 1;
-      const max = min + 49;
-      return {
-        ...prev,
-        tiers: [
-          ...currentTiers,
-          { tierNumber: nextNum, name: `Phase ${nextNum}`, minCouple: min, maxCouple: max, price: 1000 }
-        ]
-      };
-    });
-  };
-
-  const handleRemoveTier = (idx) => {
-    if ((eventSettings.tiers?.length || 0) <= 1) {
-      alert('ઓછામાં ઓછો એક પ્રાઇસિંગ સ્લેબ હોવો જરૂરી છે.');
-      return;
+    } catch (err) {
+      console.error('Error loading settings:', err);
+    } finally {
+      setSettingsLoading(false);
     }
-    setEventSettings((prev) => ({
-      ...prev,
-      tiers: prev.tiers.filter((_, i) => i !== idx).map((t, i) => ({ ...t, tierNumber: i + 1 }))
-    }));
   };
 
-  // Multi-UPI Account Pool Handlers
-  const handleAddUpiAccount = () => {
-    const newAccount = {
-      id: Date.now().toString(),
-      upiId: '',
-      payeeName: 'Shingala Jaynesh',
-      customQrImage: '',
-      limit: 50,
-      bookingsCount: 0,
-      isActive: true
-    };
-    setEventSettings((prev) => ({
-      ...prev,
-      upiAccounts: [...(prev.upiAccounts || []), newAccount]
-    }));
-  };
-
-  const handleRemoveUpiAccount = (idx) => {
-    if ((eventSettings.upiAccounts?.length || 0) <= 1) {
-      alert('ઓછામાં ઓછું એક પ્રાથમિક UPI એકાઉન્ટ હોવું જરૂરી છે.');
-      return;
-    }
-    setEventSettings((prev) => ({
-      ...prev,
-      upiAccounts: prev.upiAccounts.filter((_, i) => i !== idx)
-    }));
-  };
-
-  const handleUpiAccountChange = (idx, field, value) => {
-    setEventSettings((prev) => {
-      const updated = [...(prev.upiAccounts || [])];
-      updated[idx] = { ...updated[idx], [field]: value };
-      return { ...prev, upiAccounts: updated };
-    });
-  };
-
-  // Save All Settings Dynamically to Database
+  // Save Settings
   const handleSaveSettings = async (e) => {
     if (e) e.preventDefault();
     setSettingsSaving(true);
-    setSettingsToast({ type: '', message: '' });
-
     try {
       const res = await fetch(`${API_BASE}/admin/settings`, {
         method: 'POST',
@@ -566,304 +543,269 @@ export default function EventAdminPage({ defaultRole }) {
       });
       const json = await res.json();
       if (res.ok && json.success) {
-        setSettingsToast({ type: 'success', message: 'તમામ સેટિંગ્સ ડેટાબેઝમાં સફળતાપૂર્વક સાચવવામાં આવ્યા!' });
+        showToast('સેટિંગ્સ સફળતાપૂર્વક સાચવવામાં આવ્યા!');
         if (json.setting) setEventSettings(json.setting);
-        setTimeout(() => setSettingsToast({ type: '', message: '' }), 4000);
       } else {
-        setSettingsToast({ type: 'error', message: json.error || 'સેટિંગ્સ સેવ કરવામાં ભૂલ આવી.' });
+        alert(json.error || 'સેટિંગ્સ સેવ કરવામાં ભૂલ આવી.');
       }
     } catch {
-      setSettingsToast({ type: 'error', message: 'સર્વર સાથે જોડાણ થઈ શક્યું નથી.' });
+      alert('સર્વર એરર.');
     } finally {
       setSettingsSaving(false);
     }
   };
 
-  // Super Admin Reset Database to Zero
-  const handleSuperReset = async () => {
-    if (resetConfirmText !== 'RESET-ZERO') {
-      alert('કૃપા કરીને કન્ફર્મ કરવા માટે RESET-ZERO લખો.');
+  // Dynamic QR Code Preview
+  useEffect(() => {
+    if (eventSettings.useCustomQr && eventSettings.customQrImage) {
+      setPreviewQrUrl(eventSettings.customQrImage);
       return;
     }
-    setResettingData(true);
+    const testPrice = eventSettings.tiers?.[0]?.price || 900;
+    const upiUri = `upi://pay?pa=${encodeURIComponent(eventSettings.upiId)}&pn=${encodeURIComponent(eventSettings.payeeName)}&am=${testPrice}&cu=INR&tn=Divya%20Garbh%20Yatra%20Pass`;
+    QRCode.toDataURL(upiUri, {
+      margin: 1,
+      width: 260,
+      color: { dark: '#0F172A', light: '#FFFFFF' }
+    }).then((url) => setPreviewQrUrl(url)).catch(() => {});
+  }, [eventSettings.upiId, eventSettings.payeeName, eventSettings.useCustomQr, eventSettings.customQrImage, eventSettings.tiers]);
+
+  // Upload Custom QR
+  const handleQrUpload = async (e) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    const formData = new FormData();
+    formData.append('qrImage', file);
     try {
-      const res = await fetch(`${API_BASE}/admin/reset-data`, {
+      const res = await fetch(`${API_BASE}/admin/upload-qr`, {
         method: 'POST',
-        headers: { 'Authorization': password }
+        headers: { 'Authorization': password },
+        body: formData
       });
-      if (res.ok) {
-        alert('ડેટાબેઝ સફળતાપૂર્વક ઝીરો (0) પર રીસેટ થઈ ગયો!');
-        setShowResetModal(false);
-        setResetConfirmText('');
-        fetchRegistrations();
+      const json = await res.json();
+      if (res.ok && json.success) {
+        setEventSettings(prev => ({
+          ...prev,
+          customQrImage: json.customQrImage,
+          useCustomQr: true
+        }));
+        showToast('કસ્ટમ QR કોડ અપલોડ સફળ!');
+      } else {
+        alert(json.error || 'QR કોડ અપલોડ કરવામાં ભૂલ આવી.');
       }
     } catch {
-      alert('રીસેટ કરવામાં ભૂલ આવી.');
-    } finally {
-      setResettingData(false);
+      alert('સર્વર એરર.');
     }
   };
 
-  // Quick stat filter change
-  const handleStatCardClick = (filterKey) => {
-    setActiveFilter(filterKey);
-    fetchRegistrations(password, filterKey, searchQuery);
+  // Logout
+  const handleLogout = () => {
+    sessionStorage.removeItem('divineAdminPassword');
+    sessionStorage.removeItem('divineAdminStats');
+    setIsAuthenticated(false);
+    setPassword('');
   };
 
+  // Sort & Filter registrations list
+  const filteredRegistrations = useMemo(() => {
+    let list = [...registrations];
+    if (sortBy === 'newest') {
+      list.sort((a, b) => new Date(b.createdAt || 0) - new Date(a.createdAt || 0));
+    } else if (sortBy === 'oldest') {
+      list.sort((a, b) => new Date(a.createdAt || 0) - new Date(b.createdAt || 0));
+    } else if (sortBy === 'amount') {
+      list.sort((a, b) => (b.amount || 0) - (a.amount || 0));
+    }
+    return list;
+  }, [registrations, sortBy]);
+
   // ==========================================
-  // LOGIN SCREEN (MOBILE-FIRST LUXURY THEME)
+  // 1. CLEAN MODERN WHITE/SLATE LOGIN SCREEN
   // ==========================================
   if (!isAuthenticated) {
     return (
-      <div className="min-h-screen bg-[#FAF9F6] text-stone-900 flex flex-col justify-between items-center p-3.5 sm:p-6 relative overflow-hidden font-sans">
+      <div className="min-h-screen bg-[#F8FAFC] text-slate-900 flex flex-col justify-center items-center p-4 font-sans">
         <Helmet>
           <title>Admin Portal - The Divine Garbh Sanskar</title>
         </Helmet>
 
-        {/* Ambient Glows */}
-        <div className="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[340px] sm:w-[600px] h-[300px] bg-gradient-to-b from-rose-200/40 via-amber-100/30 to-transparent rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-[-10%] left-1/2 -translate-x-1/2 w-[300px] sm:w-[500px] h-[250px] bg-gradient-to-t from-rose-100/30 via-transparent to-transparent rounded-full blur-2xl pointer-events-none" />
-
-        {/* Top Header */}
-        <header className="w-full max-w-md pt-2 sm:pt-6 flex items-center justify-between z-10">
-          <Link to="/" className="flex items-center gap-2">
+        <div className="w-full max-w-sm bg-white border border-slate-200 rounded-2xl p-6 sm:p-7 shadow-sm space-y-6">
+          <div className="text-center space-y-2">
             <img
               src="/logo.jpg"
-              alt="The Divine Garbh Sanskar"
-              className="w-8 h-8 sm:w-9 sm:h-9 rounded-full p-0.5 bg-white object-contain border border-amber-400 shadow-md shrink-0"
+              alt="Divine Garbh Sanskar"
+              className="w-14 h-14 rounded-full object-contain mx-auto p-0.5 bg-white border border-slate-200 shadow-xs"
             />
-            <span className="font-extrabold text-stone-900 text-xs sm:text-sm tracking-tight font-serif truncate">
+            <h1 className="text-lg font-bold text-slate-900 font-serif">
               The Divine Garbh Sanskar
-            </span>
-          </Link>
-          <div className="flex items-center gap-1.5">
-            <span className="text-[9px] sm:text-[10px] font-black uppercase px-2 py-0.5 rounded-lg bg-stone-100 border border-stone-200 text-stone-700 tracking-wider">
-              Secure Ops
-            </span>
-            <span className="text-[9px] sm:text-[10px] font-mono font-bold text-stone-400 bg-stone-100 px-1.5 py-0.5 rounded-md">
-              v2.5
-            </span>
+            </h1>
+            <p className="text-xs text-slate-500 font-medium">
+              દિવ્ય ગર્ભયાત્રા • એડમિન પોર્ટલ
+            </p>
           </div>
-        </header>
 
-        {/* Central Luxury Login Card */}
-        <main className="max-w-md w-full my-auto z-10 py-4 sm:py-6 space-y-4">
-          <div className="bg-white border border-stone-200/90 rounded-3xl p-5 sm:p-8 shadow-xl shadow-stone-200/60 space-y-5">
-            <div className="text-center space-y-1.5">
-              <div className={`inline-flex p-3 rounded-2xl border shadow-xs mb-1 ${
-                isSuperAdminRoute 
-                  ? 'bg-purple-50 border-purple-200 text-purple-800' 
-                  : 'bg-rose-50 border-rose-200 text-rose-800'
-              }`}>
-                {isSuperAdminRoute ? <Crown className="w-6 h-6 sm:w-7 sm:h-7" /> : <ShieldCheck className="w-6 h-6 sm:w-7 sm:h-7" />}
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              handleLogin();
+            }}
+            className="space-y-4"
+          >
+            <div>
+              <label className="block text-xs font-semibold text-slate-700 mb-1.5">
+                એડમિન પાસવર્ડ (Admin Password)
+              </label>
+              <div className="relative">
+                <input
+                  type={showPassword ? 'text' : 'password'}
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  placeholder="Enter admin password..."
+                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-900/10 focus:border-slate-800 transition-all font-mono"
+                  autoFocus
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-700 p-1"
+                >
+                  {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                </button>
               </div>
-              <h1 className="text-xl sm:text-2xl font-black text-stone-900 tracking-tight font-serif">
-                {isSuperAdminRoute ? 'Super Admin Console' : 'Event Admin Operations'}
-              </h1>
-              <p className="text-xs text-stone-500 font-medium leading-relaxed px-2">
-                {isSuperAdminRoute 
-                  ? 'દિવ્ય ગર્ભયાત્રા • સંપૂર્ણ કંટ્રોલ અને ડેટાબેઝ રીસેટ અધિકાર' 
-                  : 'દિવ્ય ગર્ભયાત્રા • કપલ સેમિનાર વેરિફિકેશન & ડેશબોર્ડ'}
-              </p>
             </div>
 
             {authError && (
-              <div className="p-3.5 rounded-2xl bg-rose-50 border border-rose-200 text-rose-900 text-xs flex items-center gap-2 font-medium">
-                <AlertTriangle className="w-4 h-4 text-rose-600 flex-shrink-0" />
+              <div className="p-3 rounded-xl bg-red-50 border border-red-200 text-red-700 text-xs font-medium flex items-center gap-2">
+                <AlertCircle className="w-4 h-4 shrink-0" />
                 <span>{authError}</span>
               </div>
             )}
 
-            <form onSubmit={(e) => { e.preventDefault(); handleLogin(); }} className="space-y-4">
-              <div>
-                <label className="block text-xs font-bold text-stone-700 mb-1.5">
-                  એડમિન / સુપર એડમિન પાસવર્ડ
-                </label>
-                <div className="relative">
-                  <input
-                    type={showPassword ? 'text' : 'password'}
-                    required
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    placeholder="પાસવર્ડ દાખલ કરો..."
-                    className="w-full bg-stone-50 border border-stone-200 rounded-xl px-4 py-3 text-stone-900 text-sm focus:outline-none focus:border-rose-700 focus:bg-white transition-all pr-11"
-                  />
-                  <button
-                    type="button"
-                    onClick={() => setShowPassword(!showPassword)}
-                    className="absolute right-3.5 top-1/2 -translate-y-1/2 text-stone-400 hover:text-stone-700 p-1"
-                    aria-label="Toggle password visibility"
-                  >
-                    {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
-                  </button>
-                </div>
-                <span className="text-[10px] text-stone-400 block mt-1.5">
-                  * રોલ (Admin અથવા Super Admin) પાસવર્ડ મુજબ આપમેળે નક્કી થશે.
-                </span>
-              </div>
+            <button
+              type="submit"
+              disabled={loggingIn}
+              className="w-full py-2.5 px-4 bg-slate-900 hover:bg-slate-800 active:scale-[0.99] text-white text-xs font-bold rounded-xl shadow-xs transition-all cursor-pointer flex items-center justify-center gap-2 disabled:opacity-60"
+            >
+              {loggingIn ? (
+                <>
+                  <RefreshCw className="w-4 h-4 animate-spin text-white" />
+                  <span>ચકાસણી થઈ રહી છે...</span>
+                </>
+              ) : (
+                <>
+                  <Lock className="w-4 h-4 text-white" />
+                  <span>લૉગિન કરો (Sign In)</span>
+                </>
+              )}
+            </button>
+          </form>
 
-              <button
-                type="submit"
-                disabled={loggingIn}
-                className="w-full py-3.5 rounded-xl bg-gradient-to-r from-rose-700 via-rose-800 to-amber-700 hover:from-rose-800 hover:to-amber-800 text-white font-extrabold text-sm shadow-lg shadow-rose-900/15 transition-all cursor-pointer disabled:opacity-50 active:scale-[0.98] flex items-center justify-center gap-2"
-              >
-                {loggingIn ? (
-                  <>
-                    <RefreshCw className="w-4 h-4 animate-spin text-white" />
-                    <span>ચકાસણી ચાલુ છે...</span>
-                  </>
-                ) : (
-                  <>
-                    <Lock className="w-4 h-4" />
-                    <span>લૉગિન કરો (Sign In)</span>
-                  </>
-                )}
-              </button>
-            </form>
-
-            <div className="pt-3 border-t border-stone-100 flex items-center justify-between text-xs text-stone-500">
-              <Link to="/divy-garbhyatra" className="hover:text-rose-700 font-medium transition-colors">
-                ← ઇવેન્ટ પેજ
-              </Link>
-              <div className="flex items-center gap-3">
-                {isSuperAdminRoute ? (
-                  <Link to="/admin" className="text-rose-700 hover:text-rose-900 font-bold">
-                    એડમિન (/admin)
-                  </Link>
-                ) : (
-                  <Link to="/superadmin" className="text-purple-700 hover:text-purple-900 font-bold">
-                    સુપર એડમિન (/superadmin)
-                  </Link>
-                )}
-                <Link to="/scanner" className="text-stone-700 hover:text-stone-900 font-bold flex items-center gap-1 bg-stone-100 px-2 py-1 rounded-lg">
-                  <Camera className="w-3.5 h-3.5 text-purple-700" />
-                  <span>સ્કેનર</span>
-                </Link>
-              </div>
-            </div>
+          <div className="pt-2 text-center border-t border-slate-100">
+            <Link to="/" className="text-xs text-slate-500 hover:text-slate-800 font-medium transition-colors">
+              &larr; મુખ્ય વેબસાઇટ
+            </Link>
           </div>
-        </main>
-
-        <footer className="w-full max-w-md pb-2 text-center text-[10px] sm:text-[11px] text-stone-400">
-          The Divine Garbh Sanskar • Event Operations System
-        </footer>
+        </div>
       </div>
     );
   }
 
   // ==========================================
-  // AUTHENTICATED DASHBOARD (MOBILE-FIRST)
+  // 2. AUTHENTICATED DASHBOARD (CLEAN LIGHT THEME)
   // ==========================================
   return (
-    <div className="min-h-screen bg-[#FAF9F6] text-stone-900 font-sans antialiased pb-28 sm:pb-20">
+    <div className="min-h-screen bg-[#F8FAFC] text-slate-900 font-sans w-full max-w-full overflow-x-hidden">
       <Helmet>
-        <title>
-          {role === 'superadmin' ? 'Super Admin Console' : 'Event Operations'} - The Divine Garbh Sanskar
-        </title>
+        <title>Admin Dashboard - The Divine Garbh Sanskar</title>
       </Helmet>
 
-      {/* Copied Notification Toast */}
-      {copiedNotification && (
-        <div className="fixed top-4 left-1/2 -translate-x-1/2 z-50 bg-stone-900 text-white text-xs font-bold px-4 py-2 rounded-full shadow-2xl flex items-center gap-1.5 animate-bounce">
-          <Check className="w-3.5 h-3.5 text-emerald-400" />
-          <span>{copiedNotification}</span>
+      {/* Floating Notification Toast */}
+      {toastMessage && (
+        <div className="fixed top-4 right-4 z-50 bg-slate-900 text-white px-3.5 py-2 rounded-xl text-xs font-semibold shadow-lg flex items-center gap-2 border border-slate-800 animate-fade-in max-w-[90vw]">
+          <CheckCheck className="w-4 h-4 text-emerald-400 shrink-0" />
+          <span className="truncate">{toastMessage}</span>
         </div>
       )}
 
-      {/* Top Mobile-Optimized Navigation Bar */}
-      <header className="bg-white/95 backdrop-blur-md border-b border-stone-200/90 sticky top-0 z-30 shadow-xs">
-        <div className="max-w-7xl mx-auto px-3.5 sm:px-6 py-2.5 sm:py-3 flex items-center justify-between gap-2">
-          {/* Brand & Role */}
+      {/* ========================================================
+          CLEAN WHITE HEADER (100% Mobile Responsive, No Overflow)
+      ======================================================== */}
+      <header className="sticky top-0 z-40 bg-white border-b border-slate-200 shadow-2xs w-full max-w-full">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 py-2 sm:py-2.5 flex items-center justify-between gap-2">
+          {/* Brand Logo & Portal Title */}
           <div className="flex items-center gap-2 sm:gap-3 min-w-0">
-            <Link to="/divy-garbhyatra" className="flex items-center gap-2 shrink-0">
+            <Link to="/" className="shrink-0 flex items-center gap-2 min-w-0">
               <img
                 src="/logo.jpg"
-                alt="The Divine Garbh Sanskar"
-                className="w-8 h-8 sm:w-9 sm:h-9 rounded-full p-0.5 bg-white object-contain border border-amber-400 shadow-md shrink-0"
+                alt="Divine Logo"
+                className="w-8 h-8 rounded-full object-contain border border-slate-200 p-0.5 bg-white shrink-0"
               />
               <div className="min-w-0">
-                <span className="text-xs sm:text-sm font-black text-stone-900 block font-serif tracking-tight leading-tight truncate">
-                  દિવ્ય ગર્ભયાત્રા
+                <span className="font-bold text-xs sm:text-base text-slate-900 block leading-tight truncate">
+                  The Divine Garbh Sanskar
                 </span>
-                <span className="text-[9px] sm:text-[10px] text-stone-500 font-semibold block font-sans truncate">
-                  {role === 'superadmin' ? 'Super Admin Portal' : 'Admin Portal'}
+                <span className="text-[10px] sm:text-[11px] text-slate-500 font-medium flex items-center gap-1 truncate">
+                  <span className="text-rose-700 font-semibold">દિવ્ય ગર્ભયાત્રા</span>
+                  <span className="text-slate-300">•</span>
+                  <span>Admin</span>
                 </span>
               </div>
             </Link>
-
-            {/* Role Badge */}
-            <span className={`text-[9px] sm:text-[10px] font-black uppercase px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full border flex items-center gap-1 shrink-0 ${
-              role === 'superadmin' 
-                ? 'bg-purple-50 border-purple-200 text-purple-900 ring-1 ring-purple-300' 
-                : 'bg-rose-50 border-rose-200 text-rose-900'
-            }`}>
-              {role === 'superadmin' ? (
-                <>
-                  <Crown className="w-3 h-3 text-purple-700" />
-                  <span className="hidden xs:inline">Super Admin</span>
-                  <span className="xs:hidden">Super</span>
-                </>
-              ) : (
-                <>
-                  <ShieldCheck className="w-3 h-3 text-rose-700" />
-                  <span>Admin</span>
-                </>
-              )}
-            </span>
-
-            {/* Live Database Status (Desktop) */}
-            <div className="hidden lg:flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-[10px] font-bold">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-              <span>Database Connected</span>
-            </div>
           </div>
 
-          {/* Quick Actions (Desktop Tabs & Mobile Icons) */}
+          {/* Action Buttons */}
           <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
-            {/* Desktop Tabs */}
-            <div className="hidden sm:flex items-center p-1 bg-stone-100 rounded-xl border border-stone-200 text-xs">
+            {/* View Switcher Tabs (Desktop) */}
+            <div className="hidden md:flex items-center p-0.5 bg-slate-100 rounded-lg border border-slate-200 text-xs font-semibold">
               <button
                 type="button"
                 onClick={() => setActiveTab('registrations')}
-                className={`px-3 py-1.5 rounded-lg font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
-                  activeTab === 'registrations' 
-                    ? 'bg-white text-stone-900 shadow-xs border border-stone-200/60' 
-                    : 'text-stone-600 hover:text-stone-900'
+                className={`px-3 py-1.5 rounded-md transition-all flex items-center gap-1.5 cursor-pointer ${
+                  activeTab === 'registrations' ? 'bg-white text-slate-900 shadow-2xs' : 'text-slate-600 hover:text-slate-900'
                 }`}
               >
-                <Users className="w-3.5 h-3.5" />
+                <Users className="w-3.5 h-3.5 text-rose-700" />
                 <span>રજીસ્ટ્રેશન ({stats.total})</span>
               </button>
-
               <button
                 type="button"
                 onClick={() => setActiveTab('settings')}
-                className={`px-3 py-1.5 rounded-lg font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
-                  activeTab === 'settings' 
-                    ? 'bg-white text-stone-900 shadow-xs border border-stone-200/60' 
-                    : 'text-stone-600 hover:text-stone-900'
+                className={`px-3 py-1.5 rounded-md transition-all flex items-center gap-1.5 cursor-pointer ${
+                  activeTab === 'settings' ? 'bg-white text-slate-900 shadow-2xs' : 'text-slate-600 hover:text-slate-900'
                 }`}
               >
-                <Settings className="w-3.5 h-3.5" />
-                <span>સેટિંગ્સ &amp; QR કોડ</span>
+                <Settings className="w-3.5 h-3.5 text-slate-600" />
+                <span>સેટિંગ્સ &amp; QR</span>
               </button>
             </div>
 
-            {/* Gate Scanner Quick Button (Available on BOTH mobile and desktop) */}
+            {/* + Add Entry Button */}
+            <button
+              type="button"
+              onClick={() => setShowManualModal(true)}
+              className="px-2.5 sm:px-3 py-1.5 bg-emerald-600 hover:bg-emerald-700 active:scale-95 text-white rounded-lg text-xs font-semibold transition-all shadow-2xs flex items-center gap-1 cursor-pointer shrink-0"
+              title="Add Manual Registration"
+            >
+              <Plus className="w-3.5 h-3.5" />
+              <span className="hidden sm:inline">+ નવી એન્ટ્રી</span>
+              <span className="sm:hidden">ઉમેરો</span>
+            </button>
+
+            {/* Gate Scanner */}
             <Link
               to="/scanner"
-              className="flex items-center gap-1 px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-xl bg-purple-700 hover:bg-purple-800 text-white text-xs font-bold transition-all shadow-xs shrink-0"
-              title="ઓપન ગેટ પાસ સ્કેનર"
+              className="px-2 sm:px-2.5 py-1.5 bg-slate-100 hover:bg-slate-200 active:scale-95 text-slate-700 border border-slate-200 rounded-lg text-xs font-semibold transition-all flex items-center gap-1 shrink-0"
+              title="Open Gate Scanner"
             >
-              <Camera className="w-3.5 h-3.5" />
-              <span className="hidden sm:inline">ગેટ સ્કેનર</span>
+              <Camera className="w-3.5 h-3.5 text-slate-600" />
+              <span className="hidden sm:inline">સ્કેનર</span>
             </Link>
 
             {/* Logout */}
             <button
               type="button"
               onClick={handleLogout}
-              className="p-1.5 sm:p-2 text-stone-500 hover:text-rose-700 hover:bg-rose-50 rounded-xl transition-all cursor-pointer shrink-0"
+              className="p-1.5 text-slate-400 hover:text-slate-700 hover:bg-slate-100 rounded-lg transition-all cursor-pointer shrink-0"
               title="Logout"
             >
               <LogOut className="w-4 h-4" />
@@ -871,257 +813,159 @@ export default function EventAdminPage({ defaultRole }) {
           </div>
         </div>
 
-        {/* Mobile Viewport Secondary Tab Bar (Under Header) */}
-        <div className="sm:hidden px-3.5 py-1.5 bg-stone-50 border-t border-stone-200/80 flex items-center gap-2">
+        {/* Mobile Navigation Bar */}
+        <div className="md:hidden px-3 py-1.5 bg-slate-50 border-t border-slate-200 flex items-center gap-2">
           <button
             type="button"
             onClick={() => setActiveTab('registrations')}
-            className={`flex-1 py-1.5 px-3 rounded-lg text-xs font-bold transition-all flex items-center justify-center gap-1.5 ${
-              activeTab === 'registrations'
-                ? 'bg-rose-700 text-white shadow-xs'
-                : 'bg-white border border-stone-200 text-stone-600'
+            className={`flex-1 py-1.5 rounded-lg text-xs font-semibold flex items-center justify-center gap-1.5 transition-all ${
+              activeTab === 'registrations' ? 'bg-white text-slate-900 shadow-2xs border border-slate-200' : 'text-slate-600'
             }`}
           >
-            <Users className="w-3.5 h-3.5" />
+            <Users className="w-3.5 h-3.5 text-rose-700" />
             <span>રજીસ્ટ્રેશન ({stats.total})</span>
-            {stats.pending > 0 && (
-              <span className="w-2 h-2 rounded-full bg-amber-400 animate-ping" />
-            )}
           </button>
-
           <button
             type="button"
             onClick={() => setActiveTab('settings')}
-            className={`flex-1 py-1.5 px-3 rounded-lg text-xs font-bold transition-all flex items-center justify-center gap-1.5 ${
-              activeTab === 'settings'
-                ? 'bg-rose-700 text-white shadow-xs'
-                : 'bg-white border border-stone-200 text-stone-600'
+            className={`flex-1 py-1.5 rounded-lg text-xs font-semibold flex items-center justify-center gap-1.5 transition-all ${
+              activeTab === 'settings' ? 'bg-white text-slate-900 shadow-2xs border border-slate-200' : 'text-slate-600'
             }`}
           >
-            <Settings className="w-3.5 h-3.5" />
+            <Settings className="w-3.5 h-3.5 text-slate-600" />
             <span>સેટિંગ્સ &amp; QR</span>
           </button>
         </div>
       </header>
 
-      {/* Main Container */}
-      <main className="max-w-7xl mx-auto px-3.5 sm:px-6 pt-4 sm:pt-6 space-y-4 sm:space-y-6">
-
-        {/* Super Admin Status Banner (if Super Admin role active) */}
-        {role === 'superadmin' && (
-          <div className="bg-gradient-to-r from-purple-900 via-indigo-900 to-purple-800 text-white rounded-2xl p-3 sm:p-4 shadow-md flex items-center justify-between gap-3">
-            <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-xl bg-white/10 flex items-center justify-center shrink-0">
-                <Crown className="w-4 h-4 text-amber-300" />
-              </div>
-              <div>
-                <strong className="text-xs sm:text-sm font-bold block font-serif">
-                  સુપર એડમિન મોડ સક્રિય (Super Admin Privileges)
-                </strong>
-                <span className="text-[10px] sm:text-xs text-purple-200 block">
-                  તમારી પાસે ડેટાબેઝ વાઇપ, QR કોડ અને તમામ સિસ્ટમ સેટિંગ્સ બદલવાના સંપૂર્ણ અધિકારો છે.
-                </span>
-              </div>
-            </div>
-            <button
-              type="button"
-              onClick={() => {
-                setActiveTab('settings');
-                setTimeout(() => {
-                  window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-                }, 100);
-              }}
-              className="px-2.5 py-1.5 bg-white/15 hover:bg-white/25 rounded-xl text-[10px] sm:text-xs font-bold whitespace-nowrap shrink-0 cursor-pointer"
-            >
-              ડેન્જર ઝોન ↓
-            </button>
-          </div>
-        )}
+      {/* ========================================================
+          MAIN CONTENT AREA (No horizontal scroll guarantee)
+      ======================================================== */}
+      <main className="max-w-7xl mx-auto px-3 sm:px-6 py-3.5 sm:py-5 space-y-3.5 sm:space-y-4 w-full max-w-full overflow-x-hidden">
 
         {/* ========================================================
-            INTERACTIVE STAT OVERVIEW CARDS (TAP TO FILTER ON MOBILE)
+            1. KPI METRIC CARDS (Mobile Ergonomic 2-Col Grid)
         ======================================================== */}
-        <section className="space-y-1.5">
-          <div className="flex items-center justify-between px-1">
-            <span className="text-[10px] sm:text-xs font-bold text-stone-500 uppercase tracking-wider">
-              લાઇવ મેટ્રિક્સ (Tap Card to Filter)
-            </span>
-            <span className="text-[10px] text-stone-400">
-              લક્ષ્યાંક: {eventSettings.totalCoupleCapacity || 250} કપલ
-            </span>
+        <section className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 sm:gap-3 w-full">
+          {/* Total Registrations */}
+          <div
+            onClick={() => { setActiveFilter('all'); fetchRegistrations(password, 'all', searchQuery); }}
+            className={`bg-white border rounded-xl p-3 sm:p-3.5 shadow-2xs cursor-pointer transition-all active:scale-[0.98] select-none ${
+              activeFilter === 'all' ? 'ring-2 ring-slate-800 border-slate-800' : 'border-slate-200 hover:border-slate-300'
+            }`}
+          >
+            <div className="flex items-center justify-between">
+              <span className="text-[10px] sm:text-[11px] font-semibold text-slate-500 uppercase tracking-wide truncate">કુલ રજીસ્ટ્રેશન</span>
+              <Users className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+            </div>
+            <div className="flex items-baseline gap-1 mt-1">
+              <span className="text-lg sm:text-2xl font-bold text-slate-900 tabular-nums">{stats.total}</span>
+              <span className="text-[11px] text-slate-500 font-medium">કપલ</span>
+            </div>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 sm:gap-3">
-            {/* 1. Total Registrations */}
-            <div
-              onClick={() => handleStatCardClick('all')}
-              className={`bg-white border rounded-2xl p-3 sm:p-4 shadow-xs cursor-pointer transition-all active:scale-[0.98] ${
-                activeFilter === 'all'
-                  ? 'border-rose-700 ring-2 ring-rose-600/20 bg-rose-50/20'
-                  : 'border-stone-200/90 hover:border-stone-300'
-              }`}
-            >
-              <div className="flex items-center justify-between">
-                <span className="text-[9px] sm:text-[10px] font-bold uppercase text-stone-500 tracking-wider">
-                  કુલ રજીસ્ટ્રેશન
-                </span>
-                {activeFilter === 'all' && (
-                  <span className="w-1.5 h-1.5 rounded-full bg-rose-700" />
-                )}
-              </div>
-              <div className="flex items-baseline gap-1.5 mt-0.5">
-                <strong className="text-xl sm:text-2xl font-black text-stone-900">
-                  {stats.total}
-                </strong>
-                <span className="text-[9px] sm:text-[10px] text-stone-400 font-semibold">
-                  / {eventSettings.totalCoupleCapacity || 250}
-                </span>
-              </div>
-              <div className="w-full bg-stone-100 rounded-full h-1 mt-1.5 overflow-hidden">
-                <div 
-                  className="bg-rose-700 h-full rounded-full transition-all duration-500"
-                  style={{ width: `${Math.min(100, ((stats.total) / (eventSettings.totalCoupleCapacity || 250)) * 100)}%` }}
-                />
-              </div>
+          {/* Pending Verification */}
+          <div
+            onClick={() => { setActiveFilter('pending'); fetchRegistrations(password, 'pending', searchQuery); }}
+            className={`bg-white border rounded-xl p-3 sm:p-3.5 shadow-2xs cursor-pointer transition-all active:scale-[0.98] select-none ${
+              activeFilter === 'pending' ? 'ring-2 ring-amber-500 border-amber-500 bg-amber-50/20' : 'border-slate-200 hover:border-amber-300'
+            }`}
+          >
+            <div className="flex items-center justify-between">
+              <span className="text-[10px] sm:text-[11px] font-semibold text-amber-700 uppercase tracking-wide truncate">વેરિફિકેશન બાકી</span>
+              <span className="w-2 h-2 rounded-full bg-amber-500 shrink-0" />
             </div>
-
-            {/* 2. Verification Pending */}
-            <div
-              onClick={() => handleStatCardClick('pending')}
-              className={`bg-white border rounded-2xl p-3 sm:p-4 shadow-xs cursor-pointer transition-all active:scale-[0.98] ${
-                activeFilter === 'pending'
-                  ? 'border-amber-600 ring-2 ring-amber-500/20 bg-amber-50/30'
-                  : 'border-stone-200/90 hover:border-stone-300'
-              }`}
-            >
-              <div className="flex items-center justify-between">
-                <span className="text-[9px] sm:text-[10px] font-bold uppercase text-amber-700 tracking-wider">
-                  પેન્ડિંગ વેરિફિકેશન
-                </span>
-                {stats.pending > 0 && (
-                  <span className="text-[8px] px-1.5 py-0.2 rounded-full bg-amber-500 text-white font-extrabold animate-pulse">
-                    Action
-                  </span>
-                )}
-              </div>
-              <div className="flex items-baseline gap-1 mt-0.5">
-                <strong className="text-xl sm:text-2xl font-black text-amber-700">
-                  {stats.pending}
-                </strong>
-              </div>
-              <span className="text-[9px] sm:text-[10px] text-stone-400 block mt-1 truncate">
-                ચકાસણી બાકી સ્લોટ્સ
-              </span>
+            <div className="flex items-baseline gap-1 mt-1">
+              <span className="text-lg sm:text-2xl font-bold text-amber-900 tabular-nums">{stats.pending}</span>
+              <span className="text-[11px] text-amber-600 font-medium">બાકી</span>
             </div>
+          </div>
 
-            {/* 3. Approved Passes */}
-            <div
-              onClick={() => handleStatCardClick('approved')}
-              className={`bg-white border rounded-2xl p-3 sm:p-4 shadow-xs cursor-pointer transition-all active:scale-[0.98] ${
-                activeFilter === 'approved'
-                  ? 'border-emerald-600 ring-2 ring-emerald-500/20 bg-emerald-50/30'
-                  : 'border-stone-200/90 hover:border-stone-300'
-              }`}
-            >
-              <div className="flex items-center justify-between">
-                <span className="text-[9px] sm:text-[10px] font-bold uppercase text-emerald-700 tracking-wider">
-                  એપ્રુવ્ડ પાસ
-                </span>
-                {activeFilter === 'approved' && (
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-600" />
-                )}
-              </div>
-              <div className="flex items-baseline gap-1 mt-0.5">
-                <strong className="text-xl sm:text-2xl font-black text-emerald-700">
-                  {stats.approved}
-                </strong>
-              </div>
-              <span className="text-[9px] sm:text-[10px] text-stone-400 block mt-1 truncate">
-                માન્ય ડિજિટલ પાસ
-              </span>
+          {/* Approved & Passes Issued */}
+          <div
+            onClick={() => { setActiveFilter('approved'); fetchRegistrations(password, 'approved', searchQuery); }}
+            className={`bg-white border rounded-xl p-3 sm:p-3.5 shadow-2xs cursor-pointer transition-all active:scale-[0.98] select-none ${
+              activeFilter === 'approved' ? 'ring-2 ring-emerald-600 border-emerald-600 bg-emerald-50/20' : 'border-slate-200 hover:border-emerald-300'
+            }`}
+          >
+            <div className="flex items-center justify-between">
+              <span className="text-[10px] sm:text-[11px] font-semibold text-emerald-700 uppercase tracking-wide truncate">એપ્રુવ્ડ (Approved)</span>
+              <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
             </div>
-
-            {/* 4. Gate Entry (Checked-In) */}
-            <div
-              onClick={() => {
-                // Focus gate scanner or filter
-                setActiveFilter('approved');
-                fetchRegistrations(password, 'approved', searchQuery);
-              }}
-              className="bg-white border border-stone-200/90 rounded-2xl p-3 sm:p-4 shadow-xs cursor-pointer hover:border-stone-300 transition-all active:scale-[0.98]"
-            >
-              <span className="text-[9px] sm:text-[10px] font-bold uppercase text-blue-700 block tracking-wider truncate">
-                ગેટ એન્ટ્રી (In Hall)
-              </span>
-              <div className="flex items-baseline gap-1 mt-0.5">
-                <strong className="text-xl sm:text-2xl font-black text-blue-700">
-                  {stats.checkedIn}
-                </strong>
-              </div>
-              <span className="text-[9px] sm:text-[10px] text-stone-400 block mt-1 truncate">
-                હોલમાં હાજર કપલ
-              </span>
+            <div className="flex items-baseline gap-1 mt-1">
+              <span className="text-lg sm:text-2xl font-bold text-emerald-900 tabular-nums">{stats.approved}</span>
+              <span className="text-[11px] text-emerald-600 font-medium">પાસ ઇસ્યુ</span>
             </div>
+          </div>
 
-            {/* 5. Rejected */}
-            <div
-              onClick={() => handleStatCardClick('rejected')}
-              className={`bg-white border rounded-2xl p-3 sm:p-4 shadow-xs cursor-pointer transition-all active:scale-[0.98] ${
-                activeFilter === 'rejected'
-                  ? 'border-rose-600 ring-2 ring-rose-500/20 bg-rose-50/30'
-                  : 'border-stone-200/90 hover:border-stone-300'
-              }`}
-            >
-              <div className="flex items-center justify-between">
-                <span className="text-[9px] sm:text-[10px] font-bold uppercase text-stone-500 tracking-wider">
-                  રિજેક્ટ થયેલા
-                </span>
-                {activeFilter === 'rejected' && (
-                  <span className="w-1.5 h-1.5 rounded-full bg-rose-600" />
-                )}
-              </div>
-              <div className="flex items-baseline gap-1 mt-0.5">
-                <strong className="text-xl sm:text-2xl font-black text-rose-700">
-                  {stats.rejected}
-                </strong>
-              </div>
-              <span className="text-[9px] sm:text-[10px] text-stone-400 block mt-1 truncate">
-                અમાન્ય પેમેન્ટ
-              </span>
+          {/* Gate Attendance Checked In */}
+          <div className="bg-white border border-slate-200 rounded-xl p-3 sm:p-3.5 shadow-2xs">
+            <div className="flex items-center justify-between">
+              <span className="text-[10px] sm:text-[11px] font-semibold text-slate-500 uppercase tracking-wide truncate">ગેટ પર હાજરી</span>
+              <Camera className="w-3.5 h-3.5 text-slate-400 shrink-0" />
             </div>
+            <div className="flex items-baseline gap-1 mt-1">
+              <span className="text-lg sm:text-2xl font-bold text-slate-900 tabular-nums">{stats.checkedIn}</span>
+              <span className="text-[11px] text-slate-400 font-medium">પ્રવેશ થયો</span>
+            </div>
+          </div>
 
-            {/* 6. Total Revenue */}
-            <div className="bg-white border border-stone-200/90 rounded-2xl p-3 sm:p-4 shadow-xs bg-gradient-to-br from-amber-50/60 to-white">
-              <span className="text-[9px] sm:text-[10px] font-bold uppercase text-amber-900 block tracking-wider">
-                કુલ આવક (Revenue)
-              </span>
-              <div className="flex items-baseline gap-0.5 mt-0.5">
-                <span className="text-xs sm:text-sm font-bold text-amber-800">₹</span>
-                <strong className="text-lg sm:text-2xl font-black text-stone-900 truncate">
-                  {stats.totalRevenue.toLocaleString('en-IN')}
-                </strong>
-              </div>
-              <span className="text-[9px] sm:text-[10px] text-amber-700 font-semibold block mt-1 truncate">
-                એપ્રુવ્ડ પાસમાંથી
+          {/* Total Revenue */}
+          <div className="bg-white border border-slate-200 rounded-xl p-3 sm:p-3.5 shadow-2xs col-span-2 sm:col-span-1">
+            <div className="flex items-center justify-between">
+              <span className="text-[10px] sm:text-[11px] font-semibold text-slate-500 uppercase tracking-wide">કુલ જમા રકમ</span>
+              <span className="text-[10px] font-bold text-slate-400">INR</span>
+            </div>
+            <div className="flex items-baseline gap-0.5 mt-1">
+              <span className="text-xs font-semibold text-slate-500">₹</span>
+              <span className="text-lg sm:text-2xl font-bold text-slate-900 tabular-nums truncate">
+                {(stats.totalRevenue || 0).toLocaleString('en-IN')}
               </span>
             </div>
           </div>
         </section>
 
-        {/* ==========================================
+        {/* ========================================================
             TAB 1: REGISTRATIONS MANAGEMENT
-        =========================================== */}
+        ======================================================== */}
         {activeTab === 'registrations' && (
-          <div className="space-y-3 sm:space-y-4">
-            {/* Mobile Filter Pills + Search Toolbar */}
-            <div className="bg-white border border-stone-200/90 rounded-2xl p-3 sm:p-4 shadow-xs space-y-3">
-              {/* Horizontal Filter Scroll Bar */}
-              <div className="flex items-center gap-1.5 overflow-x-auto pb-1 text-xs no-scrollbar">
+          <div className="space-y-3 w-full">
+            {/* Filter & Search Toolbar (Optimized for Mobile Ergonomics) */}
+            <div className="bg-white border border-slate-200 rounded-xl p-2.5 sm:p-3 shadow-2xs space-y-2.5 md:space-y-0 md:flex md:items-center md:justify-between md:gap-3 w-full">
+              {/* Row 1 on Mobile: Full-width search bar */}
+              <div className="relative w-full md:w-64 order-1 md:order-2">
+                <Search className="w-3.5 h-3.5 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
+                <input
+                  type="text"
+                  value={searchQuery}
+                  onChange={(e) => {
+                    setSearchQuery(e.target.value);
+                    fetchRegistrations(password, activeFilter, e.target.value);
+                  }}
+                  placeholder="નામ, ફોન, CPL ID, UTR..."
+                  className="w-full bg-slate-50 border border-slate-200 rounded-lg pl-8 pr-8 py-2 md:py-1.5 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-slate-400 focus:bg-white transition-all font-medium"
+                />
+                {searchQuery && (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setSearchQuery('');
+                      fetchRegistrations(password, activeFilter, '');
+                    }}
+                    className="absolute right-2 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-700 p-1"
+                  >
+                    <X className="w-3.5 h-3.5" />
+                  </button>
+                )}
+              </div>
+
+              {/* Row 2 on Mobile: Filter Pills with smooth touch scroll */}
+              <div className="flex items-center gap-1.5 overflow-x-auto pb-0.5 text-xs no-scrollbar w-full md:w-auto order-2 md:order-1 -mx-0.5 px-0.5">
                 {[
-                  { key: 'all', label: 'તમામ (All)', count: stats.total },
-                  { key: 'pending', label: 'પેન્ડિંગ (Pending)', count: stats.pending },
-                  { key: 'approved', label: 'એપ્રુવ્ડ (Approved)', count: stats.approved },
-                  { key: 'rejected', label: 'રિજેક્ટ (Rejected)', count: stats.rejected }
+                  { key: 'all', label: 'બધા', count: stats.total },
+                  { key: 'pending', label: 'બાકી', count: stats.pending },
+                  { key: 'approved', label: 'એપ્રુવ્ડ', count: stats.approved },
+                  { key: 'rejected', label: 'રિજેક્ટ', count: stats.rejected }
                 ].map((f) => (
                   <button
                     key={f.key}
@@ -1130,15 +974,15 @@ export default function EventAdminPage({ defaultRole }) {
                       setActiveFilter(f.key);
                       fetchRegistrations(password, f.key, searchQuery);
                     }}
-                    className={`px-3 py-2 rounded-xl font-bold whitespace-nowrap transition-all cursor-pointer flex items-center gap-1.5 shrink-0 ${
+                    className={`px-2.5 sm:px-3 py-1.5 rounded-lg font-medium transition-all flex items-center gap-1.5 shrink-0 cursor-pointer ${
                       activeFilter === f.key
-                        ? 'bg-rose-700 text-white shadow-xs'
-                        : 'bg-stone-50 border border-stone-200/80 text-stone-600 hover:bg-stone-100'
+                        ? 'bg-slate-900 text-white shadow-2xs font-semibold'
+                        : 'bg-slate-50 border border-slate-200 text-slate-700 hover:bg-slate-100'
                     }`}
                   >
                     <span>{f.label}</span>
-                    <span className={`text-[10px] px-1.5 py-0.2 rounded-full font-extrabold ${
-                      activeFilter === f.key ? 'bg-white/20 text-white' : 'bg-stone-200 text-stone-700'
+                    <span className={`text-[10px] px-1.5 py-0.2 rounded-full font-bold tabular-nums ${
+                      activeFilter === f.key ? 'bg-white/20 text-white' : 'bg-slate-200 text-slate-700'
                     }`}>
                       {f.count}
                     </span>
@@ -1146,161 +990,165 @@ export default function EventAdminPage({ defaultRole }) {
                 ))}
               </div>
 
-              {/* Search Bar & Mobile Action Buttons */}
-              <div className="flex items-center gap-2">
-                <div className="relative flex-grow">
-                  <Search className="w-4 h-4 text-stone-400 absolute left-3 top-1/2 -translate-y-1/2" />
-                  <input
-                    type="text"
-                    value={searchQuery}
-                    onChange={(e) => {
-                      setSearchQuery(e.target.value);
-                      fetchRegistrations(password, activeFilter, e.target.value);
-                    }}
-                    placeholder="નામ, CPL-ID, મોબાઇલ, UTR..."
-                    className="w-full bg-stone-50 border border-stone-200 rounded-xl pl-9 pr-8 py-2.5 text-xs text-stone-900 focus:outline-none focus:border-rose-700 focus:bg-white"
-                  />
-                  {searchQuery && (
-                    <button
-                      type="button"
-                      onClick={() => {
-                        setSearchQuery('');
-                        fetchRegistrations(password, activeFilter, '');
-                      }}
-                      className="absolute right-2.5 top-1/2 -translate-y-1/2 text-stone-400 hover:text-stone-700 p-1"
-                    >
-                      <X className="w-3.5 h-3.5" />
-                    </button>
-                  )}
+              {/* Row 3 on Mobile: Sort & Action Buttons */}
+              <div className="flex items-center gap-1.5 w-full md:w-auto justify-between md:justify-end order-3">
+                {/* Sort Option */}
+                <select
+                  value={sortBy}
+                  onChange={(e) => setSortBy(e.target.value)}
+                  className="bg-slate-50 border border-slate-200 rounded-lg px-2.5 py-1.5 text-xs font-medium text-slate-700 focus:outline-none cursor-pointer flex-1 md:flex-none"
+                  title="Sort registrations"
+                >
+                  <option value="newest">નવી એન્ટ્રી</option>
+                  <option value="oldest">જૂની એન્ટ્રી</option>
+                  <option value="amount">રકમ મુજબ</option>
+                </select>
+
+                {/* View Switcher (Desktop Only) */}
+                <div className="hidden md:flex items-center p-0.5 bg-slate-100 rounded-lg border border-slate-200">
+                  <button
+                    type="button"
+                    onClick={() => setViewMode('table')}
+                    className={`p-1.5 rounded transition-all ${
+                      viewMode === 'table' ? 'bg-white shadow-2xs text-slate-900' : 'text-slate-500 hover:text-slate-900'
+                    }`}
+                    title="Table View"
+                  >
+                    <LayoutList className="w-3.5 h-3.5" />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setViewMode('cards')}
+                    className={`p-1.5 rounded transition-all ${
+                      viewMode === 'cards' ? 'bg-white shadow-2xs text-slate-900' : 'text-slate-500 hover:text-slate-900'
+                    }`}
+                    title="Cards View"
+                  >
+                    <LayoutGrid className="w-3.5 h-3.5" />
+                  </button>
                 </div>
 
-                {/* CSV Download */}
+                {/* Export CSV */}
                 <button
                   type="button"
                   onClick={handleExportCSV}
-                  className="px-3 py-2.5 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-bold transition-all shadow-xs flex items-center gap-1.5 whitespace-nowrap cursor-pointer shrink-0"
-                  title="Export Attendees to CSV"
+                  className="p-1.5 sm:px-2.5 sm:py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 border border-slate-200 text-slate-700 transition-all cursor-pointer flex items-center gap-1 shrink-0"
+                  title="Export to CSV"
                 >
-                  <Download className="w-3.5 h-3.5" />
-                  <span className="hidden sm:inline">CSV એક્સપોર્ટ</span>
+                  <Download className="w-4 h-4 text-slate-600" />
+                  <span className="hidden sm:inline text-xs font-semibold">CSV</span>
                 </button>
 
-                {/* Refresh */}
+                {/* Refresh Button */}
                 <button
                   type="button"
                   onClick={() => fetchRegistrations(password, activeFilter, searchQuery)}
-                  className="p-2.5 rounded-xl bg-stone-50 border border-stone-200 text-stone-600 hover:text-stone-900 hover:bg-stone-100 transition-all cursor-pointer shrink-0"
-                  title="રીફ્રેશ કરો"
+                  className="p-1.5 sm:px-2.5 sm:py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 border border-slate-200 text-slate-700 transition-all cursor-pointer flex items-center gap-1 shrink-0"
+                  title="Refresh list"
                 >
-                  <RefreshCw className={`w-4 h-4 ${loadingList ? 'animate-spin' : ''}`} />
+                  <RefreshCw className={`w-4 h-4 ${loadingList ? 'animate-spin text-slate-900' : 'text-slate-600'}`} />
+                  <span className="hidden sm:inline text-xs font-semibold">રિફ્રેશ</span>
                 </button>
               </div>
             </div>
 
-            {/* Connection Error Banner (with 1-tap Retry) */}
+            {/* Error Banner */}
             {fetchError && (
-              <div className="bg-rose-50 border border-rose-200 rounded-2xl p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 shadow-xs">
-                <div className="flex items-center gap-2.5 text-xs text-rose-900 font-semibold">
-                  <AlertTriangle className="w-5 h-5 text-rose-600 shrink-0" />
-                  <div>
-                    <p className="font-bold">ડેટા કનેક્શન એરર (Connection Error)</p>
-                    <p className="text-rose-700 text-[11px] mt-0.5">{fetchError}</p>
-                  </div>
+              <div className="p-3.5 rounded-xl bg-red-50 border border-red-200 text-red-800 text-xs font-medium flex items-center justify-between gap-3">
+                <div className="flex items-center gap-2">
+                  <AlertCircle className="w-4 h-4 text-red-600 shrink-0" />
+                  <span>{fetchError}</span>
                 </div>
                 <button
                   type="button"
                   onClick={() => fetchRegistrations(password, activeFilter, searchQuery)}
-                  className="px-3.5 py-1.5 rounded-xl bg-rose-700 hover:bg-rose-800 text-white font-bold text-xs flex items-center gap-1.5 cursor-pointer shadow-xs shrink-0 active:scale-95 transition-all"
+                  className="px-3 py-1 bg-red-700 text-white rounded-lg text-xs font-semibold hover:bg-red-800"
                 >
-                  <RefreshCw className="w-3.5 h-3.5" />
-                  <span>ફરી પ્રયાસ કરો (Retry)</span>
+                  Retry
                 </button>
               </div>
             )}
 
-            {/* Registrations List (Modern Fast Skeleton + Mobile Cards Layout) */}
+            {/* Loading Skeleton */}
             {loadingList ? (
-              <div className="space-y-3">
-                {[1, 2, 3, 4].map((i) => (
-                  <div key={i} className="bg-white border border-stone-200/80 rounded-2xl p-4 shadow-xs animate-pulse space-y-3">
-                    <div className="flex justify-between items-center">
-                      <div className="h-5 w-20 bg-stone-200 rounded-md" />
-                      <div className="h-5 w-16 bg-stone-200 rounded-full" />
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-stone-200 shrink-0" />
-                      <div className="space-y-2 flex-1">
-                        <div className="h-4 w-3/4 bg-stone-200 rounded-md" />
-                        <div className="h-3 w-1/2 bg-stone-200 rounded-md" />
-                        <div className="h-3 w-1/3 bg-stone-200 rounded-md" />
-                      </div>
-                    </div>
-                  </div>
+              <div className="bg-white border border-slate-200 rounded-xl p-4 sm:p-5 space-y-3 animate-pulse">
+                {[1, 2, 3, 4, 5].map((i) => (
+                  <div key={i} className="h-16 bg-slate-100 rounded-xl" />
                 ))}
               </div>
-            ) : registrations.length === 0 ? (
-              <div className="bg-white border border-stone-200/90 rounded-2xl p-10 text-center text-stone-400 space-y-2">
-                <Users className="w-8 h-8 mx-auto text-stone-300" />
-                <h3 className="text-sm font-bold text-stone-700">કોઈ રજીસ્ટ્રેશન મળ્યું નથી</h3>
-                <p className="text-xs">પસંદ કરેલ ફિલ્ટર અથવા સર્ચ ક્વેરી મુજબ કોઈ રેકોર્ડ ઉપલબ્ધ નથી.</p>
+            ) : filteredRegistrations.length === 0 ? (
+              /* Empty State */
+              <div className="bg-white border border-slate-200 rounded-xl p-8 sm:p-10 text-center space-y-3">
+                <Users className="w-10 h-10 text-slate-300 mx-auto" />
+                <h3 className="text-sm font-semibold text-slate-800">કોઈ રજીસ્ટ્રેશન મળ્યું નથી</h3>
+                <p className="text-xs text-slate-500 max-w-sm mx-auto">
+                  પસંદ કરેલ ફિલ્ટર અથવા સર્ચ મુજબ કોઈ રેકોર્ડ ઉપલબ્ધ નથી.
+                </p>
+                <button
+                  type="button"
+                  onClick={() => setShowManualModal(true)}
+                  className="px-3.5 py-1.5 bg-slate-900 text-white text-xs font-semibold rounded-lg hover:bg-slate-800"
+                >
+                  + નવી એન્ટ્રી ઉમેરો
+                </button>
               </div>
             ) : (
-              <div className="space-y-3">
-                {registrations.map((item) => (
-                  <div
-                    key={item.inquiryId}
-                    className="bg-white border border-stone-200/90 rounded-2xl p-3.5 sm:p-4 shadow-xs hover:shadow-md transition-all space-y-3"
-                  >
-                    {/* Top Row: Inquiry ID + Status Badge + Gate Tag + Price */}
-                    <div className="flex items-center justify-between gap-2">
-                      <div className="flex items-center gap-1.5 flex-wrap">
-                        <span className="font-mono text-[11px] font-black px-2 py-0.5 rounded-md bg-stone-100 border border-stone-200 text-stone-800">
-                          {item.inquiryId}
-                        </span>
-                        <span className={`text-[9px] sm:text-[10px] font-black uppercase px-2 py-0.5 rounded-full border ${
-                          item.status === 'approved'
-                            ? 'bg-emerald-50 border-emerald-200 text-emerald-800'
-                            : item.status === 'rejected'
-                            ? 'bg-rose-50 border-rose-200 text-rose-800'
-                            : 'bg-amber-50 border-amber-200 text-amber-800'
-                        }`}>
-                          {item.status === 'approved' ? 'Approved' : item.status === 'rejected' ? 'Rejected' : 'Pending'}
-                        </span>
-                        {item.attendance?.checkedIn && (
-                          <span className="text-[9px] font-black uppercase px-2 py-0.5 rounded-full bg-blue-50 border border-blue-200 text-blue-800">
-                            Checked-In
+              <>
+                {/* ========================================================
+                   A. MOBILE TOUCH-FRIENDLY CARDS (Always used on screens < md)
+                   100% Mobile Focused, Zero Horizontal Scroll, Thumb Friendly
+                ======================================================== */}
+                <div className="block md:hidden space-y-2.5 w-full">
+                  {filteredRegistrations.map((item) => (
+                    <div
+                      key={item.inquiryId}
+                      className="bg-white border border-slate-200 rounded-2xl p-3 shadow-2xs space-y-2.5 hover:border-slate-300 transition-all w-full"
+                    >
+                      {/* Top Header: ID + Status + Timestamp */}
+                      <div className="flex items-center justify-between gap-2">
+                        <div className="flex items-center gap-1.5 min-w-0">
+                          <button
+                            type="button"
+                            onClick={() => handleCopy(item.inquiryId, 'Inquiry ID')}
+                            className="font-mono text-xs font-semibold px-2 py-0.5 rounded bg-slate-100 active:bg-slate-200 text-slate-800 flex items-center gap-1 cursor-pointer shrink-0"
+                            title="Click to copy ID"
+                          >
+                            <span>{item.inquiryId}</span>
+                            <Copy className="w-2.5 h-2.5 text-slate-400" />
+                          </button>
+                          <span className={`text-[10px] font-semibold uppercase px-2 py-0.5 rounded-full border shrink-0 ${
+                            item.status === 'approved'
+                              ? 'bg-emerald-50 border-emerald-200 text-emerald-700'
+                              : item.status === 'rejected'
+                              ? 'bg-red-50 border-red-200 text-red-700'
+                              : 'bg-amber-50 border-amber-200 text-amber-800'
+                          }`}>
+                            {item.status}
                           </span>
-                        )}
+                        </div>
+
+                        <div className="text-right shrink-0">
+                          <span className="text-[11px] font-semibold text-slate-700 block">
+                            {formatISTDateTime(item.createdAt)}
+                          </span>
+                          <span className="text-[10px] text-slate-400 block -mt-0.5">
+                            {formatTimeAgo(item.createdAt)}
+                          </span>
+                        </div>
                       </div>
 
-                      <div className="flex items-center gap-2 shrink-0">
-                        <span className="text-xs font-black text-amber-950 bg-amber-50 px-2 py-0.5 rounded-md border border-amber-200/60">
-                          ₹{item.amount}
-                        </span>
+                      {/* Middle: Couple Photo + Names + Call & WhatsApp Buttons */}
+                      <div className="flex items-center gap-3 pt-0.5">
+                        {/* Couple Photo thumbnail: Tap opens lightbox */}
                         <button
                           type="button"
-                          onClick={() => handleDelete(item.inquiryId)}
-                          className="p-1 text-stone-300 hover:text-rose-700 transition-colors"
-                          title="ડિલીટ કરો"
+                          onClick={(e) => handleOpenCouplePhoto(e, item)}
+                          className="relative w-12 h-12 rounded-xl overflow-hidden bg-slate-100 border border-slate-200 shrink-0 cursor-pointer active:scale-95 transition-transform"
+                          title="કપલ ફોટો જોવા ક્લિક કરો"
                         >
-                          <Trash2 className="w-3.5 h-3.5" />
-                        </button>
-                      </div>
-                    </div>
-
-                    {/* Middle Row: Photo + Couple Info + Phone + UTR */}
-                    <div className="flex items-start gap-3">
-                      {/* Couple Photo (Tap to Inspect) */}
-                      <button
-                        type="button"
-                        onClick={() => handleOpenInspect(item)}
-                        className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-2xl overflow-hidden border border-stone-200 bg-stone-100 shrink-0 cursor-pointer group hover:ring-2 hover:ring-rose-500 transition-all"
-                        title="ફોટો જુઓ"
-                      >
-                        {item.couplePhoto ? (
-                          <>
+                          {item.couplePhoto ? (
                             <img
-                              src={item.couplePhoto}
+                              src={resolveApiUrl(item.couplePhoto)}
                               alt="Couple"
                               loading="lazy"
                               className="w-full h-full object-cover"
@@ -1309,139 +1157,533 @@ export default function EventAdminPage({ defaultRole }) {
                                 if (e.target.nextSibling) e.target.nextSibling.style.display = 'flex';
                               }}
                             />
-                            <div className="w-full h-full hidden items-center justify-center text-stone-400 bg-stone-100">
-                              <Users className="w-6 h-6" />
-                            </div>
-                            <div className="absolute inset-0 bg-stone-900/30 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity">
-                              <ZoomIn className="w-4 h-4 text-white" />
-                            </div>
-                          </>
-                        ) : (
-                          <div className="w-full h-full flex items-center justify-center text-stone-400">
-                            <Users className="w-6 h-6" />
+                          ) : null}
+                          <div className={`w-full h-full ${item.couplePhoto ? 'hidden' : 'flex'} items-center justify-center font-bold text-slate-600 text-xs bg-slate-100`}>
+                            {item.husbandName?.slice(0, 1)}{item.wifeName?.slice(0, 1)}
                           </div>
-                        )}
-                      </button>
+                          {item.couplePhoto && (
+                            <div className="absolute bottom-0 right-0 p-0.5 bg-black/60 rounded-tl text-[8px] text-white">
+                              <Eye className="w-2.5 h-2.5" />
+                            </div>
+                          )}
+                        </button>
 
-                      {/* Couple Details */}
-                      <div className="min-w-0 flex-1 space-y-1">
-                        <h3 className="text-sm sm:text-base font-black text-stone-900 truncate font-serif">
-                          {item.husbandName} &amp; {item.wifeName} {item.surname}
-                        </h3>
-
-                        {/* Phone & WhatsApp Contacts */}
-                        <div className="flex items-center gap-2 flex-wrap text-xs">
-                          <a
-                            href={`tel:+91${item.phoneNumber}`}
-                            className="text-stone-700 hover:text-stone-900 font-bold flex items-center gap-1 bg-stone-50 px-2 py-0.5 rounded-md border border-stone-200/60"
+                        <div className="min-w-0 flex-1">
+                          <button
+                            type="button"
+                            onClick={() => handleOpenInspect(item)}
+                            className="font-bold text-slate-900 text-sm truncate hover:text-slate-700 text-left block w-full cursor-pointer leading-tight"
                           >
-                            <Phone className="w-3 h-3 text-stone-400" />
-                            <span>+91 {item.phoneNumber}</span>
-                          </a>
+                            {item.husbandName} &amp; {item.wifeName} {item.surname}
+                          </button>
+                          
+                          <div className="flex items-center gap-2 mt-1 flex-wrap">
+                            <a
+                              href={`tel:+91${item.phoneNumber}`}
+                              className="inline-flex items-center gap-1 text-xs font-mono font-medium text-slate-700 bg-slate-100 hover:bg-slate-200 active:bg-slate-300 px-2 py-0.5 rounded transition-colors"
+                              title="Direct Phone Call"
+                            >
+                              <Phone className="w-2.5 h-2.5 text-slate-500" />
+                              <span>+91 {item.phoneNumber}</span>
+                            </a>
+                            <a
+                              href={`https://wa.me/91${item.phoneNumber}?text=${encodeURIComponent(`નમસ્તે ${item.husbandName}જી, The Divine Garbh Sanskar દ્વારા આયોજિત દિવ્ય ગર્ભયાત્રા સેમિનાર માટે તમારી ઇન્ક્વાયરી ID: ${item.inquiryId} બાબતે...`)}`}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-1 text-xs font-semibold text-emerald-700 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 px-2 py-0.5 rounded transition-colors"
+                              title="WhatsApp Message"
+                            >
+                              <MessageCircle className="w-3 h-3 text-emerald-600" />
+                              <span>WA</span>
+                            </a>
+                            {item.isManualEntry && (
+                              <span className="text-[9px] font-bold uppercase px-1.5 py-0.2 rounded bg-indigo-50 text-indigo-700 border border-indigo-200">
+                                Manual
+                              </span>
+                            )}
+                            {item.isFlaggedFake && (
+                              <span className="text-[9px] font-bold uppercase px-1.5 py-0.2 rounded bg-red-100 text-red-700 border border-red-200">
+                                Fake
+                              </span>
+                            )}
+                          </div>
+                        </div>
+                      </div>
 
-                          <a
-                            href={`https://wa.me/91${item.phoneNumber}?text=${encodeURIComponent(`નમસ્તે ${item.husbandName}જી, The Divine Garbh Sanskar દ્વારા આયોજિત દિવ્ય ગર્ભયાત્રા સેમિનાર માટે તમારી ઇન્ક્વાયરી ID: ${item.inquiryId} બાબતે...`)}`}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-emerald-700 hover:text-emerald-800 font-bold flex items-center gap-1 bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-200/60"
-                          >
-                            <MessageCircle className="w-3 h-3 text-emerald-600" />
-                            <span>WhatsApp</span>
-                          </a>
+                      {/* Payment & UTR Row */}
+                      <div className="bg-slate-50 border border-slate-100 rounded-xl p-2.5 flex items-center justify-between text-xs">
+                        <div>
+                          <span className="text-[10px] text-slate-400 font-semibold uppercase block">રકમ</span>
+                          <div className="flex items-baseline gap-1">
+                            <strong className="text-sm font-bold text-slate-900">₹{item.amount}</strong>
+                            <span className="text-[10px] text-slate-400 font-medium">({item.paymentMethod || 'UPI'})</span>
+                          </div>
                         </div>
 
-                        {/* UTR Number with 1-tap copy */}
-                        {item.utr && (
-                          <div className="flex items-center gap-1.5 pt-0.5">
-                            <span className="text-[10px] text-stone-400">UTR:</span>
-                            <button
-                              type="button"
-                              onClick={() => handleCopyText(item.utr, 'UTR કોપી થયું!')}
-                              className="font-mono text-[10px] font-bold text-stone-800 bg-stone-100 hover:bg-stone-200 px-2 py-0.5 rounded flex items-center gap-1 cursor-pointer transition-colors"
-                              title="Click to copy UTR"
-                            >
-                              <span>{item.utr}</span>
-                              <Copy className="w-2.5 h-2.5 text-stone-400" />
-                            </button>
-                          </div>
+                        <div className="text-right">
+                          <span className="text-[10px] text-slate-400 font-semibold uppercase block">UTR નંબર</span>
+                          {item.utr ? (
+                            <div className="flex items-center justify-end gap-1">
+                              <span className={`font-mono text-xs ${item.isDuplicateUtr ? 'text-red-700 font-bold' : 'text-slate-800 font-medium'}`}>
+                                {item.utr}
+                              </span>
+                              <button
+                                type="button"
+                                onClick={() => handleCopy(item.utr, 'UTR')}
+                                className="p-1 hover:bg-slate-200 rounded text-slate-400 hover:text-slate-700"
+                                title="Copy UTR"
+                              >
+                                <Copy className="w-2.5 h-2.5" />
+                              </button>
+                              {item.isDuplicateUtr && (
+                                <span className="text-[8px] font-bold uppercase text-red-700 bg-red-100 px-1 rounded">
+                                  DUP
+                                </span>
+                              )}
+                            </div>
+                          ) : (
+                            <span className="text-slate-400 italic text-xs">રસીદમાં UTR જુઓ</span>
+                          )}
+                        </div>
+                      </div>
+
+                      {/* Bottom Touch Action Bar */}
+                      <div className="pt-1 border-t border-slate-100 flex items-center gap-1.5">
+                        <button
+                          type="button"
+                          onClick={() => handleOpenInspect(item)}
+                          className="flex-1 min-h-[38px] py-1.5 px-3 rounded-xl bg-slate-100 hover:bg-slate-200 active:bg-slate-300 text-slate-800 text-xs font-semibold transition-all flex items-center justify-center gap-1.5 cursor-pointer"
+                        >
+                          <Eye className="w-4 h-4 text-slate-600" />
+                          <span>રસીદ જુઓ</span>
+                        </button>
+
+                        {item.status !== 'approved' && (
+                          <button
+                            type="button"
+                            onClick={() => handleApprove(item.inquiryId)}
+                            disabled={actionLoading}
+                            className="flex-1 min-h-[38px] py-1.5 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 text-white text-xs font-semibold transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-2xs"
+                          >
+                            <Check className="w-4 h-4 text-white" />
+                            <span>એપ્રુવ કરો</span>
+                          </button>
                         )}
+
+                        {item.status === 'approved' && (
+                          <Link
+                            to={`/pass/${item.inquiryId}`}
+                            target="_blank"
+                            className="min-h-[38px] py-1.5 px-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold transition-all flex items-center justify-center gap-1.5 shrink-0"
+                          >
+                            <ExternalLink className="w-3.5 h-3.5 text-slate-300" />
+                            <span>પાસ જુઓ</span>
+                          </Link>
+                        )}
+
+                        <button
+                          type="button"
+                          onClick={() => handleDelete(item.inquiryId)}
+                          className="min-h-[38px] min-w-[38px] p-2 rounded-xl hover:bg-red-50 text-slate-400 hover:text-red-600 transition-colors flex items-center justify-center shrink-0 cursor-pointer"
+                          title="Delete"
+                        >
+                          <Trash2 className="w-4 h-4" />
+                        </button>
                       </div>
                     </div>
+                  ))}
+                </div>
 
-                    {/* Bottom Action Bar (Thumb-Friendly Mobile Grid) */}
-                    <div className="pt-2 border-t border-stone-100 flex items-center gap-2 flex-wrap">
-                      {/* Inspect Button */}
-                      <button
-                        type="button"
-                        onClick={() => handleOpenInspect(item)}
-                        className="flex-1 min-w-[120px] py-2 px-3 rounded-xl bg-stone-100 hover:bg-stone-200 border border-stone-200 text-stone-700 text-xs font-bold transition-all cursor-pointer flex items-center justify-center gap-1.5"
-                      >
-                        <Eye className="w-3.5 h-3.5" />
-                        <span>ચકાસણી (Inspect)</span>
-                      </button>
+                {/* ========================================================
+                   B. DESKTOP VIEW (Screens >= md: Table or Cards view via viewMode)
+                ======================================================== */}
+                <div className="hidden md:block w-full">
+                  {viewMode === 'table' ? (
+                    <div className="bg-white border border-slate-200 rounded-xl shadow-2xs overflow-x-auto w-full">
+                      <table className="w-full text-left border-collapse text-xs min-w-[760px]">
+                        <thead>
+                          <tr className="bg-slate-50 border-b border-slate-200 text-[11px] font-semibold text-slate-500 uppercase tracking-wider">
+                            <th className="py-2.5 px-3.5 w-[32%]">કપલ &amp; સંપર્ક</th>
+                            <th className="py-2.5 px-3 w-[11%]">Inquiry ID</th>
+                            <th className="py-2.5 px-3 w-[16%]">રજીસ્ટ્રેશન સમય</th>
+                            <th className="py-2.5 px-3 w-[18%]">પેમેન્ટ / UTR</th>
+                            <th className="py-2.5 px-3 w-[10%]">સ્ટેટસ</th>
+                            <th className="py-2.5 px-3.5 text-right w-[13%]">ઍક્શન</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-slate-100 font-medium">
+                          {filteredRegistrations.map((item) => (
+                            <tr
+                              key={item.inquiryId}
+                              className="hover:bg-slate-50/80 transition-colors"
+                            >
+                              {/* 1. Couple & Contact Details */}
+                              <td className="py-2.5 px-3.5">
+                                <div className="flex items-center gap-2.5">
+                                  {/* Couple Photo thumbnail: Clicking opens dedicated Photo Lightbox */}
+                                  <button
+                                    type="button"
+                                    onClick={(e) => handleOpenCouplePhoto(e, item)}
+                                    className="relative w-9 h-9 rounded-lg overflow-hidden bg-slate-100 border border-slate-200 shrink-0 group cursor-pointer hover:ring-2 hover:ring-slate-400 transition-all"
+                                    title="કપલ ફોટો જોવા ક્લિક કરો (View Photo)"
+                                  >
+                                    {item.couplePhoto ? (
+                                      <img
+                                        src={resolveApiUrl(item.couplePhoto)}
+                                        alt="Couple"
+                                        loading="lazy"
+                                        className="w-full h-full object-cover group-hover:scale-110 transition-transform"
+                                        onError={(e) => {
+                                          e.target.style.display = 'none';
+                                          if (e.target.nextSibling) e.target.nextSibling.style.display = 'flex';
+                                        }}
+                                      />
+                                    ) : null}
+                                    <div className={`w-full h-full ${item.couplePhoto ? 'hidden' : 'flex'} items-center justify-center font-bold text-slate-600 text-[11px] bg-slate-100`}>
+                                      {item.husbandName?.slice(0, 1)}{item.wifeName?.slice(0, 1)}
+                                    </div>
+                                  </button>
 
-                      {/* Approve Button (if pending/rejected) */}
-                      {item.status !== 'approved' && (
-                        <button
-                          type="button"
-                          onClick={() => handleApprove(item.inquiryId)}
-                          disabled={actionLoading}
-                          className="flex-1 min-w-[130px] py-2 px-3.5 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-bold transition-all cursor-pointer shadow-xs flex items-center justify-center gap-1.5 active:scale-[0.98]"
-                        >
-                          <Check className="w-3.5 h-3.5" />
-                          <span>એપ્રુવ કરો</span>
-                        </button>
-                      )}
+                                  <div className="min-w-0 flex-1">
+                                    {/* Clicking name opens inspect */}
+                                    <button
+                                      type="button"
+                                      onClick={() => handleOpenInspect(item)}
+                                      className="font-semibold text-slate-900 block truncate text-xs hover:text-slate-700 text-left cursor-pointer"
+                                    >
+                                      {item.husbandName} &amp; {item.wifeName} {item.surname}
+                                    </button>
+                                    <div className="flex items-center gap-2 mt-0.5 text-[11px] text-slate-500">
+                                      <a
+                                        href={`tel:+91${item.phoneNumber}`}
+                                        className="font-mono text-slate-600 hover:text-slate-900"
+                                      >
+                                        +91 {item.phoneNumber}
+                                      </a>
+                                      <a
+                                        href={`https://wa.me/91${item.phoneNumber}?text=${encodeURIComponent(`નમસ્તે ${item.husbandName}જી, The Divine Garbh Sanskar દ્વારા આયોજિત દિવ્ય ગર્ભયાત્રા સેમિનાર માટે તમારી ઇન્ક્વાયરી ID: ${item.inquiryId} બાબતે...`)}`}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="text-emerald-600 hover:text-emerald-700 font-semibold flex items-center gap-0.5"
+                                        title="WhatsApp"
+                                      >
+                                        <MessageCircle className="w-3 h-3" />
+                                        <span>WA</span>
+                                      </a>
+                                      {item.isManualEntry && (
+                                        <span className="text-[9px] font-bold uppercase px-1 py-0.2 rounded bg-indigo-50 text-indigo-700">
+                                          Manual
+                                        </span>
+                                      )}
+                                      {item.isFlaggedFake && (
+                                        <span className="text-[9px] font-bold uppercase px-1 py-0.2 rounded bg-red-100 text-red-700">
+                                          Fake
+                                        </span>
+                                      )}
+                                    </div>
+                                  </div>
+                                </div>
+                              </td>
 
-                      {/* View Digital Pass Button (if approved) */}
-                      {item.status === 'approved' && (
-                        <Link
-                          to={`/pass/${item.inquiryId}`}
-                          target="_blank"
-                          className="flex-1 min-w-[120px] py-2 px-3 rounded-xl bg-rose-50 hover:bg-rose-100 border border-rose-200 text-rose-800 text-xs font-bold transition-all flex items-center justify-center gap-1.5"
-                        >
-                          <ExternalLink className="w-3.5 h-3.5" />
-                          <span>પાસ જુઓ</span>
-                        </Link>
-                      )}
+                              {/* 2. Inquiry ID */}
+                              <td className="py-2.5 px-3">
+                                <button
+                                  type="button"
+                                  onClick={() => handleCopy(item.inquiryId, 'Inquiry ID')}
+                                  className="font-mono text-xs font-semibold px-1.5 py-0.5 rounded bg-slate-100 hover:bg-slate-200 text-slate-800 transition-colors inline-flex items-center gap-1 cursor-pointer"
+                                  title="Click to copy ID"
+                                >
+                                  <span>{item.inquiryId}</span>
+                                  <Copy className="w-2.5 h-2.5 text-slate-400" />
+                                </button>
+                              </td>
 
-                      {/* Reject Button (if pending/approved) */}
-                      {item.status !== 'rejected' && (
-                        <button
-                          type="button"
-                          onClick={() => {
-                            handleOpenInspect(item);
-                            setShowRejectInput(true);
-                          }}
-                          className="py-2 px-3 rounded-xl bg-stone-50 hover:bg-rose-50 text-stone-600 hover:text-rose-700 border border-stone-200 text-xs font-bold transition-all cursor-pointer"
-                        >
-                          રિજેક્ટ
-                        </button>
-                      )}
+                              {/* 3. Registered Time (IST Date & Time) */}
+                              <td className="py-2.5 px-3">
+                                <span className="font-medium text-slate-800 block text-xs">
+                                  {formatISTDateTime(item.createdAt)}
+                                </span>
+                                <span className="text-[10px] text-slate-400 block">
+                                  {formatTimeAgo(item.createdAt)}
+                                </span>
+                              </td>
+
+                              {/* 4. Payment & UTR */}
+                              <td className="py-2.5 px-3">
+                                <div className="flex items-center gap-1.5">
+                                  <span className="font-bold text-slate-900 text-xs">
+                                    ₹{item.amount}
+                                  </span>
+                                  <span className="text-[10px] text-slate-400 font-medium">
+                                    ({item.paymentMethod || 'UPI'})
+                                  </span>
+                                </div>
+                                {item.utr ? (
+                                  <div className="flex items-center gap-1 mt-0.5">
+                                    <span className={`font-mono text-[10px] ${item.isDuplicateUtr ? 'text-red-700 font-bold' : 'text-slate-600'}`}>
+                                      {item.utr}
+                                    </span>
+                                    <button
+                                      type="button"
+                                      onClick={() => handleCopy(item.utr, 'UTR')}
+                                      className="p-0.5 hover:text-slate-900 text-slate-400"
+                                      title="Copy UTR"
+                                    >
+                                      <Copy className="w-2.5 h-2.5" />
+                                    </button>
+                                    {item.isDuplicateUtr && (
+                                      <span className="text-[8px] font-bold uppercase text-red-700 bg-red-100 px-1 rounded">
+                                        DUP
+                                      </span>
+                                    )}
+                                  </div>
+                                ) : (
+                                  <span className="text-[10px] text-slate-400 italic">No UTR</span>
+                                )}
+                              </td>
+
+                              {/* 5. Status Badge */}
+                              <td className="py-2.5 px-3">
+                                <span className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-semibold uppercase tracking-wider ${
+                                  item.status === 'approved'
+                                    ? 'bg-emerald-50 text-emerald-700 border border-emerald-200'
+                                    : item.status === 'rejected'
+                                    ? 'bg-red-50 text-red-700 border border-red-200'
+                                    : 'bg-amber-50 text-amber-800 border border-amber-200'
+                                }`}>
+                                  <span className={`w-1.5 h-1.5 rounded-full ${
+                                    item.status === 'approved' ? 'bg-emerald-500' : item.status === 'rejected' ? 'bg-red-500' : 'bg-amber-500'
+                                  }`} />
+                                  <span>{item.status}</span>
+                                </span>
+                              </td>
+
+                              {/* 6. Action Buttons */}
+                              <td className="py-2.5 px-3.5 text-right">
+                                <div className="flex items-center justify-end gap-1">
+                                  {/* View Receipt / Inspect */}
+                                  <button
+                                    type="button"
+                                    onClick={() => handleOpenInspect(item)}
+                                    className="px-2 py-1 rounded-md bg-slate-100 hover:bg-slate-200 text-slate-800 font-semibold text-xs transition-colors flex items-center gap-1 cursor-pointer"
+                                    title="રસીદ ચકાસો"
+                                  >
+                                    <Eye className="w-3.5 h-3.5 text-slate-600" />
+                                    <span>ચકાસો</span>
+                                  </button>
+
+                                  {/* Quick Approve Button */}
+                                  {item.status !== 'approved' && (
+                                    <button
+                                      type="button"
+                                      onClick={() => handleApprove(item.inquiryId)}
+                                      disabled={actionLoading}
+                                      className="p-1 rounded-md bg-emerald-600 hover:bg-emerald-700 text-white transition-colors cursor-pointer"
+                                      title="Approve & Generate Pass"
+                                    >
+                                      <Check className="w-3.5 h-3.5" />
+                                    </button>
+                                  )}
+
+                                  {/* Pass Link if approved */}
+                                  {item.status === 'approved' && (
+                                    <Link
+                                      to={`/pass/${item.inquiryId}`}
+                                      target="_blank"
+                                      className="p-1 rounded-md bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors"
+                                      title="ડિજિટલ પાસ જુઓ"
+                                    >
+                                      <ExternalLink className="w-3.5 h-3.5 text-slate-600" />
+                                    </Link>
+                                  )}
+
+                                  {/* Delete button */}
+                                  <button
+                                    type="button"
+                                    onClick={() => handleDelete(item.inquiryId)}
+                                    className="p-1 rounded-md hover:bg-red-50 text-slate-400 hover:text-red-600 transition-colors cursor-pointer"
+                                    title="Delete"
+                                  >
+                                    <Trash2 className="w-3.5 h-3.5" />
+                                  </button>
+                                </div>
+                              </td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
                     </div>
-                  </div>
-                ))}
-              </div>
+                  ) : (
+                    /* Desktop Cards Grid View */
+                    <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 w-full">
+                      {filteredRegistrations.map((item) => (
+                        <div
+                          key={item.inquiryId}
+                          className="bg-white border border-slate-200 rounded-xl p-3.5 shadow-2xs hover:shadow-xs transition-all space-y-2.5"
+                        >
+                          {/* Top Row: Inquiry ID + Time + Status */}
+                          <div className="flex items-center justify-between gap-2">
+                            <div className="flex items-center gap-1.5">
+                              <button
+                                type="button"
+                                onClick={() => handleCopy(item.inquiryId, 'Inquiry ID')}
+                                className="font-mono text-xs font-semibold px-2 py-0.5 rounded bg-slate-100 text-slate-800 flex items-center gap-1 cursor-pointer"
+                              >
+                                <span>{item.inquiryId}</span>
+                                <Copy className="w-2.5 h-2.5 text-slate-400" />
+                              </button>
+                              <span className={`text-[10px] font-semibold uppercase px-2 py-0.5 rounded-full border ${
+                                item.status === 'approved'
+                                  ? 'bg-emerald-50 border-emerald-200 text-emerald-700'
+                                  : item.status === 'rejected'
+                                  ? 'bg-red-50 border-red-200 text-red-700'
+                                  : 'bg-amber-50 border-amber-200 text-amber-800'
+                              }`}>
+                                {item.status}
+                              </span>
+                            </div>
+
+                            <div className="text-right">
+                              <span className="text-[11px] font-medium text-slate-700 block">
+                                {formatISTDateTime(item.createdAt)}
+                              </span>
+                            </div>
+                          </div>
+
+                          {/* Middle: Couple Photo + Name + Phone */}
+                          <div className="flex items-center gap-2.5 pt-0.5">
+                            <button
+                              type="button"
+                              onClick={(e) => handleOpenCouplePhoto(e, item)}
+                              className="w-11 h-11 rounded-lg overflow-hidden bg-slate-100 border border-slate-200 shrink-0 cursor-pointer hover:ring-2 hover:ring-slate-400 transition-all"
+                              title="Click to view photo"
+                            >
+                              {item.couplePhoto ? (
+                                <img
+                                  src={resolveApiUrl(item.couplePhoto)}
+                                  alt="Couple"
+                                  className="w-full h-full object-cover"
+                                />
+                              ) : (
+                                <div className="w-full h-full flex items-center justify-center font-bold text-slate-600 text-xs bg-slate-100">
+                                  {item.husbandName?.slice(0, 1)}{item.wifeName?.slice(0, 1)}
+                                </div>
+                              )}
+                            </button>
+
+                            <div className="min-w-0 flex-1">
+                              <button
+                                type="button"
+                                onClick={() => handleOpenInspect(item)}
+                                className="font-semibold text-slate-900 text-xs truncate hover:text-slate-700 text-left block w-full cursor-pointer"
+                              >
+                                {item.husbandName} &amp; {item.wifeName} {item.surname}
+                              </button>
+                              <div className="flex items-center gap-2 mt-0.5">
+                                <a
+                                  href={`tel:+91${item.phoneNumber}`}
+                                  className="text-xs font-mono font-medium text-slate-600 hover:text-slate-900"
+                                >
+                                  +91 {item.phoneNumber}
+                                </a>
+                                <a
+                                  href={`https://wa.me/91${item.phoneNumber}?text=${encodeURIComponent(`નમસ્તે ${item.husbandName}જી, The Divine Garbh Sanskar દ્વારા આયોજિત દિવ્ય ગર્ભયાત્રા સેમિનાર માટે તમારી ઇન્ક્વાયરી ID: ${item.inquiryId} બાબતે...`)}`}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="text-xs text-emerald-600 font-semibold hover:underline"
+                                  title="WhatsApp"
+                                >
+                                  WhatsApp
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* Payment Row */}
+                          <div className="bg-slate-50 rounded-lg p-2 flex items-center justify-between text-xs">
+                            <div>
+                              <span className="text-[10px] text-slate-400 font-semibold uppercase block">રકમ</span>
+                              <strong className="text-xs font-bold text-slate-900">₹{item.amount}</strong>
+                            </div>
+
+                            <div className="text-right">
+                              <span className="text-[10px] text-slate-400 font-semibold uppercase block">UTR નંબર</span>
+                              {item.utr ? (
+                                <span className={`font-mono text-xs ${item.isDuplicateUtr ? 'text-red-700 font-bold' : 'text-slate-700'}`}>
+                                  {item.utr}
+                                </span>
+                              ) : (
+                                <span className="text-slate-400 italic text-xs">No UTR</span>
+                              )}
+                            </div>
+                          </div>
+
+                          {/* Bottom Action Bar */}
+                          <div className="pt-1.5 border-t border-slate-100 flex items-center gap-1.5">
+                            <button
+                              type="button"
+                              onClick={() => handleOpenInspect(item)}
+                              className="flex-1 py-1.5 px-3 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-semibold transition-all flex items-center justify-center gap-1 cursor-pointer"
+                            >
+                              <Eye className="w-3.5 h-3.5 text-slate-600" />
+                              <span>રસીદ જુઓ</span>
+                            </button>
+
+                            {item.status !== 'approved' && (
+                              <button
+                                type="button"
+                                onClick={() => handleApprove(item.inquiryId)}
+                                disabled={actionLoading}
+                                className="flex-1 py-1.5 px-3 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold transition-all flex items-center justify-center gap-1 cursor-pointer shadow-2xs"
+                              >
+                                <Check className="w-3.5 h-3.5" />
+                                <span>એપ્રુવ કરો</span>
+                              </button>
+                            )}
+
+                            {item.status === 'approved' && (
+                              <Link
+                                to={`/pass/${item.inquiryId}`}
+                                target="_blank"
+                                className="py-1.5 px-3 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200 text-xs font-semibold transition-all flex items-center justify-center gap-1"
+                              >
+                                <ExternalLink className="w-3.5 h-3.5 text-slate-600" />
+                                <span>પાસ</span>
+                              </Link>
+                            )}
+
+                            <button
+                              type="button"
+                              onClick={() => handleDelete(item.inquiryId)}
+                              className="p-1.5 rounded-lg hover:bg-red-50 text-slate-400 hover:text-red-600 transition-colors"
+                              title="Delete"
+                            >
+                              <Trash2 className="w-3.5 h-3.5" />
+                            </button>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </>
             )}
           </div>
         )}
 
-        {/* ==========================================
-            TAB 2: DYNAMIC SETTINGS & QR CODE MANAGER
-        =========================================== */}
+        {/* ========================================================
+            TAB 2: SETTINGS & QR CODE MANAGER
+        ======================================================== */}
         {activeTab === 'settings' && (
-          <div className="space-y-4 sm:space-y-6">
-            {/* Settings Header Alert & Notice */}
-            <div className="bg-white border border-stone-200/90 rounded-2xl p-4 sm:p-5 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div className="space-y-4">
+            {/* Header */}
+            <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-2xs flex flex-col sm:flex-row sm:items-center justify-between gap-3">
               <div>
-                <div className="flex items-center gap-2">
-                  <span className="w-2.5 h-2.5 rounded-full bg-amber-500 shrink-0" />
-                  <h2 className="text-base sm:text-lg font-black text-stone-900 font-serif">
-                    ડાયનેમિક ઇવેન્ટ સેટિંગ્સ &amp; QR કોડ મેનેજર
-                  </h2>
-                </div>
-                <p className="text-xs text-stone-500 mt-0.5">
-                  અહીંથી તમે UPI QR કોડ, 5 સ્લેબ પ્રાઇસિંગ, ઇવેન્ટ તારીખ અને વક્તાની વિગતો લાઈવ બદલી શકો છો.
+                <h2 className="text-sm sm:text-base font-bold text-slate-900">
+                  ઇવેન્ટ સેટિંગ્સ &amp; UPI QR કોડ
+                </h2>
+                <p className="text-xs text-slate-500 mt-0.5">
+                  UPI ID, પ્રાઇસિંગ અને બેંક ખાતાની વિગતો અહીંથી બદલો.
                 </p>
               </div>
 
@@ -1449,654 +1691,111 @@ export default function EventAdminPage({ defaultRole }) {
                 type="button"
                 onClick={handleSaveSettings}
                 disabled={settingsSaving}
-                className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-gradient-to-r from-rose-700 via-rose-800 to-amber-700 hover:from-rose-800 hover:to-amber-800 text-white font-black text-xs sm:text-sm shadow-md shadow-rose-900/15 transition-all cursor-pointer flex items-center justify-center gap-2 active:scale-95"
+                className="px-4 py-2 bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold rounded-lg shadow-2xs transition-all flex items-center justify-center gap-1.5 cursor-pointer disabled:opacity-50"
               >
                 {settingsSaving ? (
                   <>
-                    <RefreshCw className="w-4 h-4 animate-spin" />
+                    <RefreshCw className="w-3.5 h-3.5 animate-spin text-white" />
                     <span>સેવ થઈ રહ્યું છે...</span>
                   </>
                 ) : (
                   <>
-                    <Check className="w-4 h-4" />
-                    <span>સેટિંગ્સ સેવ કરો (Save Settings)</span>
+                    <Check className="w-3.5 h-3.5 text-white" />
+                    <span>સેટિંગ્સ સાચવો (Save)</span>
                   </>
                 )}
               </button>
             </div>
 
-            {settingsToast.message && (
-              <div className={`p-4 rounded-2xl border text-xs font-bold flex items-center gap-2 ${
-                settingsToast.type === 'success'
-                  ? 'bg-emerald-50 border-emerald-200 text-emerald-900'
-                  : 'bg-rose-50 border-rose-200 text-rose-900'
-              }`}>
-                {settingsToast.type === 'success' ? <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" /> : <AlertTriangle className="w-4 h-4 text-rose-600 shrink-0" />}
-                <span>{settingsToast.message}</span>
-              </div>
-            )}
+            {/* UPI & QR Gateway */}
+            <div className="bg-white border border-slate-200 rounded-xl p-5 shadow-2xs space-y-4">
+              <h3 className="text-xs font-bold text-slate-900 uppercase tracking-wide flex items-center gap-1.5">
+                <QrCode className="w-4 h-4 text-slate-600" />
+                <span>UPI પેમેન્ટ ગેટવે સેટઅપ</span>
+              </h3>
 
-            {/* SECTION 1: QR CODE & PAYMENT CONFIGURATION */}
-            <div className="bg-white border border-stone-200/90 rounded-3xl p-4 sm:p-6 shadow-xs space-y-5">
-              <div className="border-b border-stone-100 pb-3">
-                <h3 className="text-sm sm:text-base font-black text-stone-900 flex items-center gap-2 font-serif">
-                  <QrCode className="w-5 h-5 text-rose-700" />
-                  <span>1. UPI અને QR કોડ સેટઅપ (Payment &amp; QR Settings)</span>
-                </h3>
-                <p className="text-xs text-stone-500 mt-0.5">
-                  અહીંથી તમે તમારો બેંક/GPay/PhonePe QR કોડ અપલોડ કરી શકો છો અથવા ડાયનેમિક લાઈવ QR પસંદ કરી શકો છો.
-                </p>
-              </div>
-
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-start">
-                {/* Left Controls (8 cols) */}
-                <div className="lg:col-span-8 space-y-4">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-                    <div>
-                      <label className="block text-xs font-bold text-stone-700 mb-1">
-                        UPI ID (VPA)
-                      </label>
-                      <input
-                        type="text"
-                        value={eventSettings.upiId}
-                        onChange={(e) => setEventSettings({ ...eventSettings, upiId: e.target.value })}
-                        placeholder="e.g. thedivinegarbhsanskar@okaxis"
-                        className="w-full bg-stone-50 border border-stone-200 rounded-xl px-3.5 py-2.5 text-xs text-stone-900 font-mono focus:outline-none focus:border-rose-700 focus:bg-white"
-                      />
-                      <span className="text-[10px] text-stone-400 block mt-1">
-                        આ UPI આઈડી પર કપલ પેમેન્ટ કરશે.
-                      </span>
-                    </div>
-
-                    <div>
-                      <label className="block text-xs font-bold text-stone-700 mb-1">
-                        Payee Name (બેંક ખાતા મુજબ નામ)
-                      </label>
-                      <input
-                        type="text"
-                        value={eventSettings.payeeName}
-                        onChange={(e) => setEventSettings({ ...eventSettings, payeeName: e.target.value })}
-                        placeholder="e.g. The Divine Garbh Sanskar"
-                        className="w-full bg-stone-50 border border-stone-200 rounded-xl px-3.5 py-2.5 text-xs text-stone-900 focus:outline-none focus:border-rose-700 focus:bg-white"
-                      />
-                      <span className="text-[10px] text-stone-400 block mt-1">
-                        UPI એપમાં આ નામ દેખાશે.
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* UPI Auto-Rolling Pool (Google Pay Velocity Protection) */}
-                  <div className="p-3.5 sm:p-4 rounded-2xl bg-amber-50/70 border border-amber-200 space-y-3">
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-                      <div>
-                        <div className="flex items-center gap-1.5">
-                          <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
-                          <strong className="text-xs font-bold text-amber-950">
-                            Google Pay વેલોસિટી લિમિટ પ્રોટેક્શન (Auto-Rolling UPI Pool)
-                          </strong>
-                        </div>
-                        <p className="text-[11px] text-amber-800 mt-0.5">
-                          GPay/PhonePe ના દૈનિક ટ્રાન્ઝેક્શન બ્લોકથી બચવા દર ૫૦ કપલ રજીસ્ટ્રેશન પછી સિસ્ટમ આપોઆપ બીજા UPI ID / QR પર સ્વિચ કરે છે.
-                        </p>
-                      </div>
-                      <button
-                        type="button"
-                        onClick={() => setEventSettings({ ...eventSettings, autoRotateUpi: !eventSettings.autoRotateUpi })}
-                        className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer self-start sm:self-auto ${
-                          eventSettings.autoRotateUpi
-                            ? 'bg-amber-700 text-white shadow-xs'
-                            : 'bg-stone-200 text-stone-700'
-                        }`}
-                      >
-                        {eventSettings.autoRotateUpi ? 'ઓટો-રોલિંગ ચાલુ (ACTIVE)' : 'બંધ (OFF)'}
-                      </button>
-                    </div>
-
-                    {/* Connected Pool Accounts */}
-                    <div className="pt-2 border-t border-amber-200/60 space-y-2">
-                      <div className="flex items-center justify-between">
-                        <span className="text-[11px] font-bold text-amber-900">
-                          કનેક્ટેડ UPI એકાઉન્ટ્સ પૂલ ({eventSettings.upiAccounts?.length || 1})
-                        </span>
-                        <button
-                          type="button"
-                          onClick={handleAddUpiAccount}
-                          className="text-[11px] px-2.5 py-1 rounded-lg bg-amber-100 hover:bg-amber-200 text-amber-900 font-bold transition-colors cursor-pointer"
-                        >
-                          + બેકઅપ UPI ઉમેરો
-                        </button>
-                      </div>
-
-                      {eventSettings.upiAccounts?.map((acc, aIdx) => (
-                        <div key={acc.id || aIdx} className="bg-white p-3 rounded-xl border border-amber-200/80 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2.5 text-xs">
-                          <div className="flex items-center gap-2 w-full sm:w-auto">
-                            <span className="w-5 h-5 rounded-full bg-amber-100 text-amber-900 font-bold text-[10px] flex items-center justify-center shrink-0">
-                              #{aIdx + 1}
-                            </span>
-                            <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-2">
-                              <input
-                                type="text"
-                                value={acc.upiId}
-                                onChange={(e) => handleUpiAccountChange(aIdx, 'upiId', e.target.value)}
-                                placeholder="UPI ID (e.g. name@okaxis)"
-                                className="font-mono text-xs font-bold text-stone-900 bg-stone-50 border border-stone-200 rounded-lg px-2 py-1"
-                              />
-                              <input
-                                type="text"
-                                value={acc.payeeName}
-                                onChange={(e) => handleUpiAccountChange(aIdx, 'payeeName', e.target.value)}
-                                placeholder="Payee Name"
-                                className="text-xs text-stone-700 bg-stone-50 border border-stone-200 rounded-lg px-2 py-1"
-                              />
-                            </div>
-                          </div>
-
-                          <div className="flex items-center justify-between sm:justify-end gap-2 w-full sm:w-auto">
-                            <span className="text-[10px] px-2 py-0.5 rounded-full bg-stone-100 text-stone-600 font-medium">
-                              લિમિટ: {acc.limit || 50} કપલ
-                            </span>
-                            {eventSettings.upiAccounts.length > 1 && (
-                              <button
-                                type="button"
-                                onClick={() => handleRemoveUpiAccount(aIdx)}
-                                className="text-stone-400 hover:text-rose-700 p-1 cursor-pointer"
-                                title="એકાઉન્ટ કાઢી નાખો"
-                              >
-                                <Trash2 className="w-3.5 h-3.5" />
-                              </button>
-                            )}
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* QR Code Mode Selector */}
-                  <div className="p-3.5 sm:p-4 rounded-2xl bg-stone-50 border border-stone-200 space-y-3">
-                    <span className="text-xs font-bold text-stone-800 block">
-                      QR કોડ મોડ પસંદ કરો:
-                    </span>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                      <button
-                        type="button"
-                        onClick={() => setEventSettings({ ...eventSettings, useCustomQr: false })}
-                        className={`p-3 rounded-xl border text-left transition-all cursor-pointer ${
-                          !eventSettings.useCustomQr
-                            ? 'bg-white border-rose-600 shadow-sm ring-1 ring-rose-500'
-                            : 'bg-white/60 border-stone-200 hover:bg-white'
-                        }`}
-                      >
-                        <div className="flex items-center justify-between mb-1">
-                          <strong className="text-xs font-black text-stone-900">ઓટો-જનરેટેડ લાઈવ QR</strong>
-                          {!eventSettings.useCustomQr && <Check className="w-4 h-4 text-rose-700" />}
-                        </div>
-                        <p className="text-[11px] text-stone-500">
-                          કપલના નામે લાઈવ સ્લેબ પ્રાઇસ (₹600, ₹900 વગેરે) આપોઆપ એન્કોડ થાય છે.
-                        </p>
-                      </button>
-
-                      <button
-                        type="button"
-                        onClick={() => setEventSettings({ ...eventSettings, useCustomQr: true })}
-                        className={`p-3 rounded-xl border text-left transition-all cursor-pointer ${
-                          eventSettings.useCustomQr
-                            ? 'bg-white border-rose-600 shadow-sm ring-1 ring-rose-500'
-                            : 'bg-white/60 border-stone-200 hover:bg-white'
-                        }`}
-                      >
-                        <div className="flex items-center justify-between mb-1">
-                          <strong className="text-xs font-black text-stone-900">કસ્ટમ અપલોડ કરેલ QR કોડ</strong>
-                          {eventSettings.useCustomQr && <Check className="w-4 h-4 text-rose-700" />}
-                        </div>
-                        <p className="text-[11px] text-stone-500">
-                          તમારી સંસ્થા/બેંકનો QR કોડ ઈમેજ અપલોડ કરી વાપરો (Shingala Jaynesh).
-                        </p>
-                      </button>
-                    </div>
-                  </div>
-
-                  {/* Upload Custom QR Box */}
-                  <div className="p-3.5 sm:p-4 rounded-2xl border border-dashed border-stone-300 bg-stone-50/50 space-y-3">
-                    <div className="flex items-center justify-between">
-                      <span className="text-xs font-bold text-stone-800 flex items-center gap-1.5">
-                        <Upload className="w-4 h-4 text-rose-700" />
-                        <span>કસ્ટમ QR કોડ ઈમેજ અપલોડ કરો</span>
-                      </span>
-                      {eventSettings.customQrImage && (
-                        <button
-                          type="button"
-                          onClick={() => {
-                            setEventSettings({ ...eventSettings, customQrImage: '', useCustomQr: false });
-                          }}
-                          className="text-[11px] text-rose-700 hover:underline font-bold"
-                        >
-                          રિમૂવ કરો (Clear)
-                        </button>
-                      )}
-                    </div>
-
-                    <input
-                      ref={qrFileInputRef}
-                      type="file"
-                      accept="image/*"
-                      onChange={handleQrFileUpload}
-                      className="hidden"
-                    />
-
-                    <div
-                      onClick={() => qrFileInputRef.current?.click()}
-                      className="border-2 border-dashed border-stone-200 rounded-xl p-4 sm:p-5 text-center bg-white hover:bg-stone-50 transition-colors cursor-pointer"
-                    >
-                      <QrCode className="w-7 h-7 sm:w-8 sm:h-8 text-stone-400 mx-auto mb-1.5" />
-                      <p className="text-xs font-bold text-stone-800">
-                        અહીં ક્લિક કરી QR કોડ ઈમેજ પસંદ કરો
-                      </p>
-                      <span className="text-[10px] text-stone-400 block mt-0.5">
-                        PNG, JPG અથવા JPEG (કેમેરા અથવા ગેલેરીમાંથી)
-                      </span>
-                    </div>
-                  </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-xs font-medium text-slate-700 mb-1">UPI ID (VPA)</label>
+                  <input
+                    type="text"
+                    value={eventSettings.upiId}
+                    onChange={(e) => setEventSettings({ ...eventSettings, upiId: e.target.value })}
+                    className="w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-xs font-mono font-semibold text-slate-900 focus:outline-none focus:border-slate-400 focus:bg-white"
+                  />
+                  <span className="text-[11px] text-slate-400 mt-0.5 block">કપલ પેમેન્ટ કરશે તે UPI ID.</span>
                 </div>
 
-                {/* Right Preview Card (4 cols) */}
-                <div className="lg:col-span-4 bg-stone-50 border border-stone-200 rounded-2xl p-4 text-center space-y-3">
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-stone-500 block">
-                    કપલ રજીસ્ટ્રેશન સ્ક્રીન પ્રિવ્યૂ
-                  </span>
+                <div>
+                  <label className="block text-xs font-medium text-slate-700 mb-1">Payee Name</label>
+                  <input
+                    type="text"
+                    value={eventSettings.payeeName}
+                    onChange={(e) => setEventSettings({ ...eventSettings, payeeName: e.target.value })}
+                    className="w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-xs text-slate-900 focus:outline-none focus:border-slate-400 focus:bg-white"
+                  />
+                  <span className="text-[11px] text-slate-400 mt-0.5 block">બેંક ખાતા મુજબનું નામ.</span>
+                </div>
+              </div>
 
-                  <div className="bg-white p-3 rounded-2xl border border-stone-200/90 shadow-sm inline-block mx-auto">
+              {/* QR Upload & Preview */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-center p-3.5 bg-slate-50 border border-slate-200 rounded-xl">
+                <div>
+                  <span className="text-xs font-semibold text-slate-700 block mb-1">લાઇવ QR કોડ પ્રિવ્યુ</span>
+                  <div className="w-40 h-40 bg-white p-2 rounded-xl border border-slate-200 shadow-2xs flex items-center justify-center">
                     {previewQrUrl ? (
-                      <img
-                        src={previewQrUrl}
-                        alt="QR Preview"
-                        className="w-44 h-44 sm:w-48 sm:h-48 object-contain mx-auto rounded-lg"
-                      />
+                      <img src={previewQrUrl} alt="QR Code" className="w-full h-full object-contain" />
                     ) : (
-                      <div className="w-44 h-44 sm:w-48 sm:h-48 flex items-center justify-center text-stone-400 bg-stone-100 rounded-lg">
-                        <QrCode className="w-10 h-10" />
-                      </div>
+                      <QrCode className="w-10 h-10 text-slate-300" />
                     )}
                   </div>
-
-                  <div className="text-left text-xs space-y-1 bg-white p-3 rounded-xl border border-stone-200/70">
-                    <div className="flex justify-between text-[11px]">
-                      <span className="text-stone-500">મોડ:</span>
-                      <strong className="text-stone-900 font-bold">
-                        {eventSettings.useCustomQr ? 'Custom Uploaded QR' : 'Auto Live UPI QR'}
-                      </strong>
-                    </div>
-                    <div className="flex justify-between text-[11px]">
-                      <span className="text-stone-500">UPI ID:</span>
-                      <span className="font-mono text-stone-800 text-[10px] truncate max-w-[140px]">
-                        {eventSettings.upiId}
-                      </span>
-                    </div>
-                    <div className="flex justify-between text-[11px]">
-                      <span className="text-stone-500">Payee:</span>
-                      <span className="font-medium text-stone-800 truncate max-w-[140px]">
-                        {eventSettings.payeeName}
-                      </span>
-                    </div>
-                  </div>
                 </div>
-              </div>
-            </div>
 
-            {/* SECTION 2: DYNAMIC PRICING SLABS (MOBILE CARDS + DESKTOP TABLE) */}
-            <div className="bg-white border border-stone-200/90 rounded-3xl p-4 sm:p-6 shadow-xs space-y-4">
-              <div className="border-b border-stone-100 pb-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                <div>
-                  <h3 className="text-sm sm:text-base font-black text-stone-900 flex items-center gap-2 font-serif">
-                    <IndianRupee className="w-5 h-5 text-amber-700" />
-                    <span>2. ડાયનેમિક પ્રાઇસિંગ સ્લેબ મેનેજર (Pricing Slabs)</span>
-                  </h3>
-                  <p className="text-xs text-stone-500 mt-0.5">
-                    હાલમાં Early Access (₹600) અને Phase 2 (₹900) સક્રિય છે.
+                <div className="space-y-2.5">
+                  <span className="text-xs font-semibold text-slate-800 block">કસ્ટમ QR કોડ ઈમેજ અપલોડ</span>
+                  <p className="text-xs text-slate-500 leading-relaxed">
+                    તમારો PhonePe/GPay QR કોડ અપલોડ કરવાથી સેમિનાર પેજ પર આ QR કોડ દેખાશે.
                   </p>
-                </div>
-
-                <div className="flex items-center gap-2.5">
+                  <input
+                    ref={qrFileInputRef}
+                    type="file"
+                    accept="image/*"
+                    onChange={handleQrUpload}
+                    className="hidden"
+                  />
                   <button
                     type="button"
-                    onClick={handleAddTier}
-                    className="flex-1 sm:flex-none px-3 py-1.5 rounded-xl bg-amber-50 hover:bg-amber-100 border border-amber-300 text-amber-900 text-xs font-bold transition-all cursor-pointer"
+                    onClick={() => qrFileInputRef.current?.click()}
+                    className="px-3.5 py-1.5 bg-white border border-slate-300 rounded-lg text-xs font-semibold text-slate-700 hover:bg-slate-100 flex items-center gap-1.5 cursor-pointer shadow-2xs"
                   >
-                    + નવો સ્લેબ ઉમેરો
+                    <Upload className="w-3.5 h-3.5 text-slate-600" />
+                    <span>QR ઈમેજ ફાઈલ પસંદ કરો</span>
                   </button>
-
-                  <div className="flex items-center gap-1 shrink-0">
-                    <span className="text-[10px] text-stone-400">કુલ:</span>
-                    <input
-                      type="number"
-                      value={eventSettings.totalCoupleCapacity}
-                      onChange={(e) => setEventSettings({ ...eventSettings, totalCoupleCapacity: Number(e.target.value) })}
-                      className="w-16 bg-stone-50 border border-stone-200 rounded-lg px-2 py-1 text-xs text-stone-900 font-bold text-center"
-                    />
-                    <span className="text-xs font-bold text-stone-700">કપલ</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Mobile Viewport: Touch-Friendly Slab Cards */}
-              <div className="sm:hidden space-y-3">
-                {eventSettings.tiers.map((tier, idx) => {
-                  const isCurrent = stats.total >= tier.minCouple - 1 && stats.total < tier.maxCouple;
-                  return (
-                    <div
-                      key={tier.tierNumber}
-                      className={`p-3.5 rounded-2xl border ${
-                        isCurrent
-                          ? 'bg-amber-50/70 border-amber-300 ring-1 ring-amber-400'
-                          : 'bg-stone-50 border-stone-200'
-                      } space-y-2.5`}
-                    >
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-2">
-                          <span className="w-6 h-6 rounded-full bg-stone-200 text-stone-900 font-bold text-xs flex items-center justify-center">
-                            #{tier.tierNumber}
-                          </span>
-                          {isCurrent && (
-                            <span className="px-2 py-0.5 rounded-full bg-amber-500 text-white font-extrabold text-[9px] uppercase">
-                              Live Active
-                            </span>
-                          )}
-                        </div>
-
-                        {eventSettings.tiers.length > 1 && (
-                          <button
-                            type="button"
-                            onClick={() => handleRemoveTier(idx)}
-                            className="text-stone-400 hover:text-rose-700 p-1"
-                          >
-                            <Trash2 className="w-3.5 h-3.5" />
-                          </button>
-                        )}
-                      </div>
-
-                      <div>
-                        <label className="text-[10px] font-bold text-stone-500 block mb-0.5">સ્લેબ નામ</label>
-                        <input
-                          type="text"
-                          value={tier.name}
-                          onChange={(e) => handleTierChange(idx, 'name', e.target.value)}
-                          className="w-full bg-white border border-stone-200 rounded-lg px-2.5 py-1.5 text-xs text-stone-900 font-bold"
-                        />
-                      </div>
-
-                      <div className="grid grid-cols-2 gap-2">
-                        <div>
-                          <label className="text-[10px] font-bold text-stone-500 block mb-0.5">કપલ રેન્જ</label>
-                          <div className="flex items-center gap-1">
-                            <input
-                              type="number"
-                              value={tier.minCouple}
-                              onChange={(e) => handleTierChange(idx, 'minCouple', e.target.value)}
-                              className="w-full bg-white border border-stone-200 rounded-lg p-1.5 text-xs text-center font-bold"
-                            />
-                            <span className="text-xs text-stone-400">-</span>
-                            <input
-                              type="number"
-                              value={tier.maxCouple}
-                              onChange={(e) => handleTierChange(idx, 'maxCouple', e.target.value)}
-                              className="w-full bg-white border border-stone-200 rounded-lg p-1.5 text-xs text-center font-bold"
-                            />
-                          </div>
-                        </div>
-
-                        <div>
-                          <label className="text-[10px] font-bold text-stone-500 block mb-0.5">કિંમત (₹)</label>
-                          <div className="relative">
-                            <span className="absolute left-2 top-1/2 -translate-y-1/2 text-stone-400 font-bold text-xs">₹</span>
-                            <input
-                              type="number"
-                              value={tier.price}
-                              onChange={(e) => handleTierChange(idx, 'price', e.target.value)}
-                              className="w-full bg-white border border-stone-200 rounded-lg pl-5 pr-2 py-1.5 text-xs font-black text-stone-900"
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-
-              {/* Desktop Viewport: Full Table */}
-              <div className="hidden sm:block overflow-x-auto">
-                <table className="w-full text-left text-xs">
-                  <thead>
-                    <tr className="border-b border-stone-200 bg-stone-50 text-stone-500 text-[10px] font-bold uppercase tracking-wider">
-                      <th className="py-2.5 px-3">સ્લેબ</th>
-                      <th className="py-2.5 px-3">સ્લેબ નામ (Title)</th>
-                      <th className="py-2.5 px-3">કપલ રેન્જ</th>
-                      <th className="py-2.5 px-3">કિંમત ₹</th>
-                      <th className="py-2.5 px-3 text-center">લાઈવ સ્ટેટસ</th>
-                      <th className="py-2.5 px-3 text-center">એક્શન</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-stone-100">
-                    {eventSettings.tiers.map((tier, idx) => {
-                      const isCurrent = stats.total >= tier.minCouple - 1 && stats.total < tier.maxCouple;
-                      return (
-                        <tr key={tier.tierNumber} className={isCurrent ? 'bg-amber-50/60 font-medium' : ''}>
-                          <td className="py-3 px-3">
-                            <span className="w-6 h-6 rounded-full bg-stone-100 font-bold text-stone-800 flex items-center justify-center text-[11px]">
-                              {tier.tierNumber}
-                            </span>
-                          </td>
-                          <td className="py-3 px-3">
-                            <input
-                              type="text"
-                              value={tier.name}
-                              onChange={(e) => handleTierChange(idx, 'name', e.target.value)}
-                              className="w-full bg-white border border-stone-200 rounded-lg px-2.5 py-1.5 text-xs text-stone-900"
-                            />
-                          </td>
-                          <td className="py-3 px-3">
-                            <div className="flex items-center gap-1.5">
-                              <input
-                                type="number"
-                                value={tier.minCouple}
-                                onChange={(e) => handleTierChange(idx, 'minCouple', e.target.value)}
-                                className="w-16 bg-white border border-stone-200 rounded-lg px-2 py-1.5 text-xs text-center"
-                              />
-                              <span className="text-stone-400">થી</span>
-                              <input
-                                type="number"
-                                value={tier.maxCouple}
-                                onChange={(e) => handleTierChange(idx, 'maxCouple', e.target.value)}
-                                className="w-16 bg-white border border-stone-200 rounded-lg px-2 py-1.5 text-xs text-center"
-                              />
-                            </div>
-                          </td>
-                          <td className="py-3 px-3">
-                            <div className="relative w-28">
-                              <span className="absolute left-2.5 top-1/2 -translate-y-1/2 text-stone-400 font-bold">₹</span>
-                              <input
-                                type="number"
-                                value={tier.price}
-                                onChange={(e) => handleTierChange(idx, 'price', e.target.value)}
-                                className="w-full bg-white border border-stone-200 rounded-lg pl-6 pr-2 py-1.5 text-xs font-black text-stone-900"
-                              />
-                            </div>
-                          </td>
-                          <td className="py-3 px-3 text-center">
-                            {isCurrent ? (
-                              <span className="px-2 py-1 rounded-full bg-amber-500 text-white font-extrabold text-[10px] uppercase shadow-xs">
-                                Live Active
-                              </span>
-                            ) : stats.total >= tier.maxCouple ? (
-                              <span className="text-stone-400 text-[11px]">પૂર્ણ (Filled)</span>
-                            ) : (
-                              <span className="text-stone-400 text-[11px]">આગામી (Upcoming)</span>
-                            )}
-                          </td>
-                          <td className="py-3 px-3 text-center">
-                            {eventSettings.tiers.length > 1 && (
-                              <button
-                                type="button"
-                                onClick={() => handleRemoveTier(idx)}
-                                className="p-1 text-stone-400 hover:text-rose-700 cursor-pointer"
-                                title="સ્લેબ ડિલીટ કરો"
-                              >
-                                <Trash2 className="w-3.5 h-3.5" />
-                              </button>
-                            )}
-                          </td>
-                        </tr>
-                      );
-                    })}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-
-            {/* SECTION 3: EVENT METADATA & SPEAKER DETAILS */}
-            <div className="bg-white border border-stone-200/90 rounded-3xl p-4 sm:p-6 shadow-xs space-y-4">
-              <div className="border-b border-stone-100 pb-3">
-                <h3 className="text-sm sm:text-base font-black text-stone-900 flex items-center gap-2 font-serif">
-                  <Calendar className="w-5 h-5 text-rose-700" />
-                  <span>3. ઇવેન્ટ &amp; વક્તા વિગતો (Event Details &amp; Speaker)</span>
-                </h3>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
-                <div>
-                  <label className="block text-xs font-bold text-stone-700 mb-1">
-                    ઇવેન્ટ શીર્ષક (Title)
-                  </label>
-                  <input
-                    type="text"
-                    value={eventSettings.title}
-                    onChange={(e) => setEventSettings({ ...eventSettings, title: e.target.value })}
-                    className="w-full bg-stone-50 border border-stone-200 rounded-xl px-3.5 py-2.5 text-xs text-stone-900 focus:outline-none focus:border-rose-700 focus:bg-white"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-xs font-bold text-stone-700 mb-1">
-                    ઇવેન્ટ સબટાઈટલ (Subtitle)
-                  </label>
-                  <input
-                    type="text"
-                    value={eventSettings.subtitle}
-                    onChange={(e) => setEventSettings({ ...eventSettings, subtitle: e.target.value })}
-                    className="w-full bg-stone-50 border border-stone-200 rounded-xl px-3.5 py-2.5 text-xs text-stone-900 focus:outline-none focus:border-rose-700 focus:bg-white"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-xs font-bold text-stone-700 mb-1">
-                    તારીખ (ગુજરાતીમાં)
-                  </label>
-                  <input
-                    type="text"
-                    value={eventSettings.dateGujarati}
-                    onChange={(e) => setEventSettings({ ...eventSettings, dateGujarati: e.target.value })}
-                    className="w-full bg-stone-50 border border-stone-200 rounded-xl px-3.5 py-2.5 text-xs text-stone-900 focus:outline-none focus:border-rose-700 focus:bg-white"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-xs font-bold text-stone-700 mb-1">
-                    સમય (Time)
-                  </label>
-                  <input
-                    type="text"
-                    value={eventSettings.time}
-                    onChange={(e) => setEventSettings({ ...eventSettings, time: e.target.value })}
-                    className="w-full bg-stone-50 border border-stone-200 rounded-xl px-3.5 py-2.5 text-xs text-stone-900 focus:outline-none focus:border-rose-700 focus:bg-white"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-xs font-bold text-stone-700 mb-1">
-                    સ્થળ (Venue Name)
-                  </label>
-                  <input
-                    type="text"
-                    value={eventSettings.venue}
-                    onChange={(e) => setEventSettings({ ...eventSettings, venue: e.target.value })}
-                    className="w-full bg-stone-50 border border-stone-200 rounded-xl px-3.5 py-2.5 text-xs text-stone-900 focus:outline-none focus:border-rose-700 focus:bg-white"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-xs font-bold text-stone-700 mb-1">
-                    સ્થળનું સરનામું (Full Address)
-                  </label>
-                  <input
-                    type="text"
-                    value={eventSettings.venueAddress}
-                    onChange={(e) => setEventSettings({ ...eventSettings, venueAddress: e.target.value })}
-                    className="w-full bg-stone-50 border border-stone-200 rounded-xl px-3.5 py-2.5 text-xs text-stone-900 focus:outline-none focus:border-rose-700 focus:bg-white"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-xs font-bold text-stone-700 mb-1">
-                    મુખ્ય વક્તા (Speaker Name)
-                  </label>
-                  <input
-                    type="text"
-                    value={eventSettings.speaker}
-                    onChange={(e) => setEventSettings({ ...eventSettings, speaker: e.target.value })}
-                    className="w-full bg-stone-50 border border-stone-200 rounded-xl px-3.5 py-2.5 text-xs text-stone-900 focus:outline-none focus:border-rose-700 focus:bg-white"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-xs font-bold text-stone-700 mb-1">
-                    વક્તાનું પદવી (Speaker Title)
-                  </label>
-                  <input
-                    type="text"
-                    value={eventSettings.speakerTitle}
-                    onChange={(e) => setEventSettings({ ...eventSettings, speakerTitle: e.target.value })}
-                    className="w-full bg-stone-50 border border-stone-200 rounded-xl px-3.5 py-2.5 text-xs text-stone-900 focus:outline-none focus:border-rose-700 focus:bg-white"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-xs font-bold text-stone-700 mb-1">
-                    સપોર્ટ હેલ્પલાઇન ફોન નંબર
-                  </label>
-                  <input
-                    type="text"
-                    value={eventSettings.supportPhone}
-                    onChange={(e) => setEventSettings({ ...eventSettings, supportPhone: e.target.value })}
-                    className="w-full bg-stone-50 border border-stone-200 rounded-xl px-3.5 py-2.5 text-xs text-stone-900 focus:outline-none focus:border-rose-700 focus:bg-white"
-                  />
                 </div>
               </div>
             </div>
 
-            {/* SECTION 4: REGISTRATION STATUS & PASS RULES */}
-            <div className="bg-white border border-stone-200/90 rounded-3xl p-4 sm:p-6 shadow-xs space-y-4">
-              <div className="border-b border-stone-100 pb-3">
-                <h3 className="text-sm sm:text-base font-black text-stone-900 flex items-center gap-2 font-serif">
-                  <Sliders className="w-5 h-5 text-rose-700" />
-                  <span>4. રજીસ્ટ્રેશન કંટ્રોલ &amp; પાસ નિયમો (Registration Controls)</span>
-                </h3>
-              </div>
+            {/* Event Capacity */}
+            <div className="bg-white border border-slate-200 rounded-xl p-5 shadow-2xs space-y-4">
+              <h3 className="text-xs font-bold text-slate-900 uppercase tracking-wide">ક્ષમતા &amp; સપોર્ટ</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div>
+                  <label className="block text-xs font-medium text-slate-700 mb-1">કુલ કપલ લિમિટ</label>
+                  <input
+                    type="number"
+                    value={eventSettings.totalCoupleCapacity}
+                    onChange={(e) => setEventSettings({ ...eventSettings, totalCoupleCapacity: Number(e.target.value) })}
+                    className="w-full bg-slate-50 border border-slate-200 rounded-lg p-2 text-xs text-slate-900 font-semibold"
+                  />
+                </div>
 
-              <div className="space-y-4">
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between p-3.5 sm:p-4 rounded-2xl bg-stone-50 border border-stone-200 gap-3">
-                  <div>
-                    <strong className="text-xs font-black text-stone-900 block">
-                      રજીસ્ટ્રેશન ચાલુ / બંધ ટોગલ (Registration Status)
-                    </strong>
-                    <span className="text-[11px] text-stone-500">
-                      જો બંધ કરશો તો વેબસાઇટ પર ફોર્મની જગ્યાએ રજીસ્ટ્રેશન બંધ હોવાની નોટિસ દેખાશે.
-                    </span>
-                  </div>
+                <div>
+                  <label className="block text-xs font-medium text-slate-700 mb-1">રજીસ્ટ્રેશન સ્થિતિ</label>
                   <button
                     type="button"
                     onClick={() => setEventSettings({ ...eventSettings, isRegistrationOpen: !eventSettings.isRegistrationOpen })}
-                    className={`py-2 px-4 rounded-xl text-xs font-bold transition-all cursor-pointer self-start sm:self-auto ${
-                      eventSettings.isRegistrationOpen
-                        ? 'bg-emerald-700 text-white shadow-xs'
-                        : 'bg-rose-700 text-white shadow-xs'
+                    className={`w-full py-2 px-3 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
+                      eventSettings.isRegistrationOpen ? 'bg-emerald-50 text-emerald-700 border border-emerald-300' : 'bg-red-50 text-red-700 border border-red-300'
                     }`}
                   >
                     {eventSettings.isRegistrationOpen ? 'ચાલુ છે (OPEN)' : 'બંધ છે (CLOSED)'}
@@ -2104,355 +1803,373 @@ export default function EventAdminPage({ defaultRole }) {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-stone-700 mb-1">
-                    પાસ પર દર્શાવવાના નિયમો (Pass Guidelines)
-                  </label>
-                  <textarea
-                    rows={2}
-                    value={eventSettings.passNotice}
-                    onChange={(e) => setEventSettings({ ...eventSettings, passNotice: e.target.value })}
-                    className="w-full bg-stone-50 border border-stone-200 rounded-xl p-3 text-xs text-stone-900 focus:outline-none focus:border-rose-700 focus:bg-white"
+                  <label className="block text-xs font-medium text-slate-700 mb-1">સપોર્ટ વોટ્સએપ નંબર</label>
+                  <input
+                    type="text"
+                    value={eventSettings.supportWhatsapp}
+                    onChange={(e) => setEventSettings({ ...eventSettings, supportWhatsapp: e.target.value })}
+                    className="w-full bg-slate-50 border border-slate-200 rounded-lg p-2 text-xs text-slate-900"
                   />
                 </div>
               </div>
             </div>
-
-            {/* SECTION 5: SUPER ADMIN DANGER ZONE (SUPER ADMIN ONLY) */}
-            {role === 'superadmin' && (
-              <div className="bg-rose-50/60 border border-rose-300 rounded-3xl p-4 sm:p-6 space-y-3">
-                <div className="flex items-center gap-2 text-rose-900 font-bold text-sm">
-                  <ShieldAlert className="w-5 h-5 text-rose-700 shrink-0" />
-                  <span>ડેન્જર ઝોન: ડેટા રીસેટ (Super Admin Danger Zone)</span>
-                </div>
-                <p className="text-xs text-rose-800 leading-relaxed">
-                  આ ઓપ્શન તમામ રજીસ્ટ્રેશન કાયમ માટે ડિલીટ કરી કાઉન્ટર 0 પર રીસેટ કરશે. આ ક્રિયા રિવર્સ થઈ શકતી નથી.
-                </p>
-                <button
-                  type="button"
-                  onClick={() => setShowResetModal(true)}
-                  className="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-rose-700 hover:bg-rose-800 text-white font-bold text-xs shadow-xs cursor-pointer active:scale-95 transition-all"
-                >
-                  તમામ રજીસ્ટ્રેશન રીસેટ કરો (Wipe Data to Zero)
-                </button>
-              </div>
-            )}
           </div>
         )}
       </main>
 
       {/* ========================================================
-          MOBILE BOTTOM FLOATING DOCK (TOUCH-FRIENDLY SUB-640px)
-      ======================================================== */}
-      <nav className="sm:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-stone-200/90 shadow-2xl px-2 py-1.5 flex items-center justify-around">
-        {/* Tab 1: Registrations */}
-        <button
-          type="button"
-          onClick={() => {
-            setActiveTab('registrations');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-          }}
-          className={`flex-1 flex flex-col items-center justify-center py-1 rounded-xl transition-all relative ${
-            activeTab === 'registrations' ? 'text-rose-700 font-bold' : 'text-stone-500'
-          }`}
-        >
-          <div className="relative">
-            <Users className="w-5 h-5" />
-            {stats.pending > 0 && (
-              <span className="absolute -top-1 -right-2 bg-amber-500 text-white font-extrabold text-[8px] px-1 rounded-full">
-                {stats.pending}
-              </span>
-            )}
-          </div>
-          <span className="text-[10px] mt-0.5">રજીસ્ટ્રેશન</span>
-        </button>
-
-        {/* Tab 2: Settings */}
-        <button
-          type="button"
-          onClick={() => {
-            setActiveTab('settings');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-          }}
-          className={`flex-1 flex flex-col items-center justify-center py-1 rounded-xl transition-all ${
-            activeTab === 'settings' ? 'text-rose-700 font-bold' : 'text-stone-500'
-          }`}
-        >
-          <Settings className="w-5 h-5" />
-          <span className="text-[10px] mt-0.5">સેટિંગ્સ</span>
-        </button>
-
-        {/* Tab 3: Gate Scanner Link */}
-        <Link
-          to="/scanner"
-          className="flex-1 flex flex-col items-center justify-center py-1 rounded-xl text-purple-700 hover:text-purple-900 transition-all"
-        >
-          <Camera className="w-5 h-5" />
-          <span className="text-[10px] mt-0.5 font-bold">સ્કેનર</span>
-        </Link>
-
-        {/* Tab 4: Refresh */}
-        <button
-          type="button"
-          onClick={() => fetchRegistrations(password, activeFilter, searchQuery)}
-          className="flex-1 flex flex-col items-center justify-center py-1 rounded-xl text-stone-500 hover:text-stone-800 transition-all"
-        >
-          <RefreshCw className={`w-5 h-5 ${loadingList ? 'animate-spin' : ''}`} />
-          <span className="text-[10px] mt-0.5">રીફ્રેશ</span>
-        </button>
-      </nav>
-
-      {/* Sticky Save Settings Floating Bar (Mobile Viewport in Settings tab) */}
-      {activeTab === 'settings' && (
-        <div className="sm:hidden fixed bottom-14 left-3 right-3 z-30">
-          <button
-            type="button"
-            onClick={handleSaveSettings}
-            disabled={settingsSaving}
-            className="w-full py-3 rounded-2xl bg-gradient-to-r from-rose-700 via-rose-800 to-amber-700 text-white font-black text-xs shadow-xl shadow-rose-900/30 flex items-center justify-center gap-2 active:scale-95"
-          >
-            {settingsSaving ? (
-              <>
-                <RefreshCw className="w-4 h-4 animate-spin" />
-                <span>સેવિંગ...</span>
-              </>
-            ) : (
-              <>
-                <Check className="w-4 h-4" />
-                <span>સેટિંગ્સ સેવ કરો (Save Settings)</span>
-              </>
-            )}
-          </button>
-        </div>
-      )}
-
-      {/* ========================================================
-          MOBILE-FIRST INSPECTION MODAL (FULLSCREEN RESPONSIVE SHEET)
+          3. PAYMENT SCREENSHOT & VERIFICATION MODAL
+          (Fixed Desktop Dialog, Independent Left Scroll, Pinned Actions)
       ======================================================== */}
       {inspectItem && (
-        <div className="fixed inset-0 z-50 bg-stone-900/70 backdrop-blur-xs flex items-end sm:items-center justify-center p-0 sm:p-4">
-          <div className="bg-white border-t sm:border border-stone-200 rounded-t-3xl sm:rounded-3xl max-w-4xl w-full max-h-[92vh] sm:max-h-[90vh] overflow-y-auto shadow-2xl flex flex-col">
+        <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-end sm:items-center justify-center p-0 sm:p-4 animate-fade-in">
+          <div className="bg-white border-t sm:border border-slate-200 rounded-t-2xl sm:rounded-2xl max-w-5xl w-full h-[95vh] sm:h-[88vh] flex flex-col shadow-2xl overflow-hidden">
             {/* Modal Header */}
-            <div className="sticky top-0 bg-white/95 backdrop-blur-md px-4 sm:px-6 py-3 border-b border-stone-100 flex items-center justify-between z-10">
-              <div className="flex items-center gap-2 min-w-0">
-                <span className="font-mono text-xs font-black px-2 py-0.5 rounded-md bg-stone-100 text-stone-800 shrink-0">
+            <div className="px-3.5 sm:px-4 py-2.5 sm:py-3 bg-slate-50 border-b border-slate-200 flex items-center justify-between gap-2 shrink-0">
+              <div className="flex items-center gap-1.5 sm:gap-2 min-w-0">
+                <span className="font-mono text-xs font-semibold px-2 py-0.5 rounded bg-slate-200 text-slate-800 shrink-0">
                   {inspectItem.inquiryId}
                 </span>
-                <h3 className="text-sm sm:text-base font-black text-stone-900 font-serif truncate">
+                <h3 className="font-bold text-slate-900 text-xs sm:text-sm truncate">
                   {inspectItem.husbandName} &amp; {inspectItem.wifeName} {inspectItem.surname}
                 </h3>
+                <span className={`text-[10px] font-semibold uppercase px-2 py-0.5 rounded-full shrink-0 ${
+                  inspectItem.status === 'approved' ? 'bg-emerald-50 text-emerald-700 border border-emerald-200' :
+                  inspectItem.status === 'rejected' ? 'bg-red-50 text-red-700 border border-red-200' : 'bg-amber-50 text-amber-800 border border-amber-200'
+                }`}>
+                  {inspectItem.status}
+                </span>
               </div>
+
               <button
                 type="button"
-                onClick={() => {
-                  setInspectItem(null);
-                  setShowRejectInput(false);
-                }}
-                className="p-1.5 rounded-full hover:bg-stone-100 text-stone-400 hover:text-stone-700 cursor-pointer shrink-0"
+                onClick={() => setInspectItem(null)}
+                className="p-1.5 rounded-lg hover:bg-slate-200 text-slate-400 hover:text-slate-700 cursor-pointer shrink-0"
+                title="Close"
               >
                 <X className="w-5 h-5" />
               </button>
             </div>
 
-            {/* Modal Content */}
-            <div className="p-4 sm:p-6 space-y-5 flex-1">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 items-start">
-                {/* Couple Photo Card */}
-                <div className="space-y-2.5">
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-bold text-stone-700">
-                      કપલ ફોટો (Tap to Zoom)
+            {/* Modal Body: Responsive Scroll (Scrollable on Mobile, Dual Column on Desktop) */}
+            <div className="flex-1 overflow-y-auto lg:overflow-hidden p-3 sm:p-5 min-h-0">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-5 lg:h-full">
+                {/* Left Column: Dedicated Vertical Phone Receipt Frame (7 cols) */}
+                <div className="lg:col-span-7 flex flex-col space-y-2 lg:h-full lg:min-h-0 shrink-0">
+                  <div className="flex items-center justify-between shrink-0">
+                    <span className="text-xs font-semibold text-slate-800 flex items-center gap-1.5">
+                      <FileText className="w-3.5 h-3.5 text-slate-600" />
+                      <span>પેમેન્ટ સ્ક્રીનશોટ (Receipt)</span>
                     </span>
-                    <span className="text-[10px] text-stone-400">
-                      પ્રવેશ પાસ પર પ્રિન્ટ થશે
-                    </span>
+
+                    {/* Clean Simple Controls: Rotate, Zoom, Lightbox, Download */}
+                    <div className="flex items-center gap-1">
+                      <button
+                        type="button"
+                        onClick={() => setScreenshotRotation(prev => (prev + 90) % 360)}
+                        className="px-2 py-1 rounded bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-xs flex items-center gap-1 cursor-pointer"
+                        title="Rotate 90 degrees"
+                      >
+                        <RotateCw className="w-3 h-3 text-slate-600" />
+                        <span>{screenshotRotation !== 0 ? `${screenshotRotation}°` : 'ફેરવો'}</span>
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => setScreenshotZoom(prev => Math.min(prev + 0.25, 3))}
+                        className="p-1 rounded bg-slate-100 hover:bg-slate-200 text-slate-600 cursor-pointer"
+                        title="Zoom In"
+                      >
+                        <ZoomIn className="w-3.5 h-3.5" />
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => setScreenshotZoom(prev => Math.max(prev - 0.25, 0.75))}
+                        className="p-1 rounded bg-slate-100 hover:bg-slate-200 text-slate-600 cursor-pointer"
+                        title="Zoom Out"
+                      >
+                        <ZoomOut className="w-3.5 h-3.5" />
+                      </button>
+                      {(screenshotZoom !== 1 || screenshotRotation !== 0) && (
+                        <button
+                          type="button"
+                          onClick={() => { setScreenshotZoom(1); setScreenshotRotation(0); }}
+                          className="p-1 rounded bg-slate-100 hover:bg-slate-200 text-slate-600 cursor-pointer"
+                          title="Reset"
+                        >
+                          <RotateCcw className="w-3.5 h-3.5" />
+                        </button>
+                      )}
+                      {(inspectItem.paymentScreenshot || inspectItem.receiptUrl) && (
+                        <button
+                          type="button"
+                          onClick={() => setLightboxImage({
+                            url: resolveApiUrl(inspectItem.receiptUrl || inspectItem.paymentScreenshot),
+                            title: `Payment Receipt - ${inspectItem.inquiryId}`
+                          })}
+                          className="p-1 rounded bg-slate-100 hover:bg-slate-200 text-slate-600 cursor-pointer"
+                          title="Fullscreen Lightbox"
+                        >
+                          <Maximize2 className="w-3.5 h-3.5" />
+                        </button>
+                      )}
+                    </div>
                   </div>
 
-                  <div
-                    onClick={() => {
-                      if (inspectItem.couplePhoto) {
-                        setLightboxImage({
-                          url: inspectItem.couplePhoto,
-                          title: `${inspectItem.husbandName} & ${inspectItem.wifeName} (Couple Photo)`
-                        });
-                      }
-                    }}
-                    className="relative rounded-2xl overflow-hidden border border-stone-200 bg-stone-100 aspect-square max-h-64 sm:max-h-72 cursor-pointer group"
-                  >
-                    {inspectItem.couplePhoto ? (
-                      <>
+                  {/* Natural Full Portrait Receipt Frame: Independent Smooth Scroll */}
+                  <div className="w-full h-72 sm:h-80 lg:h-full lg:min-h-0 rounded-xl bg-slate-100 border border-slate-200 overflow-y-auto overflow-x-hidden p-3 flex flex-col items-center">
+                    {inspectItem.paymentScreenshot || inspectItem.receiptUrl ? (
+                      <div
+                        onClick={() => setLightboxImage({
+                          url: resolveApiUrl(inspectItem.receiptUrl || inspectItem.paymentScreenshot),
+                          title: `Payment Receipt - ${inspectItem.inquiryId}`
+                        })}
+                        className="w-full max-w-[340px] bg-white rounded-xl shadow-md border border-slate-200 overflow-hidden transition-transform duration-200 my-auto cursor-zoom-in group"
+                        title="Click to view in fullscreen lightbox"
+                        style={{
+                          transform: `scale(${screenshotZoom}) rotate(${screenshotRotation}deg)`,
+                          transformOrigin: 'top center'
+                        }}
+                      >
                         <img
-                          src={inspectItem.couplePhoto}
-                          alt="Couple"
-                          className="w-full h-full object-cover"
+                          src={resolveApiUrl(inspectItem.receiptUrl || inspectItem.paymentScreenshot)}
+                          alt="Payment Receipt"
+                          className="w-full h-auto object-contain block select-none bg-white group-hover:opacity-95 transition-opacity"
                         />
-                        <div className="absolute inset-0 bg-stone-900/20 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity">
-                          <ZoomIn className="w-6 h-6 text-white" />
-                        </div>
-                        <span className="absolute bottom-2 right-2 bg-stone-900/70 text-white text-[9px] px-2 py-0.5 rounded-full backdrop-blur-xs flex items-center gap-1">
-                          <ZoomIn className="w-2.5 h-2.5" /> ઝૂમ કરો
-                        </span>
-                      </>
+                      </div>
                     ) : (
-                      <div className="w-full h-full flex items-center justify-center text-stone-400 text-xs">
-                        ફોટો ઉપલબ્ધ નથી
+                      <div className="my-auto text-center text-slate-400 text-xs">
+                        આ એન્ટ્રી માટે કોઈ રસીદ અપલોડ થયેલ નથી.
                       </div>
                     )}
                   </div>
 
-                  <div className="p-3 rounded-xl bg-stone-50 border border-stone-200 text-xs space-y-1.5">
-                    <div className="flex justify-between">
-                      <span className="text-stone-500">મોબાઇલ:</span>
-                      <strong className="text-stone-900 font-bold">+91 {inspectItem.phoneNumber}</strong>
+                  {/* Direct Link and instructions */}
+                  {(inspectItem.paymentScreenshot || inspectItem.receiptUrl) && (
+                    <div className="flex justify-between items-center text-xs shrink-0 pt-0.5">
+                      <span className="text-[11px] text-slate-400">
+                        💡 ટેપ કરીને ફુલસ્ક્રીન જુઓ અથવા ડાઉનલોડ કરો.
+                      </span>
+                      <a
+                        href={resolveApiUrl(inspectItem.receiptUrl || inspectItem.paymentScreenshot)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-slate-800 hover:underline font-semibold flex items-center gap-1 shrink-0"
+                      >
+                        <Download className="w-3 h-3 text-slate-600" />
+                        <span>ડાઉનલોડ</span>
+                      </a>
                     </div>
-                    <div className="flex justify-between">
-                      <span className="text-stone-500">સ્લેબ:</span>
-                      <strong className="text-amber-900 font-bold">₹{inspectItem.amount} ({inspectItem.tierName || `Tier ${inspectItem.tier}`})</strong>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-stone-500">સ્ટેટસ:</span>
-                      <strong className="uppercase font-extrabold text-stone-800">{inspectItem.status}</strong>
-                    </div>
-                  </div>
+                  )}
                 </div>
 
-                {/* Payment Proof & OCR Details */}
-                <div className="space-y-2.5">
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-bold text-stone-700">
-                      પેમેન્ટ સ્ક્રીનશોટ (Tap to Zoom)
-                    </span>
-                    <span className="text-[10px] text-stone-400">
-                      બેંક રસીદ / UPI Receipt
-                    </span>
+                {/* Right Column: Verification Data, OCR & Actions (5 cols) */}
+                <div className="lg:col-span-5 flex flex-col space-y-3 lg:h-full lg:min-h-0 lg:overflow-y-auto lg:pr-1">
+                  {/* Registered Timestamp */}
+                  <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 space-y-0.5">
+                    <div className="flex items-center gap-1 text-[11px] font-semibold text-slate-500 uppercase tracking-wide">
+                      <Clock className="w-3 h-3 text-slate-500" />
+                      <span>રજીસ્ટ્રેશન સમય (IST)</span>
+                    </div>
+                    <div className="flex justify-between items-baseline text-xs">
+                      <strong className="font-semibold text-slate-900">{formatISTDateTime(inspectItem.createdAt)}</strong>
+                      <span className="text-[11px] text-slate-500">{formatTimeAgo(inspectItem.createdAt)}</span>
+                    </div>
                   </div>
 
-                  <div
-                    onClick={() => {
-                      if (inspectItem.paymentScreenshot) {
-                        setLightboxImage({
-                          url: inspectItem.paymentScreenshot,
-                          title: `પેમેન્ટ સ્ક્રીનશોટ - ${inspectItem.inquiryId}`
-                        });
-                      }
-                    }}
-                    className="relative rounded-2xl overflow-hidden border border-stone-200 bg-stone-100 max-h-64 sm:max-h-72 overflow-y-auto cursor-pointer group"
-                  >
-                    {inspectItem.paymentScreenshot ? (
-                      <>
+                  {/* Couple Info Card: Clicking photo opens Couple Photo Modal */}
+                  <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 flex items-center gap-3">
+                    <button
+                      type="button"
+                      onClick={(e) => handleOpenCouplePhoto(e, inspectItem)}
+                      className="w-12 h-12 rounded-xl overflow-hidden bg-white border border-slate-200 shrink-0 cursor-pointer hover:ring-2 hover:ring-slate-400 transition-all group"
+                      title="કપલ ફોટો મોટો જોવા ક્લિક કરો"
+                    >
+                      {inspectItem.couplePhoto ? (
                         <img
-                          src={inspectItem.paymentScreenshot}
-                          alt="Receipt"
-                          className="w-full h-auto object-contain"
+                          src={resolveApiUrl(inspectItem.couplePhoto)}
+                          alt="Couple"
+                          className="w-full h-full object-cover group-hover:scale-110 transition-transform"
                         />
-                        <span className="absolute bottom-2 right-2 bg-stone-900/70 text-white text-[9px] px-2 py-0.5 rounded-full backdrop-blur-xs flex items-center gap-1">
-                          <ZoomIn className="w-2.5 h-2.5" /> પૂર્ણ સ્ક્રીનમાં જુઓ
-                        </span>
-                      </>
-                    ) : inspectLoading ? (
-                      <div className="p-10 text-center text-stone-500 text-xs space-y-2">
-                        <RefreshCw className="w-6 h-6 animate-spin mx-auto text-rose-700" />
-                        <p className="font-semibold text-stone-700">પેમેન્ટ રસીદ લોડ થઈ રહી છે...</p>
-                        <p className="text-[10px] text-stone-400">બેંક સ્ક્રીનશોટ અને OCR વિગતો આવી રહી છે</p>
+                      ) : (
+                        <div className="w-full h-full flex items-center justify-center font-bold text-slate-600 text-xs">
+                          {inspectItem.husbandName?.slice(0, 1)}{inspectItem.wifeName?.slice(0, 1)}
+                        </div>
+                      )}
+                    </button>
+
+                    <div className="min-w-0 flex-1">
+                      <strong className="text-xs font-semibold text-slate-900 block truncate">
+                        {inspectItem.husbandName} &amp; {inspectItem.wifeName} {inspectItem.surname}
+                      </strong>
+                      <div className="flex items-center gap-2 mt-1">
+                        <a
+                          href={`tel:+91${inspectItem.phoneNumber}`}
+                          className="inline-flex items-center gap-1 text-xs font-mono font-medium text-slate-700 bg-white border border-slate-200 px-2 py-0.5 rounded hover:bg-slate-50"
+                        >
+                          <Phone className="w-2.5 h-2.5 text-slate-500" />
+                          <span>+91 {inspectItem.phoneNumber}</span>
+                        </a>
+                        <a
+                          href={`https://wa.me/91${inspectItem.phoneNumber}?text=${encodeURIComponent(`નમસ્તે ${inspectItem.husbandName}જી, The Divine Garbh Sanskar દ્વારા આયોજિત દિવ્ય ગર્ભયાત્રા સેમિનાર માટે તમારી ઇન્ક્વાયરી ID: ${inspectItem.inquiryId} બાબતે...`)}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1 text-xs text-emerald-700 bg-emerald-50 border border-emerald-200 font-semibold px-2 py-0.5 rounded hover:bg-emerald-100"
+                        >
+                          <MessageCircle className="w-3 h-3 text-emerald-600" />
+                          <span>WhatsApp</span>
+                        </a>
                       </div>
-                    ) : (
-                      <div className="p-10 text-center text-stone-400 text-xs">
-                        સ્ક્રીનશોટ ઉપલબ્ધ નથી
-                      </div>
-                    )}
+                    </div>
                   </div>
 
-                  <div className="p-3 rounded-xl bg-stone-50 border border-stone-200 text-xs space-y-1.5">
-                    <div className="flex justify-between items-center">
-                      <span className="text-stone-500">OCR UTR:</span>
+                  {/* Transaction & UTR Audit */}
+                  <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 space-y-1.5 text-xs">
+                    <span className="font-semibold text-slate-600 block text-[11px] uppercase tracking-wide">
+                      ટ્રાન્ઝેક્શન વિગત
+                    </span>
+
+                    <div className="flex justify-between items-center py-1 border-b border-slate-200">
+                      <span className="text-slate-500">રકમ:</span>
+                      <strong className="text-slate-900 font-bold text-sm">
+                        ₹{inspectItem.amount} <span className="text-xs text-slate-400 font-normal">({inspectItem.tierName || `Tier ${inspectItem.tier}`})</span>
+                      </strong>
+                    </div>
+
+                    <div className="flex justify-between items-center py-1 border-b border-slate-200">
+                      <span className="text-slate-500">UTR નંબર:</span>
                       <div className="flex items-center gap-1.5">
-                        <span className="font-mono font-bold text-stone-900">{inspectItem.utr || 'Not detected'}</span>
+                        <span className={`font-mono font-semibold ${inspectItem.isDuplicateUtr ? 'text-red-700' : 'text-slate-900'}`}>
+                          {inspectItem.utr || 'Not detected'}
+                        </span>
                         {inspectItem.utr && (
                           <button
                             type="button"
-                            onClick={() => handleCopyText(inspectItem.utr, 'UTR કોપી થયું!')}
-                            className="p-1 hover:bg-stone-200 rounded"
+                            onClick={() => handleCopy(inspectItem.utr, 'UTR')}
+                            className="p-0.5 hover:bg-slate-200 rounded"
                             title="Copy UTR"
                           >
-                            <Copy className="w-3 h-3 text-stone-500" />
+                            <Copy className="w-3 h-3 text-slate-400" />
                           </button>
                         )}
                       </div>
                     </div>
-                    <div className="flex justify-between">
-                      <span className="text-stone-500">OCR Payee:</span>
-                      <span className="font-medium text-stone-900 truncate max-w-[200px]">
-                        {inspectItem.payeeNameFromReceipt || 'Not detected'}
+
+                    {inspectItem.isDuplicateUtr && (
+                      <div className="p-2 rounded-lg bg-red-50 border border-red-200 text-red-700 text-[11px] font-medium flex items-center gap-1.5">
+                        <AlertTriangle className="w-3.5 h-3.5 text-red-600 shrink-0" />
+                        <span>ચેતવણી: આ UTR નંબર પહેલેથી જ વપરાયેલ છે! (DUPLICATE)</span>
+                      </div>
+                    )}
+
+                    <div className="flex justify-between items-center py-0.5">
+                      <span className="text-slate-500">પેમેન્ટ મોડ:</span>
+                      <span className="font-medium text-slate-900">
+                        {inspectItem.paymentMethod || 'UPI'}
                       </span>
                     </div>
                   </div>
+
+                  {/* Admin Notes Box */}
+                  <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 space-y-1.5">
+                    <div className="flex justify-between items-center">
+                      <label className="text-xs font-semibold text-slate-700">એડમિન નોટ</label>
+                      <button
+                        type="button"
+                        onClick={handleSaveNote}
+                        disabled={savingNote}
+                        className="text-[10px] px-2 py-0.5 rounded bg-slate-900 text-white font-semibold hover:bg-slate-800 cursor-pointer"
+                      >
+                        {savingNote ? 'સેવિંગ...' : 'સાચવો'}
+                      </button>
+                    </div>
+                    <textarea
+                      rows={2}
+                      value={adminNoteInput}
+                      onChange={(e) => setAdminNoteInput(e.target.value)}
+                      placeholder="અહીં નોંધ લખો (e.g. બેંક સ્ટેટમેન્ટ ચેક કર્યું)..."
+                      className="w-full bg-white border border-slate-200 rounded-lg p-2 text-xs text-slate-900 focus:outline-none focus:border-slate-400"
+                    />
+                  </div>
+
+                  {/* Reject Reason Field */}
+                  {showRejectBox && (
+                    <div className="p-3 rounded-xl bg-red-50 border border-red-200 space-y-2">
+                      <label className="block text-xs font-semibold text-red-900">રિજેક્શનનું કારણ:</label>
+                      <input
+                        type="text"
+                        value={rejectReason}
+                        onChange={(e) => setRejectReason(e.target.value)}
+                        placeholder="e.g. અમાન્ય UTR / પેમેન્ટ મળેલ નથી..."
+                        className="w-full bg-white border border-red-300 rounded-lg p-2 text-xs text-slate-900 focus:outline-none"
+                      />
+                      <div className="flex justify-end gap-2">
+                        <button
+                          type="button"
+                          onClick={() => setShowRejectBox(false)}
+                          className="px-2.5 py-1 text-xs text-slate-600 hover:text-slate-900 font-semibold"
+                        >
+                          Cancel
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => handleReject(inspectItem.inquiryId)}
+                          className="px-3 py-1 bg-red-700 text-white text-xs font-semibold rounded-lg"
+                        >
+                          Confirm Reject
+                        </button>
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
-
-              {/* Reject Reason Slide-Down */}
-              {showRejectInput && (
-                <div className="p-3.5 rounded-2xl bg-rose-50 border border-rose-200 space-y-2">
-                  <label className="block text-xs font-bold text-rose-900">
-                    રિજેક્શનનું કારણ (Rejection Reason):
-                  </label>
-                  <input
-                    type="text"
-                    value={rejectReason}
-                    onChange={(e) => setRejectReason(e.target.value)}
-                    placeholder="e.g. અમાન્ય UTR / પેમેન્ટ મળેલ નથી..."
-                    className="w-full bg-white border border-rose-300 rounded-xl px-3 py-2 text-xs text-stone-900 focus:outline-none"
-                  />
-                  <div className="flex justify-end gap-2">
-                    <button
-                      type="button"
-                      onClick={() => setShowRejectInput(false)}
-                      className="px-3 py-1.5 text-xs text-stone-600 hover:text-stone-900"
-                    >
-                      કેન્સલ
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => handleReject(inspectItem.inquiryId)}
-                      className="px-3.5 py-1.5 rounded-lg bg-rose-700 text-white text-xs font-bold"
-                    >
-                      કન્ફર્મ રિજેક્ટ
-                    </button>
-                  </div>
-                </div>
-              )}
             </div>
 
-            {/* Modal Bottom Sticky Actions */}
-            <div className="sticky bottom-0 bg-white px-4 sm:px-6 py-3 border-t border-stone-100 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2.5">
-              <a
-                href={`https://wa.me/91${inspectItem.phoneNumber}?text=${encodeURIComponent(`નમસ્તે ${inspectItem.husbandName}જી, The Divine Garbh Sanskar દ્વારા આયોજિત દિવ્ય ગર્ભયાત્રા સેમિનાર માટે તમારી ઇન્ક્વાયરી ID: ${inspectItem.inquiryId} બાબતે...`)}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="py-2.5 px-3.5 rounded-xl bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 text-emerald-800 text-xs font-bold flex items-center justify-center gap-1.5"
+            {/* Modal Footer Actions (Sticky Bottom, Mobile-Friendly) */}
+            <div className="px-4 py-3 bg-slate-50 border-t border-slate-200 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2.5 shrink-0 z-10 sticky bottom-0">
+              <button
+                type="button"
+                onClick={() => {
+                  setFakeTargetItem(inspectItem);
+                  setShowFakeModal(true);
+                }}
+                className="px-3 py-2 rounded-lg bg-red-50 hover:bg-red-100 text-red-700 text-xs font-semibold transition-all flex items-center justify-center gap-1.5 cursor-pointer order-2 sm:order-1"
               >
-                <MessageCircle className="w-4 h-4" />
-                <span>WhatsApp પર સંપર્ક કરો</span>
-              </a>
+                <ShieldAlert className="w-3.5 h-3.5 text-red-600" />
+                <span>ફેક / ફ્રોડ ફ્લેગ કરો</span>
+              </button>
 
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 w-full sm:w-auto order-1 sm:order-2">
+                {inspectItem.status !== 'rejected' && !showRejectBox && (
+                  <button
+                    type="button"
+                    onClick={() => setShowRejectBox(true)}
+                    className="flex-1 sm:flex-none px-3.5 py-2.5 rounded-lg bg-slate-200 hover:bg-red-50 hover:text-red-700 text-slate-700 text-xs font-semibold transition-all cursor-pointer min-h-[42px]"
+                  >
+                    રિજેક્ટ કરો
+                  </button>
+                )}
+
                 {inspectItem.status !== 'approved' && (
                   <button
                     type="button"
                     onClick={() => handleApprove(inspectItem.inquiryId)}
                     disabled={actionLoading}
-                    className="flex-1 sm:flex-none px-5 py-2.5 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-bold shadow-xs cursor-pointer flex items-center justify-center gap-1.5"
+                    className="flex-1 sm:flex-none px-5 py-2.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 text-white text-xs font-bold transition-all shadow-2xs flex items-center justify-center gap-1.5 cursor-pointer min-h-[42px]"
                   >
-                    <Check className="w-4 h-4" />
-                    <span>એપ્રુવ કરો &amp; પાસ ઇસ્યુ કરો</span>
+                    <Check className="w-4 h-4 text-white" />
+                    <span>એપ્રુવ કરો &amp; પાસ આપો</span>
                   </button>
                 )}
-                {inspectItem.status !== 'rejected' && !showRejectInput && (
-                  <button
-                    type="button"
-                    onClick={() => setShowRejectInput(true)}
-                    className="px-4 py-2.5 rounded-xl bg-rose-100 hover:bg-rose-200 text-rose-800 text-xs font-bold cursor-pointer"
+
+                {inspectItem.status === 'approved' && (
+                  <Link
+                    to={`/pass/${inspectItem.inquiryId}`}
+                    target="_blank"
+                    className="flex-1 sm:flex-none px-4 py-2.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold transition-all shadow-2xs flex items-center justify-center gap-1.5 min-h-[42px]"
                   >
-                    રિજેક્ટ
-                  </button>
+                    <ExternalLink className="w-3.5 h-3.5 text-slate-300" />
+                    <span>ડિજિટલ પાસ જુઓ</span>
+                  </Link>
                 )}
               </div>
             </div>
@@ -2461,87 +2178,296 @@ export default function EventAdminPage({ defaultRole }) {
       )}
 
       {/* ========================================================
-          FULLSCREEN IMAGE LIGHTBOX (MOBILE PINCH/ZOOM FRIENDLY)
+          4. DEDICATED COUPLE PHOTO MODAL (BLURRED BACKDROP, CLICK OUTSIDE TO CLOSE)
+      ======================================================== */}
+      {couplePhotoModal && (
+        <div
+          onClick={() => setCouplePhotoModal(null)}
+          className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-3 sm:p-4 cursor-pointer animate-fade-in"
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className="relative max-w-lg w-full bg-white rounded-2xl overflow-hidden shadow-2xl p-3.5 sm:p-5 space-y-2.5 cursor-default border border-slate-200"
+          >
+            {/* Modal Header */}
+            <div className="flex items-center justify-between pb-2 border-b border-slate-100">
+              <div className="flex items-center gap-2 min-w-0">
+                <span className="font-mono text-xs font-semibold px-2 py-0.5 rounded bg-slate-100 text-slate-800">
+                  {couplePhotoModal.id}
+                </span>
+                <h3 className="font-bold text-sm text-slate-900 truncate">
+                  {couplePhotoModal.name}
+                </h3>
+              </div>
+              <button
+                type="button"
+                onClick={() => setCouplePhotoModal(null)}
+                className="p-1 rounded-md text-slate-400 hover:text-slate-700 hover:bg-slate-100 cursor-pointer"
+                title="Close"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            {/* Couple Photo Container */}
+            <div className="w-full flex items-center justify-center bg-slate-50 rounded-xl overflow-hidden p-2">
+              <img
+                src={couplePhotoModal.url}
+                alt={couplePhotoModal.name}
+                className="max-h-[68vh] w-auto max-w-full object-contain rounded-lg shadow-xs"
+              />
+            </div>
+
+            {/* Modal Footer */}
+            <div className="flex items-center justify-between text-xs text-slate-500 pt-1">
+              <span>સંપર્ક: +91 {couplePhotoModal.phone}</span>
+              <span className="text-[11px] text-slate-400">💡 બહાર ખાલી જગ્યા પર ક્લિક કરવાથી બંધ થશે</span>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* ========================================================
+          5. MANUAL / OFFLINE ENTRY MODAL
+      ======================================================== */}
+      {showManualModal && (
+        <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-2xs flex items-center justify-center p-3 animate-fade-in">
+          <div className="bg-white border border-slate-200 rounded-2xl max-w-md w-full shadow-xl p-4 sm:p-5 space-y-3.5 max-h-[92vh] overflow-y-auto">
+            <div className="flex items-center justify-between pb-2.5 border-b border-slate-200">
+              <div className="flex items-center gap-2">
+                <UserPlus className="w-4 h-4 text-emerald-600" />
+                <h3 className="font-bold text-slate-900 text-sm">નવી ઓફલાઇન / મેન્યુઅલ એન્ટ્રી</h3>
+              </div>
+              <button
+                type="button"
+                onClick={() => setShowManualModal(false)}
+                className="p-1 rounded-md hover:bg-slate-100 text-slate-400"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </div>
+
+            <form onSubmit={handleManualSubmit} className="space-y-3">
+              <div className="grid grid-cols-2 gap-2.5">
+                <div>
+                  <label className="block text-xs font-medium text-slate-700 mb-1">પતિનું નામ *</label>
+                  <input
+                    type="text"
+                    required
+                    value={manualForm.husbandName}
+                    onChange={(e) => setManualForm({ ...manualForm, husbandName: e.target.value })}
+                    placeholder="Rahul"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-lg p-2 text-xs text-slate-900 focus:outline-none focus:border-slate-400"
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs font-medium text-slate-700 mb-1">પત્નીનું નામ *</label>
+                  <input
+                    type="text"
+                    required
+                    value={manualForm.wifeName}
+                    onChange={(e) => setManualForm({ ...manualForm, wifeName: e.target.value })}
+                    placeholder="Pooja"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-lg p-2 text-xs text-slate-900 focus:outline-none focus:border-slate-400"
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-2.5">
+                <div>
+                  <label className="block text-xs font-medium text-slate-700 mb-1">અટક *</label>
+                  <input
+                    type="text"
+                    required
+                    value={manualForm.surname}
+                    onChange={(e) => setManualForm({ ...manualForm, surname: e.target.value })}
+                    placeholder="Patel"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-lg p-2 text-xs text-slate-900 focus:outline-none focus:border-slate-400"
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs font-medium text-slate-700 mb-1">મોબાઇલ નંબર (10 આંકડા) *</label>
+                  <input
+                    type="tel"
+                    required
+                    maxLength={10}
+                    value={manualForm.phoneNumber}
+                    onChange={(e) => setManualForm({ ...manualForm, phoneNumber: e.target.value.replace(/[^0-9]/g, '') })}
+                    placeholder="9876543210"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-lg p-2 text-xs font-mono text-slate-900 focus:outline-none focus:border-slate-400"
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-2.5">
+                <div>
+                  <label className="block text-xs font-medium text-slate-700 mb-1">રકમ (₹)</label>
+                  <input
+                    type="number"
+                    value={manualForm.amount}
+                    onChange={(e) => setManualForm({ ...manualForm, amount: Number(e.target.value) })}
+                    className="w-full bg-slate-50 border border-slate-200 rounded-lg p-2 text-xs font-bold text-slate-900 focus:outline-none"
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs font-medium text-slate-700 mb-1">પેમેન્ટ મોડ</label>
+                  <select
+                    value={manualForm.paymentMethod}
+                    onChange={(e) => setManualForm({ ...manualForm, paymentMethod: e.target.value })}
+                    className="w-full bg-slate-50 border border-slate-200 rounded-lg p-2 text-xs font-medium text-slate-900 focus:outline-none"
+                  >
+                    <option value="CASH">કેશ / રોકડા (Cash)</option>
+                    <option value="UPI">ડાયરેક્ટ UPI</option>
+                    <option value="VIP">VIP ગેસ્ટ (Complimentary)</option>
+                  </select>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-2.5">
+                <div>
+                  <label className="block text-xs font-medium text-slate-700 mb-1">UTR નંબર</label>
+                  <input
+                    type="text"
+                    value={manualForm.utr}
+                    onChange={(e) => setManualForm({ ...manualForm, utr: e.target.value })}
+                    placeholder="Optional UTR..."
+                    className="w-full bg-slate-50 border border-slate-200 rounded-lg p-2 text-xs text-slate-900 focus:outline-none"
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs font-medium text-slate-700 mb-1">સ્ટેટસ</label>
+                  <select
+                    value={manualForm.status}
+                    onChange={(e) => setManualForm({ ...manualForm, status: e.target.value })}
+                    className="w-full bg-slate-50 border border-slate-200 rounded-lg p-2 text-xs font-medium text-slate-900 focus:outline-none"
+                  >
+                    <option value="approved">Approved (પાસ ઇસ્યુ થશે)</option>
+                    <option value="pending">Pending (બાકી)</option>
+                  </select>
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-xs font-medium text-slate-700 mb-1">એડમિન નોટ</label>
+                <input
+                  type="text"
+                  value={manualForm.adminNotes}
+                  onChange={(e) => setManualForm({ ...manualForm, adminNotes: e.target.value })}
+                  placeholder="e.g. હોલ પર કેશ મળ્યા..."
+                  className="w-full bg-slate-50 border border-slate-200 rounded-lg p-2 text-xs text-slate-900 focus:outline-none"
+                />
+              </div>
+
+              <div className="flex gap-2 pt-2">
+                <button
+                  type="button"
+                  onClick={() => setShowManualModal(false)}
+                  className="w-1/2 py-2 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  disabled={manualSubmitting}
+                  className="w-1/2 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold shadow-2xs cursor-pointer disabled:opacity-50"
+                >
+                  {manualSubmitting ? 'સેવિંગ...' : 'રજીસ્ટ્રેશન સેવ કરો'}
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+
+      {/* ========================================================
+          6. FLAG AS FAKE MODAL
+      ======================================================== */}
+      {showFakeModal && fakeTargetItem && (
+        <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-2xs flex items-center justify-center p-3 animate-fade-in">
+          <div className="bg-white border border-red-200 rounded-2xl max-w-sm w-full shadow-xl p-4 sm:p-5 space-y-3.5">
+            <div className="w-10 h-10 rounded-xl bg-red-50 text-red-700 flex items-center justify-center mx-auto">
+              <ShieldAlert className="w-5 h-5" />
+            </div>
+
+            <div className="text-center space-y-1">
+              <h3 className="font-bold text-slate-900 text-sm">ફેક / ફ્રોડ એન્ટ્રી ફ્લેગ કરો</h3>
+              <p className="text-xs text-slate-500">
+                ઇન્ક્વાયરી <span className="font-mono font-semibold text-slate-900">{fakeTargetItem.inquiryId}</span> રિજેક્ટ થશે અને પાસ બ્લોક થશે.
+              </p>
+            </div>
+
+            <div className="space-y-1.5">
+              <label className="block text-xs font-medium text-slate-700">કારણ (Fraud Reason):</label>
+              <select
+                value={fakeReasonText}
+                onChange={(e) => setFakeReasonText(e.target.value)}
+                className="w-full bg-slate-50 border border-slate-200 rounded-lg p-2 text-xs text-slate-900 font-medium focus:outline-none"
+              >
+                <option value="ખોટો / એડિટ કરેલ પેમેન્ટ સ્ક્રીનશોટ (Fake Receipt)">ખોટો / એડિટ કરેલ પેમેન્ટ સ્ક્રીનશોટ</option>
+                <option value="ડુપ્લિકેટ UTR નંબર (પહેલેથી વપરાયેલ)">ડુપ્લિકેટ UTR નંબર</option>
+                <option value="બેંક ખાતામાં રકમ જમા થયેલ નથી">બેંક ખાતામાં રકમ જમા થયેલ નથી</option>
+                <option value="રસીદમાં રકમ મેળ ખાતી નથી">રસીદમાં રકમ મેળ ખાતી નથી</option>
+              </select>
+            </div>
+
+            <div className="flex gap-2 pt-1.5">
+              <button
+                type="button"
+                onClick={() => {
+                  setShowFakeModal(false);
+                  setFakeTargetItem(null);
+                }}
+                className="w-1/2 py-2 rounded-lg bg-slate-100 text-slate-700 text-xs font-semibold"
+              >
+                Cancel
+              </button>
+              <button
+                type="button"
+                onClick={handleConfirmFlagFake}
+                disabled={actionLoading}
+                className="w-1/2 py-2 rounded-lg bg-red-700 hover:bg-red-800 text-white text-xs font-semibold shadow-2xs cursor-pointer"
+              >
+                {actionLoading ? 'પ્રોસેસિંગ...' : 'કન્ફર્મ ફ્લેગ & રિજેક્ટ'}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* ========================================================
+          7. FULLSCREEN RECEIPT LIGHTBOX (BLURRED BACKDROP, CLICK OUTSIDE TO CLOSE)
       ======================================================== */}
       {lightboxImage && (
         <div
           onClick={() => setLightboxImage(null)}
-          className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex flex-col justify-between p-4 cursor-zoom-out animate-fadeIn"
+          className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex flex-col justify-between p-3 sm:p-4 cursor-pointer animate-fade-in"
         >
-          <div className="flex items-center justify-between text-white py-2">
-            <span className="text-xs font-bold truncate pr-4">
-              {lightboxImage.title}
-            </span>
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className="flex items-center justify-between text-white py-1 px-1 sm:px-2"
+          >
+            <span className="text-xs font-medium truncate pr-4">{lightboxImage.title}</span>
             <button
               type="button"
               onClick={() => setLightboxImage(null)}
-              className="p-2 rounded-full bg-white/20 hover:bg-white/30 text-white cursor-pointer"
+              className="p-1.5 rounded-full bg-white/20 hover:bg-white/30 text-white cursor-pointer"
+              title="Close"
             >
               <X className="w-5 h-5" />
             </button>
           </div>
 
-          <div className="flex-1 flex items-center justify-center overflow-auto p-2">
+          <div className="flex-1 flex items-center justify-center overflow-auto p-1 sm:p-2">
             <img
               src={lightboxImage.url}
               alt={lightboxImage.title}
-              className="max-h-[85vh] max-w-[95vw] object-contain rounded-lg shadow-2xl"
+              className="max-h-[85vh] max-w-[95vw] object-contain rounded-lg shadow-2xl cursor-default"
               onClick={(e) => e.stopPropagation()}
             />
           </div>
 
-          <div className="text-center text-stone-400 text-[11px] pb-2">
-            બંધ કરવા માટે ક્યાંય પણ ક્લિક કરો
-          </div>
-        </div>
-      )}
-
-      {/* ==========================================
-          RESET DATABASE MODAL (SUPER ADMIN ONLY)
-      =========================================== */}
-      {showResetModal && (
-        <div className="fixed inset-0 z-50 bg-stone-900/70 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white border border-rose-200 rounded-3xl max-w-md w-full shadow-2xl p-5 sm:p-6 space-y-4">
-            <div className="w-12 h-12 rounded-full bg-rose-100 text-rose-700 flex items-center justify-center mx-auto">
-              <AlertTriangle className="w-6 h-6" />
-            </div>
-            <div className="text-center">
-              <h3 className="text-base font-black text-stone-900 font-serif">
-                ડેટાબેઝ રીસેટ કન્ફર્મેશન
-              </h3>
-              <p className="text-xs text-stone-500 mt-1 leading-relaxed">
-                આ તમામ ૨૫૦ કપલના રજીસ્ટ્રેશન અને કાઉન્ટર કાયમ માટે ઝીરો (0) કરશે. કન્ફર્મ કરવા નીચે <strong>RESET-ZERO</strong> લખો:
-              </p>
-            </div>
-
-            <input
-              type="text"
-              value={resetConfirmText}
-              onChange={(e) => setResetConfirmText(e.target.value)}
-              placeholder="RESET-ZERO"
-              className="w-full bg-stone-50 border border-rose-300 rounded-xl px-4 py-2.5 text-center font-mono font-bold text-xs text-stone-900 focus:outline-none"
-            />
-
-            <div className="flex gap-2">
-              <button
-                type="button"
-                onClick={() => {
-                  setShowResetModal(false);
-                  setResetConfirmText('');
-                }}
-                className="w-1/2 py-2.5 rounded-xl bg-stone-100 hover:bg-stone-200 text-stone-700 text-xs font-bold"
-              >
-                કેન્સલ
-              </button>
-              <button
-                type="button"
-                disabled={resetConfirmText !== 'RESET-ZERO' || resettingData}
-                onClick={handleSuperReset}
-                className="w-1/2 py-2.5 rounded-xl bg-rose-700 hover:bg-rose-800 text-white text-xs font-black disabled:opacity-40 cursor-pointer"
-              >
-                {resettingData ? 'રીસેટ થઈ રહ્યું છે...' : 'વાઇપ કરો (Wipe)'}
-              </button>
-            </div>
+          <div className="text-center text-slate-400 text-xs pb-1">
+            💡 ખાલી જગ્યા પર ક્લિક કરવાથી વિન્ડો બંધ થશે
           </div>
         </div>
       )}
