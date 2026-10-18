@@ -19,8 +19,7 @@ const UpiAccountSchema = new mongoose.Schema({
 }, { _id: false });
 
 const DEFAULT_TIERS = [
-  { tierNumber: 1, name: 'Early Access (પહેલા 50 કપલ માટે)', minCouple: 1, maxCouple: 50, price: 600 },
-  { tierNumber: 2, name: 'Phase 2 (51 થી 250 કપલ માટે)', minCouple: 51, maxCouple: 250, price: 900 }
+  { tierNumber: 1, name: 'કપલ પ્રવેશ પાસ (Couple Pass)', minCouple: 1, maxCouple: 500, price: 900 }
 ];
 
 const DEFAULT_PRIMARY_UPI = {
@@ -62,7 +61,7 @@ const EventSettingSchema = new mongoose.Schema({
   upiRollingThreshold: { type: Number, default: 50 }, // Auto rotate after 50 couple registrations
   activeUpiIndex: { type: Number, default: 0 },
 
-  totalCoupleCapacity: { type: Number, default: 250 },
+  totalCoupleCapacity: { type: Number, default: 500 },
   tiers: {
     type: [TierSchema],
     default: DEFAULT_TIERS
@@ -85,10 +84,14 @@ export const getOrCreateEventSetting = async () => {
     });
     console.log('[EventSetting] Initialized default event settings for Divya Garbh Yatra');
   } else {
-    // Migration: ensure early access 600 and phase 2 900 pricing and primary UPI are up-to-date
+    // Migration: Early 50 couple offer completed -> default price is now ₹900
     let modified = false;
-    if (!setting.tiers || setting.tiers.length > 2 || setting.tiers[0]?.price !== 600) {
+    if (!setting.tiers || setting.tiers.length === 0 || setting.tiers[0]?.price !== 900) {
       setting.tiers = DEFAULT_TIERS;
+      modified = true;
+    }
+    if (setting.totalCoupleCapacity < 500) {
+      setting.totalCoupleCapacity = 500;
       modified = true;
     }
     if (!setting.upiAccounts || setting.upiAccounts.length === 0 || setting.upiAccounts[0]?.upiId !== DEFAULT_PRIMARY_UPI.upiId) {
@@ -108,7 +111,7 @@ export const getOrCreateEventSetting = async () => {
     }
     if (modified) {
       await setting.save();
-      console.log('[EventSetting] Synchronized ₹600/₹900 pricing slabs and primary UPI for Divya Garbh Yatra');
+      console.log('[EventSetting] Synchronized default ₹900 couple pass pricing for Divya Garbh Yatra');
     }
   }
   return setting;

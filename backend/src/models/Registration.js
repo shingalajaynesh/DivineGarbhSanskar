@@ -31,15 +31,16 @@ const RegistrationSchema = new mongoose.Schema({
   },
   couplePhoto: {
     type: String,
-    required: true
+    default: ''
   },
   paymentScreenshot: {
     type: String,
-    required: true
+    default: ''
   },
   utr: {
     type: String,
-    default: ''
+    default: '',
+    index: true
   },
   payeeNameFromReceipt: {
     type: String,
@@ -58,6 +59,24 @@ const RegistrationSchema = new mongoose.Schema({
     type: Number,
     required: true,
     default: 600
+  },
+  paymentMethod: {
+    type: String,
+    enum: ['UPI', 'CASH', 'DIRECT_TRANSFER', 'VIP', 'COMPLIMENTARY'],
+    default: 'UPI'
+  },
+  isManualEntry: {
+    type: Boolean,
+    default: false
+  },
+  isFlaggedFake: {
+    type: Boolean,
+    default: false,
+    index: true
+  },
+  fakeReason: {
+    type: String,
+    default: ''
   },
   status: {
     type: String,
@@ -84,5 +103,6 @@ const RegistrationSchema = new mongoose.Schema({
 // Performance Indexes for sub-second sorting and status queries
 RegistrationSchema.index({ status: 1, createdAt: -1 });
 RegistrationSchema.index({ createdAt: -1 });
+RegistrationSchema.index({ phoneNumber: 1, createdAt: -1 });
 
 export const Registration = mongoose.model('Registration', RegistrationSchema);

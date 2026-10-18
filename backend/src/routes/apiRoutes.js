@@ -53,6 +53,28 @@ const requireSuperAdmin = (req, res, next) => {
   next();
 };
 
+// ==========================================
+// IN-MEMORY HIGH-SPEED IMAGE CACHE (Sub-2ms)
+// ==========================================
+const imageCache = new Map();
+const MAX_IMAGE_CACHE_ENTRIES = 500;
+
+export const setCachedImage = (key, buffer, contentType = 'image/jpeg') => {
+  if (imageCache.size >= MAX_IMAGE_CACHE_ENTRIES) {
+    const firstKey = imageCache.keys().next().value;
+    if (firstKey) imageCache.delete(firstKey);
+  }
+  const etag = `"${Buffer.from(key).toString('hex').slice(0, 16)}_${buffer.length}"`;
+  imageCache.set(key, { buffer, etag, contentType, timestamp: Date.now() });
+  return etag;
+};
+
+export const getCachedImage = (key) => imageCache.get(key);
+export const invalidateImageCache = (inquiryId) => {
+  imageCache.delete(`photo_${inquiryId}`);
+  imageCache.delete(`receipt_${inquiryId}`);
+};
+
 // Helper: Determine dynamic 50-couple tier
 const calculateActiveTier = (registeredCount, tiers) => {
   // registeredCount: number of valid couples registered so far
@@ -251,6 +273,10 @@ router.post('/register', upload.fields([
     const nextSeq = await getNextInquiryNumber();
     const inquiryId = `CPL-${nextSeq}`;
 
+    // Warm high-speed in-memory image cache
+    setCachedImage(`photo_${inquiryId}`, compressedCouplePhotoBuffer);
+    setCachedImage(`receipt_${inquiryId}`, compressedPaymentBuffer);
+
     // 5. Create Registration document
     const registration = await Registration.create({
       inquiryId,
@@ -369,7 +395,13 @@ router.get('/admin/registrations', requireAdmin, async (req, res) => {
     const filter = {};
 
     if (status && status !== 'all') {
-      filter.status = status;
+      if (status === 'flagged') {
+        filter.isFlaggedFake = true;
+      } else if (status === 'manual') {
+        filter.isManualEntry = true;
+      } else {
+        filter.status = status;
+      }
     }
 
     if (search) {
@@ -380,20 +412,19 @@ router.get('/admin/registrations', requireAdmin, async (req, res) => {
         { wifeName: new RegExp(q, 'i') },
         { surname: new RegExp(q, 'i') },
         { phoneNumber: new RegExp(q, 'i') },
-        { utr: new RegExp(q, 'i') }
+        { utr: new RegExp(q, 'i') },
+        { adminNotes: new RegExp(q, 'i') }
       ];
     }
 
     // High performance projection:
-    // Exclude both heavy images from bulk JSON list query (reduces payload from 5.5MB -> 23KB!).
-    // Photos are loaded asynchronously & lazily by the browser using the streaming binary endpoint /photo.
-    // Full details & payment receipts are loaded on-demand when inspecting a registration.
+    // Exclude both heavy images from bulk JSON list query to keep payload tiny (<30KB)
     const projection = includeImages === 'true'
       ? {}
       : { paymentScreenshot: 0, couplePhoto: 0 };
 
-    // Run registrations query and fast single-roundtrip stats aggregation in PARALLEL
-    const [rawRegistrations, [statsAgg]] = await Promise.all([
+    // Run registrations query, stats aggregation, and duplicate detection in PARALLEL
+    const [rawRegistrations, [statsAgg], duplicateUtrsAgg, duplicatePhonesAgg] = await Promise.all([
       Registration.find(filter, projection).sort({ createdAt: -1 }).lean(),
       Registration.aggregate([
         {
@@ -401,20 +432,38 @@ router.get('/admin/registrations', requireAdmin, async (req, res) => {
             counts: [{ $group: { _id: '$status', count: { $sum: 1 } } }],
             checkedIn: [{ $match: { 'attendance.checkedIn': true } }, { $count: 'count' }],
             revenue: [{ $match: { status: 'approved' } }, { $group: { _id: null, totalRevenue: { $sum: '$amount' } } }],
+            flaggedFake: [{ $match: { isFlaggedFake: true } }, { $count: 'count' }],
+            manualEntries: [{ $match: { isManualEntry: true } }, { $count: 'count' }],
             total: [{ $count: 'count' }]
           }
         }
+      ]),
+      Registration.aggregate([
+        { $match: { utr: { $exists: true, $ne: '' } } },
+        { $group: { _id: '$utr', count: { $sum: 1 } } },
+        { $match: { count: { $gt: 1 } } }
+      ]),
+      Registration.aggregate([
+        { $group: { _id: '$phoneNumber', count: { $sum: 1 } } },
+        { $match: { count: { $gt: 1 } } }
       ])
     ]);
 
-    // Attach streaming photo endpoint URL with auth token if couplePhoto was excluded
+    const duplicateUtrSet = new Set(duplicateUtrsAgg.map(d => d._id));
+    const duplicatePhoneSet = new Set(duplicatePhonesAgg.map(d => d._id));
     const activeAuth = (req.headers['authorization'] || req.headers['x-admin-password'] || '').replace(/^Bearer\s+/i, '').trim();
+
     const registrations = rawRegistrations.map((r) => ({
       ...r,
-      couplePhoto: r.couplePhoto || `/api/admin/registrations/${r.inquiryId}/photo?auth=${encodeURIComponent(activeAuth)}`
+      couplePhoto: r.couplePhoto || `/api/admin/registrations/${r.inquiryId}/photo?auth=${encodeURIComponent(activeAuth)}`,
+      receiptUrl: `/api/admin/registrations/${r.inquiryId}/receipt?auth=${encodeURIComponent(activeAuth)}`,
+      hasReceipt: Boolean(r.paymentScreenshot || (r.paymentScreenshot !== '')),
+      hasPhoto: Boolean(r.couplePhoto || (r.couplePhoto !== '')),
+      isDuplicateUtr: Boolean(r.utr && duplicateUtrSet.has(r.utr)),
+      isDuplicatePhone: Boolean(r.phoneNumber && duplicatePhoneSet.has(r.phoneNumber))
     }));
 
-    // Parse stats from facet result in O(1)
+    // Parse stats
     let totalCount = 0;
     let approvedCount = 0;
     let pendingCount = 0;
@@ -430,6 +479,8 @@ router.get('/admin/registrations', requireAdmin, async (req, res) => {
     totalCount = statsAgg?.total?.[0]?.count || (approvedCount + pendingCount + rejectedCount);
     const checkedInCount = statsAgg?.checkedIn?.[0]?.count || 0;
     const totalRevenue = statsAgg?.revenue?.[0]?.totalRevenue || 0;
+    const flaggedCount = statsAgg?.flaggedFake?.[0]?.count || 0;
+    const manualCount = statsAgg?.manualEntries?.[0]?.count || 0;
 
     res.json({
       success: true,
@@ -439,6 +490,8 @@ router.get('/admin/registrations', requireAdmin, async (req, res) => {
         pending: pendingCount,
         rejected: rejectedCount,
         checkedIn: checkedInCount,
+        flagged: flaggedCount,
+        manual: manualCount,
         totalRevenue
       },
       registrations
@@ -465,9 +518,29 @@ router.get('/admin/registrations/:inquiryId', requireAdmin, async (req, res) => 
       return res.status(404).json({ error: 'રજીસ્ટ્રેશન મળ્યું નથી.' });
     }
 
+    // Check duplicates
+    let isDuplicateUtr = false;
+    let isDuplicatePhone = false;
+    if (registration.utr) {
+      const uCount = await Registration.countDocuments({ utr: registration.utr });
+      isDuplicateUtr = uCount > 1;
+    }
+    if (registration.phoneNumber) {
+      const pCount = await Registration.countDocuments({ phoneNumber: registration.phoneNumber });
+      isDuplicatePhone = pCount > 1;
+    }
+
+    const activeAuth = (req.headers['authorization'] || req.headers['x-admin-password'] || '').replace(/^Bearer\s+/i, '').trim();
+
     res.json({
       success: true,
-      registration
+      registration: {
+        ...registration,
+        isDuplicateUtr,
+        isDuplicatePhone,
+        receiptUrl: `/api/admin/registrations/${registration.inquiryId}/receipt?auth=${encodeURIComponent(activeAuth)}`,
+        photoUrl: `/api/admin/registrations/${registration.inquiryId}/photo?auth=${encodeURIComponent(activeAuth)}`
+      }
     });
   } catch (err) {
     console.error('[API /admin/registrations/:inquiryId] Error:', err);
@@ -479,21 +552,36 @@ router.get('/admin/registrations/:inquiryId', requireAdmin, async (req, res) => 
 router.get('/admin/registrations/:inquiryId/photo', async (req, res) => {
   try {
     const { inquiryId } = req.params;
+    const cleanId = inquiryId.trim().toUpperCase();
     const authHeader = req.headers['authorization'] || req.query.auth;
     if (authHeader !== ADMIN_PASSWORD && authHeader !== SUPER_ADMIN_PASSWORD) {
       return res.status(401).send('Unauthorized');
     }
 
-    const reg = await Registration.findOne({ inquiryId: inquiryId.trim() }).select('couplePhoto').lean();
+    const cacheKey = `photo_${cleanId}`;
+    const cached = getCachedImage(cacheKey);
+    if (cached) {
+      if (req.headers['if-none-match'] === cached.etag) {
+        return res.status(304).end();
+      }
+      res.set('Content-Type', cached.contentType);
+      res.set('ETag', cached.etag);
+      res.set('Cache-Control', 'private, max-age=604800, stale-while-revalidate=86400');
+      return res.send(cached.buffer);
+    }
+
+    const reg = await Registration.findOne({ inquiryId: cleanId }).select('couplePhoto').lean();
     if (!reg || !reg.couplePhoto) {
       return res.status(404).send('Not found');
     }
 
     const base64Data = reg.couplePhoto.replace(/^data:image\/\w+;base64,/, '');
     const buffer = Buffer.from(base64Data, 'base64');
+    const etag = setCachedImage(cacheKey, buffer, 'image/jpeg');
 
     res.set('Content-Type', 'image/jpeg');
-    res.set('Cache-Control', 'private, max-age=86400');
+    res.set('ETag', etag);
+    res.set('Cache-Control', 'private, max-age=604800, stale-while-revalidate=86400');
     res.send(buffer);
   } catch {
     res.status(500).send('Error');
@@ -504,24 +592,177 @@ router.get('/admin/registrations/:inquiryId/photo', async (req, res) => {
 router.get('/admin/registrations/:inquiryId/receipt', async (req, res) => {
   try {
     const { inquiryId } = req.params;
+    const cleanId = inquiryId.trim().toUpperCase();
     const authHeader = req.headers['authorization'] || req.query.auth;
     if (authHeader !== ADMIN_PASSWORD && authHeader !== SUPER_ADMIN_PASSWORD) {
       return res.status(401).send('Unauthorized');
     }
 
-    const reg = await Registration.findOne({ inquiryId: inquiryId.trim() }).select('paymentScreenshot').lean();
+    const cacheKey = `receipt_${cleanId}`;
+    const cached = getCachedImage(cacheKey);
+    if (cached) {
+      if (req.headers['if-none-match'] === cached.etag) {
+        return res.status(304).end();
+      }
+      res.set('Content-Type', cached.contentType);
+      res.set('ETag', cached.etag);
+      res.set('Cache-Control', 'private, max-age=604800, stale-while-revalidate=86400');
+      return res.send(cached.buffer);
+    }
+
+    const reg = await Registration.findOne({ inquiryId: cleanId }).select('paymentScreenshot').lean();
     if (!reg || !reg.paymentScreenshot) {
       return res.status(404).send('Not found');
     }
 
     const base64Data = reg.paymentScreenshot.replace(/^data:image\/\w+;base64,/, '');
     const buffer = Buffer.from(base64Data, 'base64');
+    const etag = setCachedImage(cacheKey, buffer, 'image/jpeg');
 
     res.set('Content-Type', 'image/jpeg');
-    res.set('Cache-Control', 'private, max-age=86400');
+    res.set('ETag', etag);
+    res.set('Cache-Control', 'private, max-age=604800, stale-while-revalidate=86400');
     res.send(buffer);
   } catch {
     res.status(500).send('Error');
+  }
+});
+
+// 5e. POST /api/admin/registrations/manual - Add Manual / Offline / VIP / Test Entry
+router.post('/admin/registrations/manual', requireAdmin, upload.fields([
+  { name: 'couplePhoto', maxCount: 1 },
+  { name: 'paymentScreenshot', maxCount: 1 }
+]), async (req, res) => {
+  try {
+    const {
+      husbandName, wifeName, surname, phoneNumber,
+      tier, amount, paymentMethod, status, adminNotes, utr, isFlaggedFake
+    } = req.body;
+
+    if (!husbandName || !wifeName || !surname || !phoneNumber) {
+      return res.status(400).json({ error: 'પતિનું નામ, પત્નીનું નામ, અટક અને મોબાઇલ નંબર જરૂરી છે.' });
+    }
+
+    const cleanPhone = phoneNumber.replace(/[^0-9]/g, '');
+    if (cleanPhone.length < 10) {
+      return res.status(400).json({ error: 'માન્ય ૧૦ આંકડાનો મોબાઇલ નંબર જરૂરી છે.' });
+    }
+
+    const nextSeq = await getNextInquiryNumber();
+    const inquiryId = `CPL-${nextSeq}`;
+
+    let couplePhotoBase64 = '';
+    let paymentScreenshotBase64 = '';
+
+    const couplePhotoFile = req.files && req.files['couplePhoto'] ? req.files['couplePhoto'][0] : null;
+    const paymentFile = req.files && req.files['paymentScreenshot'] ? req.files['paymentScreenshot'][0] : null;
+
+    if (couplePhotoFile) {
+      const compressedCouple = await sharp(couplePhotoFile.buffer)
+        .resize({ width: 800, height: 800, fit: 'inside', withoutEnlargement: true })
+        .jpeg({ quality: 80 })
+        .toBuffer();
+      couplePhotoBase64 = `data:image/jpeg;base64,${compressedCouple.toString('base64')}`;
+      setCachedImage(`photo_${inquiryId}`, compressedCouple);
+    }
+
+    if (paymentFile) {
+      const compressedPayment = await sharp(paymentFile.buffer)
+        .resize({ width: 1000, height: 1400, fit: 'inside', withoutEnlargement: true })
+        .jpeg({ quality: 80 })
+        .toBuffer();
+      paymentScreenshotBase64 = `data:image/jpeg;base64,${compressedPayment.toString('base64')}`;
+      setCachedImage(`receipt_${inquiryId}`, compressedPayment);
+    }
+
+    const setting = await getOrCreateEventSetting();
+    const activeTierNumber = Number(tier) || 1;
+    const tierConfig = setting.tiers?.find(t => t.tierNumber === activeTierNumber) || setting.tiers?.[0];
+
+    const isFake = isFlaggedFake === 'true' || isFlaggedFake === true;
+    const entryStatus = isFake ? 'rejected' : (status || 'approved');
+
+    const registration = await Registration.create({
+      inquiryId,
+      husbandName: husbandName.trim(),
+      wifeName: wifeName.trim(),
+      surname: surname.trim(),
+      phoneNumber: cleanPhone,
+      couplePhoto: couplePhotoBase64,
+      paymentScreenshot: paymentScreenshotBase64,
+      utr: utr ? utr.trim() : '',
+      payeeNameFromReceipt: paymentMethod || 'Manual Admin Entry',
+      tier: tierConfig?.tierNumber || 1,
+      tierName: tierConfig?.name || 'Manual Registration',
+      amount: amount !== undefined ? Number(amount) : (tierConfig?.price || 600),
+      paymentMethod: paymentMethod || 'CASH',
+      isManualEntry: true,
+      isFlaggedFake: isFake,
+      fakeReason: isFake ? 'મેન્યુઅલ ટેસ્ટ / ફેક એન્ટ્રી તરીકે માર્ક કરેલ' : '',
+      status: entryStatus,
+      adminNotes: adminNotes ? adminNotes.trim() : 'Manual entry created by Admin'
+    });
+
+    res.status(201).json({
+      success: true,
+      message: `નવું રજીસ્ટ્રેશન ${inquiryId} સફળતાપૂર્વક ઉમેરાયું!`,
+      data: registration
+    });
+  } catch (err) {
+    console.error('[API /manual] Error:', err);
+    res.status(500).json({ error: 'મેન્યુઅલ એન્ટ્રી ઉમેરવામાં ભૂલ આવી: ' + err.message });
+  }
+});
+
+// 5f. POST /api/admin/registrations/:inquiryId/flag-fake - Flag as Fake / Fraud
+router.post('/admin/registrations/:inquiryId/flag-fake', requireAdmin, async (req, res) => {
+  try {
+    const { inquiryId } = req.params;
+    const { reason, isFake } = req.body;
+    const flagVal = isFake !== undefined ? Boolean(isFake) : true;
+
+    const registration = await Registration.findOneAndUpdate(
+      { inquiryId },
+      { 
+        isFlaggedFake: flagVal,
+        fakeReason: flagVal ? (reason || 'શંકાસ્પદ / ફેક એન્ટ્રી ફ્લેગ થયેલ છે.') : '',
+        status: flagVal ? 'rejected' : 'pending',
+        rejectionReason: flagVal ? (reason || 'શંકાસ્પદ / ફેક એન્ટ્રી ફ્લેગ થયેલ છે.') : ''
+      },
+      { new: true }
+    );
+
+    if (!registration) {
+      return res.status(404).json({ error: 'રજીસ્ટ્રેશન મળ્યું નથી.' });
+    }
+
+    res.json({
+      success: true,
+      message: flagVal ? `ઇન્ક્વાયરી ${inquiryId} ફેક/ફ્રોડ તરીકે ફ્લેગ કરી રિજેક્ટ કરવામાં આવી.` : `ઇન્ક્વાયરી ${inquiryId} અન-ફ્લેગ કરવામાં આવી.`,
+      data: registration
+    });
+  } catch (err) {
+    console.error('[API /flag-fake] Error:', err);
+    res.status(500).json({ error: 'ફેક ફ્લેગ કરવામાં ભૂલ આવી.' });
+  }
+});
+
+// 5g. POST /api/admin/registrations/:inquiryId/notes - Update Admin Audit Notes
+router.post('/admin/registrations/:inquiryId/notes', requireAdmin, async (req, res) => {
+  try {
+    const { inquiryId } = req.params;
+    const { notes } = req.body;
+    const registration = await Registration.findOneAndUpdate(
+      { inquiryId },
+      { adminNotes: notes || '' },
+      { new: true }
+    );
+    if (!registration) {
+      return res.status(404).json({ error: 'રજીસ્ટ્રેશન મળ્યું નથી.' });
+    }
+    res.json({ success: true, message: 'નોટ્સ સાચવવામાં આવી.', data: registration });
+  } catch (err) {
+    res.status(500).json({ error: 'નોટ્સ અપડેટ કરવામાં ભૂલ આવી.' });
   }
 });
 
@@ -531,7 +772,7 @@ router.post('/admin/registrations/:inquiryId/approve', requireAdmin, async (req,
     const { inquiryId } = req.params;
     const registration = await Registration.findOneAndUpdate(
       { inquiryId },
-      { status: 'approved', rejectionReason: '' },
+      { status: 'approved', rejectionReason: '', isFlaggedFake: false },
       { new: true }
     );
     if (!registration) {
@@ -576,6 +817,7 @@ router.post('/admin/registrations/:inquiryId/reject', requireAdmin, async (req, 
 router.delete('/admin/registrations/:inquiryId', requireAdmin, async (req, res) => {
   try {
     const { inquiryId } = req.params;
+    invalidateImageCache(inquiryId);
     const deleted = await Registration.findOneAndDelete({ inquiryId });
     if (!deleted) {
       return res.status(404).json({ error: 'રજીસ્ટ્રેશન મળ્યું નથી.' });

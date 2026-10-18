@@ -26,3 +26,4 @@ dist-check
 *.njsproj
 *.sln
 *.sw?
+*_backup.json
