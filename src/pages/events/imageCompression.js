@@ -29,7 +29,7 @@ export const compressImage = (file, maxWidth = 1200, maxHeight = 1200, quality =
             width = maxWidth;
           } else {
             width = Math.round((width * maxHeight) / height);
-            maxHeight = height;
+            height = maxHeight;
           }
         }
 
